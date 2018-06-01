@@ -1,0 +1,15 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+<http://mapping.example.com/person0> rml:logicalSource <http://mapping.example.com/1>.
+<http://mapping.example.com/1> a rml:LogicalSource;
+    rml:source "data/person2.json";
+    rml:iterator "$";
+    rml:referenceFormulation <http://semweb.mmlab.be/ns/ql#JSONPath>.
+<http://mapping.example.com/person0> a rr:TriplesMap;
+    rdfs:label "person".
+<http://mapping.example.com/2> a rr:SubjectMap.
+<http://mapping.example.com/person0> rr:subjectMap <http://mapping.example.com/2>.
+<http://mapping.example.com/2> rr:template "http://example.com/{ID}".

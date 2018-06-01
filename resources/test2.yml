@@ -1,0 +1,11 @@
+sources:
+  source1: ['data/person.json~jsonpath', '$']
+
+mappings:
+  person:
+   source:
+    - source1
+   s: http://example.com/$(ID)
+   po:
+    - [a, foaf:Person]
+    - [ex:name, $(firstname), xsd:string]

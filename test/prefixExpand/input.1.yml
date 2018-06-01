@@ -1,0 +1,12 @@
+prefixes:
+  ex: "http://example.com/"
+
+mappings:
+  statement:
+    sources:
+      - ['data.json~jsonpath', '$[*]']
+    s: http://example.com/$(id)
+    po:
+      - [a, ex:statement]
+      - [a, sp:statement]
+      - [ex:name, 'sp: $(name)']

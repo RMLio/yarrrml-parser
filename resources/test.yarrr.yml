@@ -1,0 +1,20 @@
+prefixes:
+  dbf: http://dbpedia.org/function/
+
+sources:
+  country-source: http://en.dbpedia.org/resource/Mapping_en:Infobox_country/Infobox_country/LogicalSource
+
+mappings:
+  dbf:doc:
+    sources: country-source
+    subjects: http://en.dbpedia.org/resource/$({wikititle})
+    predicateobjects:
+      - predicates: http://dbpedia.org/ontology/anthem
+        objects:
+          - function: dbf:simplePropertyFunction
+            parameters:
+              - parameter: dbf:dataTypeParameter
+                value: owl:Thing
+                datatype: xsd:string
+              - parameter: dbf:propertyParameter
+                value: $(national_anthem)

@@ -1,0 +1,52 @@
+prefixes:
+  transit: "http://vocab.org/transit/terms/"
+  wgs84_pos: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  gn: "http://www.geonames.org/ontology#"
+  geosp: "http://www.telegraphis.net/ontology/geography/geography#"
+
+sources: 
+  sourceVenue:
+    access: src/test/resources/example3/Venue.json
+    iterator: $
+
+mappings:
+  AirportMapping:
+    sources: src/test/resources/example3/Airport.csv
+    subjects: "http://airport.example.com/$(id)"
+    predicateobjects:
+      - [a, transit:Stop]
+      - predicateobject: [transit:service, BusMapping~mapping]
+        condition: [$(bus), "$(@id)"]
+      - predicateobject: [wgs84_pos:location, VenueMapping~mapping]
+        condition: [$(city), $($.location.city)]
+  BusMapping:
+    sources:
+      - access: src/test/resources/example3/Transport.xml~xpath
+        iterator: /transport/bus
+    subjects: "http://trans.example.com/busses/$(@id)"
+    classes: transit:Service
+    predicateobjects:
+      - [transit:stop, BusStopMapping~mapping]
+  BusStopMapping:
+    sources: 
+      access: src/test/resources/example3/Transport.xml~xpath
+      iterator: /transport/bus/route/stop
+    subject: "http://trans.example.com/stops/$(@id)"
+    classes: transit:Stop
+    predicateobjects:
+      - [rdfs:label, $(.)]
+  VenueMapping:
+    source: sourceVenue
+    subject: "http://loc.example.com/city/$($.location.city)"
+    classes: schema+City
+    predicateobjects:
+      - predicateobject: [wgs84_pos:location, LocationMapping~mapping]
+        condition: [$($.location.city), $($.location.city)]
+      - [geosp:onContinent,$($.location.continent)]
+      - [gn:countryCode,$($.location.country)]
+  LocationMapping:
+    source: sourceVenue
+    subject: "http://loc.example.com/latlong/$($.venue.latitude),$($.venue.longitude)"
+    predicateobjects:
+      - [wgs84_pos:lat,$($.venue.latitude)]
+      - [wgs84_pos:long,$($.venue.longitude)]

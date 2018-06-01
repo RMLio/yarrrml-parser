@@ -1,0 +1,14 @@
+prefixes:
+ ex: http://example.com#7
+
+mappings:
+  person:
+   sources:
+    - queryFormulation: sql2008
+      query: >
+        SELECT * FROM STAFF
+        GROUP BY GENDER
+   s: http://example.com/$(ID)
+   po:
+    - [a, foaf:Person]
+    - [ex:name, $(firstname)]

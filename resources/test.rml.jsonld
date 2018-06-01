@@ -1,0 +1,80 @@
+{
+  "@context": {
+    "rr": "http://www.w3.org/ns/r2rml#",
+    "rml": "http://semweb.mmlab.be/ns/rml#",
+    "fno": "http://w3id.org/function/ontology#",
+    "ql": "http://semweb.mmlab.be/ns/ql#",
+    "fnml": "http://semweb.mmlab.be/ns/fnml#",
+    "dbf": "http://dbpedia.org/function/"
+  },
+  "ex:mappings": {
+    "@id": "dbf:doc",
+    "@type": "rr:TriplesMap",
+    "rml:logicalSource": {
+      "@id": "http://en.dbpedia.org/resource/Mapping_en:Infobox_country/Infobox_country/LogicalSource"
+    },
+    "rr:subjectMap": {
+      "@type": "rr:SubjectMap",
+      "rr:termType": {
+        "@id": "rr:IRI"
+      },
+      "rr:constant": {
+        "@value": "http://en.dbpedia.org/resource/{{wikititle}}"
+      }
+    },
+    "rr:predicateObjectMap": [
+      {
+        "@type": "rr:PredicateObjectMap",
+        "rr:predicate": {
+          "@id": "http://dbpedia.org/ontology/anthem"
+        },
+        "rr:objectMap": {
+          "@type": "fnml:FunctionTermMap",
+          "fnml:functionValue": {
+            "rml:logicalSource": {
+              "@id": "http://en.dbpedia.org/resource/Mapping_en:Infobox_country/Infobox_country/LogicalSource"
+            },
+            "rr:subjectMap": {
+              "@type": "fno:Execution"
+            },
+            "rr:predicateObjectMap": [
+              {
+                "rr:predicate": {
+                  "@id": "fno:executes"
+                },
+                "rr:objectMap": {
+                  "@type": "rr:ObjectMap",
+                  "rr:constant": {
+                    "@id": "dbf:simplePropertyFunction"
+                  }
+                }
+              },
+              {
+                "rr:predicate": {
+                  "@id": "dbf:dataTypeParameter"
+                },
+                "rr:objectMap": {
+                  "@type": "rr:ObjectMap",
+                  "rr:constant": {
+                    "@value": "owl:Thing"
+                  }
+                }
+              },
+              {
+                "rr:predicate": {
+                  "@id": "dbf:propertyParameter"
+                },
+                "rr:objectMap": {
+                  "@type": "rr:ObjectMap",
+                  "rml:reference": {
+                    "@value": "national_anthem"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

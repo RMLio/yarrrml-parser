@@ -1,0 +1,11 @@
+prefixes:
+ ex: http://example.com#7
+
+mappings:
+  person:
+   sources:
+    - ['data/person.json~jsonpath', '$']
+   s: http://example.com/$(ID)
+   po:
+    - [a, foaf:Person]
+    - [ex:name, $(firstname)]

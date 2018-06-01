@@ -1,0 +1,24 @@
+{
+  "query": {
+    "sql2008": "http://www.w3.org/ns/r2rml#SQL2008",
+    "oracle": "http://www.w3.org/ns/r2rml#Oracle",
+    "mysql": "http://www.w3.org/ns/r2rml#MySQL",
+    "mssql": "http://www.w3.org/ns/r2rml#MSSQLServer",
+    "hsql": "http://www.w3.org/ns/r2rml#HSQLDB",
+    "postgresql": "http://www.w3.org/ns/r2rml#PostgreSQL",
+    "db2": "http://www.w3.org/ns/r2rml#DB2",
+    "informix": "Informix",
+    "ingres": "http://www.w3.org/ns/r2rml#Ingres",
+    "progress": "http://www.w3.org/ns/r2rml#Progress",
+    "sybasease": "http://www.w3.org/ns/r2rml#SybaseASE",
+    "sybasesqlanywhere": "http://www.w3.org/ns/r2rml#SybaseSQLAnywhere",
+    "virtuoso": "http://www.w3.org/ns/r2rml#Virtuoso",
+    "firebird": "http://www.w3.org/ns/r2rml#Firebird"
+  },
+
+  "reference": {
+    "jsonpath": "http://semweb.mmlab.be/ns/ql#JSONPath",
+    "xpath": "http://semweb.mmlab.be/ns/ql#XPath",
+    "csv": "http://semweb.mmlab.be/ns/ql#CSV"
+  }
+}
