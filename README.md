@@ -1,6 +1,6 @@
 # YARRRML Parser
 
-This library allows to convert [YARRRML](https://w3id.org/yarrrml) rules to [RML](http://rml.io) or []R2RML](https://www.w3.org/TR/r2rml/) rules.
+This library allows to convert [YARRRML](https://w3id.org/yarrrml) rules to [RML](http://rml.io) or [R2RML](https://www.w3.org/TR/r2rml/) rules.
 
 ## Install
 
