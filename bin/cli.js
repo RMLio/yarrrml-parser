@@ -16,6 +16,8 @@ const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
 const watch = require('../lib/watcher.js');
 
+namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
+
 pkginfo(module, 'version');
 
 program.version(module.exports.version);
@@ -46,7 +48,8 @@ if (!program.input) {
         const prefixes = {
           rr: namespaces.rr,
           rdf: namespaces.rdf,
-          rdfs: namespaces.rdfs
+          rdfs: namespaces.rdfs,
+          ql: namespaces.ql
         };
 
         if (!program.format || program.format === 'RML') {
