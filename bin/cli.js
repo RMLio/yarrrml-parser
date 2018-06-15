@@ -45,11 +45,10 @@ if (!program.input) {
       if (program.format !== 'YAML') {
         let triples;
 
-        const prefixes = {
+        let prefixes = {
           rr: namespaces.rr,
           rdf: namespaces.rdf,
-          rdfs: namespaces.rdfs,
-          ql: namespaces.ql
+          rdfs: namespaces.rdfs
         };
 
         if (!program.format || program.format === 'RML') {
@@ -57,9 +56,14 @@ if (!program.input) {
           triples = y2r.convert(inputData);
 
           prefixes.rml = namespaces.rml;
+          prefixes.ql = namespaces.ql;
+          prefixes[''] = y2r.getBaseIRI();
+          prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
         } else {
           const y2r = new Y2R2();
           triples = y2r.convert(inputData);
+          prefixes[''] = y2r.getBaseIRI();
+          prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
         }
 
         const writer = N3.Writer({prefixes});
