@@ -27,22 +27,22 @@ rr:subjectMap [
         
     rr:predicateObjectMap [
         rr:predicate mail:from;
-        rr:objectMap [ rml:reference "from" ];
+        rr:objectMap [ rr:template "{from}" ];
     ];
         
         rr:predicateObjectMap [
         rr:predicate mail:to;
-        rr:objectMap [ rml:reference "to" ];
+        rr:objectMap [ rr:template "{to}" ];
     ];
         
         rr:predicateObjectMap [
         rr:predicate mail:heading;
-        rr:objectMap [ rml:reference "heading" ];
+        rr:objectMap [ rr:template "{heading}" ];
     ];
         
     rr:predicateObjectMap [
         rr:predicate mail:body;
-        rr:objectMap [ rml:reference "body" ];
+        rr:objectMap [ rr:template "{body}" ];
     ].
         
 <#DateTime>
@@ -58,7 +58,7 @@ rr:subjectMap [
         rr:predicateObjectMap [
 		rr:predicate ex:day;
 		rr:objectMap [
-			rr:template "---{@day}";
+			rr:template "--{@day}";
                         rr:termType rr:Literal ;
 			rr:datatype xsd:gDay
 		]
@@ -72,7 +72,7 @@ rr:subjectMap [
 	],[
                 rr:predicate ex:year;        
                 rr:objectMap [
-			rml:reference "@year";
+			rr:template "{@year}";
 			rr:datatype xsd:gYear
 		]
 	].

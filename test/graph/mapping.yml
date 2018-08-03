@@ -1,0 +1,16 @@
+prefixes:
+  ex: http://example.com/
+
+mappings:
+  people:
+    graph: ex:myGraph
+    subject: http://example.org/$(id)
+  cities:
+      graph: ex:$(h)
+      subject: http://example.org/$(id)
+  houses:
+        subject: http://example.org/$(id)
+        po:
+         - p: schema:name
+           o: $(name)
+           g: ex:myHouseGraph
