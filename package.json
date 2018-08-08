@@ -1,6 +1,6 @@
 {
   "name": "yarrrml-parser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parse YARRRML descriptions into RML rdf statements",
   "main": "lib/yarrrml2rml.js",
   "scripts": {
@@ -23,7 +23,6 @@
     "express": "^4.16.2",
     "extend": "^3.0.1",
     "file-logger": "^1.0.4",
-    "json-transforms": "^1.1.2",
     "jsonld": "^0.4.12",
     "n3": "^0.11.2",
     "path": "^0.12.7",

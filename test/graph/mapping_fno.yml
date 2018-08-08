@@ -1,0 +1,24 @@
+prefixes:
+  gbfs: "http://example.com/terms#"
+  ex: "http://example.com/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  myfun: "http://example.com/functions#"
+
+sources:
+  station:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: $[*].fields
+
+mappings:
+  # System
+  system_info:
+    graphs:
+    - function: myfun:parseDate
+      parameters:
+      - [myfun:valueParameter, ex:stations/$(number)?last_updated=]
+      - [myfun:valueParameter2, $(last_update)]
+    sources: station
+    s: ex:stations/$(number)
+    po:
+    - [gbfs:name, $(name)]

@@ -1,0 +1,39 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix : <http://mapping.example.com/>.
+
+:map_system_info_0 rml:logicalSource [
+    <http://www.w3.org/2000/01/rdf-schema#label> "station";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$[*].fields";
+    rml:source "data.json"
+  ];
+  rr:subjectMap [
+    rr:template "http://example.com/stations/{number}";
+    rr:graphMap [
+      rr:termType rr:IRI;
+      <http://semweb.mmlab.be/ns/fnml#functionValue> [
+        rr:predicateObjectMap [
+          rr:objectMap [ rr:template "http://example.com/functions#parseDate" ];
+          rr:predicate <http://w3id.org/function/ontology#executes>
+        ], [
+          rr:objectMap [ rr:template "http://example.com/stations/{number}?last_updated=" ];
+          rr:predicate <http://example.com/functions#valueParameter>
+        ], [
+          rr:objectMap [ rr:template "{last_update}" ];
+          rr:predicate <http://example.com/functions#valueParameter2>
+        ];
+        rml:logicalSource [
+          <http://www.w3.org/2000/01/rdf-schema#label> "station";
+          rml:referenceFormulation ql:JSONPath;
+          rml:iterator "$[*].fields";
+          rml:source "data.json"
+        ]
+      ]
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:objectMap [ rr:template "{name}" ];
+    rr:predicate <http://example.com/terms#name>
+  ].
