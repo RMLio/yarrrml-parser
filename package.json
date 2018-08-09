@@ -1,7 +1,7 @@
 {
-  "name": "yarrrml-parser",
+  "name": "@rmlio/yarrrml-parser",
   "version": "0.1.1",
-  "description": "Parse YARRRML descriptions into RML rdf statements",
+  "description": "Parse YARRRML descriptions into RML RDF statements",
   "main": "lib/yarrrml2rml.js",
   "scripts": {
     "test": "mocha \"./lib/*.test.js\""
@@ -44,6 +44,10 @@
     "nodemon": "^1.17.2"
   },
   "bin": {
-    "yarrrml": "./bin/cli.js"
+    "yarrrml-parser": "./bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RMLio/yarrrml-parser.git"
   }
 }
