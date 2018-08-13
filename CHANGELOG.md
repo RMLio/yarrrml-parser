@@ -9,5 +9,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - clearer error when invalid YAML
-- warn when subject and source are not defined
+- warn when source is not defined
 - warn when po is not complete
