@@ -1,6 +1,6 @@
 {
   "name": "@rmlio/yarrrml-parser",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Parse YARRRML descriptions into RML RDF statements",
   "main": "lib/yarrrml2rml.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "rdf-parser-n3": "^1.1.0",
     "rdf-serializer-jsonld-ext": "^1.3.0",
     "uglify-es": "^3.3.9",
-    "winston": "^2.4.0",
+    "winston": "^2.4.3",
     "winston-daily-rotate-file": "^1.7.2",
     "yamljs": "^0.3.0"
   },

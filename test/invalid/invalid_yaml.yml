@@ -1,0 +1,4 @@
+mappings:
+  person:
+    sources:
+      - [test.json~jsonpath, $.[*]]
