@@ -1,4 +1,2 @@
 mappings:
   person:
-    po:
-     - [a, schema:Person]
