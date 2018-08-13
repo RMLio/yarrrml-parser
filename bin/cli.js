@@ -49,7 +49,9 @@ if (!program.input) {
         let prefixes = {
           rr: namespaces.rr,
           rdf: namespaces.rdf,
-          rdfs: namespaces.rdfs
+          rdfs: namespaces.rdfs,
+          fnml: "http://semweb.mmlab.be/ns/fnml#",
+          fno: "http://w3id.org/function/ontology#"
         };
 
         if (!program.format || program.format === 'RML') {
