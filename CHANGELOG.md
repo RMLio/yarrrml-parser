@@ -12,3 +12,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - warn when subject and source are not defined
 - warn when po is not complete
 - fix failing test
+- support for recursive functions
