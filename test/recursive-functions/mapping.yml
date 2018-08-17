@@ -1,0 +1,20 @@
+prefixes:
+  ex: http://example.com/
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+
+mappings:
+  person:
+    sources:
+    - [data.csv~csv]
+    s: http://example.com/$(id)
+    po:
+      - p: schema:name
+        o:
+         - function: grel:escape
+           parameters:
+            - parameter: grel:valueParameter
+              value:
+                function: grel:toUpperCase
+                parameters:
+                    - [grel:valueParameter, $(name)]
+            - [grel:modeParameter, html]
