@@ -6,7 +6,7 @@ mappings:
   person:
     sources:
     - [data.csv~csv]
-    s: http://example.com/$(id)"
+    s: http://example.com/$(id)
     po:
       - p: schema:name
         o:
@@ -17,3 +17,4 @@ mappings:
                 function: grel:toUpperCase
                 parameters:
                     - [grel:valueParameter, $(name)]
+            - [grel:modeParameter, html]
