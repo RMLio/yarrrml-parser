@@ -4,13 +4,14 @@ prefixes:
   geosp: "http://www.telegraphis.net/ontology/geography/geography#"
 
 mappings:
-  sources:
-    access: src/test/resources/example4/Venue4.json
-    iterator: $
-  subjects: "http://loc.example.com/city/$(city)"
-  classes: schema+City
-  predicateobejcts:
-   - [wgs84_pos:lat,$(venue.latitude)]
-   - [wgs84_pos:long, $(venue.longtitude)]
-   - [geosp:onContinent, $(continent)]
-   - [gn:countryCode,$(country)]
+  venue:
+    sources:
+      access: src/test/resources/example4/Venue4.json
+      iterator: $
+    subjects: "http://loc.example.com/city/$(city)"
+    po:
+     - [a, schema:City]
+     - [wgs84_pos:lat,$(venue.latitude)]
+     - [wgs84_pos:long, $(venue.longtitude)]
+     - [geosp:onContinent, $(continent)]
+     - [gn:countryCode,$(country)]
