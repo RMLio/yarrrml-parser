@@ -6,8 +6,9 @@ prefixes:
 mappings:
   venue:
     sources:
-      access: src/test/resources/example4/Venue4.json
-      iterator: $
+      - access: src/test/resources/example4/Venue4.json
+        referenceFormulation: jsonpath
+        iterator: $
     subjects: "http://loc.example.com/city/$(city)"
     po:
      - [a, schema:City]

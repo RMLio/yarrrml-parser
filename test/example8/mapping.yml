@@ -5,8 +5,9 @@ prefixes:
 mappings:
   SimModelMapping:
    sources:
-     access: src/test/resources/example8/simergy.xml
-     iterator: "/SimModel/simmodel:SimAppLibraryDefault_AppLibraryDefault_GlobalLibrary"
+     - access: src/test/resources/example8/simergy.xml
+       referenceFormulation: xpath
+       iterator: "/SimModel/simmodel:SimAppLibraryDefault_AppLibraryDefault_GlobalLibrary"
    subjects: "http://www.lbl.gov/namespaces/Sim/Model/$(@RefId)"
    predicateobjects:
     - [a, simmodel:SimAppLibraryDefault_AppLibraryDefault_GlobalLibrary]

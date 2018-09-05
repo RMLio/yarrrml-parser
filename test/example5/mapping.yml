@@ -1,15 +1,19 @@
 prefixes:
   crm: "http://www.cidoc-crm.org/cidoc-crm/"
+  ex: http://example.org/
 
 sources:
   museum_source:
     access: src/test/resources/example5/museum.json
+    referenceFormulation: jsonpath
     iterator: "$.[*]"
   museum_sitter_source:
     access: src/test/resources/example5/museum.json
+    referenceFormulation: jsonpath
     iterator: "$.[*].Sitter[*]"
   museum_sitter_source2:
     access: src/test/resources/example5/museum.json
+    referenceFormulation: jsonpath
     iterator: "$.[*].Sitter"
 
 mappings:

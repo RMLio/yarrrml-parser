@@ -7,11 +7,13 @@ prefixes:
 sources: 
   sourceVenue:
     access: src/test/resources/example3/Venue.json
+    referenceFormulation: jsonpath
     iterator: $
 
 mappings:
   AirportMapping:
-    sources: src/test/resources/example3/Airport.csv
+    sources:
+      - [src/test/resources/example3/Airport.csv~csv]
     subjects: "http://airport.example.com/$(id)"
     predicateobjects:
       - [a, transit:Stop]
@@ -33,27 +35,29 @@ mappings:
              - [str2, $($.location.city)]
   BusMapping:
     sources:
-      - access: src/test/resources/example3/Transport.xml~xpath
+      - access: src/test/resources/example3/Transport.xml
+        referenceFormulation: xpath
         iterator: /transport/bus
     subjects: "http://trans.example.com/busses/$(@id)"
-    classes: transit:Service
     predicateobjects:
+      - [a, transit:Service]
       - p: transit:stop
         o:
           mapping: BusStopMapping
   BusStopMapping:
     sources: 
-      access: src/test/resources/example3/Transport.xml~xpath
-      iterator: /transport/bus/route/stop
+      - access: src/test/resources/example3/Transport.xml
+        referenceFormulation: xpath
+        iterator: /transport/bus/route/stop
     subject: "http://trans.example.com/stops/$(@id)"
-    classes: transit:Stop
     predicateobjects:
+      - [a, transit:Stop]
       - [rdfs:label, $(.)]
   VenueMapping:
     source: sourceVenue
     subject: "http://loc.example.com/city/$($.location.city)"
-    classes: schema+City
     predicateobjects:
+      - [a, schema:City]
       - p: wgs84_pos:location
         o:
           mapping: LocationMapping

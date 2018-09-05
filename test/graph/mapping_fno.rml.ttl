@@ -1,39 +1,61 @@
 @prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
+@prefix fno: <http://w3id.org/function/ontology#>.
 @prefix rml: <http://semweb.mmlab.be/ns/rml#>.
 @prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix : <http://mapping.example.com/>.
+@prefix gbfs: <http://example.com/terms#>.
+@prefix ex: <http://example.com/>.
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+@prefix myfun: <http://example.com/functions#>.
 
-:map_system_info_0 rml:logicalSource [
-    <http://www.w3.org/2000/01/rdf-schema#label> "station";
-    rml:referenceFormulation ql:JSONPath;
+:source_0 a rml:LogicalSource;
+    rdfs:label "station";
+    rml:source "data.json";
     rml:iterator "$[*].fields";
-    rml:source "data.json"
-  ];
-  rr:subjectMap [
-    rr:template "http://example.com/stations/{number}";
-    rr:graphMap [
-      rr:termType rr:IRI;
-      <http://semweb.mmlab.be/ns/fnml#functionValue> [
-        rr:predicateObjectMap [
-          rr:objectMap [ rr:template "http://example.com/functions#parseDate" ];
-          rr:predicate <http://w3id.org/function/ontology#executes>
-        ], [
-          rr:objectMap [ rr:template "http://example.com/stations/{number}?last_updated=" ];
-          rr:predicate <http://example.com/functions#valueParameter>
-        ], [
-          rr:objectMap [ rr:template "{last_update}" ];
-          rr:predicate <http://example.com/functions#valueParameter2>
-        ];
-        rml:logicalSource [
-          <http://www.w3.org/2000/01/rdf-schema#label> "station";
-          rml:referenceFormulation ql:JSONPath;
-          rml:iterator "$[*].fields";
-          rml:source "data.json"
-        ]
-      ]
-    ]
-  ];
-  rr:predicateObjectMap [
-    rr:objectMap [ rr:template "{name}" ];
-    rr:predicate <http://example.com/terms#name>
-  ].
+    rml:referenceFormulation ql:JSONPath.
+:map_system_info_0 rml:logicalSource :source_0;
+    a rr:TriplesMap;
+    rdfs:label "system_info".
+:s_0 a rr:SubjectMap.
+:map_system_info_0 rr:subjectMap :s_0.
+:s_0 rr:template "http://example.com/stations/{number}";
+    rr:graphMap :gm_0.
+:gm_0 a rr:GraphMap, fnml:FunctionTermMap;
+    rr:termType rr:IRI;
+    fnml:functionValue :fn_0.
+:fn_0 rml:logicalSource :source_0;
+    rr:predicateObjectMap :pomexec_0.
+:pomexec_0 rr:predicateMap :pmexec_0.
+:pmexec_0 rr:constant fno:executes.
+:pomexec_0 rr:objectMap :omexec_0.
+:omexec_0 rr:constant "http://example.com/functions#parseDate";
+    rr:termType rr:IRI.
+:fn_0 rr:predicateObjectMap :pom_0.
+:pom_0 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_0.
+:pm_0 a rr:PredicateMap;
+    rr:constant "http://example.com/functions#valueParameter".
+:pom_0 rr:objectMap :om_0.
+:om_0 a rr:ObjectMap;
+    rr:template "http://example.com/stations/{number}?last_updated=".
+:fn_0 rr:predicateObjectMap :pom_1.
+:pom_1 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_1.
+:pm_1 a rr:PredicateMap;
+    rr:constant "http://example.com/functions#valueParameter2".
+:pom_1 rr:objectMap :om_1.
+:om_1 a rr:ObjectMap;
+    rml:reference "last_update".
+:pom_2 a rr:PredicateObjectMap.
+:map_system_info_0 rr:predicateObjectMap :pom_2.
+:pm_2 a rr:PredicateMap.
+:pom_2 rr:predicateMap :pm_2.
+:pm_2 rr:constant gbfs:name.
+:pom_2 rr:objectMap :om_2.
+:om_2 a rr:ObjectMap;
+    rml:reference "name";
+    rr:termType rr:Literal.
+
