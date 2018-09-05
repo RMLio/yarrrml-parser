@@ -1,0 +1,18 @@
+prefixes:
+  ex: "http://example.com/"
+  as: "https://www.w3.org/ns/activitystreams#"
+  xapi: "http://adlnet.gov/expapi/verbs/"
+  fnstr: "http://example.com/idlab/functions/string/"
+
+mappings:
+  statement:
+    sources:
+    - ['./data.json~jsonpath', '$[*]']
+    s: http://example.com/$(_id.$oid)
+    po:
+    - predicate: ex:success
+      object:
+      - function: fnstr:map
+        parameters:
+        - [fnstr:valueParameter, "$(statement.object.definition.type)"]
+        - [fnstr:mappingParameter, '{"http://sensotec.be/Alinea/corrections": "0","http://sensotec.be/Alinea/suggestions": "0.5","http://sensotec.be/Alinea/typing/word": "1"}']

@@ -1,0 +1,255 @@
+[
+  {
+    "_id": {
+      "$oid": "5abb3f90a952b139008b46a8"
+    },
+    "lrs": {
+      "_id": {
+        "$oid": "59d617a9a952b15d008b4567"
+      }
+    },
+    "lrs_id": {
+      "$oid": "59d617a9a952b15d008b4567"
+    },
+    "client_id": "59d617a9a952b15d008b4568",
+    "statement": {
+      "version": "1.0.1",
+      "actor": {
+        "objectType": "Agent",
+        "account": {
+          "homePage": "https://lic.example.com/",
+          "name": "John"
+        }
+      },
+      "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/completed"
+      },
+      "object": {
+        "objectType": "Activity",
+        "id": "http://example.com/test/AlineaWord/NL/gab",
+        "definition": {
+          "type": "http://example.com/test/typing/word",
+          "name": {
+            "NL": "gab"
+          },
+          "extensions": {
+            "http://example.com/test/wordtyped": "gab",
+            "http://example.com/test/suggestions/NL": [
+              {
+                "value": "ga",
+                "id": "http://example.com/test/suggestions/NL/ab011c0a-9172-46c0-8c5b-9584921781e8",
+                "position": "0",
+                "visible": true
+              },
+              {
+                "value": "gaf",
+                "id": "http://example.com/test/suggestions/NL/7841b1d6-8edb-461f-b44b-ffec12b25f3f",
+                "position": "1",
+                "visible": true
+              },
+              {
+                "value": "gaan",
+                "id": "http://example.com/test/suggestions/NL/73e23066-8736-4af7-8a27-e9fd10c89bbb",
+                "position": "2",
+                "visible": true
+              },
+              {
+                "value": "gaat",
+                "id": "http://example.com/test/suggestions/NL/6cd0256a-34d2-48dd-8c49-73b8c315e9cb",
+                "position": "3",
+                "visible": true
+              },
+              {
+                "value": "gauw",
+                "id": "http://example.com/test/suggestions/NL/a0813e2d-3bfe-4dfb-9f70-b96a7c47593f",
+                "position": "4",
+                "visible": true
+              },
+              {
+                "value": "garagehouder",
+                "id": "http://example.com/test/suggestions/NL/bbd7986f-71f9-4bda-b610-c3cd01975ee4",
+                "position": "5",
+                "visible": true
+              },
+              {
+                "value": "gat",
+                "id": "http://example.com/test/suggestions/NL/4b038844-e4ba-44e4-bb1f-d7b49322d9ca",
+                "position": "6",
+                "visible": true
+              },
+              {
+                "value": "gang",
+                "id": "http://example.com/test/suggestions/NL/1ead0ac3-abf5-403d-b120-a86dfd6b2a5c",
+                "position": "7",
+                "visible": true
+              },
+              {
+                "value": "gast",
+                "id": "http://example.com/test/suggestions/NL/e249a717-07a1-4d33-a398-e136701b0266",
+                "position": "8",
+                "visible": true
+              },
+              {
+                "value": "gaten",
+                "id": "http://example.com/test/suggestions/NL/2b694bb4-d83d-4bf2-9b28-2f81a91a4a01",
+                "position": "9",
+                "visible": false
+              },
+              {
+                "value": "gaven",
+                "id": "http://example.com/test/suggestions/NL/7f9e4634-9cd9-42fb-9c02-29e46335def7",
+                "position": "10",
+                "visible": false
+              },
+              {
+                "value": "gasten",
+                "id": "http://example.com/test/suggestions/NL/aeaec7b9-bf40-4960-b43f-1c49b02850f1",
+                "position": "11",
+                "visible": false
+              },
+              {
+                "value": "gal",
+                "id": "http://example.com/test/suggestions/NL/2bf8e2c3-366f-461d-b88b-de54ff77aac0",
+                "position": "12",
+                "visible": false
+              },
+              {
+                "value": "gas",
+                "id": "http://example.com/test/suggestions/NL/3a12ce10-b95b-4cb1-85b7-bb691c336beb",
+                "position": "13",
+                "visible": false
+              },
+              {
+                "value": "gaaf",
+                "id": "http://example.com/test/suggestions/NL/e747c6f5-b0c7-4af1-a459-de9400f827be",
+                "position": "14",
+                "visible": false
+              },
+              {
+                "value": "game",
+                "id": "http://example.com/test/suggestions/NL/006908da-13f9-4c7e-a99b-b3f1a73fe402",
+                "position": "15",
+                "visible": false
+              },
+              {
+                "value": "gans",
+                "id": "http://example.com/test/suggestions/NL/a424923b-78a2-424a-8395-7be7fb5ac7b2",
+                "position": "16",
+                "visible": false
+              },
+              {
+                "value": "garf",
+                "id": "http://example.com/test/suggestions/NL/fe9c46d4-e832-46f6-bca6-3aa3322b757d",
+                "position": "17",
+                "visible": false
+              },
+              {
+                "value": "gave",
+                "id": "http://example.com/test/suggestions/NL/ef80d387-3d56-4f75-8f71-7864b9d3924b",
+                "position": "18",
+                "visible": false
+              },
+              {
+                "value": "gaver",
+                "id": "http://example.com/test/suggestions/NL/d3d4a5f9-c6c0-4a8a-b8d8-0dd46543949d",
+                "position": "19",
+                "visible": false
+              },
+              {
+                "value": "gazet",
+                "id": "http://example.com/test/suggestions/NL/38f0ab5a-f792-4ddf-b0fe-aafd6b57615e",
+                "position": "20",
+                "visible": false
+              },
+              {
+                "value": "gaande",
+                "id": "http://example.com/test/suggestions/NL/db437219-3efd-4f35-8a0d-12344f929c71",
+                "position": "21",
+                "visible": false
+              },
+              {
+                "value": "gaatje",
+                "id": "http://example.com/test/suggestions/NL/1bf7cc9c-e502-4134-8731-e201f4cbff79",
+                "position": "22",
+                "visible": false
+              },
+              {
+                "value": "gangen",
+                "id": "http://example.com/test/suggestions/NL/554e5dca-194b-4f8e-930e-bdb2df65a23b",
+                "position": "23",
+                "visible": false
+              },
+              {
+                "value": "garage",
+                "id": "http://example.com/test/suggestions/NL/00fc68f1-fa16-499a-8d45-202ab212a87d",
+                "position": "24",
+                "visible": false
+              },
+              {
+                "value": "galerij",
+                "id": "http://example.com/test/suggestions/NL/12a82c37-11e5-403b-9a67-479c4c2deb8d",
+                "position": "25",
+                "visible": false
+              },
+              {
+                "value": "gauwste",
+                "id": "http://example.com/test/suggestions/NL/003e1d8c-23de-4ae0-94d1-2a4f65e58e02",
+                "position": "26",
+                "visible": false
+              },
+              {
+                "value": "gangbare",
+                "id": "http://example.com/test/suggestions/NL/13cc1b55-f99d-42b6-8dfc-5367c1e38612",
+                "position": "27",
+                "visible": false
+              },
+              {
+                "value": "garantie",
+                "id": "http://example.com/test/suggestions/NL/d0126a3e-105b-4c6f-8534-d978334e85cf",
+                "position": "28",
+                "visible": false
+              },
+              {
+                "value": "gazetten",
+                "id": "http://example.com/test/suggestions/NL/96906bdf-c957-416e-90eb-6c7e7f28e1d5",
+                "position": "29",
+                "visible": false
+              }
+            ],
+            "http://example.com/test/corrections/NL": []
+          }
+        }
+      },
+      "result": {
+        "response": "gab"
+      },
+      "context": {
+        "registration": "fdbc9e2e-310b-48ad-93d1-c2955ecd834d",
+        "contextActivities": {
+          "parent": [
+            {
+              "objectType": "Activity",
+              "id": "http://example.com/test/Schrijf"
+            }
+          ]
+        }
+      },
+      "authority": {
+        "objectType": "Agent",
+        "name": "app",
+        "mbox": "mailto:hello@example.com"
+      },
+      "stored": "2018-03-28T07:09:04.398500+00:00",
+      "timestamp": "2018-03-28T07:09:04.398500+00:00",
+      "id": "e6bf1a6a-9d2b-4cf2-8a42-90238dbef239"
+    },
+    "active": true,
+    "voided": false,
+    "timestamp": {
+      "$date": "2018-03-28T07:09:04.398Z"
+    },
+    "stored": {
+      "$date": "2018-03-28T07:09:04.398Z"
+    }
+  }
+]
