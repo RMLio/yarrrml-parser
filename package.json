@@ -19,7 +19,6 @@
   "dependencies": {
     "commander": "^2.11.0",
     "extend": "^3.0.1",
-    "jsonld": "^0.4.12",
     "n3": "^1.0.0-beta.2",
     "pkginfo": "^0.4.1",
     "prefix-ns": "^0.1.2",
