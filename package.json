@@ -17,15 +17,10 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "beaver-logger": "^3.0.11",
-    "body-parser": "^1.18.2",
     "commander": "^2.11.0",
-    "express": "^4.16.2",
     "extend": "^3.0.1",
-    "file-logger": "^1.0.4",
     "jsonld": "^0.4.12",
     "n3": "^1.0.0-beta.2",
-    "path": "^0.12.7",
     "pkginfo": "^0.4.1",
     "prefix-ns": "^0.1.2",
     "q": "^1.5.1",
@@ -33,16 +28,11 @@
     "rdf-isomorphic": "^1.0.2",
     "rdf-parser-n3": "^1.1.0",
     "rdf-serializer-jsonld-ext": "^1.3.0",
-    "uglify-es": "^3.3.9",
     "winston": "^2.4.3",
-    "winston-daily-rotate-file": "^1.7.2",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "assert": "^1.4.1",
-    "browserify": "^14.5.0",
-    "mocha": "^5.2.0",
-    "nodemon": "^1.17.2"
+    "mocha": "^5.2.0"
   },
   "bin": {
     "yarrrml-parser": "./bin/cli.js"
