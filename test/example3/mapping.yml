@@ -7,41 +7,65 @@ prefixes:
 sources: 
   sourceVenue:
     access: src/test/resources/example3/Venue.json
+    referenceFormulation: jsonpath
     iterator: $
 
 mappings:
   AirportMapping:
-    sources: src/test/resources/example3/Airport.csv
+    sources:
+      - [src/test/resources/example3/Airport.csv~csv]
     subjects: "http://airport.example.com/$(id)"
     predicateobjects:
       - [a, transit:Stop]
-      - predicateobject: [transit:service, BusMapping~mapping]
-        condition: [$(bus), "$(@id)"]
-      - predicateobject: [wgs84_pos:location, VenueMapping~mapping]
-        condition: [$(city), $($.location.city)]
+      - p: transit:service
+        o:
+          mapping: BusMapping
+          condition:
+            function: equal
+            parameters:
+             - [str1, $(bus)]
+             - [str2, "$(@id)"]
+      - p: wgs84_pos:location
+        o:
+          mapping: VenueMapping
+          condition:
+            function: equal
+            parameters:
+             - [str1, $(city)]
+             - [str2, $($.location.city)]
   BusMapping:
     sources:
-      - access: src/test/resources/example3/Transport.xml~xpath
+      - access: src/test/resources/example3/Transport.xml
+        referenceFormulation: xpath
         iterator: /transport/bus
     subjects: "http://trans.example.com/busses/$(@id)"
-    classes: transit:Service
     predicateobjects:
-      - [transit:stop, BusStopMapping~mapping]
+      - [a, transit:Service]
+      - p: transit:stop
+        o:
+          mapping: BusStopMapping
   BusStopMapping:
     sources: 
-      access: src/test/resources/example3/Transport.xml~xpath
-      iterator: /transport/bus/route/stop
+      - access: src/test/resources/example3/Transport.xml
+        referenceFormulation: xpath
+        iterator: /transport/bus/route/stop
     subject: "http://trans.example.com/stops/$(@id)"
-    classes: transit:Stop
     predicateobjects:
+      - [a, transit:Stop]
       - [rdfs:label, $(.)]
   VenueMapping:
     source: sourceVenue
     subject: "http://loc.example.com/city/$($.location.city)"
-    classes: schema+City
     predicateobjects:
-      - predicateobject: [wgs84_pos:location, LocationMapping~mapping]
-        condition: [$($.location.city), $($.location.city)]
+      - [a, schema:City]
+      - p: wgs84_pos:location
+        o:
+          mapping: LocationMapping
+          condition:
+            function: equal
+            parameters:
+             - [str1, $($.location.city)]
+             - [str2, $($.location.city)]
       - [geosp:onContinent,$($.location.continent)]
       - [gn:countryCode,$($.location.country)]
   LocationMapping:

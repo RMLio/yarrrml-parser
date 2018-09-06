@@ -1,0 +1,21 @@
+prefixes:
+  simmodel: "http://www.lbl.gov/namespaces/Sim/Model/"
+  simres: "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/"
+
+mappings:
+  SimModelMapping:
+   sources:
+     - access: src/test/resources/example8/simergy.xml
+       referenceFormulation: xpath
+       iterator: "/SimModel/simmodel:SimAppLibraryDefault_AppLibraryDefault_GlobalLibrary"
+   subjects: "http://www.lbl.gov/namespaces/Sim/Model/$(@RefId)"
+   predicateobjects:
+    - [a, simmodel:SimAppLibraryDefault_AppLibraryDefault_GlobalLibrary]
+    - [simmodel:refId, "$(@RefId)"]
+    - [simres:simModelType, "$(simres:SimModelType)"]
+    - [simres:SimModelSubtype, "$(simres:SimModelSubtype)"]
+    - [simres:SimModelName,"$(simres:SimModelName)"]
+    - [simres:SourceModelSchema,"$(simres:SourceModelSchema)"]
+    - [simres:DefaultPreferenceIndex,"$(simres:DefaultPreferenceIndex)", xsd:int]
+    - [simres:LibraryLocation,"$(simres:LibraryLocation)"]
+    - [simres:LibraryName,"$(simres\:LibraryName)"]

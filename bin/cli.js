@@ -71,7 +71,7 @@ if (!program.input) {
 
         const writer = N3.Writer({prefixes});
 
-        writer.addTriples(triples);
+        writer.addQuads(triples);
         writer.end((error, result) => {
           if (program.output) {
             if (!path.isAbsolute(program.output)) {
@@ -89,16 +89,16 @@ if (!program.input) {
         });
       } else {
         const parser = N3.Parser();
-        const triples = [];
+        const quads = [];
 
-        parser.parse(inputData, (err, triple) => {
-          if (triple) {
-            triples.push(triple);
+        parser.parse(inputData, (err, quad) => {
+          if (quad) {
+            quads.push(quad);
           } else if (err) {
             console.log('There is a problem with your input.');
             process.exit(1);
           } else {
-            r2y(triples).then(str => {
+            r2y(quads).then(str => {
               if (program.output) {
                 if (!path.isAbsolute(program.output)) {
                   program.output = path.join(process.cwd(), program.output);
