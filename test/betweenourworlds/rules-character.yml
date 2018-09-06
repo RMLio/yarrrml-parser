@@ -1,0 +1,19 @@
+prefixes:
+  ex: http://example.org/
+  bow: https://betweenourworlds.org/ontology/
+  dbo: http://dbpedia.org/ontology/
+
+mappings:
+  character:
+    source: 
+      - ['character-0.json~jsonpath', '$.data[*]']
+    s: https://betweenourworlds.org/character/$(attributes.slug)
+    po:
+      - [a, [bow:Character, schema:Thing]]
+      - [[rdfs:label, schema:name, dbo:title], $(attributes.name)]
+      - [[rdfs:label, schema:name, dbo:title], $(attributes.names.en), en~lang]
+      - [[rdfs:label, schema:name, dbo:title], $(attributes.names.ja_jp), ja~lang]
+      - [schema:mainEntityOfPage, https://myanimelist.net/character/$(attributes.malId), schema:URL]
+      - [[schema:description, rdfs:comment], $(attributes.description)]
+      - [schema:image, $(attributes.image.original), schema:URL]
+      - [schema:alternateName, $(attributes.otherNames)]

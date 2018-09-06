@@ -1,0 +1,125 @@
+prefixes:
+  afn: https://betweenourworlds.org/function/
+  bow: https://betweenourworlds.org/ontology/
+  dbo: http://dbpedia.org/ontology/
+
+base: https://betweenourworlds.org/generation-rule/
+
+sources:
+  anime_source:
+    access: anime-0.json
+    referenceFormulation: jsonpath
+    iterator: $.data[*]
+  stream_source:
+    access: anime-streams-0.json
+    referenceFormulation: jsonpath
+    iterator: $.[*]
+  episode_source:
+    access: anime-episodes-0.json
+    referenceFormulation: jsonpath
+    iterator: $.[*]
+  season_source:
+    access: anime-seasons-0.json
+    referenceFormulation: jsonpath
+    iterator: $.[*]
+
+mappings:
+  anime:
+    source: anime_source
+    s: https://betweenourworlds.org/anime/$(attributes.slug)
+    po:
+      - [a, [dbo:Work, dbo:Cartoon, dbo:Anime, schema:Thing, schema:CreativeWork]]
+      - [[schema:name, rdfs:label, dbo:title], $(attributes.canonicalTitle)]
+      - [[schema:name, rdfs:label, dbo:title], $(attributes.titles.en), en~lang]
+      - [[schema:name, rdfs:label, dbo:title], $(attributes.titles.en_jp), ja~lang]
+      - [[schema:name, rdfs:label, dbo:title], $(attributes.titles.ja_jp), ja~lang]
+      - [[schema:numberOfEpisodes, dbo:numberOfEpisodes], $(attributes.episodeCount)]
+      - [schema:contentRating, [$(attributes.ageRating), $(attributes.ageRatingGuide)]]
+      - [schema:image, $(attributes.coverImage.original), schema:URL]
+      - [schema:endDate, $(attributes.endDate), schema:Date]
+      - [schema:startDate, $(attributes.startDate), schema:Date]
+      - [[rdfs:comment, schema:description], $(attributes.synopsis)]
+      - [schema:mainEntityOfPage, https://kitsu.io/anime/$(attributes.slug), schema:URL]
+      - [schema:mainEntityOfPage, $(otherWebsites), schema:URL]
+      - [schema:mainEntityOfPage, $(streams), schema:URL]
+      - p: a
+        o:
+          function: afn:getClass
+          parameters:
+            - [afn:value, $(attributes.subtype)]
+      - p: schema:trailer
+        o:
+          mapping: trailer
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(attributes.slug)]
+              - [str2, $(attributes.slug)]
+  trailer:
+    source: anime_source
+    s: https://betweenourworlds.org/trailer/$(attributes.slug)
+    po:
+      - [a, [schema:VideoObject, schema:Thing, schema:CreativeWork, schema:MediaObject]]
+      - [schema:url, https://www.youtube.com/watch?v=$(attributes.youtubeVideoId)]
+  stream:
+    source: stream_source
+    s: https://betweenourworlds.org/stream/$(slug)-$(service)
+    po:
+      - [a, bow:Stream]
+      - [schema:url, $(url), schema:URL]
+      - p: bow:providedBy
+        o:
+          function: afn:getStreamAgent
+          parameters:
+            - [afn:value, $(service)]
+          type: iri
+      - p: bow:object
+        o:
+          mapping: anime
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(slug)]
+              - [str2, $(attributes.slug)]
+  episode:
+    source: episode_source
+    s: https://betweenourworlds.org/episode/$(anime_slug)-$(attributes.number)
+    po:
+      - [a, [schema:Episode, schema:CreativeWork, schema:Thing]]
+      - [[schema:name, rdfs:label, dbo:title], $(attributes.canonicalTitle)]
+      - [schema:episodeNumber, $(attributes.relativeNumber), schema:Integer]
+      - [[rdfs:comment, schema:description], $(attributes.synopsis)]
+      - p: schema:partOfSeason
+        o:
+          mapping: season
+          condition:
+            - function: equal
+              parameters:
+                - [str1, $(attributes.seasonNumber)]
+                - [str2, $(seasonNumber)]
+            - function: equal
+              parameters:
+                - [str1, $(anime_id)]
+                - [str2, $(anime.id)]
+      - p: schema:about
+        o:
+          - mapping: anime
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(anime_id)]
+                - [str2, $(id)]
+  season:
+    source: season_source
+    s: https://betweenourworlds.org/season/$(anime.slug)-$(seasonNumber)
+    po:
+      - [a, [schema:Season, schema:CreativeWork, schema:Thing]]
+      - [schema:seasonNumber, $(seasonNumber), schema:Integer]
+      - p: schema:about
+        o:
+          - mapping: anime
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(anime.id)]
+                - [str2, $(id)]
