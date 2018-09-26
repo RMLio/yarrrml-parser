@@ -1,0 +1,17 @@
+prefixes:
+  ex: http://example.com/
+  dyversify: http://example.com/idlab/functions/dyversify/
+  idlab-fn: http://example.com/idlab/function/
+
+mappings:
+  metadata:
+    sources:
+      - [api-metadata.json~jsonpath, $]
+    s: ex:$(id)
+    po:
+      - [a, ex:Sensor]
+      - p: ex:test
+        o:
+          function: dyversify:getSensorClasses
+          parameters:
+            - [idlab-fn:list, "$(allMetrics[*].id)~iri"]

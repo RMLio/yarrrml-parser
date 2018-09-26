@@ -17,9 +17,11 @@ map:om_0 <http://semweb.mmlab.be/ns/fnml#functionValue> map:fn_0;
     rr:termType rr:Literal;
     a <http://semweb.mmlab.be/ns/fnml#FunctionTermMap>.
 map:om_1 a rr:ObjectMap;
-    rml:reference "statement.object.definition.type".
+    rml:reference "statement.object.definition.type";
+    rr:termType rr:Literal.
 map:om_2 a rr:ObjectMap;
-    rr:constant "{\"http://sensotec.be/Alinea/corrections\": \"0\",\"http://sensotec.be/Alinea/suggestions\": \"0.5\",\"http://sensotec.be/Alinea/typing/word\": \"1\"}".
+    rr:constant "{\"http://sensotec.be/Alinea/corrections\": \"0\",\"http://sensotec.be/Alinea/suggestions\": \"0.5\",\"http://sensotec.be/Alinea/typing/word\": \"1\"}";
+    rr:termType rr:Literal.
 map:omexec_0 rr:constant "http://example.com/idlab/functions/string/map";
     rr:termType rr:IRI.
 map:pm_0 a rr:PredicateMap;

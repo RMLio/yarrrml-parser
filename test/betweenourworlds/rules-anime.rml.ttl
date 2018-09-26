@@ -244,7 +244,8 @@
     rr:constant "https://betweenourworlds.org/function/value".
 :pom_15 rr:objectMap :om_20.
 :om_20 a rr:ObjectMap;
-    rml:reference "attributes.subtype".
+    rml:reference "attributes.subtype";
+    rr:termType rr:Literal.
 :pom_16 a rr:PredicateObjectMap.
 :map_anime_0 rr:predicateObjectMap :pom_16.
 :pm_26 a rr:PredicateMap.
@@ -335,7 +336,8 @@
     rr:constant "https://betweenourworlds.org/function/value".
 :pom_22 rr:objectMap :om_30.
 :om_30 a rr:ObjectMap;
-    rml:reference "service".
+    rml:reference "service";
+    rr:termType rr:Literal.
 :pom_23 a rr:PredicateObjectMap.
 :map_stream_0 rr:predicateObjectMap :pom_23.
 :pm_33 a rr:PredicateMap.
