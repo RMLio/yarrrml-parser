@@ -1,0 +1,7 @@
+mappings:
+  test:
+    sources:
+      - [text.csv~csv]
+    s: $(id)
+    po:
+      - [a, schema:Thing]
