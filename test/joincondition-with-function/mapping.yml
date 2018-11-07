@@ -25,4 +25,4 @@ mappings:
                 value:
                   function: ex:toLowerCase
                   parameters:
-                    - [ex:input, $(name)]
+                    - [ex:input, $(name), o]
