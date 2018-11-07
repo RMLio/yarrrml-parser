@@ -49,7 +49,7 @@
 :pom_2 a rr:PredicateObjectMap;
     rr:predicateMap :pm_2.
 :pm_2 a rr:PredicateMap;
-    rr:constant "http://example.com/idlab/function/list".
+    rr:constant idlab-fn:list.
 :pom_2 rr:objectMap :om_2.
 :om_2 a rr:ObjectMap;
     rml:reference "allMetrics[*].id";

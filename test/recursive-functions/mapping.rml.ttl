@@ -13,7 +13,7 @@
 :source_0 a rml:LogicalSource;
     rml:source "data.csv";
     rml:referenceFormulation ql:CSV.
-:map_person_0 a rml:TriplesMap;
+:map_person_0 a rr:TriplesMap;
     rdfs:label "person".
 :s_0 a rr:SubjectMap.
 :map_person_0 rr:subjectMap :s_0.
@@ -32,7 +32,8 @@
 :pomexec_0 rr:predicateMap :pmexec_0.
 :pmexec_0 rr:constant fno:executes.
 :pomexec_0 rr:objectMap :omexec_0.
-:omexec_0 rr:template "http://users.ugent.be/~bjdmeest/function/grel.ttl#escape".
+:omexec_0 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#escape";
+    rr:termType rr:IRI.
 :fn_0 rr:predicateObjectMap :pom_1.
 :pom_1 a rr:PredicateObjectMap;
     rr:predicateMap :pm_1.
@@ -46,7 +47,8 @@
 :pomexec_1 rr:predicateMap :pmexec_1.
 :pmexec_1 rr:constant fno:executes.
 :pomexec_1 rr:objectMap :omexec_1.
-:omexec_1 rr:template "http://users.ugent.be/~bjdmeest/function/grel.ttl#toUpperCase".
+:omexec_1 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#toUpperCase";
+    rr:termType rr:IRI.
 :fn_1 rr:predicateObjectMap :pom_2.
 :pom_2 a rr:PredicateObjectMap;
     rr:predicateMap :pm_2.
@@ -54,7 +56,8 @@
     rr:constant grel:valueParameter.
 :pom_2 rr:objectMap :om_2.
 :om_2 a rr:ObjectMap;
-    rr:template "{name}".
+    rml:reference "name";
+    rr:termType rr:Literal.
 :fn_0 rr:predicateObjectMap :pom_3.
 :pom_3 a rr:PredicateObjectMap;
     rr:predicateMap :pm_3.
@@ -62,4 +65,5 @@
     rr:constant grel:modeParameter.
 :pom_3 rr:objectMap :om_3.
 :om_3 a rr:ObjectMap;
-    rr:constant "html".
+    rr:constant "html";
+    rr:termType rr:Literal.

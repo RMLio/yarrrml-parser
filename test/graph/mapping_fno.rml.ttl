@@ -37,7 +37,7 @@
 :pom_0 a rr:PredicateObjectMap;
     rr:predicateMap :pm_0.
 :pm_0 a rr:PredicateMap;
-    rr:constant "http://example.com/functions#valueParameter".
+    rr:constant myfun:valueParameter.
 :pom_0 rr:objectMap :om_0.
 :om_0 a rr:ObjectMap;
     rr:template "http://example.com/stations/{number}?last_updated=";
@@ -46,7 +46,7 @@
 :pom_1 a rr:PredicateObjectMap;
     rr:predicateMap :pm_1.
 :pm_1 a rr:PredicateMap;
-    rr:constant "http://example.com/functions#valueParameter2".
+    rr:constant myfun:valueParameter2.
 :pom_1 rr:objectMap :om_1.
 :om_1 a rr:ObjectMap;
     rml:reference "last_update";
