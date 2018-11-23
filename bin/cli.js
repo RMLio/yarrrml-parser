@@ -91,14 +91,14 @@ if (!program.input) {
         const parser = N3.Parser();
         const quads = [];
 
-        parser.parse(inputData, (err, quad) => {
+        parser.parse(inputData, (err, quad, prefixes) => {
           if (quad) {
             quads.push(quad);
           } else if (err) {
             console.log('There is a problem with your input.');
             process.exit(1);
           } else {
-            r2y(quads).then(str => {
+            r2y(quads, prefixes).then(str => {
               if (program.output) {
                 if (!path.isAbsolute(program.output)) {
                   program.output = path.join(process.cwd(), program.output);
