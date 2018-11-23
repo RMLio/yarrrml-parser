@@ -1,0 +1,94 @@
+prefixes:
+  rml: 'http://semweb.mmlab.be/ns/rml#'
+  ql: 'http://semweb.mmlab.be/ns/ql#'
+  rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+  fnml: 'http://semweb.mmlab.be/ns/fnml#'
+  fno: 'http://w3id.org/function/ontology#'
+  grel: 'http://users.ugent.be/~bjdmeest/function/grel.ttl#'
+  ex: 'http://citadel.ilabt.imec.be/exampleontology/'
+  rr: 'http://www.w3.org/ns/r2rml#'
+  foaf: 'http://xmlns.com/foaf/0.1/'
+  xsd: 'http://www.w3.org/2001/XMLSchema#'
+mappings:
+  mapping0:
+    sources:
+      - [people.json~jsonpath, '$.[*]']
+    s: 'https://citadel.ilabt.imec.be/person/$(id)'
+    po:
+      - ['foaf:givenName', $(surname)]
+      - ['foaf:familyName', $(name)]
+      - ['ex:birthday', $(birthday), 'xsd:date']
+      - ['ex:sex', $(sex)]
+      - ['ex:email', $(email)]
+      - ['ex:telephone', $(telephone)]
+      - ['ex:province', $(address.province)]
+      - ['ex:city', $(address.city)]
+      - ['ex:zip', $(address.zip), 'xsd:int']
+      - ['ex:street', $(address.street)]
+      - ['ex:number', $(address.number), 'xsd:int']
+      - ['ex:spouse', 'https://citadel.ilabt.imec.be/person/$(spouse)~iri']
+      - ['ex:hasparent', 'https://citadel.ilabt.imec.be/person/$(parent1)~iri']
+      - ['ex:hasparent2', 'https://citadel.ilabt.imec.be/person/$(parent2)~iri']
+      - ['ex:haschild', 'https://citadel.ilabt.imec.be/person/$(children)~iri']
+      - ['ex:generation', $(generation), 'xsd:int']
+      - ['ex:countryofbirth', $(countryOfBirth)]
+      - ['ex:deceased', $(deceased), 'xsd:date']
+  mapping1:
+    sources:
+      - [deathcertificates.json~jsonpath, '$.[*]']
+    s: 'https://citadel.ilabt.imec.be/deathcertificate/$(id)'
+    po:
+      - ['ex:method', $(method)]
+      - ['ex:step', $(step)]
+      - ['ex:score', $(score), 'xsd:int']
+      - ['ex:feedback', $(feedback)]
+      - ['ex:describesdeath', 'https://citadel.ilabt.imec.be/person/$(person)~iri']
+      - ['ex:issuer', 'https://citadel.ilabt.imec.be/person/$(issuer)~iri']
+      - ['ex:issuedate', $(issuedate), 'xsd:date']
+      - ['ex:deathcause', $(deathcause)]
+  mapping2:
+    sources:
+      - [marriagecertificates.json~jsonpath, '$.[*]']
+    s: 'https://citadel.ilabt.imec.be/marriagecertificate/$(id)'
+    po:
+      - ['ex:method', $(method)]
+      - ['ex:step', $(step)]
+      - ['ex:score', $(score), 'xsd:int']
+      - ['ex:feedback', $(feedback)]
+      - ['ex:describesmarriage', 'https://citadel.ilabt.imec.be/person/$(person1)~iri']
+      - ['ex:describesmarriage', 'https://citadel.ilabt.imec.be/person/$(person2)~iri']
+      - ['ex:issuer', 'https://citadel.ilabt.imec.be/person/$(issuer)~iri']
+      - ['ex:issuedate', $(issuedate), 'xsd:date']
+  mapping3:
+    sources:
+      - [movecertificates.json~jsonpath, '$.[*]']
+    s: 'https://citadel.ilabt.imec.be/movecertificate/$(id)'
+    po:
+      - ['ex:method', $(method)]
+      - ['ex:step', $(step)]
+      - ['ex:score', $(score), 'xsd:int']
+      - ['ex:feedback', $(feedback)]
+      - ['ex:issuer', 'https://citadel.ilabt.imec.be/person/$(issuer)~iri']
+      - ['ex:oldAddress_province', $(oldAddress.province)]
+      - ['ex:oldAddress_city', $(oldAddress.city)]
+      - ['ex:oldAddress_zip', $(oldAddress.zip), 'xsd:int']
+      - ['ex:oldAddress_street', $(oldAddress.street)]
+      - ['ex:oldAddress_number', $(oldAddress.number), 'xsd:int']
+      - ['ex:newAddress_province', $(newAddress.province)]
+      - ['ex:newAddress_city', $(newAddress.city)]
+      - ['ex:newAddress_zip', $(newAddress.zip), 'xsd:int']
+      - ['ex:newAddress_street', $(newAddress.street)]
+      - ['ex:newAddress_number', $(newAddress.number), 'xsd:int']
+      - ['ex:issuedate', $(issuedate), 'xsd:date']
+  mapping4:
+    sources:
+      - [birthcertificates.json~jsonpath, '$.[*]']
+    s: 'https://citadel.ilabt.imec.be/birthcertificate/$(id)'
+    po:
+      - ['ex:method', $(method)]
+      - ['ex:step', $(step)]
+      - ['ex:score', $(score), 'xsd:int']
+      - ['ex:feedback', $(feedback)]
+      - ['ex:describesbirth', 'https://citadel.ilabt.imec.be/person/$(person)~iri']
+      - ['ex:issuer', 'https://citadel.ilabt.imec.be/person/$(issuer)~iri']
+      - ['ex:issuedate', $(issuedate), 'xsd:date']
