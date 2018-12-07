@@ -9,7 +9,8 @@
   "keywords": [
     "RML",
     "YAML",
-    "Parser"
+    "parser",
+    "generator"
   ],
   "author": "Ben De Meester",
   "contributors": [
@@ -34,7 +35,8 @@
     "mocha": "^5.2.0"
   },
   "bin": {
-    "yarrrml-parser": "./bin/cli.js"
+    "yarrrml-parser": "./bin/parser.js",
+    "yarrrml-generator": "./bin/generator.js"
   },
   "repository": {
     "type": "git",
