@@ -10,7 +10,18 @@ This library allows to convert [YARRRML](https://w3id.org/yarrrml) rules to [RML
 
 ### CLI
 
+There are two CLI functions, `yarrrml-parser` and `yarrrml-generator`.
+Using the `--help` flag will show all possible commands.
+
+#### yarrrml-parser
+
 If you want to generate RML rules from a YARRRML document, you do the following: `yarrrml-parser -i rules.yml`.
+The rules will be written to standard output.
+If you want to write them to a file, you can add the `-o` option.
+
+#### yarrrml-generator
+
+If you want to generate YARRRML rules from an RML document, you do the following: `yarrrml-generator -i rules.rml.ttl`.
 The rules will be written to standard output.
 If you want to write them to a file, you can add the `-o` option.
 

@@ -1,0 +1,495 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fnml:   <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno:  <http://w3id.org/function/ontology#> .
+@base <http://example.com/base/> .
+@prefix grel:   <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+@prefix ex: <http://citadel.ilabt.imec.be/exampleontology/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<#peoplemap>
+  a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source "people.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.[*]"
+  ];
+
+  rr:subjectMap [
+    rr:template "https://citadel.ilabt.imec.be/person/{id}";
+    rr:class ex:Person
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate foaf:givenName;
+    rr:objectMap [
+      rml:reference "surname"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate foaf:familyName;
+    rr:objectMap [
+      rml:reference "name"
+    ]
+  ];;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:birthday;
+    rr:objectMap [
+      rml:reference "birthday";
+      rr:datatype xsd:date
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:sex;
+    rr:objectMap [
+      rml:reference "sex"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:email;
+    rr:objectMap [
+      rml:reference "email"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:telephone;
+    rr:objectMap [
+      rml:reference "telephone"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:province;
+    rr:objectMap [
+      rml:reference "address.province"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:city;
+    rr:objectMap [
+      rml:reference "address.city"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:zip;
+    rr:objectMap [
+      rml:reference "address.zip";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:street;
+    rr:objectMap [
+      rml:reference "address.street"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:number;
+    rr:objectMap [
+      rml:reference "address.number";
+      rr:datatype xsd:int
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:spouse;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{spouse}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:hasparent;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{parent1}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:hasparent2;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{parent2}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:haschild;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{children}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:generation;
+    rr:objectMap [
+      rml:reference "generation";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:countryofbirth;
+    rr:objectMap [
+      rml:reference "countryOfBirth"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:deceased;
+    rr:objectMap [
+      rml:reference "deceased";
+      rr:datatype xsd:date
+    ]
+  ].
+
+<#deathmap>
+  a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source "deathcertificates.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.[*]"
+  ];
+
+  rr:subjectMap [
+    rr:template "https://citadel.ilabt.imec.be/deathcertificate/{id}";
+    rr:class ex:deathcertificate
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:method;
+    rr:objectMap [
+      rml:reference "method"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:step;
+    rr:objectMap [
+      rml:reference "step";
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:score;
+    rr:objectMap [
+      rml:reference "score";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap[
+    rr:predicate ex:feedback;
+    rr:objectMap [
+      rml:reference "feedback"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:describesdeath;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{person}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:issuer;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{issuer}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:issuedate;
+    rr:objectMap [
+      rml:reference "issuedate";
+      rr:datatype xsd:date
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:deathcause;
+    rr:objectMap [
+      rml:reference "deathcause"
+    ]
+  ].
+
+<#marriagemap>
+  a rr:TriplesMap ;
+
+  rml:logicalSource [
+    rml:source "marriagecertificates.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.[*]"
+  ];
+
+  rr:subjectMap [
+    rr:template "https://citadel.ilabt.imec.be/marriagecertificate/{id}";
+    rr:class ex:marriagecertificate
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:method;
+    rr:objectMap [
+      rml:reference "method"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:step;
+    rr:objectMap [
+      rml:reference "step";
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:score;
+    rr:objectMap [
+      rml:reference "score";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:feedback;
+    rr:objectMap [
+      rml:reference "feedback"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:describesmarriage;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{person1}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:describesmarriage;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{person2}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:issuer;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{issuer}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:issuedate;
+    rr:objectMap [
+      rml:reference "issuedate";
+      rr:datatype xsd:date
+    ]
+  ].
+
+<#movemap>
+  a rr:TriplesMap ;
+
+  rml:logicalSource [
+    rml:source "movecertificates.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.[*]"
+  ];
+
+  rr:subjectMap [
+    rr:template "https://citadel.ilabt.imec.be/movecertificate/{id}";
+    rr:class ex:movecertificate
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:method;
+    rr:objectMap [
+      rml:reference "method"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:step;
+    rr:objectMap [
+      rml:reference "step";
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:score;
+    rr:objectMap [
+      rml:reference "score";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:feedback;
+    rr:objectMap [
+      rml:reference "feedback"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:issuer;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{issuer}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:oldAddress_province;
+    rr:objectMap [
+      rml:reference "oldAddress.province"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:oldAddress_city;
+    rr:objectMap [
+      rml:reference "oldAddress.city"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:oldAddress_zip;
+    rr:objectMap [
+      rml:reference "oldAddress.zip";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:oldAddress_street;
+    rr:objectMap [
+      rml:reference "oldAddress.street"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:oldAddress_number;
+    rr:objectMap [
+      rml:reference "oldAddress.number";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:newAddress_province;
+    rr:objectMap [
+      rml:reference "newAddress.province"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:newAddress_city;
+    rr:objectMap [
+      rml:reference "newAddress.city"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:newAddress_zip;
+    rr:objectMap [
+      rml:reference "newAddress.zip";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:newAddress_street;
+    rr:objectMap [
+      rml:reference "newAddress.street"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:newAddress_number;
+    rr:objectMap [
+      rml:reference "newAddress.number";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:issuedate;
+    rr:objectMap [
+      rml:reference "issuedate";
+      rr:datatype xsd:date
+    ]
+  ].
+
+<#birthmap>
+  a rr:TriplesMap ;
+
+  rml:logicalSource [
+    rml:source "birthcertificates.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.[*]"
+  ];
+
+  rr:subjectMap [
+    rr:template "https://citadel.ilabt.imec.be/birthcertificate/{id}";
+    rr:class ex:birthcertificate
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:method;
+    rr:objectMap [
+      rml:reference "method"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:step;
+    rr:objectMap [
+      rml:reference "step";
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:score;
+    rr:objectMap [
+      rml:reference "score";
+      rr:datatype xsd:int
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:feedback;
+    rr:objectMap [
+      rml:reference "feedback"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:describesbirth;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{person}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:issuer;
+    rr:objectMap [
+      rr:template "https://citadel.ilabt.imec.be/person/{issuer}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:issuedate;
+    rr:objectMap [
+      rml:reference "issuedate";
+      rr:datatype xsd:date
+    ]
+  ].
