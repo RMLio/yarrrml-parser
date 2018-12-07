@@ -10,7 +10,6 @@ const path = require('path');
 const fs = require('fs');
 const Y2R = require('../lib/yarrrml2rml.js');
 const Y2R2 = require('../lib/yarrrml2r2rml.js');
-const r2y = require('../lib/rml2yarrrml.js');
 const pkginfo = require('pkginfo');
 const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
