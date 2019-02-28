@@ -18,17 +18,17 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.11.0",
-    "extend": "^3.0.1",
-    "n3": "^1.0.0-beta.2",
+    "commander": "^2.19.0",
+    "extend": "^3.0.2",
+    "n3": "^1.0.4",
     "pkginfo": "^0.4.1",
     "prefix-ns": "^0.1.2",
     "q": "^1.5.1",
-    "rdf-ext": "^1.1.0",
-    "rdf-isomorphic": "^1.0.2",
+    "rdf-ext": "^1.2.2",
+    "rdf-isomorphic": "^1.1.0",
     "rdf-parser-n3": "^1.1.0",
     "rdf-serializer-jsonld-ext": "^1.3.0",
-    "winston": "^2.4.3",
+    "winston": "^2.4.4",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
