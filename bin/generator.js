@@ -12,7 +12,6 @@ const r2y = require('../lib/rml2yarrrml.js');
 const pkginfo = require('pkginfo');
 const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
-const logger = require('winston');
 
 namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
 
@@ -44,7 +43,7 @@ if (!program.input) {
       if (quad) {
         quads.push(quad);
       } else if (err) {
-        console.log('There is a problem with your input.');
+        console.error('There is a problem with your input.');
         process.exit(1);
       } else {
         r2y(quads, prefixes).then(str => {
@@ -67,12 +66,12 @@ if (!program.input) {
 
   } catch (e) {
     if (e.code === 'ENOENT') {
-      logger.error(`The input file ${program.input} is not found.`);
+      console.error(`The input file ${program.input} is not found.`);
     } else if (e.code === 'INVALID_YAML') {
-      logger.error(`The input file contains invalid YAML.`);
-      logger.error(`line ${e.parsedLine}: ${e.message}`);
+      console.error(`The input file contains invalid YAML.`);
+      console.error(`line ${e.parsedLine}: ${e.message}`);
     } else {
-      logger.error(e);
+      console.error(e);
     }
   }
 }

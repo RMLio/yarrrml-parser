@@ -14,7 +14,6 @@ const pkginfo = require('pkginfo');
 const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
 const watch = require('../lib/watcher.js');
-const logger = require('winston');
 
 namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
 
@@ -67,7 +66,7 @@ if (!program.input) {
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
       }
 
-      const writer = N3.Writer({prefixes});
+      const writer = new N3.Writer({prefixes});
 
       writer.addQuads(triples);
       writer.end((error, result) => {
@@ -88,12 +87,12 @@ if (!program.input) {
 
     } catch (e) {
       if (e.code === 'ENOENT') {
-        logger.error(`The input file ${program.input} is not found.`);
+        console.error(`The input file ${program.input} is not found.`);
       } else if (e.code === 'INVALID_YAML') {
-        logger.error(`The input file contains invalid YAML.`);
-        logger.error(`line ${e.parsedLine}: ${e.message}`);
+        console.error(`The input file contains invalid YAML.`);
+        console.error(`line ${e.parsedLine}: ${e.message}`);
       } else {
-        logger.error(e);
+        console.error(e);
       }
     }
   } else {
