@@ -1,6 +1,6 @@
 {
   "name": "@rmlio/yarrrml-parser",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Parse YARRRML descriptions into RML RDF statements",
   "main": "lib/yarrrml2rml.js",
   "scripts": {
