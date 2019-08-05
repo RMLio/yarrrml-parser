@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## Added
+- Support templates on predicates
+
 ## [0.3.4] - 2019-08-05
 
 ### Adding
