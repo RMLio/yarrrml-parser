@@ -1,0 +1,10 @@
+prefixes:
+  ex: "http://example.com/"
+
+mappings:
+  nodes:
+    sources:
+      - [track_metadata.xml~xpath, /osm/node]
+    s: "ex:node/$(@id)"
+    po:
+      - ["ex:test$(@id)", "$(tag/@v)"]
