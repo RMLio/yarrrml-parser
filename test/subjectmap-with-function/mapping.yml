@@ -1,0 +1,14 @@
+prefixes:
+  ex: http://example.com/
+
+mappings:
+  person:
+    sources:
+      - [data/test.csv~csv]
+    s:
+      - function: ex:doSomething
+        parameters:
+          - [ex:preferred,  $(p)]
+          - [ex:alternative, ex:$(a)]
+    po:
+      - [a, ex:Person]
