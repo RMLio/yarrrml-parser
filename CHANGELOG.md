@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- Support one function on subjects directly (= no need to put it in an array)
+
 ## [0.3.5] - 2019-08-05
 
 ## Added
