@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- Support function shortcut **TODO** add link spec
+
 ## [0.3.5] - 2019-08-05
 
 ## Added
