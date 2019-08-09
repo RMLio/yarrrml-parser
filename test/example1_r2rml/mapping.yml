@@ -1,12 +1,11 @@
 prefixes:
  mail: "http://example.com/mail#"
  ex: "http://www.example.com/"
- 
+
 sources:
   source1:
-    access: example
+    table: example
     queryFormulation: mysql
-    query: "*"
 mappings:
   FromToMaps:
     sources: source1

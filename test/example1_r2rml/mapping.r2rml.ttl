@@ -11,7 +11,6 @@
 :source_0 a rr:LogicalTable;
     rdfs:label "source1";
     rr:tableName "example";
-    rr:sqlQuery "*";
     rr:sqlVersion rr:MySQL.
 :map_FromToMaps_0 rr:logicalTable :source_0;
     a rr:TriplesMap;
