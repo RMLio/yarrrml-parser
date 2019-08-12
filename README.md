@@ -15,9 +15,12 @@ Using the `--help` flag will show all possible commands.
 
 #### yarrrml-parser
 
-If you want to generate RML rules from a YARRRML document, you do the following: `yarrrml-parser -i rules.yml`.
+If you want to generate RML rules from a YARRRML document, 
+you do the following: `yarrrml-parser -i rules.yml`.
 The rules will be written to standard output.
 If you want to write them to a file, you can add the `-o` option.
+By default RML rules are generated,
+if you want to generate R2RML rules add `-f R2RML`.
 
 #### yarrrml-generator
 
@@ -30,7 +33,7 @@ If you want to write them to a file, you can add the `-o` option.
 `npm i --save @rmlio/yarrrml-parser`
 
 ```
-let yarrrml = require('@rmlio/yarrrml-parser/lib/yarrrml2rml');
+let yarrrml = require('@rmlio/yarrrml-parser/lib/rml-generator');
 
 const yaml = "[yarrrml string]";
 const y2r = new yarrrml();
