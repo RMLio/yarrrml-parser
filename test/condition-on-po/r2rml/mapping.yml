@@ -1,0 +1,18 @@
+prefixes:
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+  idlab-fn: http://example.com/idlab/function/
+
+mappings:
+  person:
+    sources:
+     - table: test
+       queryFormulation: mysql
+    subject: http://example.org/$(firstname)
+    predicateobjects:
+     - predicates: foaf:firstName
+       objects: $(firstname)
+       condition:
+        function: idlab-fn:equal
+        parameters:
+         - [grel:valueParameter, $(firstname)]
+         - [grel:valueParameter2, "test"]
