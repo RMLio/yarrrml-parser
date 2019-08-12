@@ -171,8 +171,12 @@
 :pm_14 a rr:PredicateMap.
 :pom_14 rr:predicateMap :pm_14.
 :pm_14 rr:constant crm:P62_depicts.
-:pom_14 rr:objectMap :om_14;
-    a rr:TriplesMap;
+:pom_14 rr:objectMap :om_14.
+:map_WikipediaExportMapping_0 rr:logicalTable :source_3.
+:source_3 a rr:LogicalTable;
+    rr:tableName "moon-walkers";
+    rr:sqlVersion rr:MySQL.
+:map_WikipediaExportMapping_0 a rr:TriplesMap;
     rdfs:label "WikipediaExportMapping".
 :s_5 a rr:SubjectMap.
 :map_WikipediaExportMapping_0 rr:subjectMap :s_5.

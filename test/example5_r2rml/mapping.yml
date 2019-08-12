@@ -63,7 +63,9 @@ mappings:
        o:
          mapping: SitterMapping
   WikipediaExportMapping:
-    source: src/test/resources/example5/moon-walkers.csv
+    source:
+      - table: moon-walkers
+        queryFormulation: mysql
     subject: "http://ex.com/$(Name)"
     classes: crm:E21_Person
     predicateobjects:
