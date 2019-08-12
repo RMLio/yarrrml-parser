@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- Tests for R2RML
+
+### Fixed
+- Names of classes and files
+
 ## [0.3.5] - 2019-08-05
 
 ## Added
