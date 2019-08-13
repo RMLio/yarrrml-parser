@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - Names of classes and files
+- Support one function on subjects directly (= no need to put it in an array)
+- Datatype on function result (see [issue 12](https://github.com/RMLio/yarrrml-parser/issues/12))
 
 ## [0.3.6] - 2019-08-12
 
