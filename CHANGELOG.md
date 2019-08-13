@@ -10,6 +10,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Support function shortcut **TODO** add link spec
 
+### Fixed
+- Support one function on subjects directly (= no need to put it in an array)
+- Datatype on function result (see [issue 12](https://github.com/RMLio/yarrrml-parser/issues/12))
+
+## [0.3.6] - 2019-08-12
+
+### Fixed
+- Condition and function on the same predicate object (see [issue 17](https://github.com/RMLio/yarrrml-parser/issues/17))
+
 ## [0.3.5] - 2019-08-05
 
 ## Added
@@ -88,6 +97,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[0.3.6]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.5...v0.3.6
 [0.3.5]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.4...v0.3.5
 [0.3.4]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.2...v0.3.3
