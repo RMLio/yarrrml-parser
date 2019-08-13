@@ -1,0 +1,12 @@
+prefixes:
+  ex: http://example.com/
+
+mappings:
+  student:
+    sources:
+      - table: Student
+    s: http://example.com/$(ID)/$(Name)
+    po:
+      - [a, foaf:Person]
+      - [ex:id, $(ID)]
+      - [foaf:name, $(Name)]

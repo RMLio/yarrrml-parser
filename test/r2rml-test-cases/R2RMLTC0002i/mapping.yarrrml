@@ -1,0 +1,11 @@
+mappings:
+  student:
+    sources:
+      - query: |
+          SELECT "ID",
+                 "Name"
+          FROM "Student"
+        queryFormulation: sql2008
+    s: http://example.com/$(ID)/$(Name)
+    po:
+      - [foaf:name, $(Name)]

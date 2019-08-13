@@ -1,0 +1,24 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
+@prefix fno: <http://w3id.org/function/ontology#>.
+@prefix : <http://mapping.example.com/>.
+
+:map_student_0 rr:logicalTable :source_0.
+:source_0 a rr:LogicalTable;
+    rr:sqlQuery "Select ('Student' || \"ID\" ) AS StudentId , \"ID\" , \"Name\" from \"Student\" ".
+:map_student_0 a rr:TriplesMap;
+    rdfs:label "student".
+:s_0 a rr:SubjectMap.
+:map_student_0 rr:subjectMap :s_0.
+:s_0 rr:termType rr:BlankNode.
+:pom_0 a rr:PredicateObjectMap.
+:map_student_0 rr:predicateObjectMap :pom_0.
+:pm_0 a rr:PredicateMap.
+:pom_0 rr:predicateMap :pm_0.
+:pm_0 rr:constant <http://xmlns.com/foaf/0.1/name>.
+:pom_0 rr:objectMap :om_0.
+:om_0 a rr:ObjectMap;
+    rr:column "Name";
+    rr:termType rr:Literal.
