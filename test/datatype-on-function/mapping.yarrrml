@@ -1,0 +1,13 @@
+prefixes:
+  ex: http://example.com/
+  grel: http://example.com/grel/
+
+mappings:
+  application:
+    po:
+      - p: ex:numberOfApplications
+        o:
+          - function: grel:trim
+            parameters:
+              - [grel:valueParameter, $(Number of applications)]
+            datatype: xsd:int
