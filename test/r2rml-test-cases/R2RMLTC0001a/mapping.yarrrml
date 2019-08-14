@@ -1,0 +1,7 @@
+mappings:
+  student:
+    sources:
+      - table: Student
+    s: http://example.com/$(Name)
+    po:
+      - [foaf:name, $(Name)]

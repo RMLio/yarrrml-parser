@@ -1,0 +1,10 @@
+mappings:
+  student:
+    sources:
+      - query: >
+          Select ('Student' || "ID" ) AS StudentId
+          , "ID"
+          , "Name"
+          from "Student"
+    po:
+      - [foaf:name, $(Name)]

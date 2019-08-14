@@ -1,0 +1,17 @@
+prefixes:
+  wgs84_pos: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  gn: "http://www.geonames.org/ontology#"
+  geosp: "http://www.telegraphis.net/ontology/geography/geography#"
+
+mappings:
+  venue:
+    sources:
+      - table: Venue4
+        queryFormulation: mysql
+    subjects: "http://loc.example.com/city/$(city)"
+    po:
+     - [a, schema:City]
+     - [wgs84_pos:lat,$(latitude)]
+     - [wgs84_pos:long, $(longtitude)]
+     - [geosp:onContinent, $(continent)]
+     - [gn:countryCode,$(country)]

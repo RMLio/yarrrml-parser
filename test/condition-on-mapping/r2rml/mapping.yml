@@ -1,0 +1,17 @@
+prefixes:
+  idlab-fn: http://example.com/idlab/function/
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+
+mappings:
+  test:
+    sources:
+      - table: test
+        queryFormulation: mysql
+    s: http://example.com/$(id)
+    condition:
+      function: idlab-fn:equal
+      parameters:
+        - [grel:valueParameter, $(id)]
+        - [grel:valueParameter2, 1]
+    po:
+      - [a, http://example.com/Test]
