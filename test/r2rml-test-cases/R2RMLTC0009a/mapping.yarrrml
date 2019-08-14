@@ -1,0 +1,21 @@
+mappings:
+  student:
+    sources:
+      - table: Student
+    s: http://example.com/resource/student_$(ID)
+    po:
+      - [foaf:name, $(Name)]
+      - p: http://example.com/ontology/practises
+        o:
+          mapping: sport
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(Sport)]
+              - [str2, $(Name)]
+  sport:
+    sources:
+      - table: Sport
+    s: http://example.com/resource/sport_$(ID)
+    po:
+      - [rdfs:label, $(Name)]
