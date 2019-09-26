@@ -1,0 +1,7 @@
+mappings:
+  person:
+    sources:
+     - ["person.csv~csv"]
+    s: $(id)\:\:number
+    po:
+      - [a, schema:Person]
