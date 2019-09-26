@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [0.3.8] - 2019-09-26
+
+### Fixed
+- Not all escaped characters were considered when expanding prefix (see [issue 23](https://github.com/RMLio/yarrrml-parser/issues/23))
+
 ## [0.3.7] - 2019-08-14
 
 ### Added
@@ -101,6 +106,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[0.3.8]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.7...v0.3.8
 [0.3.7]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.6...v0.3.7
 [0.3.6]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.5...v0.3.6
 [0.3.5]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.4...v0.3.5
