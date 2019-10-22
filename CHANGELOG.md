@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [0.3.9] - 2019-10-22
+
 ### Fixed
 - Restore escaped colons (see [issue 25](https://github.com/RMLio/yarrrml-parser/issues/25))
 
@@ -109,6 +111,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[0.3.9]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.8...v0.3.9
 [0.3.8]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.7...v0.3.8
 [0.3.7]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.6...v0.3.7
 [0.3.6]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.5...v0.3.6
