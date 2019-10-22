@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- Restore escaped colons (see [issue 25](https://github.com/RMLio/yarrrml-parser/issues/25))
+
 ## [0.3.8] - 2019-09-26
 
 ### Fixed
