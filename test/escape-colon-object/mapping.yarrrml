@@ -1,0 +1,11 @@
+prefixes:
+  ex: http://example.com/
+  n1: http://n1.com/
+mappings:
+  person:
+    sources:
+      - [test.csv~csv]
+    s: http://example.com/$(id)
+    po:
+      - p: ex:name
+        o: n1:$(name)/test\:hello
