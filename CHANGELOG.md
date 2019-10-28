@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- Escape brackets (see [issue 27](https://github.com/RMLio/yarrrml-parser/issues/27))
+
 ## [0.3.9] - 2019-10-22
 
 ### Fixed
