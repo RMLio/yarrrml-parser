@@ -1,0 +1,11 @@
+mappings:
+  person:
+    sources:
+      - [test.csv~csv]
+    condition:
+      function: idlab-fn:notEqual
+      parameters:
+        - [grel:valueParameter, $(id)]
+        - [grel:valueParameter2, ""]
+    po:
+      - [a, schema:Person]
