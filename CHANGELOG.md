@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- Object is number (see [issue 32](https://github.com/RMLio/yarrrml-parser/issues/32))
+
 ## [0.3.10] - 2019-10-28
 
 ### Fixed
