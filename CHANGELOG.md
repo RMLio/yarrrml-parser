@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Unreleased
 
 ### Added
-- Support for RDBs via D2RQ
+- Support for RDBs via D2RQ (see [issue 38](https://github.com/RMLio/yarrrml-parser/issues/38))
 
 ## [0.3.11] - 2019-12-02
 
