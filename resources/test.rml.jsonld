@@ -2,7 +2,7 @@
   "@context": {
     "rr": "http://www.w3.org/ns/r2rml#",
     "rml": "http://semweb.mmlab.be/ns/rml#",
-    "fno": "http://w3id.org/function/ontology#",
+    "fno": "https://w3id.org/function/ontology#",
     "ql": "http://semweb.mmlab.be/ns/ql#",
     "fnml": "http://semweb.mmlab.be/ns/fnml#",
     "dbf": "http://dbpedia.org/function/"

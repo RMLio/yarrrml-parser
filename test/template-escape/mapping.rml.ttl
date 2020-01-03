@@ -30,7 +30,7 @@ map:pm_1 a rr:PredicateMap;
     rr:constant <http://example.com/idlab/functions/string/valueParameter>.
 map:pm_2 rr:constant <http://example.com/idlab/functions/string/mappingParameter>;
     a rr:PredicateMap.
-map:pmexec_0 rr:constant <http://w3id.org/function/ontology#executes>.
+map:pmexec_0 rr:constant <https://w3id.org/function/ontology#executes>.
 map:pom_0 rr:objectMap map:om_0;
     a rr:PredicateObjectMap;
     rr:predicateMap map:pm_0.
