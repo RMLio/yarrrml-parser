@@ -18,20 +18,20 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.20.0",
+    "commander": "^2.20.3",
     "extend": "^3.0.2",
-    "n3": "^1.0.5",
+    "n3": "^1.3.5",
     "pkginfo": "^0.4.1",
     "prefix-ns": "^0.1.2",
     "q": "^1.5.1",
-    "rdf-ext": "^1.2.2",
+    "rdf-ext": "^1.3.0",
     "rdf-isomorphic": "^1.1.0",
     "rdf-parser-n3": "^1.1.0",
     "rdf-serializer-jsonld-ext": "^1.3.0",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "mocha": "^6.1.4"
+    "mocha": "^6.2.2"
   },
   "bin": {
     "yarrrml-parser": "./bin/parser.js",
