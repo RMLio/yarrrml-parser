@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- Support for RDBs via D2RQ (see [issue 36](https://github.com/RMLio/yarrrml-parser/issues/36))
+
+### Fixed
+- FnO namespace
+
 ## [0.3.11] - 2019-12-02
 
 ### Fixed

@@ -2,7 +2,7 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix fnml:   <http://semweb.mmlab.be/ns/fnml#> .
-@prefix fno:  <http://w3id.org/function/ontology#> .
+@prefix fno:  <https://w3id.org/function/ontology#> .
 @base <http://example.com/base/> .
 @prefix grel:   <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
 @prefix ex: <http://citadel.ilabt.imec.be/exampleontology/> .

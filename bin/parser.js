@@ -48,7 +48,8 @@ if (!program.input) {
         rdf: namespaces.rdf,
         rdfs: namespaces.rdfs,
         fnml: "http://semweb.mmlab.be/ns/fnml#",
-        fno: "http://w3id.org/function/ontology#"
+        fno: "https://w3id.org/function/ontology#",
+        d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
       };
 
       if (!program.format || program.format === 'RML') {

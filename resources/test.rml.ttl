@@ -14,7 +14,7 @@ _:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/r2r
 _:b1 <http://www.w3.org/ns/r2rml#objectMap> <http://test.example.com/ftm0> .
 _:b1 <http://www.w3.org/ns/r2rml#predicate> <http://dbpedia.org/ontology/anthem> .
 _:b2 <http://www.w3.org/ns/r2rml#objectMap> _:b3 .
-_:b2 <http://www.w3.org/ns/r2rml#predicate> <http://w3id.org/function/ontology#executes> .
+_:b2 <http://www.w3.org/ns/r2rml#predicate> <https://w3id.org/function/ontology#executes> .
 _:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/r2rml#ObjectMap> .
 _:b3 <http://www.w3.org/ns/r2rml#constant> <http://dbpedia.org/function/simplePropertyFunction> .
 _:b4 <http://www.w3.org/ns/r2rml#objectMap> _:b5 .
@@ -25,7 +25,7 @@ _:b6 <http://www.w3.org/ns/r2rml#objectMap> _:b7 .
 _:b6 <http://www.w3.org/ns/r2rml#predicate> <http://dbpedia.org/function/propertyParameter> .
 _:b7 <http://semweb.mmlab.be/ns/rml#reference> "national_anthem" .
 _:b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/r2rml#ObjectMap> .
-_:b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://w3id.org/function/ontology#Execution> .
+_:b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Execution> .
 _:b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/r2rml#SubjectMap> .
 _:b9 <http://www.w3.org/ns/r2rml#constant> "http://en.dbpedia.org/resource/{{wikititle}}" .
 _:b9 <http://www.w3.org/ns/r2rml#termType> <http://www.w3.org/ns/r2rml#IRI> .

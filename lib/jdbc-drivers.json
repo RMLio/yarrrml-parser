@@ -1,0 +1,7 @@
+{
+  "oracle": "oracle.jdbc.driver.OracleDriver",
+  "mysql": "com.mysql.cj.jdbc.Driver",
+  "postgresql": "org.postgresql.Driver",
+  "mssql": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+  "db2": "com.ibm.as400.access.AS400JDBCDriver"
+}
