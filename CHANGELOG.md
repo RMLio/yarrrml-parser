@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- Joining on equal condition with constant value (see [issue 39](https://github.com/RMLio/yarrrml-parser/issues/39))
+
 ## [1.0.0] - 2020-01-06
 
 ### Added
