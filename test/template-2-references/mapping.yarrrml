@@ -1,0 +1,7 @@
+mappings:
+  person:
+    sources:
+      - [test.csv~csv]
+    s: http://example.com/$(id)_$(name)
+    po:
+      - [a, schema:Person]
