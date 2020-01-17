@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.0.2] - 2020-01-17
+
 ### Added
 - Test for subject with two references in template
 - Issue templates (see [issue 43](https://github.com/RMLio/yarrrml-parser/issues/43))
@@ -141,6 +143,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.0.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.11...v1.0.0
 [0.3.11]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.10...v0.3.11
