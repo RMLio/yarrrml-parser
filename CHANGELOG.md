@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Test for subject with two references in template
+- Issue templates (see [issue 43](https://github.com/RMLio/yarrrml-parser/issues/43))
 
 ### Fixed
 - Join condition with two references in child/parent is incorrectly parsed (see [issue 44](https://github.com/RMLio/yarrrml-parser/issues/44))
