@@ -1,0 +1,20 @@
+mappings:
+  person:
+    sources:
+      - [test.csv~csv]
+    s: http://example.com/person/$(id)
+    po:
+      - p: schema:creator
+        o:
+          mapping: project
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(id)_, s]
+              - [str2, $(id), o]
+  project:
+    sources:
+      - [test.csv~csv]
+    s: http://example.com/project/$(id)
+    po:
+      - [a, schema:Project]
