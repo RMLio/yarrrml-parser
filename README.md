@@ -45,7 +45,7 @@ const triples = y2r.convert(yaml);
 - Clone this repo.
 - Install the dependencies via `npm i`
 - Update code, if needed.
-- Run tests via `npm test`
+- Run the tests via `npm test`
 - Make the [CLI](#cli) (based on the code in the cloned repo)
 available system-wide via `npm link` (optional).
 
