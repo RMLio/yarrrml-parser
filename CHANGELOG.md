@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- Issue template for question (see [issue 48](https://github.com/RMLio/yarrrml-parser/issues/48))
+
 ## [1.0.2] - 2020-01-17
 
 ### Added
