@@ -5,9 +5,9 @@ prefixes:
 mappings:
   person:
     sources:
-    - [data.csv~csv]
+      - [data.csv~csv]
     s: http://example.com/$(id)
     po:
       - p: schema:name
         o:
-         - function: grel:toUpperCase(valueParameter:: $(name))
+         - function: grel:toUpperCase(grel:valueParameter = $(name))
