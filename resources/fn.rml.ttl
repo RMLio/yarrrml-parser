@@ -34,7 +34,7 @@
 <http://mapping.example.com/9> rml:logicalSource <http://mapping.example.com/1>;
     rr:predicateObjectMap <http://mapping.example.com/10>.
 <http://mapping.example.com/10> rr:predicateMap <http://mapping.example.com/11>.
-<http://mapping.example.com/11> rr:constant <http://w3id.org/function/ontology#executes>.
+<http://mapping.example.com/11> rr:constant <https://w3id.org/function/ontology#executes>.
 <http://mapping.example.com/10> rr:objectMap <http://mapping.example.com/12>.
 <http://mapping.example.com/12> rr:constant "http://example.com#7MyFunction".
 <http://mapping.example.com/9> rr:predicateObjectMap <http://mapping.example.com/13>.

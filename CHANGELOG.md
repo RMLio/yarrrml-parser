@@ -8,11 +8,65 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Unreleased
 
 ### Added
-- Support function shortcut **TODO** add link spec
+- Issue template for question (see [issue 48](https://github.com/RMLio/yarrrml-parser/issues/48))
+- Explain how to install locally for development (see [issue 45](https://github.com/RMLio/yarrrml-parser/issues/45))
 
 ### Fixed
+- Function with empty parameter list works, but without parameters doesn't get parsed properly  (see [issue 53](https://github.com/RMLio/yarrrml-parser/issues/53))
+- Add quotes around rules specific part in error/warning message  (see [issue 52](https://github.com/RMLio/yarrrml-parser/issues/52))
+
+## [1.0.2] - 2020-01-17
+
+### Added
+- Test for subject with two references in template
+- Issue templates (see [issue 43](https://github.com/RMLio/yarrrml-parser/issues/43))
+
+### Fixed
+- Join condition with two references in child/parent is incorrectly parsed (see [issue 44](https://github.com/RMLio/yarrrml-parser/issues/44))
+
+## [1.0.1] - 2020-01-10
+
+### Fixed
+- Joining on equal condition with constant value (see [issue 39](https://github.com/RMLio/yarrrml-parser/issues/39))
+
+## [1.0.0] - 2020-01-06
+
+### Added
+- Support for RDBs via D2RQ (see [issue 36](https://github.com/RMLio/yarrrml-parser/issues/36))
+
+### Fixed
+- FnO namespace
+
+## [0.3.11] - 2019-12-02
+
+### Fixed
+- Object is number (see [issue 32](https://github.com/RMLio/yarrrml-parser/issues/32))
+
+## [0.3.10] - 2019-10-28
+
+### Fixed
+- Escape brackets (see [issue 27](https://github.com/RMLio/yarrrml-parser/issues/27))
+
+## [0.3.9] - 2019-10-22
+
+### Fixed
+- Restore escaped colons (see [issue 25](https://github.com/RMLio/yarrrml-parser/issues/25))
+
+## [0.3.8] - 2019-09-26
+
+### Fixed
+- Not all escaped characters were considered when expanding prefix (see [issue 23](https://github.com/RMLio/yarrrml-parser/issues/23))
+
+## [0.3.7] - 2019-08-14
+
+### Added
+- Tests for R2RML
+
+### Fixed
+- Names of classes and files
 - Support one function on subjects directly (= no need to put it in an array)
 - Datatype on function result (see [issue 12](https://github.com/RMLio/yarrrml-parser/issues/12))
+- Condition on a single object (see [issue 21](https://github.com/RMLio/yarrrml-parser/issues/21))
 
 ## [0.3.6] - 2019-08-12
 
@@ -97,6 +151,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.0.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.11...v1.0.0
+[0.3.11]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.10...v0.3.11
+[0.3.10]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.9...v0.3.10
+[0.3.9]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.8...v0.3.9
+[0.3.8]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.7...v0.3.8
+[0.3.7]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.6...v0.3.7
 [0.3.6]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.5...v0.3.6
 [0.3.5]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.4...v0.3.5
 [0.3.4]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.3...v0.3.4

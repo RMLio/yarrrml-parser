@@ -15,9 +15,12 @@ Using the `--help` flag will show all possible commands.
 
 #### yarrrml-parser
 
-If you want to generate RML rules from a YARRRML document, you do the following: `yarrrml-parser -i rules.yml`.
+If you want to generate RML rules from a YARRRML document,
+you do the following: `yarrrml-parser -i rules.yml`.
 The rules will be written to standard output.
 If you want to write them to a file, you can add the `-o` option.
+By default RML rules are generated,
+if you want to generate R2RML rules add `-f R2RML`.
 
 #### yarrrml-generator
 
@@ -30,12 +33,21 @@ If you want to write them to a file, you can add the `-o` option.
 `npm i --save @rmlio/yarrrml-parser`
 
 ```
-let yarrrml = require('@rmlio/yarrrml-parser/lib/yarrrml2rml');
+let yarrrml = require('@rmlio/yarrrml-parser/lib/rml-generator');
 
 const yaml = "[yarrrml string]";
 const y2r = new yarrrml();
 const triples = y2r.convert(yaml);
 ```
+
+## Development
+
+- Clone this repo.
+- Install the dependencies via `npm i`
+- Update code, if needed.
+- Run the tests via `npm test`
+- Make the [CLI](#cli) (based on the code in the cloned repo)
+available system-wide via `npm link` (optional).
 
 ## License
 This code is copyrighted by [Ghent University – imec](http://idlab.ugent.be/) and released under the [MIT license](http://opensource.org/licenses/MIT).

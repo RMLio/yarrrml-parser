@@ -1,0 +1,7 @@
+mappings:
+  person:
+    sources:
+      - ['input.csv~csv']
+    s: http://example.com/$((test\))
+    po:
+      - [a, foaf:Person]

@@ -1,0 +1,76 @@
+prefixes:
+  crm: "http://www.cidoc-crm.org/cidoc-crm/"
+  ex: http://example.org/
+
+sources:
+  museum_source:
+    table: museum
+    queryFormulation: mysql
+  museum_sitter_source:
+    table: museumSitters
+    queryFormulation: mysql
+  museum_sitter_source2:
+    table: museumSitter
+    queryFormulation: mysql
+
+mappings:
+  ArtistMapping:
+    sources: museum_source
+    subjects: "http://ex.com/$(Artist)"
+    predicateobjects:
+     - [a, crm:E21_Person]
+     - [rdfs:label,$(Artist)]
+     - p: crm:P143_carried_out_by
+       o:
+         mapping: MoonWalkerMapping
+         condition:
+           function: equal
+           parameters:
+             - [str1, $(Artist)]
+             - [str2, $(Name)]
+  MoonWalkerMapping:
+    sources: museum_sitter_source
+    subjects: "http://ex.com/$(Name)"
+    predicateobjects:
+     - [a, crm:E21_Person]
+     - [rdfs:label, $(Name)]
+  SitterMapping:
+    sources: museum_sitter_source2
+    subjects: "http://ex.com/$(Name)"
+    predicateobjects:
+     - [a, crm:E21_Person]
+     - [rdfs:label, $(Name)]
+  ProductionMapping:
+    source: museum_source
+    subject: "http://ex.com/Production/$(Ref)"
+    predicateobjects:
+     - [a, crm:E21_Production]
+     - [crm:P82_at_some_time_within, $(DateOfWork)]
+     - p: crm:P14_carried_out_by
+       o:
+         mapping: ArtistMapping
+     - p: crm:P108_has_produced
+       o:
+         mapping: ArtworkMapping
+  ArtworkMapping:
+    source: museum_source
+    subject: "http://ex.com/{Ref}"
+    predicateobjects:
+     - [a, crm:E22_Made-Made_Object]
+     - [crm:P102_has_title, $(Title)]
+     - [crm:P48_has_preferred_identifier,$(Ref)]
+     - p: crm:P62_depicts
+       o:
+         mapping: SitterMapping
+  WikipediaExportMapping:
+    source:
+      - table: moon-walkers
+        queryFormulation: mysql
+    subject: "http://ex.com/$(Name)"
+    classes: crm:E21_Person
+    predicateobjects:
+     - [ex:birthday,$(Birth Date),xsd:date]
+     - [ex:deathday,$(Death Date),xsd:date]
+     - [ex:evaday,$(EVA Date),xsd:date]
+     - [ex:service,$(Service)]
+

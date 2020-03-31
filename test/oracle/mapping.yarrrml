@@ -1,0 +1,21 @@
+prefixes:
+  rc: "http://example.com/"
+  rd: "https://example.org/"
+  idlab-fn: http://example.com/idlab/function/
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+
+mappings:
+
+  human_resources:
+    sources:
+      - access: //1.2.3.4:6789
+        type: oracle
+        credentials:
+          username: TEST
+          password: test
+        queryFormulation: sql2008
+        query: SELECT * from OUR_TABLE
+        referenceFormulation: csv
+    s: rd:person_$(ID)
+    po:
+      - [a, rc:Person]

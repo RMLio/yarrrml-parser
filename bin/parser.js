@@ -8,8 +8,8 @@
 const program = require('commander');
 const path = require('path');
 const fs = require('fs');
-const Y2R = require('../lib/yarrrml2rml.js');
-const Y2R2 = require('../lib/yarrrml2r2rml.js');
+const Y2R = require('../lib/rml-generator.js');
+const Y2R2 = require('../lib/r2rml-generator.js');
 const pkginfo = require('pkginfo');
 const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
@@ -48,7 +48,8 @@ if (!program.input) {
         rdf: namespaces.rdf,
         rdfs: namespaces.rdfs,
         fnml: "http://semweb.mmlab.be/ns/fnml#",
-        fno: "http://w3id.org/function/ontology#"
+        fno: "https://w3id.org/function/ontology#",
+        d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
       };
 
       if (!program.format || program.format === 'RML') {

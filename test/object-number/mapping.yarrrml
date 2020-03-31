@@ -1,0 +1,7 @@
+mappings:
+  person:
+    source:
+      - [test.csv~csv]
+    po:
+      - [schema:test, 2]
+      - [schema:test2, 2.1]
