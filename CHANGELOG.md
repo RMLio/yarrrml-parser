@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - Function with empty parameter list works, but without parameters doesn't get parsed properly  (see [issue 53](https://github.com/RMLio/yarrrml-parser/issues/53))
+- Add quotes around rules specific part in error/warning message  (see [issue 52](https://github.com/RMLio/yarrrml-parser/issues/52))
 
 ## [1.0.2] - 2020-01-17
 
