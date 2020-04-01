@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Issue template for question (see [issue 48](https://github.com/RMLio/yarrrml-parser/issues/48))
 - Explain how to install locally for development (see [issue 45](https://github.com/RMLio/yarrrml-parser/issues/45))
+- Add function shortcut (see [issue 57](https://github.com/RMLio/yarrrml-parser/issues/57))
 
 ### Fixed
 - Function with empty parameter list works, but without parameters doesn't get parsed properly  (see [issue 53](https://github.com/RMLio/yarrrml-parser/issues/53))
