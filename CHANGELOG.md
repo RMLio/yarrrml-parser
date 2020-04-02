@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.1.0] - 2020-04-02
+
 ### Added
 - Issue template for question (see [issue 48](https://github.com/RMLio/yarrrml-parser/issues/48))
 - Explain how to install locally for development (see [issue 45](https://github.com/RMLio/yarrrml-parser/issues/45))
@@ -152,6 +154,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.1.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.11...v1.0.0
