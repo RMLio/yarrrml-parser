@@ -32,7 +32,7 @@ If you want to write them to a file, you can add the `-o` option.
 
 `npm i --save @rmlio/yarrrml-parser`
 
-```
+```javascript
 let yarrrml = require('@rmlio/yarrrml-parser/lib/rml-generator');
 
 const yaml = "[yarrrml string]";
@@ -51,7 +51,7 @@ available system-wide via `npm link` (optional).
 
 ## Docker
 
-Run (from DockerHub):
+Run (from [DockerHub](https://hub.docker.com/repository/docker/umids/yarrrml-parser)):
 
 ```bash
 docker run --rm -it -v $(pwd)/resources:/app umids/yarrrml-parser:latest -i /app/test.yarrr.yml
