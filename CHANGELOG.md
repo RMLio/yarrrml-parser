@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- equal shortcut does not work everywhere  (see [issue 51](https://github.com/RMLio/yarrrml-parser/issues/51))
+
 ## [1.1.0] - 2020-04-02
 
 ### Added
