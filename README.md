@@ -54,7 +54,7 @@ available system-wide via `npm link` (optional).
 Run (from [DockerHub](https://hub.docker.com/repository/docker/umids/yarrrml-parser)):
 
 ```bash
-docker run --rm -it -v $(pwd)/resources:/app umids/yarrrml-parser:latest -i /app/test.yarrr.yml
+docker run --rm -it -v $(pwd)/resources:/data umids/yarrrml-parser:latest -i /data/test.yarrr.yml
 ```
 
 Build from source:

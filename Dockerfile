@@ -2,7 +2,9 @@ FROM node:12-alpine
 
 WORKDIR /app
 
-RUN npm i -g @rmlio/yarrrml-parser
+ADD . .
+
+RUN npm install -g .
 
 ENTRYPOINT ["yarrrml-parser"]
 CMD ["-h"]
