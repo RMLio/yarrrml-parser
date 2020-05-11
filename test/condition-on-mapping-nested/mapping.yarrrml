@@ -1,0 +1,37 @@
+prefixes:
+  ex: http://example.com#
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+  idlab-fn: "http://example.com/idlab/function/"
+
+mappings:
+  myMapping:
+    sources:
+      - ["data.csv~csv"]
+    s: ex:$(ID)
+    po:
+      - [a, ex:Person]
+      - p: ex:isFriendsWith
+        o:
+          - mapping: myOtherMapping
+            condition:
+              function: grel:boolean_and
+              parameters:
+                - parameter: grel:param_rep_b
+                  value:
+                    function: idlab-fn:equal
+                    parameters:
+                      - [grel:valueParameter, "$(otherID)", s]
+                      - [grel:valueParameter2, "$(friendID)", o]
+                - parameter: grel:param_rep_b
+                  value:
+                    mapping: myOtherMapping
+                    function: idlab-fn:equal
+                    parameters:
+                      - [grel:valueParameter, "$(name)", s]
+                      - [grel:valueParameter2, "$(friendName)", o]
+  myOtherMapping:
+    sources:
+      - ["data2.csv~csv"]
+    s: http://example.com#heroes_$(ID)
+    po:
+      - [a, ex:Hero]
