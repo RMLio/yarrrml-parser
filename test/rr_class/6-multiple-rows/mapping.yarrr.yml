@@ -1,0 +1,17 @@
+prefixes:
+  mail: "http://example.com/mail#"
+  ex: "http://www.example.com/"
+
+sources:
+  source1:
+    access: src/test/resources/example1/example1.xml
+    referenceFormulation: xpath #~xpath or xquery
+    iterator: /notes/note
+
+mappings:
+  example:
+    sources: source1
+    subjects: "http://www.example.com/note/$(@id)" #~iri (default, only option actually); if no subject is given, we are dealing with a blank node
+    predicateobjects:
+      - [a, mail:Note]
+      - [a, ex:Note]
