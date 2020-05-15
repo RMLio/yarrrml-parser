@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+
+- rr:class flag (see [issue 73](https://github.com/RMLio/yarrrml-parser/issues/73))
+
 ## [1.1.1] - 2020-05-11
 
 ### Fixed

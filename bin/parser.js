@@ -21,6 +21,7 @@ pkginfo(module, 'version');
 
 program.version(module.exports.version);
 program.option('-i, --input <input>', 'input file');
+program.option('-c, --class', 'use rr:class when appropriate');
 program.option('-o, --output <output>', 'output file (default: stdout)');
 program.option('-f, --format <output>', 'RML or R2RML (default: RML)');
 program.option('-w, --watch', 'watch for file changes');
@@ -53,7 +54,7 @@ if (!program.input) {
       };
 
       if (!program.format || program.format === 'RML') {
-        const y2r = new Y2R();
+        const y2r = new Y2R({class: !!program.class});
         triples = y2r.convert(inputData);
 
         prefixes.rml = namespaces.rml;
@@ -61,7 +62,7 @@ if (!program.input) {
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
       } else {
-        const y2r = new Y2R2();
+        const y2r = new Y2R2({class: !!program.class});
         triples = y2r.convert(inputData);
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
