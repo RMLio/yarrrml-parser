@@ -21,5 +21,12 @@ outputs:
   rml_output:
     description: 'RML mappings generated from YARRRML'
 runs:
-  using: 'node12'
-  main: bin/parser.js
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - "--input"
+    - ${{ inputs.input }}
+    - "--output"
+    - ${{ inputs.output }}
+    - "--format"
+    - ${{ inputs.format }}
