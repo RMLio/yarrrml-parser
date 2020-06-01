@@ -1,0 +1,23 @@
+prefixes:
+  ex: "https://example.org/ns/test#"
+  idlab-fn: "http://example.com/idlab/function/"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  prov: "http://www.w3.org/ns/prov#"
+
+mappings:
+
+  events:
+    sources:
+      - ['data.csv~csv']
+    s: ex:event_$(id)
+    po:
+      - p: prov:endedAtTime
+        o:
+          - value: $(end_date)
+            datatype: xsd:dateTime
+        condition:
+          function: idlab-fn:notEqual
+          parameters:
+            - [grel:valueParameter, $(end_date)]
+            - [grel:valueParameter2, ""]

@@ -21,12 +21,14 @@ The rules will be written to standard output.
 If you want to write them to a file, you can add the `-o` option.
 By default RML rules are generated,
 if you want to generate R2RML rules add `-f R2RML`.
+If you want to use `rr:class` instead of Predicate Object Maps, use the `-c` flag.
 
 #### yarrrml-generator
 
 If you want to generate YARRRML rules from an RML document, you do the following: `yarrrml-generator -i rules.rml.ttl`.
 The rules will be written to standard output.
 If you want to write them to a file, you can add the `-o` option.
+If you want to use `rr:class` instead of Predicate Object Maps, use the `-c` flag.
 
 ### Library
 
