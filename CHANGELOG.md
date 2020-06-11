@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - Condition on mapping when subject has function fails (see [issue 75](https://github.com/RMLio/yarrrml-parser/issues/75))
+- Create blank node as object (see [issue 59](https://github.com/RMLio/yarrrml-parser/issues/59))
 
 ## [1.1.1] - 2020-05-11
 
