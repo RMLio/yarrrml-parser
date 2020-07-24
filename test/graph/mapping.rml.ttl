@@ -3,6 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
 @prefix fno: <https://w3id.org/function/ontology#>.
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
 @prefix rml: <http://semweb.mmlab.be/ns/rml#>.
 @prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix : <http://mapping.example.com/>.
@@ -10,35 +11,34 @@
 
 :people a rr:TriplesMap;
     rdfs:label "people".
-:s_0 a rr:SubjectMap.
-:people rr:subjectMap :s_0.
-:s_0 rr:template "http://example.org/{id}";
-    rr:graphMap :gm_0.
-:gm_0 a rr:GraphMap;
+:s_000 a rr:SubjectMap.
+:people rr:subjectMap :s_000.
+:s_000 rr:template "http://example.org/{id}";
+    rr:graphMap :gm_000.
+:gm_000 a rr:GraphMap;
     rr:constant "http://example.com/myGraph".
 :cities a rr:TriplesMap;
     rdfs:label "cities".
-:s_1 a rr:SubjectMap.
-:cities rr:subjectMap :s_1.
-:s_1 rr:template "http://example.org/{id}";
-    rr:graphMap :gm_1.
-:gm_1 a rr:GraphMap;
+:s_001 a rr:SubjectMap.
+:cities rr:subjectMap :s_001.
+:s_001 rr:template "http://example.org/{id}";
+    rr:graphMap :gm_001.
+:gm_001 a rr:GraphMap;
     rr:template "http://example.com/{h}".
 :houses a rr:TriplesMap;
     rdfs:label "houses".
-:s_2 a rr:SubjectMap.
-:houses rr:subjectMap :s_2.
-:s_2 rr:template "http://example.org/{id}".
-:pom_0 a rr:PredicateObjectMap.
-:houses rr:predicateObjectMap :pom_0.
-:pm_0 a rr:PredicateMap.
-:pom_0 rr:predicateMap :pm_0.
-:pm_0 rr:constant <http://schema.org/name>.
-:pom_0 rr:objectMap :om_0.
-:om_0 a rr:ObjectMap;
+:s_002 a rr:SubjectMap.
+:houses rr:subjectMap :s_002.
+:s_002 rr:template "http://example.org/{id}".
+:pom_000 a rr:PredicateObjectMap.
+:houses rr:predicateObjectMap :pom_000.
+:pm_000 a rr:PredicateMap.
+:pom_000 rr:predicateMap :pm_000.
+:pm_000 rr:constant <http://schema.org/name>.
+:pom_000 rr:objectMap :om_000.
+:om_000 a rr:ObjectMap;
     rml:reference "name";
     rr:termType rr:Literal.
-:pom_0 rr:graphMap :gm_2.
-:gm_2 a rr:GraphMap;
+:pom_000 rr:graphMap :gm_002.
+:gm_002 a rr:GraphMap;
     rr:constant "http://example.com/myHouseGraph".
-
