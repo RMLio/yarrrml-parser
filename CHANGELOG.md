@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - rr:class flag (see [issue 73](https://github.com/RMLio/yarrrml-parser/issues/73))
+- reference formulation for CSS  (see [issue 37](https://github.com/RMLio/yarrrml-parser/issues/37))
 
 ### Fixed
 - Condition on mapping when subject has function fails (see [issue 75](https://github.com/RMLio/yarrrml-parser/issues/75))
