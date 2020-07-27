@@ -8,21 +8,21 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix : <http://mapping.example.com/>.
 
-:map_person_0 rml:logicalSource :source_0.
-:source_0 a rml:LogicalSource;
+:map_person_000 rml:logicalSource :source_000.
+:source_000 a rml:LogicalSource;
     rml:source "test.csv";
     rml:referenceFormulation ql:CSV.
-:map_person_0 a rr:TriplesMap;
+:map_person_000 a rr:TriplesMap;
     rdfs:label "person".
-:s_0 a rr:SubjectMap.
-:map_person_0 rr:subjectMap :s_0.
-:s_0 rr:template "http://example.com/{id}_{name}".
-:pom_0 a rr:PredicateObjectMap.
-:map_person_0 rr:predicateObjectMap :pom_0.
-:pm_0 a rr:PredicateMap.
-:pom_0 rr:predicateMap :pm_0.
-:pm_0 rr:constant rdf:type.
-:pom_0 rr:objectMap :om_0.
-:om_0 a rr:ObjectMap;
+:s_000 a rr:SubjectMap.
+:map_person_000 rr:subjectMap :s_000.
+:s_000 rr:template "http://example.com/{id}_{name}".
+:pom_000 a rr:PredicateObjectMap.
+:map_person_000 rr:predicateObjectMap :pom_000.
+:pm_000 a rr:PredicateMap.
+:pom_000 rr:predicateMap :pm_000.
+:pm_000 rr:constant rdf:type.
+:pom_000 rr:objectMap :om_000.
+:om_000 a rr:ObjectMap;
     rr:constant "http://schema.org/Person";
     rr:termType rr:IRI.
