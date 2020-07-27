@@ -8,65 +8,65 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix : <http://mapping.example.com/>.
 
-:map_person_0 rml:logicalSource :source_0.
-:source_0 a rml:LogicalSource;
+:map_person_000 rml:logicalSource :source_000.
+:source_000 a rml:LogicalSource;
     rml:source "test.csv";
     rml:referenceFormulation ql:CSV.
-:map_person_0 a rr:TriplesMap;
+:map_person_000 a rr:TriplesMap;
     rdfs:label "person".
-:s_0 a rr:SubjectMap.
-:map_person_0 rr:subjectMap :s_0.
-:s_0 rr:template "http://example.com/person/{id}".
-:pom_0 a rr:PredicateObjectMap.
-:map_person_0 rr:predicateObjectMap :pom_0.
-:pm_0 a rr:PredicateMap.
-:pom_0 rr:predicateMap :pm_0.
-:pm_0 rr:constant <http://schema.org/creator>.
-:pom_0 rr:objectMap :om_0.
-:map_project_0 rml:logicalSource :source_1.
-:source_1 a rml:LogicalSource;
+:s_000 a rr:SubjectMap.
+:map_person_000 rr:subjectMap :s_000.
+:s_000 rr:template "http://example.com/person/{id}".
+:pom_000 a rr:PredicateObjectMap.
+:map_person_000 rr:predicateObjectMap :pom_000.
+:pm_000 a rr:PredicateMap.
+:pom_000 rr:predicateMap :pm_000.
+:pm_000 rr:constant <http://schema.org/creator>.
+:pom_000 rr:objectMap :om_000.
+:map_project_000 rml:logicalSource :source_001.
+:source_001 a rml:LogicalSource;
     rml:source "test.csv";
     rml:referenceFormulation ql:CSV.
-:map_project_0 a rr:TriplesMap;
+:map_project_000 a rr:TriplesMap;
     rdfs:label "project".
-:s_1 a rr:SubjectMap.
-:map_project_0 rr:subjectMap :s_1.
-:s_1 rr:template "http://example.com/project/{id}".
-:pom_1 a rr:PredicateObjectMap.
-:map_project_0 rr:predicateObjectMap :pom_1.
-:pm_1 a rr:PredicateMap.
-:pom_1 rr:predicateMap :pm_1.
-:pm_1 rr:constant rdf:type.
-:pom_1 rr:objectMap :om_1.
-:om_1 a rr:ObjectMap;
+:s_001 a rr:SubjectMap.
+:map_project_000 rr:subjectMap :s_001.
+:s_001 rr:template "http://example.com/project/{id}".
+:pom_001 a rr:PredicateObjectMap.
+:map_project_000 rr:predicateObjectMap :pom_001.
+:pm_001 a rr:PredicateMap.
+:pom_001 rr:predicateMap :pm_001.
+:pm_001 rr:constant rdf:type.
+:pom_001 rr:objectMap :om_001.
+:om_001 a rr:ObjectMap;
     rr:constant "http://schema.org/Project";
     rr:termType rr:IRI.
-:om_0 a rr:ObjectMap;
-    rr:parentTriplesMap :map_project_0;
-    rml:joinCondition :jc_0.
-:jc_0 a fnml:FunctionTermMap;
-    fnml:functionValue :fn_0.
-:fn_0 rr:predicateObjectMap :pomexec_0.
-:pomexec_0 rr:predicateMap :pmexec_0.
-:pmexec_0 rr:constant fno:executes.
-:pomexec_0 rr:objectMap :omexec_0.
-:omexec_0 rr:constant "http://example.com/idlab/function/equal";
+:om_000 a rr:ObjectMap;
+    rr:parentTriplesMap :map_project_000;
+    rml:joinCondition :jc_000.
+:jc_000 a fnml:FunctionTermMap;
+    fnml:functionValue :fn_000.
+:fn_000 rr:predicateObjectMap :pomexec_000.
+:pomexec_000 rr:predicateMap :pmexec_000.
+:pmexec_000 rr:constant fno:executes.
+:pomexec_000 rr:objectMap :omexec_000.
+:omexec_000 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
-:fn_0 rr:predicateObjectMap :pom_2.
-:pom_2 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_2.
-:pm_2 a rr:PredicateMap;
+:fn_000 rr:predicateObjectMap :pom_002.
+:pom_002 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_002.
+:pm_002 a rr:PredicateMap;
     rr:constant <http://users.ugent.be/~bjdmeest/function/grel.ttl#valueParameter>.
-:pom_2 rr:objectMap :om_2.
-:om_2 a rr:ObjectMap;
+:pom_002 rr:objectMap :om_002.
+:om_002 a rr:ObjectMap;
     rr:template "{id}_{name}";
     rr:termType rr:Literal.
-:fn_0 rr:predicateObjectMap :pom_3.
-:pom_3 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_3.
-:pm_3 a rr:PredicateMap;
+:fn_000 rr:predicateObjectMap :pom_003.
+:pom_003 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_003.
+:pm_003 a rr:PredicateMap;
     rr:constant <http://users.ugent.be/~bjdmeest/function/grel.ttl#valueParameter2>.
-:pom_3 rr:objectMap :om_3.
-:om_3 a rr:ObjectMap;
-    rml:parentTermMap :ptm_0.
-:ptm_0 rr:template "{id}_{name}".
+:pom_003 rr:objectMap :om_003.
+:om_003 a rr:ObjectMap;
+    rml:parentTermMap :ptm_000.
+:ptm_000 rr:template "{id}_{name}".

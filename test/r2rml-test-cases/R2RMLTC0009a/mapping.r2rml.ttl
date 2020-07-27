@@ -3,50 +3,51 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
 @prefix fno: <https://w3id.org/function/ontology#>.
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
 @prefix : <http://mapping.example.com/>.
 
-:map_student_0 rr:logicalTable :source_0.
-:source_0 a rr:LogicalTable;
+:map_student_000 rr:logicalTable :source_000.
+:source_000 a rr:LogicalTable;
     rr:tableName "Student".
-:map_student_0 a rr:TriplesMap;
+:map_student_000 a rr:TriplesMap;
     rdfs:label "student".
-:s_0 a rr:SubjectMap.
-:map_student_0 rr:subjectMap :s_0.
-:s_0 rr:template "http://example.com/resource/student_{ID}".
-:pom_0 a rr:PredicateObjectMap.
-:map_student_0 rr:predicateObjectMap :pom_0.
-:pm_0 a rr:PredicateMap.
-:pom_0 rr:predicateMap :pm_0.
-:pm_0 rr:constant <http://xmlns.com/foaf/0.1/name>.
-:pom_0 rr:objectMap :om_0.
-:om_0 a rr:ObjectMap;
+:s_000 a rr:SubjectMap.
+:map_student_000 rr:subjectMap :s_000.
+:s_000 rr:template "http://example.com/resource/student_{ID}".
+:pom_000 a rr:PredicateObjectMap.
+:map_student_000 rr:predicateObjectMap :pom_000.
+:pm_000 a rr:PredicateMap.
+:pom_000 rr:predicateMap :pm_000.
+:pm_000 rr:constant <http://xmlns.com/foaf/0.1/name>.
+:pom_000 rr:objectMap :om_000.
+:om_000 a rr:ObjectMap;
     rr:column "Name";
     rr:termType rr:Literal.
-:pom_1 a rr:PredicateObjectMap.
-:map_student_0 rr:predicateObjectMap :pom_1.
-:pm_1 a rr:PredicateMap.
-:pom_1 rr:predicateMap :pm_1.
-:pm_1 rr:constant <http://example.com/ontology/practises>.
-:pom_1 rr:objectMap :om_1.
-:map_sport_0 rr:logicalTable :source_1.
-:source_1 a rr:LogicalTable;
+:pom_001 a rr:PredicateObjectMap.
+:map_student_000 rr:predicateObjectMap :pom_001.
+:pm_001 a rr:PredicateMap.
+:pom_001 rr:predicateMap :pm_001.
+:pm_001 rr:constant <http://example.com/ontology/practises>.
+:pom_001 rr:objectMap :om_001.
+:map_sport_000 rr:logicalTable :source_001.
+:source_001 a rr:LogicalTable;
     rr:tableName "Sport".
-:map_sport_0 a rr:TriplesMap;
+:map_sport_000 a rr:TriplesMap;
     rdfs:label "sport".
-:s_1 a rr:SubjectMap.
-:map_sport_0 rr:subjectMap :s_1.
-:s_1 rr:template "http://example.com/resource/sport_{ID}".
-:pom_2 a rr:PredicateObjectMap.
-:map_sport_0 rr:predicateObjectMap :pom_2.
-:pm_2 a rr:PredicateMap.
-:pom_2 rr:predicateMap :pm_2.
-:pm_2 rr:constant rdfs:label.
-:pom_2 rr:objectMap :om_2.
-:om_2 a rr:ObjectMap;
+:s_001 a rr:SubjectMap.
+:map_sport_000 rr:subjectMap :s_001.
+:s_001 rr:template "http://example.com/resource/sport_{ID}".
+:pom_002 a rr:PredicateObjectMap.
+:map_sport_000 rr:predicateObjectMap :pom_002.
+:pm_002 a rr:PredicateMap.
+:pom_002 rr:predicateMap :pm_002.
+:pm_002 rr:constant rdfs:label.
+:pom_002 rr:objectMap :om_002.
+:om_002 a rr:ObjectMap;
     rr:column "Name";
     rr:termType rr:Literal.
-:om_1 a rr:ObjectMap;
-    rr:parentTriplesMap :map_sport_0;
-    rr:joinCondition :jc_0.
-:jc_0 rr:child "Sport";
+:om_001 a rr:ObjectMap;
+    rr:parentTriplesMap :map_sport_000;
+    rr:joinCondition :jc_000.
+:jc_000 rr:child "Sport";
     rr:parent "Name".
