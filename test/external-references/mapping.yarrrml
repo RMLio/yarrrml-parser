@@ -1,0 +1,11 @@
+external:
+  name: John
+  city: Schellebelle
+
+mappings:
+  director:
+    source: "Let's pretend there's a good source formulation here"
+    s: https://ex.com/people/$(_name)
+    po:
+      - p: ex:livesIn
+        o: $(_city)
