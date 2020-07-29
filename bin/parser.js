@@ -32,11 +32,12 @@ function collect(val, memo) {
 }
 
 program.version(module.exports.version);
-program.option('-i, --input <input>', 'input file (can be used multiple times)', collect, []); // We support multiple uses of this option.
+program.option('-i, --input <file>', 'input file (can be used multiple times)', collect, []); // We support multiple uses of this option.
 program.option('-c, --class', 'use rr:class when appropriate');
-program.option('-o, --output <output>', 'output file (default: stdout)');
-program.option('-f, --format <output>', 'RML or R2RML (default: RML)');
+program.option('-o, --output <file>', 'output file (default: stdout)');
+program.option('-f, --format <format>', 'RML or R2RML (default: RML)');
 program.option('-w, --watch', 'watch for file changes');
+program.option('-e, --external <value>', 'external references (key=value, can be used multiple times', collect, []); // We support multiple uses of this option.
 program.parse(process.argv);
 
 if (!program.input) {
@@ -82,8 +83,15 @@ if (!program.input) {
         d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
       };
 
+      const externalReferences = {};
+
+      for (const e of program.external) {
+        const keyValue = e.split('=');
+        externalReferences[keyValue[0]] = keyValue[1];
+      }
+
       if (!program.format || program.format === 'RML') {
-        const y2r = new Y2R({class: !!program.class});
+        const y2r = new Y2R({class: !!program.class, externalReferences});
         triples = y2r.convert(inputData);
 
         prefixes.rml = namespaces.rml;
@@ -91,7 +99,7 @@ if (!program.input) {
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
       } else {
-        const y2r = new Y2R2({class: !!program.class});
+        const y2r = new Y2R2({class: !!program.class, externalReferences});
         triples = y2r.convert(inputData);
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
