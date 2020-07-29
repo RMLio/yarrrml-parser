@@ -27,13 +27,14 @@ They are converted to a single RML document.
 Note that the keys in `prefixes`, `sources`, and `mappings` have to be unique across all files.
 `base` can only be set once.
 An example can be found in [`test/multiple-input-files`](test/multiple-input-files).
+You can overwrite external references via the `-e`.
+Repeat `-e` for multiple references.
 
 #### yarrrml-generator
 
 If you want to generate YARRRML rules from an RML document, you do the following: `yarrrml-generator -i rules.rml.ttl`.
 The rules will be written to standard output.
 If you want to write them to a file, you can add the `-o` option.
-If you want to use `rr:class` instead of Predicate Object Maps, use the `-c` flag.
 
 ### Library
 
