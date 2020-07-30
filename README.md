@@ -28,6 +28,7 @@ Note that the keys in `prefixes`, `sources`, and `mappings` have to be unique ac
 `base` can only be set once.
 An example can be found in [`test/multiple-input-files`](test/multiple-input-files).
 You can overwrite external references via the `-e`.
+For example, `-e name=John` will replace all occurences of `$(_name)` with `John`.
 Repeat `-e` for multiple references.
 
 #### yarrrml-generator
