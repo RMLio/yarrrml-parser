@@ -8,7 +8,7 @@ mappings:
   statement:
     sources:
     - ['./data.json~jsonpath', '$[*]']
-    s: http://example.com/$(\_id.$oid)
+    s: http://example.com/$(_id.$oid)
     po:
     - predicate: ex:success
       object:
