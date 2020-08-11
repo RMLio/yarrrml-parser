@@ -1,0 +1,24 @@
+prefixes:
+  ex: "http://example.com/"
+
+mappings:
+  track:
+    sources:
+      - ['data.json~jsonpath', '$.features.[*].properties']
+    s: http://example.com/sector/$(sector)
+    po:
+      - [ex:name, $(sector)]
+
+  sector0:
+    sources:
+      - ['source_1.csv~csv']
+    s: ex:Lap$(Lap)/Sector1/$(Athlete)
+    po:
+      - p: ex:Sector
+        o:
+          mapping: track
+          condition:
+            function: equal
+            parameters:
+              - [str1, "0", s]            ### <-- constant value ###
+              - [str2, $(sector), o]

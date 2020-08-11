@@ -1,0 +1,19 @@
+prefixes:
+  ex: http://example.org/
+
+external:
+  name: John
+  city: Schellebelle
+
+mappings:
+  director:
+    sources:
+      - [data.csv~csv]
+    s: https://ex.com/people/$(_name)/$(city)
+    po:
+      - p: ex:livesIn
+        o: $(_city)
+      - p: ex:home
+        o: $(\_city)
+      - p: ex:worksAt
+        o: $(company)

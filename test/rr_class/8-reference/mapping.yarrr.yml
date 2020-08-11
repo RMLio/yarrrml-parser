@@ -1,0 +1,27 @@
+prefixes:
+  ex: http://example.com/
+
+mappings:
+  person:
+    source:
+      - [test.csv~csv]
+    s: http://ex.org/$(id)
+    po:
+      - [a, ex:Person]
+  book:
+    source:
+      - [test2.csv~csv]
+    s: http://ex.org/book/$(id)
+    po:
+      - p: a
+        o:
+          mapping: person
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(author), s]
+              - parameter: str2
+                value:
+                  function: ex:toLowerCase
+                  parameters:
+                    - [ex:input, $(name), o]

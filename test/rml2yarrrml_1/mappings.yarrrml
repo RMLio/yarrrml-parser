@@ -3,7 +3,7 @@ prefixes:
   ql: 'http://semweb.mmlab.be/ns/ql#'
   rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
   fnml: 'http://semweb.mmlab.be/ns/fnml#'
-  fno: 'http://w3id.org/function/ontology#'
+  fno: 'https://w3id.org/function/ontology#'
   grel: 'http://users.ugent.be/~bjdmeest/function/grel.ttl#'
   ex: 'http://citadel.ilabt.imec.be/exampleontology/'
   rr: 'http://www.w3.org/ns/r2rml#'

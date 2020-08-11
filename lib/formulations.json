@@ -19,6 +19,7 @@
   "reference": {
     "jsonpath": "http://semweb.mmlab.be/ns/ql#JSONPath",
     "xpath": "http://semweb.mmlab.be/ns/ql#XPath",
-    "csv": "http://semweb.mmlab.be/ns/ql#CSV"
+    "csv": "http://semweb.mmlab.be/ns/ql#CSV",
+    "css3": "http://semweb.mmlab.be/ns/ql#CSS3"
   }
 }

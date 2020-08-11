@@ -1,0 +1,16 @@
+prefixes:
+  ex: http://example.org/
+
+mappings:
+  mapping:
+    sources:
+      - ['data.csv~csv']
+    s: ex:$(id)
+    po:
+      - p: ex:p
+        o: ex:o
+        condition:
+          function: equal
+          parameters:
+            - [str1, $(type)]
+            - [str2, "1"]

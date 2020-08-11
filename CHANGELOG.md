@@ -7,6 +7,61 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- rr:class flag (see [issue 73](https://github.com/RMLio/yarrrml-parser/issues/73))
+- Allow multiple input files for the CLI  (see [issue 34](https://github.com/RMLio/yarrrml-parser/issues/34))
+- reference formulation for CSS  (see [issue 37](https://github.com/RMLio/yarrrml-parser/issues/37))
+- Allow multiple input files for the CLI  (see [issue 34](https://github.com/RMLio/yarrrml-parser/issues/34))
+- Overwrite references  (see [issue 35](https://github.com/RMLio/yarrrml-parser/issues/35))
+
+### Fixed
+- Condition on mapping when subject has function fails (see [issue 75](https://github.com/RMLio/yarrrml-parser/issues/75))
+- Create blank node as object (see [issue 59](https://github.com/RMLio/yarrrml-parser/issues/59))
+
+### Changed
+- Pad suffixes to keep ordering (see [issue 78](https://github.com/RMLio/yarrrml-parser/issues/78))
+
+## [1.1.1] - 2020-05-11
+
+### Fixed
+- equal shortcut does not work everywhere (see [issue 51](https://github.com/RMLio/yarrrml-parser/issues/51))
+- Conditional predicate-object with datatype (see [issue 69](https://github.com/RMLio/yarrrml-parser/issues/69))
+
+## [1.1.0] - 2020-04-02
+
+### Added
+- Issue template for question (see [issue 48](https://github.com/RMLio/yarrrml-parser/issues/48))
+- Explain how to install locally for development (see [issue 45](https://github.com/RMLio/yarrrml-parser/issues/45))
+- Add function shortcut (see [issue 57](https://github.com/RMLio/yarrrml-parser/issues/57))
+
+### Fixed
+- Function with empty parameter list works, but without parameters doesn't get parsed properly  (see [issue 53](https://github.com/RMLio/yarrrml-parser/issues/53))
+- Add quotes around rules specific part in error/warning message  (see [issue 52](https://github.com/RMLio/yarrrml-parser/issues/52))
+
+## [1.0.2] - 2020-01-17
+
+### Added
+- Test for subject with two references in template
+- Issue templates (see [issue 43](https://github.com/RMLio/yarrrml-parser/issues/43))
+
+### Fixed
+- Join condition with two references in child/parent is incorrectly parsed (see [issue 44](https://github.com/RMLio/yarrrml-parser/issues/44))
+
+## [1.0.1] - 2020-01-10
+
+### Fixed
+- Joining on equal condition with constant value (see [issue 39](https://github.com/RMLio/yarrrml-parser/issues/39))
+
+## [1.0.0] - 2020-01-06
+
+### Added
+- Support for RDBs via D2RQ (see [issue 36](https://github.com/RMLio/yarrrml-parser/issues/36))
+
+### Fixed
+- FnO namespace
+
+## [0.3.11] - 2019-12-02
+
 ### Fixed
 - Object is number (see [issue 32](https://github.com/RMLio/yarrrml-parser/issues/32))
 
@@ -119,6 +174,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.1.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.2...v1.1.0
+[1.0.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.11...v1.0.0
+[0.3.11]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.10...v0.3.11
 [0.3.10]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.9...v0.3.10
 [0.3.9]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.8...v0.3.9
 [0.3.8]: https://github.com/RMLio/yarrrml-parser/compare/v0.3.7...v0.3.8

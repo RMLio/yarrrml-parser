@@ -1,0 +1,10 @@
+
+mappings:
+  DateTime:
+    source: source1
+    subject: "http://www.example.com/DateTime/$(@year)$(@month)$(@day)"
+    predicateobjects:
+      - [a, ex:DateTime~iri]
+      - [ex:day,--$(@day),xsd:gDay]
+      - [ex:month,--$(@month),xsd:gMonth]
+      - [ex:year, $(@year), xsd:gYear]
