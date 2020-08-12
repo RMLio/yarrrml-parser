@@ -4,22 +4,24 @@
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
 @prefix fno: <https://w3id.org/function/ontology#>.
 @prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix : <http://mapping.example.com/>.
 @prefix idlab-fn: <http://example.com/idlab/function/>.
 @prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#>.
 
-:map_test_000 rr:logicalTable :source_000.
-:source_000 a rr:LogicalTable;
-    rr:tableName "test";
-    rr:sqlVersion rr:MySQL.
+:map_test_000 rml:logicalSource :source_000.
+        :source_000 a rml:LogicalSource;
+    rml:source "test.csv";
+    rml:referenceFormulation ql:CSV.
 :map_test_000 a rr:TriplesMap;
     rdfs:label "test".
 :s_000 a rr:SubjectMap.
-:map_test_000 rr:subjectMap :s_000.
+        :map_test_000 rr:subjectMap :s_000.
 :s_000 a fnml:FunctionTermMap;
-    rr:termType rr:IRI;
+    rr:termType rr:BlankNode;
     fnml:functionValue :fn_000.
-:fn_000 rr:logicalTable :source_000;
+:fn_000 rml:logicalSource :source_000;
     rr:predicateObjectMap :pomexec_000.
 :pomexec_000 rr:predicateMap :pmexec_000.
 :pmexec_000 rr:constant fno:executes.
@@ -34,7 +36,7 @@
 :pom_000 rr:objectMap :om_000.
 :om_000 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue :fn_001.
-:fn_001 rr:logicalTable :source_000;
+:fn_001 rml:logicalSource :source_000;
     rr:predicateObjectMap :pomexec_001.
 :pomexec_001 rr:predicateMap :pmexec_001.
 :pmexec_001 rr:constant fno:executes.
@@ -48,7 +50,7 @@
     rr:constant grel:valueParameter.
 :pom_001 rr:objectMap :om_001.
 :om_001 a rr:ObjectMap;
-    rr:column "id";
+    rml:reference "id";
     rr:termType rr:Literal.
 :fn_001 rr:predicateObjectMap :pom_002.
 :pom_002 a rr:PredicateObjectMap;
@@ -66,8 +68,7 @@
     rr:constant idlab-fn:str.
 :pom_003 rr:objectMap :om_003.
 :om_003 a rr:ObjectMap;
-    rr:template "http://example.com/{id}";
-    rr:termType rr:IRI.
+    rr:termType rr:BlankNode.
 :pom_004 a rr:PredicateObjectMap.
 :map_test_000 rr:predicateObjectMap :pom_004.
 :pm_004 a rr:PredicateMap.
@@ -76,4 +77,4 @@
 :pom_004 rr:objectMap :om_004.
 :om_004 a rr:ObjectMap;
     rr:constant "http://example.com/Test";
-    rr:termType rr:IRI.
+        rr:termType rr:IRI.
