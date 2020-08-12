@@ -1,0 +1,32 @@
+# GitHub Actions to run the RML Mapper
+name: 'YARRRML Parser'
+description: 'Convert YARRRML rules to RML rules using the YARRRML Parser.'
+branding:
+  icon: 'edit-3'
+  color: 'blue'
+inputs:
+  input:
+    description: 'Input YARRRML file to convert to RML'
+    required: true
+    default: 'input.yarrr.yml'
+  output:
+    description: 'Path to output file'
+    required: true
+    default: 'output.rml.ttl'
+  format:
+    description: 'RML or R2RML (default: RML)'
+    required: false
+    default: 'RML'
+outputs:
+  rml_output:
+    description: 'RML rules generated from the YARRRML rules.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - "--input"
+    - ${{ inputs.input }}
+    - "--output"
+    - ${{ inputs.output }}
+    - "--format"
+    - ${{ inputs.format }}

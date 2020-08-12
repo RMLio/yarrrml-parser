@@ -47,7 +47,7 @@ If you want to write them to a file, you can add the `-o` option.
 
 `npm i --save @rmlio/yarrrml-parser`
 
-```
+```javascript
 let yarrrml = require('@rmlio/yarrrml-parser/lib/rml-generator');
 
 const yaml = "[yarrrml string]";
@@ -64,5 +64,20 @@ const triples = y2r.convert(yaml);
 - Make the [CLI](#cli) (based on the code in the cloned repo)
 available system-wide via `npm link` (optional).
 
+## Docker
+
+Run (from [DockerHub](https://hub.docker.com/repository/docker/rmlio/yarrrml-parser)):
+
+```bash
+docker run --rm -it -v $(pwd)/resources:/data rmlio/yarrrml-parser:latest -i /data/test.yarrr.yml
+```
+
+Build from source:
+
+```bash
+docker build -t umids/yarrrml-parser .
+```
+
 ## License
+
 This code is copyrighted by [Ghent University – imec](http://idlab.ugent.be/) and released under the [MIT license](http://opensource.org/licenses/MIT).
