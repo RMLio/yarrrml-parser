@@ -1,8 +1,8 @@
 # GitHub Actions to run the RML Mapper
 name: 'YARRRML Parser'
-description: 'Run the YARRRML Parser to convert YARRRML mappings to RML RDF'
+description: 'Convert YARRRML rules to RML rules using the YARRRML Parser.'
 branding:
-  icon: 'edit-3' 
+  icon: 'edit-3'
   color: 'blue'
 inputs:
   input:
@@ -19,7 +19,7 @@ inputs:
     default: 'RML'
 outputs:
   rml_output:
-    description: 'RML mappings generated from YARRRML'
+    description: 'RML rules generated from the YARRRML rules.'
 runs:
   using: 'docker'
   image: 'Dockerfile'

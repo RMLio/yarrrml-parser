@@ -66,10 +66,10 @@ available system-wide via `npm link` (optional).
 
 ## Docker
 
-Run (from [DockerHub](https://hub.docker.com/repository/docker/umids/yarrrml-parser)):
+Run (from [DockerHub](https://hub.docker.com/repository/docker/rmlio/yarrrml-parser)):
 
 ```bash
-docker run --rm -it -v $(pwd)/resources:/data umids/yarrrml-parser:latest -i /data/test.yarrr.yml
+docker run --rm -it -v $(pwd)/resources:/data rmlio/yarrrml-parser:latest -i /data/test.yarrr.yml
 ```
 
 Build from source:
