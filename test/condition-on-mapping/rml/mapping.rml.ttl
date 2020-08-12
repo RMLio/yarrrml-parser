@@ -69,7 +69,7 @@
 :pom_003 rr:objectMap :om_003.
 :om_003 a rr:ObjectMap;
     rr:template "http://example.com/{id}";
-    rr:termType rr:Literal.
+    rr:termType rr:IRI.
 :pom_004 a rr:PredicateObjectMap.
 :map_test_000 rr:predicateObjectMap :pom_004.
 :pm_004 a rr:PredicateMap.

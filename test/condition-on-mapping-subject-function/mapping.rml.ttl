@@ -68,6 +68,7 @@
     rr:constant idlab-fn:str.
 :pom_003 rr:objectMap :om_003.
 :om_003 a rr:ObjectMap, fnml:FunctionTermMap;
+    rr:termType rr:IRI;
     fnml:functionValue :fn_002.
 :fn_002 rml:logicalSource :source_000;
     rr:predicateObjectMap :pomexec_002.
