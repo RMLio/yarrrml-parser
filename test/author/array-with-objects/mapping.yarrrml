@@ -13,5 +13,4 @@ mappings:
       - ['data.json~jsonpath', '$.persons[*]']
     s: http://example.com/$(firstname)
     po:
-      - [a, foaf:Person]
-      - [ex:name, $(firstname)]
+      - [a, ex:Person]

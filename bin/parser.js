@@ -80,7 +80,10 @@ if (!program.input) {
         rdfs: namespaces.rdfs,
         fnml: "http://semweb.mmlab.be/ns/fnml#",
         fno: "https://w3id.org/function/ontology#",
-        d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+        d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#",
+        void: "http://rdfs.org/ns/void#",
+        dc: "http://purl.org/dc/terms/",
+        foaf: "http://xmlns.com/foaf/0.1/"
       };
 
       const externalReferences = {};
