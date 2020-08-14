@@ -4,6 +4,9 @@
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
 @prefix fno: <https://w3id.org/function/ontology#>.
 @prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix : <http://mapping.example.com/>.
 @prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#>.
 @prefix idlab-fn: <http://example.com/idlab/function/>.
@@ -21,7 +24,7 @@
 :map_person_000 rr:predicateObjectMap :pom_000.
 :pm_000 a rr:PredicateMap.
 :pom_000 rr:predicateMap :pm_000.
-:pm_000 rr:constant <http://xmlns.com/foaf/0.1/firstName>.
+:pm_000 rr:constant foaf:firstName.
 :pom_000 rr:objectMap :om_000.
 :om_000 a fnml:FunctionTermMap;
     rr:termType rr:Literal;
