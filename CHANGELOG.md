@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - reference formulation for CSS  (see [issue 37](https://github.com/RMLio/yarrrml-parser/issues/37))
 - Allow multiple input files for the CLI  (see [issue 34](https://github.com/RMLio/yarrrml-parser/issues/34))
 - Overwrite references  (see [issue 35](https://github.com/RMLio/yarrrml-parser/issues/35))
+- Support authors (see [issue 87](https://github.com/RMLio/yarrrml-parser/issues/87))
 
 ### Fixed
 - Condition on mapping when subject has function fails (see [issue 75](https://github.com/RMLio/yarrrml-parser/issues/75))

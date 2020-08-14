@@ -1,0 +1,14 @@
+prefixes:
+  ex: "http://example.com/"
+
+authors:
+  - John Doe <john@doe.com>
+  - Jane Doe (https://janedoe.com)
+
+mappings:
+  person:
+    sources:
+      - ['data.json~jsonpath', '$.persons[*]']
+    s: http://example.com/$(firstname)
+    po:
+      - [a, ex:Person]
