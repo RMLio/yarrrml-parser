@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- Fix docker build command in README (see [issue 91](https://github.com/RMLio/yarrrml-parser/issues/91))
+
 ## [1.2.0] - 2020-08-17
 
 ### Added
