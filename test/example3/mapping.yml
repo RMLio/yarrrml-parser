@@ -4,7 +4,7 @@ prefixes:
   gn: "http://www.geonames.org/ontology#"
   geosp: "http://www.telegraphis.net/ontology/geography/geography#"
 
-sources: 
+sources:
   sourceVenue:
     access: src/test/resources/example3/Venue.json
     referenceFormulation: jsonpath
@@ -45,7 +45,7 @@ mappings:
         o:
           mapping: BusStopMapping
   BusStopMapping:
-    sources: 
+    sources:
       - access: src/test/resources/example3/Transport.xml
         referenceFormulation: xpath
         iterator: /transport/bus/route/stop

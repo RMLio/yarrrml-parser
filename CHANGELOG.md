@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.2.0] - 2020-08-17
+
+### Added
+- rr:class flag (see [issue 73](https://github.com/RMLio/yarrrml-parser/issues/73))
+- Allow multiple input files for the CLI  (see [issue 34](https://github.com/RMLio/yarrrml-parser/issues/34))
+- reference formulation for CSS  (see [issue 37](https://github.com/RMLio/yarrrml-parser/issues/37))
+- Allow multiple input files for the CLI  (see [issue 34](https://github.com/RMLio/yarrrml-parser/issues/34))
+- Overwrite references  (see [issue 35](https://github.com/RMLio/yarrrml-parser/issues/35))
+- Support authors (see [issue 87](https://github.com/RMLio/yarrrml-parser/issues/87))
+
+### Fixed
+- Condition on mapping when subject has function fails (see [issue 75](https://github.com/RMLio/yarrrml-parser/issues/75))
+- Create blank node as object (see [issue 59](https://github.com/RMLio/yarrrml-parser/issues/59))
+- Condition on mapping with blank node as subject gives error (see [issue 31](https://github.com/RMLio/yarrrml-parser/issues/31))
+
+### Changed
+- Pad suffixes to keep ordering (see [issue 78](https://github.com/RMLio/yarrrml-parser/issues/78))
+
 ## [1.1.1] - 2020-05-11
 
 ### Fixed
@@ -160,6 +178,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.2.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.1...v1.0.2

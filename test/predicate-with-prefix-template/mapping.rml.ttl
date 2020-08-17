@@ -3,27 +3,28 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
 @prefix fno: <https://w3id.org/function/ontology#>.
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
 @prefix rml: <http://semweb.mmlab.be/ns/rml#>.
 @prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix : <http://mapping.example.com/>.
 @prefix ex: <http://example.com/>.
 
-:map_nodes_0 rml:logicalSource :source_0.
-:source_0 a rml:LogicalSource;
+:map_nodes_000 rml:logicalSource :source_000.
+:source_000 a rml:LogicalSource;
     rml:source "track_metadata.xml";
     rml:iterator "/osm/node";
     rml:referenceFormulation ql:XPath.
-:map_nodes_0 a rr:TriplesMap;
+:map_nodes_000 a rr:TriplesMap;
     rdfs:label "nodes".
-:s_0 a rr:SubjectMap.
-:map_nodes_0 rr:subjectMap :s_0.
-:s_0 rr:template "http://example.com/node/{@id}".
-:pom_0 a rr:PredicateObjectMap.
-:map_nodes_0 rr:predicateObjectMap :pom_0.
-:pm_0 a rr:PredicateMap.
-:pom_0 rr:predicateMap :pm_0.
-:pm_0 rr:template "http://example.com/test{@id}".
-:pom_0 rr:objectMap :om_0.
-:om_0 a rr:ObjectMap;
+:s_000 a rr:SubjectMap.
+:map_nodes_000 rr:subjectMap :s_000.
+:s_000 rr:template "http://example.com/node/{@id}".
+:pom_000 a rr:PredicateObjectMap.
+:map_nodes_000 rr:predicateObjectMap :pom_000.
+:pm_000 a rr:PredicateMap.
+:pom_000 rr:predicateMap :pm_000.
+:pm_000 rr:template "http://example.com/test{@id}".
+:pom_000 rr:objectMap :om_000.
+:om_000 a rr:ObjectMap;
     rml:reference "tag/@v";
     rr:termType rr:Literal.

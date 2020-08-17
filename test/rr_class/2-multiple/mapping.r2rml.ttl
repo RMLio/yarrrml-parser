@@ -1,0 +1,19 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
+@prefix fno: <https://w3id.org/function/ontology#>.
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
+@prefix : <http://mapping.example.com/>.
+@prefix mail: <http://example.com/mail#>.
+@prefix ex: <http://www.example.com/>.
+
+:source_000 a rr:LogicalTable;
+    rdfs:label "source1".
+:map_example_000 rr:logicalTable :source_000;
+    a rr:TriplesMap;
+    rdfs:label "example".
+:s_000 a rr:SubjectMap.
+:map_example_000 rr:subjectMap :s_000.
+:s_000 rr:template "http://www.example.com/note/{@id}";
+    rr:class mail:Note, ex:Note.

@@ -3,22 +3,23 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
 @prefix fno: <https://w3id.org/function/ontology#>.
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
 @prefix : <http://mapping.example.com/>.
 
-:map_student_0 rr:logicalTable :source_0.
-:source_0 a rr:LogicalTable;
+:map_student_000 rr:logicalTable :source_000.
+:source_000 a rr:LogicalTable;
     rr:tableName "Student".
-:map_student_0 a rr:TriplesMap;
+:map_student_000 a rr:TriplesMap;
     rdfs:label "student".
-:s_0 a rr:SubjectMap.
-:map_student_0 rr:subjectMap :s_0.
-:s_0 rr:template "http://example.com/{Name}".
-:pom_0 a rr:PredicateObjectMap.
-:map_student_0 rr:predicateObjectMap :pom_0.
-:pm_0 a rr:PredicateMap.
-:pom_0 rr:predicateMap :pm_0.
-:pm_0 rr:constant <http://xmlns.com/foaf/0.1/name>.
-:pom_0 rr:objectMap :om_0.
-:om_0 a rr:ObjectMap;
+:s_000 a rr:SubjectMap.
+:map_student_000 rr:subjectMap :s_000.
+:s_000 rr:template "http://example.com/{Name}".
+:pom_000 a rr:PredicateObjectMap.
+:map_student_000 rr:predicateObjectMap :pom_000.
+:pm_000 a rr:PredicateMap.
+:pom_000 rr:predicateMap :pm_000.
+:pm_000 rr:constant <http://xmlns.com/foaf/0.1/name>.
+:pom_000 rr:objectMap :om_000.
+:om_000 a rr:ObjectMap;
     rr:column "Name";
     rr:termType rr:Literal.

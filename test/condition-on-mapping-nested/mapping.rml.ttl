@@ -4,6 +4,9 @@
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
 @prefix fno: <https://w3id.org/function/ontology#>.
 @prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix rml: <http://semweb.mmlab.be/ns/rml#>.
 @prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix : <http://mapping.example.com/>.
@@ -11,120 +14,120 @@
 @prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#>.
 @prefix idlab-fn: <http://example.com/idlab/function/>.
 
-:map_myMapping_0 rml:logicalSource :source_0.
-:source_0 a rml:LogicalSource;
+:map_myMapping_000 rml:logicalSource :source_000.
+:source_000 a rml:LogicalSource;
     rml:source "data.csv";
     rml:referenceFormulation ql:CSV.
-:map_myMapping_0 a rr:TriplesMap;
+:map_myMapping_000 a rr:TriplesMap;
     rdfs:label "myMapping".
-:s_0 a rr:SubjectMap.
-:map_myMapping_0 rr:subjectMap :s_0.
-:s_0 rr:template "http://example.com#{ID}".
-:pom_0 a rr:PredicateObjectMap.
-:map_myMapping_0 rr:predicateObjectMap :pom_0.
-:pm_0 a rr:PredicateMap.
-:pom_0 rr:predicateMap :pm_0.
-:pm_0 rr:constant rdf:type.
-:pom_0 rr:objectMap :om_0.
-:om_0 a rr:ObjectMap;
+:s_000 a rr:SubjectMap.
+:map_myMapping_000 rr:subjectMap :s_000.
+:s_000 rr:template "http://example.com#{ID}".
+:pom_000 a rr:PredicateObjectMap.
+:map_myMapping_000 rr:predicateObjectMap :pom_000.
+:pm_000 a rr:PredicateMap.
+:pom_000 rr:predicateMap :pm_000.
+:pm_000 rr:constant rdf:type.
+:pom_000 rr:objectMap :om_000.
+:om_000 a rr:ObjectMap;
     rr:constant "http://example.com#Person";
     rr:termType rr:IRI.
-:pom_1 a rr:PredicateObjectMap.
-:map_myMapping_0 rr:predicateObjectMap :pom_1.
-:pm_1 a rr:PredicateMap.
-:pom_1 rr:predicateMap :pm_1.
-:pm_1 rr:constant ex:isFriendsWith.
-:pom_1 rr:objectMap :om_1.
-:map_myOtherMapping_0 rml:logicalSource :source_1.
-:source_1 a rml:LogicalSource;
+:pom_001 a rr:PredicateObjectMap.
+:map_myMapping_000 rr:predicateObjectMap :pom_001.
+:pm_001 a rr:PredicateMap.
+:pom_001 rr:predicateMap :pm_001.
+:pm_001 rr:constant ex:isFriendsWith.
+:pom_001 rr:objectMap :om_001.
+:map_myOtherMapping_000 rml:logicalSource :source_001.
+:source_001 a rml:LogicalSource;
     rml:source "data2.csv";
     rml:referenceFormulation ql:CSV.
-:map_myOtherMapping_0 a rr:TriplesMap;
+:map_myOtherMapping_000 a rr:TriplesMap;
     rdfs:label "myOtherMapping".
-:s_1 a rr:SubjectMap.
-:map_myOtherMapping_0 rr:subjectMap :s_1.
-:s_1 rr:template "http://example.com#heroes_{ID}".
-:pom_2 a rr:PredicateObjectMap.
-:map_myOtherMapping_0 rr:predicateObjectMap :pom_2.
-:pm_2 a rr:PredicateMap.
-:pom_2 rr:predicateMap :pm_2.
-:pm_2 rr:constant rdf:type.
-:pom_2 rr:objectMap :om_2.
-:om_2 a rr:ObjectMap;
+:s_001 a rr:SubjectMap.
+:map_myOtherMapping_000 rr:subjectMap :s_001.
+:s_001 rr:template "http://example.com#heroes_{ID}".
+:pom_002 a rr:PredicateObjectMap.
+:map_myOtherMapping_000 rr:predicateObjectMap :pom_002.
+:pm_002 a rr:PredicateMap.
+:pom_002 rr:predicateMap :pm_002.
+:pm_002 rr:constant rdf:type.
+:pom_002 rr:objectMap :om_002.
+:om_002 a rr:ObjectMap;
     rr:constant "http://example.com#Hero";
     rr:termType rr:IRI.
-:om_1 a rr:ObjectMap;
-    rr:parentTriplesMap :map_myOtherMapping_0;
-    rml:joinCondition :jc_0.
-:jc_0 a fnml:FunctionTermMap;
-    fnml:functionValue :fn_0.
-:fn_0 rr:predicateObjectMap :pomexec_0.
-:pomexec_0 rr:predicateMap :pmexec_0.
-:pmexec_0 rr:constant fno:executes.
-:pomexec_0 rr:objectMap :omexec_0.
-:omexec_0 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#boolean_and";
+:om_001 a rr:ObjectMap;
+    rr:parentTriplesMap :map_myOtherMapping_000;
+    rml:joinCondition :jc_000.
+:jc_000 a fnml:FunctionTermMap;
+    fnml:functionValue :fn_000.
+:fn_000 rr:predicateObjectMap :pomexec_000.
+:pomexec_000 rr:predicateMap :pmexec_000.
+:pmexec_000 rr:constant fno:executes.
+:pomexec_000 rr:objectMap :omexec_000.
+:omexec_000 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#boolean_and";
     rr:termType rr:IRI.
-:fn_0 rr:predicateObjectMap :pom_3.
-:pom_3 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_3.
-:pm_3 a rr:PredicateMap;
+:fn_000 rr:predicateObjectMap :pom_003.
+:pom_003 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_003.
+:pm_003 a rr:PredicateMap;
     rr:constant grel:param_rep_b.
-:pom_3 rr:objectMap :om_3.
-:om_3 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue :fn_1.
-:fn_1 rr:predicateObjectMap :pomexec_1.
-:pomexec_1 rr:predicateMap :pmexec_1.
-:pmexec_1 rr:constant fno:executes.
-:pomexec_1 rr:objectMap :omexec_1.
-:omexec_1 rr:constant "http://example.com/idlab/function/equal";
+:pom_003 rr:objectMap :om_003.
+:om_003 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue :fn_001.
+:fn_001 rr:predicateObjectMap :pomexec_001.
+:pomexec_001 rr:predicateMap :pmexec_001.
+:pmexec_001 rr:constant fno:executes.
+:pomexec_001 rr:objectMap :omexec_001.
+:omexec_001 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
-:fn_1 rr:predicateObjectMap :pom_4.
-:pom_4 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_4.
-:pm_4 a rr:PredicateMap;
+:fn_001 rr:predicateObjectMap :pom_004.
+:pom_004 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_004.
+:pm_004 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-:pom_4 rr:objectMap :om_4.
-:om_4 a rr:ObjectMap;
+:pom_004 rr:objectMap :om_004.
+:om_004 a rr:ObjectMap;
     rml:reference "otherID";
     rr:termType rr:Literal.
-:fn_1 rr:predicateObjectMap :pom_5.
-:pom_5 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_5.
-:pm_5 a rr:PredicateMap;
+:fn_001 rr:predicateObjectMap :pom_005.
+:pom_005 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_005.
+:pm_005 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-:pom_5 rr:objectMap :om_5.
-:om_5 a rr:ObjectMap;
-    rml:parentTermMap :ptm_0.
-:ptm_0 rml:reference "friendID".
-:fn_0 rr:predicateObjectMap :pom_6.
-:pom_6 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_6.
-:pm_6 a rr:PredicateMap;
+:pom_005 rr:objectMap :om_005.
+:om_005 a rr:ObjectMap;
+    rml:parentTermMap :ptm_000.
+:ptm_000 rml:reference "friendID".
+:fn_000 rr:predicateObjectMap :pom_006.
+:pom_006 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_006.
+:pm_006 a rr:PredicateMap;
     rr:constant grel:param_rep_b.
-:pom_6 rr:objectMap :om_6.
-:om_6 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue :fn_2.
-:fn_2 rr:predicateObjectMap :pomexec_2.
-:pomexec_2 rr:predicateMap :pmexec_2.
-:pmexec_2 rr:constant fno:executes.
-:pomexec_2 rr:objectMap :omexec_2.
-:omexec_2 rr:constant "http://example.com/idlab/function/equal";
+:pom_006 rr:objectMap :om_006.
+:om_006 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue :fn_002.
+:fn_002 rr:predicateObjectMap :pomexec_002.
+:pomexec_002 rr:predicateMap :pmexec_002.
+:pmexec_002 rr:constant fno:executes.
+:pomexec_002 rr:objectMap :omexec_002.
+:omexec_002 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
-:fn_2 rr:predicateObjectMap :pom_7.
-:pom_7 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_7.
-:pm_7 a rr:PredicateMap;
+:fn_002 rr:predicateObjectMap :pom_007.
+:pom_007 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_007.
+:pm_007 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-:pom_7 rr:objectMap :om_7.
-:om_7 a rr:ObjectMap;
+:pom_007 rr:objectMap :om_007.
+:om_007 a rr:ObjectMap;
     rml:reference "name";
     rr:termType rr:Literal.
-:fn_2 rr:predicateObjectMap :pom_8.
-:pom_8 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_8.
-:pm_8 a rr:PredicateMap;
+:fn_002 rr:predicateObjectMap :pom_008.
+:pom_008 a rr:PredicateObjectMap;
+    rr:predicateMap :pm_008.
+:pm_008 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-:pom_8 rr:objectMap :om_8.
-:om_8 a rr:ObjectMap;
-    rml:parentTermMap :ptm_1.
-:ptm_1 rml:reference "friendName".
+:pom_008 rr:objectMap :om_008.
+:om_008 a rr:ObjectMap;
+    rml:parentTermMap :ptm_001.
+:ptm_001 rml:reference "friendName".

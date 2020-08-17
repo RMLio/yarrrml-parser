@@ -1,6 +1,6 @@
 {
   "name": "@rmlio/yarrrml-parser",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Parse YARRRML descriptions into RML RDF statements",
   "main": "lib/yarrrml2rml.js",
   "scripts": {
@@ -20,7 +20,9 @@
   "dependencies": {
     "commander": "^2.20.3",
     "extend": "^3.0.2",
+    "glob": "^7.1.6",
     "n3": "^1.3.5",
+    "parse-author": "^2.0.0",
     "pkginfo": "^0.4.1",
     "prefix-ns": "^0.1.2",
     "q": "^1.5.1",
@@ -31,7 +33,7 @@
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "mocha": "^6.2.2"
+    "mocha": "^8.0.1"
   },
   "bin": {
     "yarrrml-parser": "./bin/parser.js",

@@ -14,28 +14,60 @@ const pkginfo = require('pkginfo');
 const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
 const watch = require('../lib/watcher.js');
+const glob = require('glob');
 
 namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
 
 pkginfo(module, 'version');
 
+/**
+ * This method collect all values when an option is used multiple times.
+ * @param val A single value.
+ * @param memo The current array of values.
+ * @returns {*} The updated array with the new value.
+ */
+function collect(val, memo) {
+  memo.push(val);
+  return memo;
+}
+
 program.version(module.exports.version);
-program.option('-i, --input <input>', 'input file');
-program.option('-o, --output <output>', 'output file (default: stdout)');
-program.option('-f, --format <output>', 'RML or R2RML (default: RML)');
+program.option('-i, --input <file>', 'input file (can be used multiple times)', collect, []); // We support multiple uses of this option.
+program.option('-c, --class', 'use rr:class when appropriate');
+program.option('-o, --output <file>', 'output file (default: stdout)');
+program.option('-f, --format <format>', 'RML or R2RML (default: RML)');
 program.option('-w, --watch', 'watch for file changes');
+program.option('-e, --external <value>', 'external references (key=value, can be used multiple times', collect, []); // We support multiple uses of this option.
+program.option('-m, --skip-metadata', 'include metadata in generated rules');
 program.parse(process.argv);
 
 if (!program.input) {
-  console.error('Please provide an input file.');
+  console.error('Please provide an input file using -i| --input.');
 } else {
-  if (!path.isAbsolute(program.input)) {
-    program.input = path.join(process.cwd(), program.input);
+  let inputPaths = [];
+
+  for (let input of program.input) {
+    // Check if the input is a regex, e.g., *.yarrrml
+    if (glob.hasMagic(input)) {
+      const foundFiles = glob.sync(input).map(file => path.join(process.cwd(), file));
+      inputPaths = inputPaths.concat(foundFiles);
+    } else {
+      if (!path.isAbsolute(input)) {
+        input = path.join(process.cwd(), input);
+      }
+
+      inputPaths.push(input);
+    }
   }
 
   if (!program.watch) {
     try {
-      const inputData = fs.readFileSync(program.input, 'utf8');
+      const inputData = [];
+
+      for (const p of inputPaths) {
+        const yarrrml = fs.readFileSync(p, 'utf8');
+        inputData.push({yarrrml, file: p});
+      }
 
       if (program.format) {
         program.format = program.format.toUpperCase();
@@ -49,11 +81,23 @@ if (!program.input) {
         rdfs: namespaces.rdfs,
         fnml: "http://semweb.mmlab.be/ns/fnml#",
         fno: "https://w3id.org/function/ontology#",
-        d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+        d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#",
+        void: "http://rdfs.org/ns/void#",
+        dc: "http://purl.org/dc/terms/",
+        foaf: "http://xmlns.com/foaf/0.1/"
       };
 
+      const externalReferences = {};
+
+      for (const e of program.external) {
+        const keyValue = e.split('=');
+        externalReferences[keyValue[0]] = keyValue[1];
+      }
+
+      const includeMetadata =!(!!program.skipMetadata);
+
       if (!program.format || program.format === 'RML') {
-        const y2r = new Y2R();
+        const y2r = new Y2R({class: !!program.class, externalReferences, includeMetadata});
         triples = y2r.convert(inputData);
 
         prefixes.rml = namespaces.rml;
@@ -61,7 +105,7 @@ if (!program.input) {
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
       } else {
-        const y2r = new Y2R2();
+        const y2r = new Y2R2({class: !!program.class, externalReferences, includeMetadata});
         triples = y2r.convert(inputData);
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());

@@ -1,0 +1,20 @@
+prefixes:
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+  idlab-fn: http://example.com/idlab/function/
+
+mappings:
+  person:
+    sources:
+     - [input.csv~csv]
+    s:
+      function: grel:array_join
+      parameters:
+        - [grel:p_array_a, "http://example.org/"]
+        - [grel:p_array_a, "$(id)"]
+    condition:
+      function: idlab-fn:notEqual
+      parameters:
+        - [grel:valueParameter, "$(id)"]
+        - [grel:valueParameter2, ""]
+    po:
+      - [a, schema:Person]
