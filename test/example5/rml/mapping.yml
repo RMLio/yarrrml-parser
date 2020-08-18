@@ -68,7 +68,6 @@ mappings:
   WikipediaExportMapping:
     source: src/test/resources/example5/moon-walkers.csv
     subject: "http://ex.com/$(Name)"
-    classes: crm:E21_Person
     predicateobjects:
      - [ex:birthday,$(Birth Date),xsd:date]
      - [ex:deathday,$(Death Date),xsd:date]
