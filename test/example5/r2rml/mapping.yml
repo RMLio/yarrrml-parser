@@ -67,7 +67,6 @@ mappings:
       - table: moon-walkers
         queryFormulation: mysql
     subject: "http://ex.com/$(Name)"
-    classes: crm:E21_Person
     predicateobjects:
      - [ex:birthday,$(Birth Date),xsd:date]
      - [ex:deathday,$(Death Date),xsd:date]
