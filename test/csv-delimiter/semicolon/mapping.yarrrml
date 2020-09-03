@@ -1,0 +1,12 @@
+prefixes:
+  ex: "http://example.com/"
+
+mappings:
+  person:
+    sources:
+      - access: data.txt
+        referenceFormulation: csv
+        delimiter: ';'
+    s: http://example.com/$(id)
+    po:
+      - [a, foaf:Person]

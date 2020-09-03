@@ -6,7 +6,7 @@ mappings:
     sources:
       - access: data.tsv
         referenceFormulation: csv
-        delimiter: '  '
+        delimiter: '\t'
     s: http://example.com/$(id)
     po:
       - [a, foaf:Person]

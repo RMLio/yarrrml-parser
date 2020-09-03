@@ -22,7 +22,7 @@
     csvw:url "data.tsv";
     csvw:dialect :csvw-dialect_000.
 :csvw-dialect_000 a csvw:Dialect;
-    csvw:delimiter "  ".
+    csvw:delimiter "\\t".
 :source_000 rml:referenceFormulation ql:CSV.
 :map_person_000 a rr:TriplesMap;
     rdfs:label "person".
