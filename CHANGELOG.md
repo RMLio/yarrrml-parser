@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Test example5 is invalid YARRRML (see [issue 93](https://github.com/RMLio/yarrrml-parser/issues/93))
 - Mapping TSV files (see [issue 95](https://github.com/RMLio/yarrrml-parser/issues/95))
 
+### Changed
+- Update dev deps
+
 ## [1.2.0] - 2020-08-17
 
 ### Added
