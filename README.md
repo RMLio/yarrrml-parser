@@ -75,7 +75,7 @@ docker run --rm -it -v $(pwd)/resources:/data rmlio/yarrrml-parser:latest -i /da
 Build from source:
 
 ```bash
-docker build -t umids/yarrrml-parser .
+docker build -t yarrrml-parser .
 ```
 
 ## License

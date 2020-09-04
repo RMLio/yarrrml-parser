@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.2.1] - 2020-09-04
+
+### Fixed
+- Fix docker build command in README (see [issue 91](https://github.com/RMLio/yarrrml-parser/issues/91))
+- Test example5 is invalid YARRRML (see [issue 93](https://github.com/RMLio/yarrrml-parser/issues/93))
+- Mapping TSV files (see [issue 95](https://github.com/RMLio/yarrrml-parser/issues/95))
+
+### Changed
+- Update dev deps
+
 ## [1.2.0] - 2020-08-17
 
 ### Added
@@ -178,6 +188,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.2.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.0.2...v1.1.0
