@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- Fix invalid input argument type array, in fs.watchFile()
+- Fix N3 addTriples() is not a function, in fs.watchFile()
+
 ## [1.2.1] - 2020-09-04
 
 ### Fixed
