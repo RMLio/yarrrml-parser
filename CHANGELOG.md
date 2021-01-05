@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- Logger to catch convert errors (see [issue 102](https://github.com/RMLio/yarrrml-parser/issues/102))
+
+### Changed
+- Update dev deps
+
 ## [1.2.1] - 2020-09-04
 
 ### Fixed
