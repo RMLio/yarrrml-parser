@@ -7,13 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- Cannot find module rml2yarrrml when running yarrrml-generator (see [issue 106](https://github.com/RMLio/yarrrml-parser/issues/106))
+
 ## [1.2.1] - 2020-09-04
 
 ### Fixed
 - Fix docker build command in README (see [issue 91](https://github.com/RMLio/yarrrml-parser/issues/91))
 - Test example5 is invalid YARRRML (see [issue 93](https://github.com/RMLio/yarrrml-parser/issues/93))
 - Mapping TSV files (see [issue 95](https://github.com/RMLio/yarrrml-parser/issues/95))
-- Cannot find module rml2yarrrml when running yarrrml-generator (see [issue 106](https://github.com/RMLio/yarrrml-parser/issues/106))
 
 ### Changed
 - Update dev deps
