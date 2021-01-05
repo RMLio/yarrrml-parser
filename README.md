@@ -53,6 +53,11 @@ let yarrrml = require('@rmlio/yarrrml-parser/lib/rml-generator');
 const yaml = "[yarrrml string]";
 const y2r = new yarrrml();
 const triples = y2r.convert(yaml);
+
+if ( y2r.getLogger().has('error') ) {
+   const logs = y2r.getLogger().getAll();
+   ...
+}
 ```
 
 ## Development
