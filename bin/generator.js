@@ -8,7 +8,7 @@
 const program = require('commander');
 const path = require('path');
 const fs = require('fs');
-const r2y = require('../lib/rml2yarrrml.js');
+const toYARRRML = require('../lib/yarrrml-generator.js');
 const pkginfo = require('pkginfo');
 const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
@@ -47,7 +47,7 @@ if (!program.input) {
         Logger.error('There is a problem with your input.');
         process.exit(1);
       } else {
-        r2y(quads, prefixes).then(str => {
+        toYARRRML(quads, prefixes).then(str => {
           if (program.output) {
             if (!path.isAbsolute(program.output)) {
               program.output = path.join(process.cwd(), program.output);
