@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.2.2] - 2021-02-23
+
 ### Added
 - Logger to catch convert errors (see [issue 102](https://github.com/RMLio/yarrrml-parser/issues/102))
 
@@ -201,6 +203,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.2.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.0...v1.1.1
