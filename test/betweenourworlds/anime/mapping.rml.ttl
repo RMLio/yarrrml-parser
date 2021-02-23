@@ -95,7 +95,8 @@
 :om_006 a rr:ObjectMap;
     rml:reference "attributes.titles.en";
     rr:termType rr:Literal;
-    rr:language "en".
+    rml:languageMap :language_000.
+:language_000 rr:constant "en".
 :pom_003 a rr:PredicateObjectMap.
 :map_anime_000 rr:predicateObjectMap :pom_003.
 :pm_007 a rr:PredicateMap.
@@ -111,7 +112,8 @@
 :om_007 a rr:ObjectMap;
     rml:reference "attributes.titles.en_jp";
     rr:termType rr:Literal;
-    rr:language "ja".
+    rml:languageMap :language_001.
+:language_001 rr:constant "ja".
 :pom_004 a rr:PredicateObjectMap.
 :map_anime_000 rr:predicateObjectMap :pom_004.
 :pm_010 a rr:PredicateMap.
@@ -127,7 +129,8 @@
 :om_008 a rr:ObjectMap;
     rml:reference "attributes.titles.ja_jp";
     rr:termType rr:Literal;
-    rr:language "ja".
+    rml:languageMap :language_002.
+:language_002 rr:constant "ja".
 :pom_005 a rr:PredicateObjectMap.
 :map_anime_000 rr:predicateObjectMap :pom_005.
 :pm_013 a rr:PredicateMap.

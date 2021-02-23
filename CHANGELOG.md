@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.2.2] - 2021-02-23
+
+### Added
+- Logger to catch convert errors (see [issue 102](https://github.com/RMLio/yarrrml-parser/issues/102))
+
+### Fixed
+- Fix invalid input argument type array, in fs.watchFile()
+- Fix N3 addTriples() is not a function, in fs.watchFile()
+- Cannot find module rml2yarrrml when running yarrrml-generator (see [issue 106](https://github.com/RMLio/yarrrml-parser/issues/106))
+    - Language with template not converted to Language Map  (see [issue 107](https://github.com/RMLio/yarrrml-parser/issues/107))
+
+### Changed
+- Update dev deps
+- Update deps
+
 ## [1.2.1] - 2020-09-04
 
 ### Fixed
@@ -188,6 +203,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.2.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.0...v1.1.1

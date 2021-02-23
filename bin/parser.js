@@ -15,6 +15,7 @@ const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
 const watch = require('../lib/watcher.js');
 const glob = require('glob');
+const Logger = require('../lib/logger');
 
 namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
 
@@ -42,7 +43,7 @@ program.option('-m, --skip-metadata', 'include metadata in generated rules');
 program.parse(process.argv);
 
 if (!program.input) {
-  console.error('Please provide an input file using -i| --input.');
+  Logger.error('Please provide an input file using -i| --input.');
 } else {
   let inputPaths = [];
 
@@ -123,21 +124,21 @@ if (!program.input) {
           try {
             fs.writeFileSync(program.output, result);
           } catch (e) {
-            console.error(`The RML could not be written to the output file ${program.output}`);
+            Logger.error(`The RML could not be written to the output file ${program.output}`);
           }
         } else {
-          console.log(result);
+          Logger.log(result);
         }
       });
 
     } catch (e) {
       if (e.code === 'ENOENT') {
-        console.error(`The input file ${program.input} is not found.`);
+        Logger.error(`The input file ${program.input} is not found.`);
       } else if (e.code === 'INVALID_YAML') {
-        console.error(`The input file contains invalid YAML.`);
-        console.error(`line ${e.parsedLine}: ${e.message}`);
+        Logger.error(`The input file contains invalid YAML.`);
+        Logger.error(`line ${e.parsedLine}: ${e.message}`);
       } else {
-        console.error(e);
+        Logger.error(e);
       }
     }
   } else {

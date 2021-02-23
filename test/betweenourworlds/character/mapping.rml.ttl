@@ -67,7 +67,8 @@
 :om_003 a rr:ObjectMap;
     rml:reference "attributes.names.en";
     rr:termType rr:Literal;
-    rr:language "en".
+    rml:languageMap :language_000.
+:language_000 rr:constant "en".
 :pom_003 a rr:PredicateObjectMap.
 :map_character_000 rr:predicateObjectMap :pom_003.
 :pm_007 a rr:PredicateMap.
@@ -83,7 +84,8 @@
 :om_004 a rr:ObjectMap;
     rml:reference "attributes.names.ja_jp";
     rr:termType rr:Literal;
-    rr:language "ja".
+    rml:languageMap :language_001.
+:language_001 rr:constant "ja".
 :pom_004 a rr:PredicateObjectMap.
 :map_character_000 rr:predicateObjectMap :pom_004.
 :pm_010 a rr:PredicateMap.
