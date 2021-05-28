@@ -5,7 +5,7 @@
  * Ghent University - imec - IDLab
  */
 
-const program = require('commander');
+const { program } = require('commander');
 const path = require('path');
 const fs = require('fs');
 const Y2R = require('../lib/rml-generator.js');
@@ -42,12 +42,14 @@ program.option('-e, --external <value>', 'external references (key=value, can be
 program.option('-m, --skip-metadata', 'include metadata in generated rules');
 program.parse(process.argv);
 
-if (!program.input) {
+const options = program.opts();
+
+if (!options.input) {
   Logger.error('Please provide an input file using -i| --input.');
 } else {
   let inputPaths = [];
 
-  for (let input of program.input) {
+  for (let input of options.input) {
     // Check if the input is a regex, e.g., *.yarrrml
     if (glob.hasMagic(input)) {
       const foundFiles = glob.sync(input).map(file => path.join(process.cwd(), file));
@@ -61,7 +63,7 @@ if (!program.input) {
     }
   }
 
-  if (!program.watch) {
+  if (!options.watch) {
     try {
       const inputData = [];
 
@@ -70,8 +72,8 @@ if (!program.input) {
         inputData.push({yarrrml, file: p});
       }
 
-      if (program.format) {
-        program.format = program.format.toUpperCase();
+      if (options.format) {
+        options.format = options.format.toUpperCase();
       }
 
       let triples;
@@ -90,15 +92,15 @@ if (!program.input) {
 
       const externalReferences = {};
 
-      for (const e of program.external) {
+      for (const e of options.external) {
         const keyValue = e.split('=');
         externalReferences[keyValue[0]] = keyValue[1];
       }
 
-      const includeMetadata =!(!!program.skipMetadata);
+      const includeMetadata =!(!!options.skipMetadata);
 
-      if (!program.format || program.format === 'RML') {
-        const y2r = new Y2R({class: !!program.class, externalReferences, includeMetadata});
+      if (!options.format || options.format === 'RML') {
+        const y2r = new Y2R({class: !!options.class, externalReferences, includeMetadata});
         triples = y2r.convert(inputData);
 
         prefixes.rml = namespaces.rml;
@@ -106,7 +108,7 @@ if (!program.input) {
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
       } else {
-        const y2r = new Y2R2({class: !!program.class, externalReferences, includeMetadata});
+        const y2r = new Y2R2({class: !!options.class, externalReferences, includeMetadata});
         triples = y2r.convert(inputData);
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
@@ -116,15 +118,15 @@ if (!program.input) {
 
       writer.addQuads(triples);
       writer.end((error, result) => {
-        if (program.output) {
-          if (!path.isAbsolute(program.output)) {
-            program.output = path.join(process.cwd(), program.output);
+        if (options.output) {
+          if (!path.isAbsolute(options.output)) {
+            options.output = path.join(process.cwd(), options.output);
           }
 
           try {
-            fs.writeFileSync(program.output, result);
+            fs.writeFileSync(options.output, result);
           } catch (e) {
-            Logger.error(`The RML could not be written to the output file ${program.output}`);
+            Logger.error(`The RML could not be written to the output file ${options.output}`);
           }
         } else {
           Logger.log(result);
@@ -133,7 +135,7 @@ if (!program.input) {
 
     } catch (e) {
       if (e.code === 'ENOENT') {
-        Logger.error(`The input file ${program.input} is not found.`);
+        Logger.error(`The input file ${options.input} is not found.`);
       } else if (e.code === 'INVALID_YAML') {
         Logger.error(`The input file contains invalid YAML.`);
         Logger.error(`line ${e.parsedLine}: ${e.message}`);
@@ -142,6 +144,6 @@ if (!program.input) {
       }
     }
   } else {
-    watch(program.input, program.output, program.format);
+    watch(options.input, options.output, options.format);
   }
 }

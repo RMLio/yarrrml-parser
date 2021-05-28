@@ -5,7 +5,7 @@
  * Ghent University - imec - IDLab
  */
 
-const program = require('commander');
+const { program } = require('commander');
 const path = require('path');
 const fs = require('fs');
 const toYARRRML = require('../lib/yarrrml-generator.js');
@@ -23,21 +23,23 @@ program.option('-i, --input <input>', 'input file');
 program.option('-o, --output <output>', 'output file (default: stdout)');
 program.parse(process.argv);
 
-if (!program.input) {
+const options = program.opts();
+
+if (!options.input) {
   Logger.error('Please provide an input file.');
 } else {
-  if (!path.isAbsolute(program.input)) {
-    program.input = path.join(process.cwd(), program.input);
+  if (!path.isAbsolute(options.input)) {
+    options.input = path.join(process.cwd(), options.input);
   }
 
   try {
-    const inputData = fs.readFileSync(program.input, 'utf8');
+    const inputData = fs.readFileSync(options.input, 'utf8');
 
-    if (program.format) {
-      program.format = program.format.toUpperCase();
+    if (options.format) {
+      options.format = options.format.toUpperCase();
     }
 
-    const parser = N3.Parser();
+    const parser = new N3.Parser();
     const quads = [];
 
     parser.parse(inputData, (err, quad, prefixes) => {
@@ -48,15 +50,15 @@ if (!program.input) {
         process.exit(1);
       } else {
         toYARRRML(quads, prefixes).then(str => {
-          if (program.output) {
-            if (!path.isAbsolute(program.output)) {
-              program.output = path.join(process.cwd(), program.output);
+          if (options.output) {
+            if (!path.isAbsolute(options.output)) {
+              options.output = path.join(process.cwd(), options.output);
             }
 
             try {
-              fs.writeFileSync(program.output, str);
+              fs.writeFileSync(options.output, str);
             } catch (e) {
-              Logger.error(`The RML could not be written to the output file ${program.output}`);
+              Logger.error(`The RML could not be written to the output file ${options.output}`);
             }
           } else {
             Logger.log(str);
@@ -67,7 +69,7 @@ if (!program.input) {
 
   } catch (e) {
     if (e.code === 'ENOENT') {
-      Logger.error(`The input file ${program.input} is not found.`);
+      Logger.error(`The input file ${options.input} is not found.`);
     } else if (e.code === 'INVALID_YAML') {
       Logger.error(`The input file contains invalid YAML.`);
       Logger.error(`line ${e.parsedLine}: ${e.message}`);
