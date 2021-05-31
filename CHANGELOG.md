@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.2.3] - 2021-05-28
+
+### Fixed
+
+- Fix N3 outdated constructor (see [issue 115](https://github.com/RMLio/yarrrml-parser/issues/115))
+- updated commander
+
 ## [1.2.2] - 2021-02-23
 
 ### Added
@@ -203,6 +210,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.2.3]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.1.1...v1.2.0
