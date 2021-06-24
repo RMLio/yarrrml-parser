@@ -1,0 +1,22 @@
+sources:
+  people-source:
+    access: "http://example.org/file.xml"
+    contentType: "application/xml"
+    operationType: read
+    type: wot
+    referenceFormulation: xpath
+    iterator: "/"
+    security: none
+mappings:
+  person:
+    sources: people-source
+    subjects:
+      value: "http://example.org/$(id)"
+      target: subject-target
+    predicateobjects:
+      - predicates: foaf:name
+        objects:
+          value: "$(name)"
+      - predicates: foaf:age
+        objects:
+          value: "$(age)"

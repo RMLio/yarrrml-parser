@@ -1,0 +1,25 @@
+prefixes:
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  gtfs: http://vocab.gtfs.org/terms#
+sources:
+  irail-source:
+    access: "http://api.irail.be/stations?format=json"
+    contentType: "application/json"
+    operationType: read
+    type: wot
+    referenceFormulation: jsonpath
+    iterator: "$.station.[*]"
+    security: none
+mappings:
+  station:
+    sources: irail-source
+    subjects: "http://example.org/station/$(id)"
+    predicateobjects:
+      - predicates: a
+        objects: gtfs:Station;
+      - predicates: schema:name
+        objects: "$(name)"
+      - predicates: geo:longitude
+        objects: "$(locationX)"
+      - predicates: geo:latitude
+        objects: "$(locationY)"
