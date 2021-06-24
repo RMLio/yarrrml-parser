@@ -10,23 +10,23 @@
 @prefix rml: <http://semweb.mmlab.be/ns/rml#>.
 @prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix : <http://mapping.example.com/>.
-@prefix td: <https://www.w3.org/2019/wot/td#>.
-@prefix wotsec: <https://www.w3.org/2019/wot/security#>.
-@prefix hctl: <https://www.w3.org/2019/wot/hypermedia#>.
-@prefix idsa: <https://w3id.org/idsa/core/>.
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#>.
+@prefix formats: <http://www.w3.org/ns/formats/>.
+@prefix comp: <http://semweb.mmlab.be/ns/rml-compression#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
 
 :source_000 a rml:LogicalSource;
     rdfs:label "people-source";
-    rml:source :propertyAffordance_000.
-:wot_000 a td:Thing.
-:propertyAffordance_000 a td:PropertyAffordance;
-    td:hasForm :form_000.
-:form_000 a td:Form;
-    hctl:hasTarget "http://example.org/file.xml";
-    hctl:forContentType "application/xml";
-    hctl:hasOperationType td:readproperty.
-:wot_000 td:hasPropertyAffordance :propertyAffordance_000.
-:source_000 rml:referenceFormulation ql:XPath.
+    rml:source "/data/people.json";
+    rml:iterator "$.[*]";
+    rml:referenceFormulation ql:JSONPath.
+:target_000 a rmlt:LogicalTarget;
+    rdfs:label "predicate-target";
+    rmlt:serialization formats:Turtle;
+    rmlt:compression comp:zip;
+    rmlt:target :dcat_000.
+:dcat_000 a dcat:Dataset;
+    dcat:dataDump <file:///data/file.ttl.zip>.
 :map_person_000 rml:logicalSource :source_000;
     a rr:TriplesMap;
     rdfs:label "person".
@@ -37,7 +37,8 @@
 :map_person_000 rr:predicateObjectMap :pom_000.
 :pm_000 a rr:PredicateMap.
 :pom_000 rr:predicateMap :pm_000.
-:pm_000 rr:constant foaf:name.
+:pm_000 rr:constant foaf:name;
+    rml:logicalTarget :target_000.
 :pom_000 rr:objectMap :om_000.
 :om_000 a rr:ObjectMap;
     rml:reference "name";

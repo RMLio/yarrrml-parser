@@ -10,29 +10,32 @@
 @prefix rml: <http://semweb.mmlab.be/ns/rml#>.
 @prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix : <http://mapping.example.com/>.
-@prefix td: <https://www.w3.org/2019/wot/td#>.
-@prefix wotsec: <https://www.w3.org/2019/wot/security#>.
-@prefix hctl: <https://www.w3.org/2019/wot/hypermedia#>.
-@prefix idsa: <https://w3id.org/idsa/core/>.
+@prefix ex: <http://example.org/ns/>.
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#>.
+@prefix formats: <http://www.w3.org/ns/formats/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
 
 :source_000 a rml:LogicalSource;
     rdfs:label "people-source";
-    rml:source :propertyAffordance_000.
-:wot_000 a td:Thing.
-:propertyAffordance_000 a td:PropertyAffordance;
-    td:hasForm :form_000.
-:form_000 a td:Form;
-    hctl:hasTarget "http://example.org/file.xml";
-    hctl:forContentType "application/xml";
-    hctl:hasOperationType td:readproperty.
-:wot_000 td:hasPropertyAffordance :propertyAffordance_000.
-:source_000 rml:referenceFormulation ql:XPath.
+    rml:source "/data/people.json";
+    rml:iterator "$.[*]";
+    rml:referenceFormulation ql:JSONPath.
+:target_000 a rmlt:LogicalTarget;
+    rdfs:label "/data/file.rdf-dcat-rdfxml";
+    rmlt:serialization formats:RDF_XML;
+    rmlt:target :dcat_000.
+:dcat_000 a dcat:Dataset;
+    dcat:dataDump <file:///data/file.rdf>.
 :map_person_000 rml:logicalSource :source_000;
     a rr:TriplesMap;
     rdfs:label "person".
 :s_000 a rr:SubjectMap.
 :map_person_000 rr:subjectMap :s_000.
-:s_000 rr:template "http://example.org/{id}".
+:s_000 rr:template "http://example.org/{id}";
+    rr:graphMap :gm_000.
+:gm_000 a rr:GraphMap;
+    rr:constant "http://example.org/ns/Graph";
+    rml:logicalTarget :target_000.
 :pom_000 a rr:PredicateObjectMap.
 :map_person_000 rr:predicateObjectMap :pom_000.
 :pm_000 a rr:PredicateMap.
