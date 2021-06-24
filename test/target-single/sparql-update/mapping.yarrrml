@@ -1,0 +1,22 @@
+sources:
+  people-source:
+    access: "/data/people.json"
+    referenceFormulation: jsonpath
+    iterator: "$.[*]"
+targets:
+  subject-target:
+    access: "http://example.com/sparql"
+    type: sd
+mappings:
+  person:
+    sources: people-source
+    subjects:
+      value: "http://example.org/$(id)"
+      targets: subject-target
+    predicateobjects:
+      - predicates: foaf:name
+        objects:
+          value: "$(name)"
+      - predicates: foaf:age
+        objects:
+          value: "$(age)"

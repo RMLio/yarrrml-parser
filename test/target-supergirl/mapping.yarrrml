@@ -1,0 +1,21 @@
+sources:
+  supergirl-source:
+    access: "/data/Supergirl.xml"
+    referenceFormulation: xpath
+    iterator: "/Supergirl"
+targets:
+  target1: ["/data/dump1.nt~dcat", "ntriples"]
+  target2: ["/data/dump2.ttl~void", "turtle"]
+mappings:
+  person:
+    sources: supergirl-source
+    subjects:
+      - value: "http://example.org/$(./Character/@id)"
+        targets: target1
+    predicateobjects:
+      - predicates:
+        - value: foaf:name
+          targets: target2
+        objects: "$(./Character/name)"
+      - predicates: foaf:nickname
+        objects: "$(./Character/nickname)"

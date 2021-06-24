@@ -1,0 +1,19 @@
+sources:
+  people-source:
+    access: "/data/people.json"
+    referenceFormulation: jsonpath
+    iterator: "$.[*]"
+mappings:
+  person:
+    sources: people-source
+    subjects:
+      - value: "http://example.org/$(id)"
+        targets:
+          - ["/data/file.nt.gz~void", "ntriples", "gzip"]
+    predicateobjects:
+      - predicates: foaf:name
+        objects:
+          value: "$(name)"
+      - predicates: foaf:age
+        objects:
+          value: "$(age)"

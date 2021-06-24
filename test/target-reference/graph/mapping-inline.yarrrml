@@ -1,0 +1,20 @@
+prefixes:
+  ex: http://example.org/ns/
+sources:
+  people-source:
+    access: "/data/people.json"
+    referenceFormulation: jsonpath
+    iterator: "$.[*]"
+mappings:
+  person:
+    sources: people-source
+    graphs:
+      - value: ex:Graph
+        targets:
+          - ["/data/file.rdf~dcat", "rdfxml"]
+    subjects: "http://example.org/$(id)"
+    predicateobjects:
+      - predicates: foaf:name
+        objects: "$(name)"
+      - predicates: foaf:age
+        objects: "$(age)"

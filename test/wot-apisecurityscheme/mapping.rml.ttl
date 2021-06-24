@@ -38,7 +38,7 @@
     rdfs:label "person".
 :s_000 a rr:SubjectMap.
 :map_person_000 rr:subjectMap :s_000.
-:s_000 rr:termType rr:BlankNode.
+:s_000 rr:template "http://example.org/{id}".
 :pom_000 a rr:PredicateObjectMap.
 :map_person_000 rr:predicateObjectMap :pom_000.
 :pm_000 a rr:PredicateMap.
