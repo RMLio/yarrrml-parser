@@ -1,0 +1,22 @@
+prefixes:
+  ex: "http://example.org/ns#"
+
+variables:
+  credentials: &credentials
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+mappings:
+
+  myMapping:
+    sources:
+      - access: //${DB_HOST}:${DB_PORT}/${DB}
+        type: postgresql
+        credentials: *credentials
+        queryFormulation: sql2008
+        referenceFormulation: csv
+        query: SELECT val1, val2 FROM tab
+    s: ex:entity_$(val1)
+    po:
+      - [a, ex:Thing]
+      - [ex:title, $(val2), en~lang]

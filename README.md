@@ -37,6 +37,12 @@ You find an example in [`test/template-escape`](test/template-escape).
 If you want to use for example `$(_name)` as both an external reference and a normal reference,
 then you add a `\` for the latter resulting in `$(\_name)` for the latter.
 
+If your YARRRML document contains sensitive information such as database credentials,
+you can use dollar variables with curly braces and specify a variable in a `.env` file.
+For example, use `${DB_PASSWORD}` in the YARRRML document and add a `.env` file with content `DB_PASSWORD=mySecretPassword`.
+During generation of an RML document, the variables will be replaced.
+If a variable is not found in the current environment, the yarrrml-parser will emit a warning.
+
 #### yarrrml-generator
 
 If you want to generate YARRRML rules from an RML document, you do the following: `yarrrml-generator -i rules.rml.ttl`.

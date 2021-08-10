@@ -17,6 +17,9 @@ const watch = require('../lib/watcher.js');
 const glob = require('glob');
 const Logger = require('../lib/logger');
 
+// load environment variables from .env into process.env
+require('dotenv').config();
+
 namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
 
 pkginfo(module, 'version');
