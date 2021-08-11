@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Changed
+- Update `rdf-serializer-jsonld-ext` dependency (see [issue 128](https://github.com/RMLio/yarrrml-parser/issues/128))
+
 ## [1.3.0] - 2021-07-05
 
 ### Added
