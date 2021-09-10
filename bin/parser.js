@@ -10,6 +10,7 @@ const path = require('path');
 const fs = require('fs');
 const Y2R = require('../lib/rml-generator.js');
 const Y2R2 = require('../lib/r2rml-generator.js');
+const { canonicalize } = require('../lib/tools');
 const pkginfo = require('pkginfo');
 const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
@@ -38,6 +39,7 @@ program.option('-c, --class', 'use rr:class when appropriate');
 program.option('-o, --output <file>', 'output file (default: stdout)');
 program.option('-f, --format <format>', 'RML or R2RML (default: RML)');
 program.option('-w, --watch', 'watch for file changes');
+program.option('-p, --pretty', 'output prettified triples');
 program.option('-e, --external <value>', 'external references (key=value, can be used multiple times', collect, []); // We support multiple uses of this option.
 program.option('-m, --skip-metadata', 'include metadata in generated rules');
 program.parse(process.argv);
@@ -69,7 +71,7 @@ if (!options.input) {
 
       for (const p of inputPaths) {
         const yarrrml = fs.readFileSync(p, 'utf8');
-        inputData.push({yarrrml, file: p});
+        inputData.push({ yarrrml, file: p });
       }
 
       if (options.format) {
@@ -97,10 +99,10 @@ if (!options.input) {
         externalReferences[keyValue[0]] = keyValue[1];
       }
 
-      const includeMetadata =!(!!options.skipMetadata);
+      const includeMetadata = !(!!options.skipMetadata);
 
       if (!options.format || options.format === 'RML') {
-        const y2r = new Y2R({class: !!options.class, externalReferences, includeMetadata});
+        const y2r = new Y2R({ class: !!options.class, externalReferences, includeMetadata });
         triples = y2r.convert(inputData);
 
         prefixes.rml = namespaces.rml;
@@ -108,23 +110,26 @@ if (!options.input) {
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
       } else {
-        const y2r = new Y2R2({class: !!options.class, externalReferences, includeMetadata});
+        const y2r = new Y2R2({ class: !!options.class, externalReferences, includeMetadata });
         triples = y2r.convert(inputData);
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
       }
 
-      const writer = new N3.Writer({prefixes});
+      const writer = new N3.Writer({ prefixes });
 
       writer.addQuads(triples);
-      writer.end((error, result) => {
+      writer.end(async (error, result) => {
+        if (options.pretty) {
+          result = await canonicalize(result);
+        }
         if (options.output) {
           if (!path.isAbsolute(options.output)) {
             options.output = path.join(process.cwd(), options.output);
           }
 
           try {
-            fs.writeFileSync(options.output, result);
+            await fs.promises.writeFile(options.output, result);
           } catch (e) {
             Logger.error(`The RML could not be written to the output file ${options.output}`);
           }
