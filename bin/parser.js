@@ -41,7 +41,7 @@ program.option('-f, --format <format>', 'RML or R2RML (default: RML)');
 program.option('-w, --watch', 'watch for file changes');
 program.option('-p, --pretty', 'output prettified triples');
 program.option('-e, --external <value>', 'external references (key=value, can be used multiple times', collect, []); // We support multiple uses of this option.
-program.option('-m, --skip-metadata', 'include metadata in generated rules');
+program.option('-m, --skip-metadata', 'skip metadata in generated rules');
 program.parse(process.argv);
 
 const options = program.opts();

@@ -8,8 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Unreleased
 
 ### Added
-
 - `pretty` parameter for pretty output
+
+### Fixed
+- Help text of CLI
+- Object type 'iri' discarded as of second source in a mapping that has multiple sources (see [issue 137](https://github.com/RMLio/yarrrml-parser/issues/137))
 
 ## [1.3.1] - 2021-08-11
 
