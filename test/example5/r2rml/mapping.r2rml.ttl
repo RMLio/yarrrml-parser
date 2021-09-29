@@ -1,234 +1,295 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
-@prefix fno: <https://w3id.org/function/ontology#>.
-@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
-@prefix : <http://mapping.example.com/>.
-@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix ex: <http://example.org/>.
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix : <http://mapping.example.com/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix ex: <http://example.org/> .
 
-:source_000 a rr:LogicalTable;
-    rdfs:label "museum_source";
-    rr:tableName "museum";
-    rr:sqlVersion rr:MySQL.
-:source_001 a rr:LogicalTable;
-    rdfs:label "museum_sitter_source";
-    rr:tableName "museumSitters";
-    rr:sqlVersion rr:MySQL.
-:source_002 a rr:LogicalTable;
-    rdfs:label "museum_sitter_source2";
-    rr:tableName "museumSitter";
-    rr:sqlVersion rr:MySQL.
-:map_ArtistMapping_000 rr:logicalTable :source_000;
-    a rr:TriplesMap;
-    rdfs:label "ArtistMapping".
-:s_000 a rr:SubjectMap.
-:map_ArtistMapping_000 rr:subjectMap :s_000.
-:s_000 rr:template "http://ex.com/{Artist}".
-:pom_000 a rr:PredicateObjectMap.
-:map_ArtistMapping_000 rr:predicateObjectMap :pom_000.
-:pm_000 a rr:PredicateMap.
-:pom_000 rr:predicateMap :pm_000.
-:pm_000 rr:constant rdf:type.
-:pom_000 rr:objectMap :om_000.
-:om_000 a rr:ObjectMap;
-    rr:constant "http://www.cidoc-crm.org/cidoc-crm/E21_Person";
-    rr:termType rr:IRI.
-:pom_001 a rr:PredicateObjectMap.
-:map_ArtistMapping_000 rr:predicateObjectMap :pom_001.
-:pm_001 a rr:PredicateMap.
-:pom_001 rr:predicateMap :pm_001.
-:pm_001 rr:constant rdfs:label.
-:pom_001 rr:objectMap :om_001.
-:om_001 a rr:ObjectMap;
-    rr:column "Artist";
-    rr:termType rr:Literal.
-:pom_002 a rr:PredicateObjectMap.
-:map_ArtistMapping_000 rr:predicateObjectMap :pom_002.
-:pm_002 a rr:PredicateMap.
-:pom_002 rr:predicateMap :pm_002.
-:pm_002 rr:constant crm:P143_carried_out_by.
-:pom_002 rr:objectMap :om_002.
-:map_MoonWalkerMapping_000 rr:logicalTable :source_001;
-    a rr:TriplesMap;
-    rdfs:label "MoonWalkerMapping".
-:s_001 a rr:SubjectMap.
-:map_MoonWalkerMapping_000 rr:subjectMap :s_001.
-:s_001 rr:template "http://ex.com/{Name}".
-:pom_003 a rr:PredicateObjectMap.
-:map_MoonWalkerMapping_000 rr:predicateObjectMap :pom_003.
-:pm_003 a rr:PredicateMap.
-:pom_003 rr:predicateMap :pm_003.
-:pm_003 rr:constant rdf:type.
-:pom_003 rr:objectMap :om_003.
-:om_003 a rr:ObjectMap;
-    rr:constant "http://www.cidoc-crm.org/cidoc-crm/E21_Person";
-    rr:termType rr:IRI.
-:pom_004 a rr:PredicateObjectMap.
-:map_MoonWalkerMapping_000 rr:predicateObjectMap :pom_004.
-:pm_004 a rr:PredicateMap.
-:pom_004 rr:predicateMap :pm_004.
-:pm_004 rr:constant rdfs:label.
-:pom_004 rr:objectMap :om_004.
-:om_004 a rr:ObjectMap;
-    rr:column "Name";
-    rr:termType rr:Literal.
-:map_SitterMapping_000 rr:logicalTable :source_002;
-    a rr:TriplesMap;
-    rdfs:label "SitterMapping".
-:s_002 a rr:SubjectMap.
-:map_SitterMapping_000 rr:subjectMap :s_002.
-:s_002 rr:template "http://ex.com/{Name}".
-:pom_005 a rr:PredicateObjectMap.
-:map_SitterMapping_000 rr:predicateObjectMap :pom_005.
-:pm_005 a rr:PredicateMap.
-:pom_005 rr:predicateMap :pm_005.
-:pm_005 rr:constant rdf:type.
-:pom_005 rr:objectMap :om_005.
-:om_005 a rr:ObjectMap;
-    rr:constant "http://www.cidoc-crm.org/cidoc-crm/E21_Person";
-    rr:termType rr:IRI.
-:pom_006 a rr:PredicateObjectMap.
-:map_SitterMapping_000 rr:predicateObjectMap :pom_006.
-:pm_006 a rr:PredicateMap.
-:pom_006 rr:predicateMap :pm_006.
-:pm_006 rr:constant rdfs:label.
-:pom_006 rr:objectMap :om_006.
-:om_006 a rr:ObjectMap;
-    rr:column "Name";
-    rr:termType rr:Literal.
-:map_ProductionMapping_000 rr:logicalTable :source_000;
-    a rr:TriplesMap;
-    rdfs:label "ProductionMapping".
-:s_003 a rr:SubjectMap.
-:map_ProductionMapping_000 rr:subjectMap :s_003.
-:s_003 rr:template "http://ex.com/Production/{Ref}".
-:pom_007 a rr:PredicateObjectMap.
-:map_ProductionMapping_000 rr:predicateObjectMap :pom_007.
-:pm_007 a rr:PredicateMap.
-:pom_007 rr:predicateMap :pm_007.
-:pm_007 rr:constant rdf:type.
-:pom_007 rr:objectMap :om_007.
-:om_007 a rr:ObjectMap;
-    rr:constant "http://www.cidoc-crm.org/cidoc-crm/E21_Production";
-    rr:termType rr:IRI.
-:pom_008 a rr:PredicateObjectMap.
-:map_ProductionMapping_000 rr:predicateObjectMap :pom_008.
-:pm_008 a rr:PredicateMap.
-:pom_008 rr:predicateMap :pm_008.
-:pm_008 rr:constant crm:P82_at_some_time_within.
-:pom_008 rr:objectMap :om_008.
-:om_008 a rr:ObjectMap;
-    rr:column "DateOfWork";
-    rr:termType rr:Literal.
-:pom_009 a rr:PredicateObjectMap.
-:map_ProductionMapping_000 rr:predicateObjectMap :pom_009.
-:pm_009 a rr:PredicateMap.
-:pom_009 rr:predicateMap :pm_009.
-:pm_009 rr:constant crm:P14_carried_out_by.
-:pom_009 rr:objectMap :om_009.
-:pom_010 a rr:PredicateObjectMap.
-:map_ProductionMapping_000 rr:predicateObjectMap :pom_010.
-:pm_010 a rr:PredicateMap.
-:pom_010 rr:predicateMap :pm_010.
-:pm_010 rr:constant crm:P108_has_produced.
-:pom_010 rr:objectMap :om_010.
-:map_ArtworkMapping_000 rr:logicalTable :source_000;
-    a rr:TriplesMap;
-    rdfs:label "ArtworkMapping".
-:s_004 a rr:SubjectMap.
-:map_ArtworkMapping_000 rr:subjectMap :s_004.
-:s_004 rr:constant "http://ex.com/{Ref}".
-:pom_011 a rr:PredicateObjectMap.
-:map_ArtworkMapping_000 rr:predicateObjectMap :pom_011.
-:pm_011 a rr:PredicateMap.
-:pom_011 rr:predicateMap :pm_011.
-:pm_011 rr:constant rdf:type.
-:pom_011 rr:objectMap :om_011.
-:om_011 a rr:ObjectMap;
-    rr:constant "http://www.cidoc-crm.org/cidoc-crm/E22_Made-Made_Object";
-    rr:termType rr:IRI.
-:pom_012 a rr:PredicateObjectMap.
-:map_ArtworkMapping_000 rr:predicateObjectMap :pom_012.
-:pm_012 a rr:PredicateMap.
-:pom_012 rr:predicateMap :pm_012.
-:pm_012 rr:constant crm:P102_has_title.
-:pom_012 rr:objectMap :om_012.
-:om_012 a rr:ObjectMap;
-    rr:column "Title";
-    rr:termType rr:Literal.
-:pom_013 a rr:PredicateObjectMap.
-:map_ArtworkMapping_000 rr:predicateObjectMap :pom_013.
-:pm_013 a rr:PredicateMap.
-:pom_013 rr:predicateMap :pm_013.
-:pm_013 rr:constant crm:P48_has_preferred_identifier.
-:pom_013 rr:objectMap :om_013.
-:om_013 a rr:ObjectMap;
-    rr:column "Ref";
-    rr:termType rr:Literal.
-:pom_014 a rr:PredicateObjectMap.
-:map_ArtworkMapping_000 rr:predicateObjectMap :pom_014.
-:pm_014 a rr:PredicateMap.
-:pom_014 rr:predicateMap :pm_014.
-:pm_014 rr:constant crm:P62_depicts.
-:pom_014 rr:objectMap :om_014.
-:map_WikipediaExportMapping_000 rr:logicalTable :source_003.
-:source_003 a rr:LogicalTable;
-    rr:tableName "moon-walkers";
-    rr:sqlVersion rr:MySQL.
-:map_WikipediaExportMapping_000 a rr:TriplesMap;
-    rdfs:label "WikipediaExportMapping".
-:s_005 a rr:SubjectMap.
-:map_WikipediaExportMapping_000 rr:subjectMap :s_005.
-:s_005 rr:template "http://ex.com/{Name}".
-:pom_015 a rr:PredicateObjectMap.
-:map_WikipediaExportMapping_000 rr:predicateObjectMap :pom_015.
-:pm_015 a rr:PredicateMap.
-:pom_015 rr:predicateMap :pm_015.
-:pm_015 rr:constant ex:birthday.
-:pom_015 rr:objectMap :om_015.
-:om_015 a rr:ObjectMap;
-    rr:column "Birth Date";
-    rr:termType rr:Literal;
-    rr:datatype <http://www.w3.org/2001/XMLSchema#date>.
-:pom_016 a rr:PredicateObjectMap.
-:map_WikipediaExportMapping_000 rr:predicateObjectMap :pom_016.
-:pm_016 a rr:PredicateMap.
-:pom_016 rr:predicateMap :pm_016.
-:pm_016 rr:constant ex:deathday.
-:pom_016 rr:objectMap :om_016.
-:om_016 a rr:ObjectMap;
-    rr:column "Death Date";
-    rr:termType rr:Literal;
-    rr:datatype <http://www.w3.org/2001/XMLSchema#date>.
-:pom_017 a rr:PredicateObjectMap.
-:map_WikipediaExportMapping_000 rr:predicateObjectMap :pom_017.
-:pm_017 a rr:PredicateMap.
-:pom_017 rr:predicateMap :pm_017.
-:pm_017 rr:constant ex:evaday.
-:pom_017 rr:objectMap :om_017.
-:om_017 a rr:ObjectMap;
-    rr:column "EVA Date";
-    rr:termType rr:Literal;
-    rr:datatype <http://www.w3.org/2001/XMLSchema#date>.
-:pom_018 a rr:PredicateObjectMap.
-:map_WikipediaExportMapping_000 rr:predicateObjectMap :pom_018.
-:pm_018 a rr:PredicateMap.
-:pom_018 rr:predicateMap :pm_018.
-:pm_018 rr:constant ex:service.
-:pom_018 rr:objectMap :om_018.
-:om_018 a rr:ObjectMap;
-    rr:column "Service";
-    rr:termType rr:Literal.
-:om_002 a rr:ObjectMap;
-    rr:parentTriplesMap :map_MoonWalkerMapping_000;
-    rr:joinCondition :jc_000.
-:jc_000 rr:child "Artist";
-    rr:parent "Name".
-:om_009 a rr:ObjectMap;
-    rr:parentTriplesMap :map_ArtistMapping_000.
-:om_010 a rr:ObjectMap;
-    rr:parentTriplesMap :map_ArtworkMapping_000.
-:om_014 a rr:ObjectMap;
-    rr:parentTriplesMap :map_SitterMapping_000.
+:source_000 rdf:type rr:LogicalTable ;
+	rdfs:label "museum_source" ;
+	rr:tableName "museum" ;
+	rr:sqlVersion rr:MySQL .
+
+:source_001 rdf:type rr:LogicalTable ;
+	rdfs:label "museum_sitter_source" ;
+	rr:tableName "museumSitters" ;
+	rr:sqlVersion rr:MySQL .
+
+:source_002 rdf:type rr:LogicalTable ;
+	rdfs:label "museum_sitter_source2" ;
+	rr:tableName "museumSitter" ;
+	rr:sqlVersion rr:MySQL .
+
+:map_ArtistMapping_000 rr:logicalTable :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "ArtistMapping" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_000, :pom_001, :pom_002 .
+
+:s_000 rdf:type rr:SubjectMap ;
+	rr:template "http://ex.com/{Artist}" .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_000 rdf:type rr:ObjectMap ;
+	rr:constant "http://www.cidoc-crm.org/cidoc-crm/E21_Person" ;
+	rr:termType rr:IRI .
+
+:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_001 ;
+	rr:objectMap :om_001 .
+
+:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:label .
+
+:om_001 rdf:type rr:ObjectMap ;
+	rr:column "Artist" ;
+	rr:termType rr:Literal .
+
+:pom_002 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_002 ;
+	rr:objectMap :om_002 .
+
+:pm_002 rdf:type rr:PredicateMap ;
+	rr:constant crm:P143_carried_out_by .
+
+:map_MoonWalkerMapping_000 rr:logicalTable :source_001 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "MoonWalkerMapping" ;
+	rr:subjectMap :s_001 ;
+	rr:predicateObjectMap :pom_003, :pom_004 .
+
+:s_001 rdf:type rr:SubjectMap ;
+	rr:template "http://ex.com/{Name}" .
+
+:pom_003 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_003 ;
+	rr:objectMap :om_003 .
+
+:pm_003 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_003 rdf:type rr:ObjectMap ;
+	rr:constant "http://www.cidoc-crm.org/cidoc-crm/E21_Person" ;
+	rr:termType rr:IRI .
+
+:pom_004 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_004 ;
+	rr:objectMap :om_004 .
+
+:pm_004 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:label .
+
+:om_004 rdf:type rr:ObjectMap ;
+	rr:column "Name" ;
+	rr:termType rr:Literal .
+
+:map_SitterMapping_000 rr:logicalTable :source_002 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "SitterMapping" ;
+	rr:subjectMap :s_002 ;
+	rr:predicateObjectMap :pom_005, :pom_006 .
+
+:s_002 rdf:type rr:SubjectMap ;
+	rr:template "http://ex.com/{Name}" .
+
+:pom_005 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_005 ;
+	rr:objectMap :om_005 .
+
+:pm_005 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_005 rdf:type rr:ObjectMap ;
+	rr:constant "http://www.cidoc-crm.org/cidoc-crm/E21_Person" ;
+	rr:termType rr:IRI .
+
+:pom_006 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_006 ;
+	rr:objectMap :om_006 .
+
+:pm_006 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:label .
+
+:om_006 rdf:type rr:ObjectMap ;
+	rr:column "Name" ;
+	rr:termType rr:Literal .
+
+:map_ProductionMapping_000 rr:logicalTable :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "ProductionMapping" ;
+	rr:subjectMap :s_003 ;
+	rr:predicateObjectMap :pom_007, :pom_008, :pom_009, :pom_010 .
+
+:s_003 rdf:type rr:SubjectMap ;
+	rr:template "http://ex.com/Production/{Ref}" .
+
+:pom_007 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_007 ;
+	rr:objectMap :om_007 .
+
+:pm_007 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_007 rdf:type rr:ObjectMap ;
+	rr:constant "http://www.cidoc-crm.org/cidoc-crm/E21_Production" ;
+	rr:termType rr:IRI .
+
+:pom_008 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_008 ;
+	rr:objectMap :om_008 .
+
+:pm_008 rdf:type rr:PredicateMap ;
+	rr:constant crm:P82_at_some_time_within .
+
+:om_008 rdf:type rr:ObjectMap ;
+	rr:column "DateOfWork" ;
+	rr:termType rr:Literal .
+
+:pom_009 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_009 ;
+	rr:objectMap :om_009 .
+
+:pm_009 rdf:type rr:PredicateMap ;
+	rr:constant crm:P14_carried_out_by .
+
+:pom_010 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_010 ;
+	rr:objectMap :om_010 .
+
+:pm_010 rdf:type rr:PredicateMap ;
+	rr:constant crm:P108_has_produced .
+
+:map_ArtworkMapping_000 rr:logicalTable :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "ArtworkMapping" ;
+	rr:subjectMap :s_004 ;
+	rr:predicateObjectMap :pom_011, :pom_012, :pom_013, :pom_014 .
+
+:s_004 rdf:type rr:SubjectMap ;
+	rr:constant "http://ex.com/{Ref}" .
+
+:pom_011 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_011 ;
+	rr:objectMap :om_011 .
+
+:pm_011 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_011 rdf:type rr:ObjectMap ;
+	rr:constant "http://www.cidoc-crm.org/cidoc-crm/E22_Made-Made_Object" ;
+	rr:termType rr:IRI .
+
+:pom_012 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_012 ;
+	rr:objectMap :om_012 .
+
+:pm_012 rdf:type rr:PredicateMap ;
+	rr:constant crm:P102_has_title .
+
+:om_012 rdf:type rr:ObjectMap ;
+	rr:column "Title" ;
+	rr:termType rr:Literal .
+
+:pom_013 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_013 ;
+	rr:objectMap :om_013 .
+
+:pm_013 rdf:type rr:PredicateMap ;
+	rr:constant crm:P48_has_preferred_identifier .
+
+:om_013 rdf:type rr:ObjectMap ;
+	rr:column "Ref" ;
+	rr:termType rr:Literal .
+
+:pom_014 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_014 ;
+	rr:objectMap :om_014 .
+
+:pm_014 rdf:type rr:PredicateMap ;
+	rr:constant crm:P62_depicts .
+
+:map_WikipediaExportMapping_000 rr:logicalTable :source_003 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "WikipediaExportMapping" ;
+	rr:subjectMap :s_005 ;
+	rr:predicateObjectMap :pom_015, :pom_016, :pom_017, :pom_018 .
+
+:source_003 rdf:type rr:LogicalTable ;
+	rr:tableName "moon-walkers" ;
+	rr:sqlVersion rr:MySQL .
+
+:s_005 rdf:type rr:SubjectMap ;
+	rr:template "http://ex.com/{Name}" .
+
+:pom_015 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_015 ;
+	rr:objectMap :om_015 .
+
+:pm_015 rdf:type rr:PredicateMap ;
+	rr:constant ex:birthday .
+
+:om_015 rdf:type rr:ObjectMap ;
+	rr:column "Birth Date" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://www.w3.org/2001/XMLSchema#date> .
+
+:pom_016 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_016 ;
+	rr:objectMap :om_016 .
+
+:pm_016 rdf:type rr:PredicateMap ;
+	rr:constant ex:deathday .
+
+:om_016 rdf:type rr:ObjectMap ;
+	rr:column "Death Date" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://www.w3.org/2001/XMLSchema#date> .
+
+:pom_017 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_017 ;
+	rr:objectMap :om_017 .
+
+:pm_017 rdf:type rr:PredicateMap ;
+	rr:constant ex:evaday .
+
+:om_017 rdf:type rr:ObjectMap ;
+	rr:column "EVA Date" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://www.w3.org/2001/XMLSchema#date> .
+
+:pom_018 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_018 ;
+	rr:objectMap :om_018 .
+
+:pm_018 rdf:type rr:PredicateMap ;
+	rr:constant ex:service .
+
+:om_018 rdf:type rr:ObjectMap ;
+	rr:column "Service" ;
+	rr:termType rr:Literal .
+
+:om_002 rdf:type rr:ObjectMap ;
+	rr:parentTriplesMap :map_MoonWalkerMapping_000 ;
+	rr:joinCondition :jc_000 .
+
+:jc_000 rr:child "Artist" ;
+	rr:parent "Name" .
+
+:om_009 rdf:type rr:ObjectMap ;
+	rr:parentTriplesMap :map_ArtistMapping_000 .
+
+:om_010 rdf:type rr:ObjectMap ;
+	rr:parentTriplesMap :map_ArtworkMapping_000 .
+
+:om_014 rdf:type rr:ObjectMap ;
+	rr:parentTriplesMap :map_SitterMapping_000 .
+

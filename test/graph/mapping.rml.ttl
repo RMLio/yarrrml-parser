@@ -1,44 +1,56 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
-@prefix fno: <https://w3id.org/function/ontology#>.
-@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
-@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
-@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
-@prefix : <http://mapping.example.com/>.
-@prefix ex: <http://example.com/>.
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
+@prefix ex: <http://example.com/> .
 
-:people a rr:TriplesMap;
-    rdfs:label "people".
-:s_000 a rr:SubjectMap.
-:people rr:subjectMap :s_000.
-:s_000 rr:template "http://example.org/{id}";
-    rr:graphMap :gm_000.
-:gm_000 a rr:GraphMap;
-    rr:constant "http://example.com/myGraph".
-:cities a rr:TriplesMap;
-    rdfs:label "cities".
-:s_001 a rr:SubjectMap.
-:cities rr:subjectMap :s_001.
-:s_001 rr:template "http://example.org/{id}";
-    rr:graphMap :gm_001.
-:gm_001 a rr:GraphMap;
-    rr:template "http://example.com/{h}".
-:houses a rr:TriplesMap;
-    rdfs:label "houses".
-:s_002 a rr:SubjectMap.
-:houses rr:subjectMap :s_002.
-:s_002 rr:template "http://example.org/{id}".
-:pom_000 a rr:PredicateObjectMap.
-:houses rr:predicateObjectMap :pom_000.
-:pm_000 a rr:PredicateMap.
-:pom_000 rr:predicateMap :pm_000.
-:pm_000 rr:constant <http://schema.org/name>.
-:pom_000 rr:objectMap :om_000.
-:om_000 a rr:ObjectMap;
-    rml:reference "name";
-    rr:termType rr:Literal.
-:pom_000 rr:graphMap :gm_002.
-:gm_002 a rr:GraphMap;
-    rr:constant "http://example.com/myHouseGraph".
+:people rdf:type rr:TriplesMap ;
+	rdfs:label "people" ;
+	rr:subjectMap :s_000 .
+
+:s_000 rdf:type rr:SubjectMap ;
+	rr:template "http://example.org/{id}" ;
+	rr:graphMap :gm_000 .
+
+:gm_000 rdf:type rr:GraphMap ;
+	rr:constant "http://example.com/myGraph" .
+
+:cities rdf:type rr:TriplesMap ;
+	rdfs:label "cities" ;
+	rr:subjectMap :s_001 .
+
+:s_001 rdf:type rr:SubjectMap ;
+	rr:template "http://example.org/{id}" ;
+	rr:graphMap :gm_001 .
+
+:gm_001 rdf:type rr:GraphMap ;
+	rr:template "http://example.com/{h}" .
+
+:houses rdf:type rr:TriplesMap ;
+	rdfs:label "houses" ;
+	rr:subjectMap :s_002 ;
+	rr:predicateObjectMap :pom_000 .
+
+:s_002 rdf:type rr:SubjectMap ;
+	rr:template "http://example.org/{id}" .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 ;
+	rr:graphMap :gm_002 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/name> .
+
+:om_000 rdf:type rr:ObjectMap ;
+	rml:reference "name" ;
+	rr:termType rr:Literal .
+
+:gm_002 rdf:type rr:GraphMap ;
+	rr:constant "http://example.com/myHouseGraph" .
+

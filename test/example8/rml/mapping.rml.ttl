@@ -1,104 +1,126 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
-@prefix fno: <https://w3id.org/function/ontology#>.
-@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
-@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
-@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
-@prefix : <http://mapping.example.com/>.
-@prefix simmodel: <http://www.lbl.gov/namespaces/Sim/Model/>.
-@prefix simres: <http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/>.
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
+@prefix simmodel: <http://www.lbl.gov/namespaces/Sim/Model/> .
+@prefix simres: <http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/> .
 
-:map_SimModelMapping_000 rml:logicalSource :source_000.
-:source_000 a rml:LogicalSource;
-    rml:source "src/test/resources/example8/simergy.xml";
-    rml:iterator "/SimModel/simmodel:SimAppLibraryDefault_AppLibraryDefault_GlobalLibrary";
-    rml:referenceFormulation ql:XPath.
-:map_SimModelMapping_000 a rr:TriplesMap;
-    rdfs:label "SimModelMapping".
-:s_000 a rr:SubjectMap.
-:map_SimModelMapping_000 rr:subjectMap :s_000.
-:s_000 rr:template "http://www.lbl.gov/namespaces/Sim/Model/{@RefId}".
-:pom_000 a rr:PredicateObjectMap.
-:map_SimModelMapping_000 rr:predicateObjectMap :pom_000.
-:pm_000 a rr:PredicateMap.
-:pom_000 rr:predicateMap :pm_000.
-:pm_000 rr:constant rdf:type.
-:pom_000 rr:objectMap :om_000.
-:om_000 a rr:ObjectMap;
-    rr:constant "http://www.lbl.gov/namespaces/Sim/Model/SimAppLibraryDefault_AppLibraryDefault_GlobalLibrary";
-    rr:termType rr:IRI.
-:pom_001 a rr:PredicateObjectMap.
-:map_SimModelMapping_000 rr:predicateObjectMap :pom_001.
-:pm_001 a rr:PredicateMap.
-:pom_001 rr:predicateMap :pm_001.
-:pm_001 rr:constant simmodel:refId.
-:pom_001 rr:objectMap :om_001.
-:om_001 a rr:ObjectMap;
-    rml:reference "@RefId";
-    rr:termType rr:Literal.
-:pom_002 a rr:PredicateObjectMap.
-:map_SimModelMapping_000 rr:predicateObjectMap :pom_002.
-:pm_002 a rr:PredicateMap.
-:pom_002 rr:predicateMap :pm_002.
-:pm_002 rr:constant simres:simModelType.
-:pom_002 rr:objectMap :om_002.
-:om_002 a rr:ObjectMap;
-    rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/SimModelType";
-    rr:termType rr:Literal.
-:pom_003 a rr:PredicateObjectMap.
-:map_SimModelMapping_000 rr:predicateObjectMap :pom_003.
-:pm_003 a rr:PredicateMap.
-:pom_003 rr:predicateMap :pm_003.
-:pm_003 rr:constant simres:SimModelSubtype.
-:pom_003 rr:objectMap :om_003.
-:om_003 a rr:ObjectMap;
-    rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/SimModelSubtype";
-    rr:termType rr:Literal.
-:pom_004 a rr:PredicateObjectMap.
-:map_SimModelMapping_000 rr:predicateObjectMap :pom_004.
-:pm_004 a rr:PredicateMap.
-:pom_004 rr:predicateMap :pm_004.
-:pm_004 rr:constant simres:SimModelName.
-:pom_004 rr:objectMap :om_004.
-:om_004 a rr:ObjectMap;
-    rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/SimModelName";
-    rr:termType rr:Literal.
-:pom_005 a rr:PredicateObjectMap.
-:map_SimModelMapping_000 rr:predicateObjectMap :pom_005.
-:pm_005 a rr:PredicateMap.
-:pom_005 rr:predicateMap :pm_005.
-:pm_005 rr:constant simres:SourceModelSchema.
-:pom_005 rr:objectMap :om_005.
-:om_005 a rr:ObjectMap;
-    rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/SourceModelSchema";
-    rr:termType rr:Literal.
-:pom_006 a rr:PredicateObjectMap.
-:map_SimModelMapping_000 rr:predicateObjectMap :pom_006.
-:pm_006 a rr:PredicateMap.
-:pom_006 rr:predicateMap :pm_006.
-:pm_006 rr:constant simres:DefaultPreferenceIndex.
-:pom_006 rr:objectMap :om_006.
-:om_006 a rr:ObjectMap;
-    rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/DefaultPreferenceIndex";
-    rr:termType rr:Literal;
-    rr:datatype <http://www.w3.org/2001/XMLSchema#int>.
-:pom_007 a rr:PredicateObjectMap.
-:map_SimModelMapping_000 rr:predicateObjectMap :pom_007.
-:pm_007 a rr:PredicateMap.
-:pom_007 rr:predicateMap :pm_007.
-:pm_007 rr:constant simres:LibraryLocation.
-:pom_007 rr:objectMap :om_007.
-:om_007 a rr:ObjectMap;
-    rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/LibraryLocation";
-    rr:termType rr:Literal.
-:pom_008 a rr:PredicateObjectMap.
-:map_SimModelMapping_000 rr:predicateObjectMap :pom_008.
-:pm_008 a rr:PredicateMap.
-:pom_008 rr:predicateMap :pm_008.
-:pm_008 rr:constant simres:LibraryName.
-:pom_008 rr:objectMap :om_008.
-:om_008 a rr:ObjectMap;
-    rml:reference "simres:LibraryName";
-    rr:termType rr:Literal.
+:map_SimModelMapping_000 rml:logicalSource :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "SimModelMapping" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_000, :pom_001, :pom_002, :pom_003, :pom_004, :pom_005, :pom_006, :pom_007, :pom_008 .
+
+:source_000 rdf:type rml:LogicalSource ;
+	rml:source "src/test/resources/example8/simergy.xml" ;
+	rml:iterator "/SimModel/simmodel:SimAppLibraryDefault_AppLibraryDefault_GlobalLibrary" ;
+	rml:referenceFormulation ql:XPath .
+
+:s_000 rdf:type rr:SubjectMap ;
+	rr:template "http://www.lbl.gov/namespaces/Sim/Model/{@RefId}" .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_000 rdf:type rr:ObjectMap ;
+	rr:constant "http://www.lbl.gov/namespaces/Sim/Model/SimAppLibraryDefault_AppLibraryDefault_GlobalLibrary" ;
+	rr:termType rr:IRI .
+
+:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_001 ;
+	rr:objectMap :om_001 .
+
+:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant simmodel:refId .
+
+:om_001 rdf:type rr:ObjectMap ;
+	rml:reference "@RefId" ;
+	rr:termType rr:Literal .
+
+:pom_002 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_002 ;
+	rr:objectMap :om_002 .
+
+:pm_002 rdf:type rr:PredicateMap ;
+	rr:constant simres:simModelType .
+
+:om_002 rdf:type rr:ObjectMap ;
+	rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/SimModelType" ;
+	rr:termType rr:Literal .
+
+:pom_003 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_003 ;
+	rr:objectMap :om_003 .
+
+:pm_003 rdf:type rr:PredicateMap ;
+	rr:constant simres:SimModelSubtype .
+
+:om_003 rdf:type rr:ObjectMap ;
+	rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/SimModelSubtype" ;
+	rr:termType rr:Literal .
+
+:pom_004 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_004 ;
+	rr:objectMap :om_004 .
+
+:pm_004 rdf:type rr:PredicateMap ;
+	rr:constant simres:SimModelName .
+
+:om_004 rdf:type rr:ObjectMap ;
+	rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/SimModelName" ;
+	rr:termType rr:Literal .
+
+:pom_005 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_005 ;
+	rr:objectMap :om_005 .
+
+:pm_005 rdf:type rr:PredicateMap ;
+	rr:constant simres:SourceModelSchema .
+
+:om_005 rdf:type rr:ObjectMap ;
+	rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/SourceModelSchema" ;
+	rr:termType rr:Literal .
+
+:pom_006 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_006 ;
+	rr:objectMap :om_006 .
+
+:pm_006 rdf:type rr:PredicateMap ;
+	rr:constant simres:DefaultPreferenceIndex .
+
+:om_006 rdf:type rr:ObjectMap ;
+	rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/DefaultPreferenceIndex" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://www.w3.org/2001/XMLSchema#int> .
+
+:pom_007 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_007 ;
+	rr:objectMap :om_007 .
+
+:pm_007 rdf:type rr:PredicateMap ;
+	rr:constant simres:LibraryLocation .
+
+:om_007 rdf:type rr:ObjectMap ;
+	rml:reference "http://www.lbl.gov/namespaces/Sim/ResourcesGeneral/LibraryLocation" ;
+	rr:termType rr:Literal .
+
+:pom_008 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_008 ;
+	rr:objectMap :om_008 .
+
+:pm_008 rdf:type rr:PredicateMap ;
+	rr:constant simres:LibraryName .
+
+:om_008 rdf:type rr:ObjectMap ;
+	rml:reference "simres:LibraryName" ;
+	rr:termType rr:Literal .
+

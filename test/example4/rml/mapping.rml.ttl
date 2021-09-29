@@ -1,68 +1,82 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
-@prefix fno: <https://w3id.org/function/ontology#>.
-@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
-@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
-@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
-@prefix : <http://mapping.example.com/>.
-@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
-@prefix gn: <http://www.geonames.org/ontology#>.
-@prefix geosp: <http://www.telegraphis.net/ontology/geography/geography#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix geosp: <http://www.telegraphis.net/ontology/geography/geography#> .
 
-:map_venue_000 rml:logicalSource :source_000.
-:source_000 a rml:LogicalSource;
-    rml:source "src/test/resources/example4/Venue4.json";
-    rml:iterator "$";
-    rml:referenceFormulation ql:JSONPath.
-:map_venue_000 a rr:TriplesMap;
-    rdfs:label "venue".
-:s_000 a rr:SubjectMap.
-:map_venue_000 rr:subjectMap :s_000.
-:s_000 rr:template "http://loc.example.com/city/{city}".
-:pom_000 a rr:PredicateObjectMap.
-:map_venue_000 rr:predicateObjectMap :pom_000.
-:pm_000 a rr:PredicateMap.
-:pom_000 rr:predicateMap :pm_000.
-:pm_000 rr:constant rdf:type.
-:pom_000 rr:objectMap :om_000.
-:om_000 a rr:ObjectMap;
-    rr:constant "http://schema.org/City";
-    rr:termType rr:IRI.
-:pom_001 a rr:PredicateObjectMap.
-:map_venue_000 rr:predicateObjectMap :pom_001.
-:pm_001 a rr:PredicateMap.
-:pom_001 rr:predicateMap :pm_001.
-:pm_001 rr:constant wgs84_pos:lat.
-:pom_001 rr:objectMap :om_001.
-:om_001 a rr:ObjectMap;
-    rml:reference "venue.latitude";
-    rr:termType rr:Literal.
-:pom_002 a rr:PredicateObjectMap.
-:map_venue_000 rr:predicateObjectMap :pom_002.
-:pm_002 a rr:PredicateMap.
-:pom_002 rr:predicateMap :pm_002.
-:pm_002 rr:constant wgs84_pos:long.
-:pom_002 rr:objectMap :om_002.
-:om_002 a rr:ObjectMap;
-    rml:reference "venue.longtitude";
-    rr:termType rr:Literal.
-:pom_003 a rr:PredicateObjectMap.
-:map_venue_000 rr:predicateObjectMap :pom_003.
-:pm_003 a rr:PredicateMap.
-:pom_003 rr:predicateMap :pm_003.
-:pm_003 rr:constant geosp:onContinent.
-:pom_003 rr:objectMap :om_003.
-:om_003 a rr:ObjectMap;
-    rml:reference "continent";
-    rr:termType rr:Literal.
-:pom_004 a rr:PredicateObjectMap.
-:map_venue_000 rr:predicateObjectMap :pom_004.
-:pm_004 a rr:PredicateMap.
-:pom_004 rr:predicateMap :pm_004.
-:pm_004 rr:constant gn:countryCode.
-:pom_004 rr:objectMap :om_004.
-:om_004 a rr:ObjectMap;
-    rml:reference "country";
-    rr:termType rr:Literal.
+:map_venue_000 rml:logicalSource :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "venue" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_000, :pom_001, :pom_002, :pom_003, :pom_004 .
+
+:source_000 rdf:type rml:LogicalSource ;
+	rml:source "src/test/resources/example4/Venue4.json" ;
+	rml:iterator "$" ;
+	rml:referenceFormulation ql:JSONPath .
+
+:s_000 rdf:type rr:SubjectMap ;
+	rr:template "http://loc.example.com/city/{city}" .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_000 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/City" ;
+	rr:termType rr:IRI .
+
+:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_001 ;
+	rr:objectMap :om_001 .
+
+:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant wgs84_pos:lat .
+
+:om_001 rdf:type rr:ObjectMap ;
+	rml:reference "venue.latitude" ;
+	rr:termType rr:Literal .
+
+:pom_002 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_002 ;
+	rr:objectMap :om_002 .
+
+:pm_002 rdf:type rr:PredicateMap ;
+	rr:constant wgs84_pos:long .
+
+:om_002 rdf:type rr:ObjectMap ;
+	rml:reference "venue.longtitude" ;
+	rr:termType rr:Literal .
+
+:pom_003 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_003 ;
+	rr:objectMap :om_003 .
+
+:pm_003 rdf:type rr:PredicateMap ;
+	rr:constant geosp:onContinent .
+
+:om_003 rdf:type rr:ObjectMap ;
+	rml:reference "continent" ;
+	rr:termType rr:Literal .
+
+:pom_004 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_004 ;
+	rr:objectMap :om_004 .
+
+:pm_004 rdf:type rr:PredicateMap ;
+	rr:constant gn:countryCode .
+
+:om_004 rdf:type rr:ObjectMap ;
+	rml:reference "country" ;
+	rr:termType rr:Literal .
+

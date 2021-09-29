@@ -1,18 +1,21 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
-@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
-@prefix : <http://mapping.example.com/>.
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
 
-:map_statement_0 rml:logicalSource [
-  rml:referenceFormulation ql:JSONPath;
-  rml:iterator "$[*]";
-  rml:source "data.json"
-];
-    rr:subjectMap [
-  rr:template "http://example.com/{id}";
-  rr:class "http://example.com/statement", "sp:statement"
-];
-    rr:predicateObjectMap [
-  rr:objectMap [ rr:template "sp: {name}" ];
-  rr:predicate <http://example.com/name>
-].
+:map_statement_0 rml:logicalSource _:g0 ;
+	rr:subjectMap _:g1 ;
+	rr:predicateObjectMap _:g2 .
+
+_:g0 rml:referenceFormulation ql:JSONPath ;
+	rml:iterator "$[*]" ;
+	rml:source "data.json" .
+
+_:g1 rr:template "http://example.com/{id}" ;
+	rr:class "http://example.com/statement", "sp:statement" .
+
+_:g2 rr:objectMap _:g3 ;
+	rr:predicate <http://example.com/name> .
+
+_:g3 rr:template "sp: {name}" .
+
