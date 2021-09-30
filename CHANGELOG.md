@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Changed
+
+- Made all RML test results pretty, for easier inspection of the examples
+
 ## [1.3.2] - 2021-09-29
 
 ### Added

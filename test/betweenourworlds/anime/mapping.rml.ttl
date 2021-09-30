@@ -1,492 +1,593 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
-@prefix fno: <https://w3id.org/function/ontology#>.
-@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
-@prefix void: <http://rdfs.org/ns/void#>.
-@prefix dc: <http://purl.org/dc/terms/>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
-@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
-@prefix : <https://betweenourworlds.org/generation-rule/>.
-@prefix afn: <https://betweenourworlds.org/function/>.
-@prefix bow: <https://betweenourworlds.org/ontology/>.
-@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <https://betweenourworlds.org/generation-rule/> .
+@prefix afn: <https://betweenourworlds.org/function/> .
+@prefix bow: <https://betweenourworlds.org/ontology/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
 
-:source_000 a rml:LogicalSource;
-    rdfs:label "anime_source";
-    rml:source "anime-0.json";
-    rml:iterator "$.data[*]";
-    rml:referenceFormulation ql:JSONPath.
-:source_001 a rml:LogicalSource;
-    rdfs:label "stream_source";
-    rml:source "anime-streams-0.json";
-    rml:iterator "$.[*]";
-    rml:referenceFormulation ql:JSONPath.
-:source_002 a rml:LogicalSource;
-    rdfs:label "episode_source";
-    rml:source "anime-episodes-0.json";
-    rml:iterator "$.[*]";
-    rml:referenceFormulation ql:JSONPath.
-:source_003 a rml:LogicalSource;
-    rdfs:label "season_source";
-    rml:source "anime-seasons-0.json";
-    rml:iterator "$.[*]";
-    rml:referenceFormulation ql:JSONPath.
-:map_anime_000 rml:logicalSource :source_000;
-    a rr:TriplesMap;
-    rdfs:label "anime".
-:s_000 a rr:SubjectMap.
-:map_anime_000 rr:subjectMap :s_000.
-:s_000 rr:template "https://betweenourworlds.org/anime/{attributes.slug}".
-:pom_000 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_000.
-:pm_000 a rr:PredicateMap.
-:pom_000 rr:predicateMap :pm_000.
-:pm_000 rr:constant rdf:type.
-:pom_000 rr:objectMap :om_000.
-:om_000 a rr:ObjectMap;
-    rr:constant "http://dbpedia.org/ontology/Work";
-    rr:termType rr:IRI.
-:pom_000 rr:objectMap :om_001.
-:om_001 a rr:ObjectMap;
-    rr:constant "http://dbpedia.org/ontology/Cartoon";
-    rr:termType rr:IRI.
-:pom_000 rr:objectMap :om_002.
-:om_002 a rr:ObjectMap;
-    rr:constant "http://dbpedia.org/ontology/Anime";
-    rr:termType rr:IRI.
-:pom_000 rr:objectMap :om_003.
-:om_003 a rr:ObjectMap;
-    rr:constant "http://schema.org/Thing";
-    rr:termType rr:IRI.
-:pom_000 rr:objectMap :om_004.
-:om_004 a rr:ObjectMap;
-    rr:constant "http://schema.org/CreativeWork";
-    rr:termType rr:IRI.
-:pom_001 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_001.
-:pm_001 a rr:PredicateMap.
-:pom_001 rr:predicateMap :pm_001.
-:pm_001 rr:constant <http://schema.org/name>.
-:pm_002 a rr:PredicateMap.
-:pom_001 rr:predicateMap :pm_002.
-:pm_002 rr:constant rdfs:label.
-:pm_003 a rr:PredicateMap.
-:pom_001 rr:predicateMap :pm_003.
-:pm_003 rr:constant dbo:title.
-:pom_001 rr:objectMap :om_005.
-:om_005 a rr:ObjectMap;
-    rml:reference "attributes.canonicalTitle";
-    rr:termType rr:Literal.
-:pom_002 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_002.
-:pm_004 a rr:PredicateMap.
-:pom_002 rr:predicateMap :pm_004.
-:pm_004 rr:constant <http://schema.org/name>.
-:pm_005 a rr:PredicateMap.
-:pom_002 rr:predicateMap :pm_005.
-:pm_005 rr:constant rdfs:label.
-:pm_006 a rr:PredicateMap.
-:pom_002 rr:predicateMap :pm_006.
-:pm_006 rr:constant dbo:title.
-:pom_002 rr:objectMap :om_006.
-:om_006 a rr:ObjectMap;
-    rml:reference "attributes.titles.en";
-    rr:termType rr:Literal;
-    rml:languageMap :language_000.
-:language_000 rr:constant "en".
-:pom_003 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_003.
-:pm_007 a rr:PredicateMap.
-:pom_003 rr:predicateMap :pm_007.
-:pm_007 rr:constant <http://schema.org/name>.
-:pm_008 a rr:PredicateMap.
-:pom_003 rr:predicateMap :pm_008.
-:pm_008 rr:constant rdfs:label.
-:pm_009 a rr:PredicateMap.
-:pom_003 rr:predicateMap :pm_009.
-:pm_009 rr:constant dbo:title.
-:pom_003 rr:objectMap :om_007.
-:om_007 a rr:ObjectMap;
-    rml:reference "attributes.titles.en_jp";
-    rr:termType rr:Literal;
-    rml:languageMap :language_001.
-:language_001 rr:constant "ja".
-:pom_004 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_004.
-:pm_010 a rr:PredicateMap.
-:pom_004 rr:predicateMap :pm_010.
-:pm_010 rr:constant <http://schema.org/name>.
-:pm_011 a rr:PredicateMap.
-:pom_004 rr:predicateMap :pm_011.
-:pm_011 rr:constant rdfs:label.
-:pm_012 a rr:PredicateMap.
-:pom_004 rr:predicateMap :pm_012.
-:pm_012 rr:constant dbo:title.
-:pom_004 rr:objectMap :om_008.
-:om_008 a rr:ObjectMap;
-    rml:reference "attributes.titles.ja_jp";
-    rr:termType rr:Literal;
-    rml:languageMap :language_002.
-:language_002 rr:constant "ja".
-:pom_005 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_005.
-:pm_013 a rr:PredicateMap.
-:pom_005 rr:predicateMap :pm_013.
-:pm_013 rr:constant <http://schema.org/numberOfEpisodes>.
-:pm_014 a rr:PredicateMap.
-:pom_005 rr:predicateMap :pm_014.
-:pm_014 rr:constant dbo:numberOfEpisodes.
-:pom_005 rr:objectMap :om_009.
-:om_009 a rr:ObjectMap;
-    rml:reference "attributes.episodeCount";
-    rr:termType rr:Literal.
-:pom_006 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_006.
-:pm_015 a rr:PredicateMap.
-:pom_006 rr:predicateMap :pm_015.
-:pm_015 rr:constant <http://schema.org/contentRating>.
-:pom_006 rr:objectMap :om_010.
-:om_010 a rr:ObjectMap;
-    rml:reference "attributes.ageRating";
-    rr:termType rr:Literal.
-:pom_006 rr:objectMap :om_011.
-:om_011 a rr:ObjectMap;
-    rml:reference "attributes.ageRatingGuide";
-    rr:termType rr:Literal.
-:pom_007 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_007.
-:pm_016 a rr:PredicateMap.
-:pom_007 rr:predicateMap :pm_016.
-:pm_016 rr:constant <http://schema.org/image>.
-:pom_007 rr:objectMap :om_012.
-:om_012 a rr:ObjectMap;
-    rml:reference "attributes.coverImage.original";
-    rr:termType rr:Literal;
-    rr:datatype <http://schema.org/URL>.
-:pom_008 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_008.
-:pm_017 a rr:PredicateMap.
-:pom_008 rr:predicateMap :pm_017.
-:pm_017 rr:constant <http://schema.org/endDate>.
-:pom_008 rr:objectMap :om_013.
-:om_013 a rr:ObjectMap;
-    rml:reference "attributes.endDate";
-    rr:termType rr:Literal;
-    rr:datatype <http://schema.org/Date>.
-:pom_009 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_009.
-:pm_018 a rr:PredicateMap.
-:pom_009 rr:predicateMap :pm_018.
-:pm_018 rr:constant <http://schema.org/startDate>.
-:pom_009 rr:objectMap :om_014.
-:om_014 a rr:ObjectMap;
-    rml:reference "attributes.startDate";
-    rr:termType rr:Literal;
-    rr:datatype <http://schema.org/Date>.
-:pom_010 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_010.
-:pm_019 a rr:PredicateMap.
-:pom_010 rr:predicateMap :pm_019.
-:pm_019 rr:constant rdfs:comment.
-:pm_020 a rr:PredicateMap.
-:pom_010 rr:predicateMap :pm_020.
-:pm_020 rr:constant <http://schema.org/description>.
-:pom_010 rr:objectMap :om_015.
-:om_015 a rr:ObjectMap;
-    rml:reference "attributes.synopsis";
-    rr:termType rr:Literal.
-:pom_011 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_011.
-:pm_021 a rr:PredicateMap.
-:pom_011 rr:predicateMap :pm_021.
-:pm_021 rr:constant <http://schema.org/mainEntityOfPage>.
-:pom_011 rr:objectMap :om_016.
-:om_016 a rr:ObjectMap;
-    rr:template "https://kitsu.io/anime/{attributes.slug}";
-    rr:termType rr:Literal;
-    rr:datatype <http://schema.org/URL>.
-:pom_012 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_012.
-:pm_022 a rr:PredicateMap.
-:pom_012 rr:predicateMap :pm_022.
-:pm_022 rr:constant <http://schema.org/mainEntityOfPage>.
-:pom_012 rr:objectMap :om_017.
-:om_017 a rr:ObjectMap;
-    rml:reference "otherWebsites";
-    rr:termType rr:Literal;
-    rr:datatype <http://schema.org/URL>.
-:pom_013 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_013.
-:pm_023 a rr:PredicateMap.
-:pom_013 rr:predicateMap :pm_023.
-:pm_023 rr:constant <http://schema.org/mainEntityOfPage>.
-:pom_013 rr:objectMap :om_018.
-:om_018 a rr:ObjectMap;
-    rml:reference "streams";
-    rr:termType rr:Literal;
-    rr:datatype <http://schema.org/URL>.
-:pom_014 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_014.
-:pm_024 a rr:PredicateMap.
-:pom_014 rr:predicateMap :pm_024.
-:pm_024 rr:constant rdf:type.
-:pom_014 rr:objectMap :om_019.
-:om_019 a fnml:FunctionTermMap;
-    rr:termType rr:IRI;
-    fnml:functionValue :fn_000.
-:fn_000 rml:logicalSource :source_000;
-    rr:predicateObjectMap :pomexec_000.
-:pomexec_000 rr:predicateMap :pmexec_000.
-:pmexec_000 rr:constant fno:executes.
-:pomexec_000 rr:objectMap :omexec_000.
-:omexec_000 rr:constant "https://betweenourworlds.org/function/getClass";
-    rr:termType rr:IRI.
-:fn_000 rr:predicateObjectMap :pom_015.
-:pom_015 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_025.
-:pm_025 a rr:PredicateMap;
-    rr:constant afn:value.
-:pom_015 rr:objectMap :om_020.
-:om_020 a rr:ObjectMap;
-    rml:reference "attributes.subtype";
-    rr:termType rr:Literal.
-:pom_016 a rr:PredicateObjectMap.
-:map_anime_000 rr:predicateObjectMap :pom_016.
-:pm_026 a rr:PredicateMap.
-:pom_016 rr:predicateMap :pm_026.
-:pm_026 rr:constant <http://schema.org/trailer>.
-:pom_016 rr:objectMap :om_021.
-:map_trailer_000 rml:logicalSource :source_000;
-    a rr:TriplesMap;
-    rdfs:label "trailer".
-:s_001 a rr:SubjectMap.
-:map_trailer_000 rr:subjectMap :s_001.
-:s_001 rr:template "https://betweenourworlds.org/trailer/{attributes.slug}".
-:pom_017 a rr:PredicateObjectMap.
-:map_trailer_000 rr:predicateObjectMap :pom_017.
-:pm_027 a rr:PredicateMap.
-:pom_017 rr:predicateMap :pm_027.
-:pm_027 rr:constant rdf:type.
-:pom_017 rr:objectMap :om_022.
-:om_022 a rr:ObjectMap;
-    rr:constant "http://schema.org/VideoObject";
-    rr:termType rr:IRI.
-:pom_017 rr:objectMap :om_023.
-:om_023 a rr:ObjectMap;
-    rr:constant "http://schema.org/Thing";
-    rr:termType rr:IRI.
-:pom_017 rr:objectMap :om_024.
-:om_024 a rr:ObjectMap;
-    rr:constant "http://schema.org/CreativeWork";
-    rr:termType rr:IRI.
-:pom_017 rr:objectMap :om_025.
-:om_025 a rr:ObjectMap;
-    rr:constant "http://schema.org/MediaObject";
-    rr:termType rr:IRI.
-:pom_018 a rr:PredicateObjectMap.
-:map_trailer_000 rr:predicateObjectMap :pom_018.
-:pm_028 a rr:PredicateMap.
-:pom_018 rr:predicateMap :pm_028.
-:pm_028 rr:constant <http://schema.org/url>.
-:pom_018 rr:objectMap :om_026.
-:om_026 a rr:ObjectMap;
-    rr:template "https://www.youtube.com/watch?v={attributes.youtubeVideoId}";
-    rr:termType rr:Literal.
-:map_stream_000 rml:logicalSource :source_001;
-    a rr:TriplesMap;
-    rdfs:label "stream".
-:s_002 a rr:SubjectMap.
-:map_stream_000 rr:subjectMap :s_002.
-:s_002 rr:template "https://betweenourworlds.org/stream/{slug}-{service}".
-:pom_019 a rr:PredicateObjectMap.
-:map_stream_000 rr:predicateObjectMap :pom_019.
-:pm_029 a rr:PredicateMap.
-:pom_019 rr:predicateMap :pm_029.
-:pm_029 rr:constant rdf:type.
-:pom_019 rr:objectMap :om_027.
-:om_027 a rr:ObjectMap;
-    rr:constant "https://betweenourworlds.org/ontology/Stream";
-    rr:termType rr:IRI.
-:pom_020 a rr:PredicateObjectMap.
-:map_stream_000 rr:predicateObjectMap :pom_020.
-:pm_030 a rr:PredicateMap.
-:pom_020 rr:predicateMap :pm_030.
-:pm_030 rr:constant <http://schema.org/url>.
-:pom_020 rr:objectMap :om_028.
-:om_028 a rr:ObjectMap;
-    rml:reference "url";
-    rr:termType rr:Literal;
-    rr:datatype <http://schema.org/URL>.
-:pom_021 a rr:PredicateObjectMap.
-:map_stream_000 rr:predicateObjectMap :pom_021.
-:pm_031 a rr:PredicateMap.
-:pom_021 rr:predicateMap :pm_031.
-:pm_031 rr:constant bow:providedBy.
-:pom_021 rr:objectMap :om_029.
-:om_029 a fnml:FunctionTermMap;
-    rr:termType rr:IRI;
-    fnml:functionValue :fn_001.
-:fn_001 rml:logicalSource :source_001;
-    rr:predicateObjectMap :pomexec_001.
-:pomexec_001 rr:predicateMap :pmexec_001.
-:pmexec_001 rr:constant fno:executes.
-:pomexec_001 rr:objectMap :omexec_001.
-:omexec_001 rr:constant "https://betweenourworlds.org/function/getStreamAgent";
-    rr:termType rr:IRI.
-:fn_001 rr:predicateObjectMap :pom_022.
-:pom_022 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_032.
-:pm_032 a rr:PredicateMap;
-    rr:constant afn:value.
-:pom_022 rr:objectMap :om_030.
-:om_030 a rr:ObjectMap;
-    rml:reference "service";
-    rr:termType rr:Literal.
-:pom_023 a rr:PredicateObjectMap.
-:map_stream_000 rr:predicateObjectMap :pom_023.
-:pm_033 a rr:PredicateMap.
-:pom_023 rr:predicateMap :pm_033.
-:pm_033 rr:constant bow:object.
-:pom_023 rr:objectMap :om_031.
-:map_episode_000 rml:logicalSource :source_002;
-    a rr:TriplesMap;
-    rdfs:label "episode".
-:s_003 a rr:SubjectMap.
-:map_episode_000 rr:subjectMap :s_003.
-:s_003 rr:template "https://betweenourworlds.org/episode/{anime_slug}-{attributes.number}".
-:pom_024 a rr:PredicateObjectMap.
-:map_episode_000 rr:predicateObjectMap :pom_024.
-:pm_034 a rr:PredicateMap.
-:pom_024 rr:predicateMap :pm_034.
-:pm_034 rr:constant rdf:type.
-:pom_024 rr:objectMap :om_032.
-:om_032 a rr:ObjectMap;
-    rr:constant "http://schema.org/Episode";
-    rr:termType rr:IRI.
-:pom_024 rr:objectMap :om_033.
-:om_033 a rr:ObjectMap;
-    rr:constant "http://schema.org/CreativeWork";
-    rr:termType rr:IRI.
-:pom_024 rr:objectMap :om_034.
-:om_034 a rr:ObjectMap;
-    rr:constant "http://schema.org/Thing";
-    rr:termType rr:IRI.
-:pom_025 a rr:PredicateObjectMap.
-:map_episode_000 rr:predicateObjectMap :pom_025.
-:pm_035 a rr:PredicateMap.
-:pom_025 rr:predicateMap :pm_035.
-:pm_035 rr:constant <http://schema.org/name>.
-:pm_036 a rr:PredicateMap.
-:pom_025 rr:predicateMap :pm_036.
-:pm_036 rr:constant rdfs:label.
-:pm_037 a rr:PredicateMap.
-:pom_025 rr:predicateMap :pm_037.
-:pm_037 rr:constant dbo:title.
-:pom_025 rr:objectMap :om_035.
-:om_035 a rr:ObjectMap;
-    rml:reference "attributes.canonicalTitle";
-    rr:termType rr:Literal.
-:pom_026 a rr:PredicateObjectMap.
-:map_episode_000 rr:predicateObjectMap :pom_026.
-:pm_038 a rr:PredicateMap.
-:pom_026 rr:predicateMap :pm_038.
-:pm_038 rr:constant <http://schema.org/episodeNumber>.
-:pom_026 rr:objectMap :om_036.
-:om_036 a rr:ObjectMap;
-    rml:reference "attributes.relativeNumber";
-    rr:termType rr:Literal;
-    rr:datatype <http://schema.org/Integer>.
-:pom_027 a rr:PredicateObjectMap.
-:map_episode_000 rr:predicateObjectMap :pom_027.
-:pm_039 a rr:PredicateMap.
-:pom_027 rr:predicateMap :pm_039.
-:pm_039 rr:constant rdfs:comment.
-:pm_040 a rr:PredicateMap.
-:pom_027 rr:predicateMap :pm_040.
-:pm_040 rr:constant <http://schema.org/description>.
-:pom_027 rr:objectMap :om_037.
-:om_037 a rr:ObjectMap;
-    rml:reference "attributes.synopsis";
-    rr:termType rr:Literal.
-:pom_028 a rr:PredicateObjectMap.
-:map_episode_000 rr:predicateObjectMap :pom_028.
-:pm_041 a rr:PredicateMap.
-:pom_028 rr:predicateMap :pm_041.
-:pm_041 rr:constant <http://schema.org/partOfSeason>.
-:pom_028 rr:objectMap :om_038.
-:pom_029 a rr:PredicateObjectMap.
-:map_episode_000 rr:predicateObjectMap :pom_029.
-:pm_042 a rr:PredicateMap.
-:pom_029 rr:predicateMap :pm_042.
-:pm_042 rr:constant <http://schema.org/about>.
-:pom_029 rr:objectMap :om_039.
-:map_season_000 rml:logicalSource :source_003;
-    a rr:TriplesMap;
-    rdfs:label "season".
-:s_004 a rr:SubjectMap.
-:map_season_000 rr:subjectMap :s_004.
-:s_004 rr:template "https://betweenourworlds.org/season/{anime.slug}-{seasonNumber}".
-:pom_030 a rr:PredicateObjectMap.
-:map_season_000 rr:predicateObjectMap :pom_030.
-:pm_043 a rr:PredicateMap.
-:pom_030 rr:predicateMap :pm_043.
-:pm_043 rr:constant rdf:type.
-:pom_030 rr:objectMap :om_040.
-:om_040 a rr:ObjectMap;
-    rr:constant "http://schema.org/Season";
-    rr:termType rr:IRI.
-:pom_030 rr:objectMap :om_041.
-:om_041 a rr:ObjectMap;
-    rr:constant "http://schema.org/CreativeWork";
-    rr:termType rr:IRI.
-:pom_030 rr:objectMap :om_042.
-:om_042 a rr:ObjectMap;
-    rr:constant "http://schema.org/Thing";
-    rr:termType rr:IRI.
-:pom_031 a rr:PredicateObjectMap.
-:map_season_000 rr:predicateObjectMap :pom_031.
-:pm_044 a rr:PredicateMap.
-:pom_031 rr:predicateMap :pm_044.
-:pm_044 rr:constant <http://schema.org/seasonNumber>.
-:pom_031 rr:objectMap :om_043.
-:om_043 a rr:ObjectMap;
-    rml:reference "seasonNumber";
-    rr:termType rr:Literal;
-    rr:datatype <http://schema.org/Integer>.
-:pom_032 a rr:PredicateObjectMap.
-:map_season_000 rr:predicateObjectMap :pom_032.
-:pm_045 a rr:PredicateMap.
-:pom_032 rr:predicateMap :pm_045.
-:pm_045 rr:constant <http://schema.org/about>.
-:pom_032 rr:objectMap :om_044.
-:om_021 a rr:ObjectMap;
-    rr:parentTriplesMap :map_trailer_000;
-    rr:joinCondition :jc_000.
-:jc_000 rr:child "attributes.slug";
-    rr:parent "attributes.slug".
-:om_031 a rr:ObjectMap;
-    rr:parentTriplesMap :map_anime_000;
-    rr:joinCondition :jc_001.
-:jc_001 rr:child "slug";
-    rr:parent "attributes.slug".
-:om_038 a rr:ObjectMap;
-    rr:parentTriplesMap :map_season_000;
-    rr:joinCondition :jc_002.
-:jc_002 rr:child "attributes.seasonNumber";
-    rr:parent "seasonNumber".
-:om_038 rr:joinCondition :jc_003.
-:jc_003 rr:child "anime_id";
-    rr:parent "anime.id".
-:om_039 a rr:ObjectMap;
-    rr:parentTriplesMap :map_anime_000;
-    rr:joinCondition :jc_004.
-:jc_004 rr:child "anime_id";
-    rr:parent "id".
-:om_044 a rr:ObjectMap;
-    rr:parentTriplesMap :map_anime_000;
-    rr:joinCondition :jc_005.
-:jc_005 rr:child "anime.id";
-    rr:parent "id".
+:source_000 rdf:type rml:LogicalSource ;
+	rdfs:label "anime_source" ;
+	rml:source "anime-0.json" ;
+	rml:iterator "$.data[*]" ;
+	rml:referenceFormulation ql:JSONPath .
+
+:source_001 rdf:type rml:LogicalSource ;
+	rdfs:label "stream_source" ;
+	rml:source "anime-streams-0.json" ;
+	rml:iterator "$.[*]" ;
+	rml:referenceFormulation ql:JSONPath .
+
+:source_002 rdf:type rml:LogicalSource ;
+	rdfs:label "episode_source" ;
+	rml:source "anime-episodes-0.json" ;
+	rml:iterator "$.[*]" ;
+	rml:referenceFormulation ql:JSONPath .
+
+:source_003 rdf:type rml:LogicalSource ;
+	rdfs:label "season_source" ;
+	rml:source "anime-seasons-0.json" ;
+	rml:iterator "$.[*]" ;
+	rml:referenceFormulation ql:JSONPath .
+
+:map_anime_000 rml:logicalSource :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "anime" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_000, :pom_001, :pom_002, :pom_003, :pom_004, :pom_005, :pom_006, :pom_007, :pom_008, :pom_009, :pom_010, :pom_011, :pom_012, :pom_013, :pom_014, :pom_016 .
+
+:s_000 rdf:type rr:SubjectMap ;
+	rr:template "https://betweenourworlds.org/anime/{attributes.slug}" .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000, :om_001, :om_002, :om_003, :om_004 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_000 rdf:type rr:ObjectMap ;
+	rr:constant "http://dbpedia.org/ontology/Work" ;
+	rr:termType rr:IRI .
+
+:om_001 rdf:type rr:ObjectMap ;
+	rr:constant "http://dbpedia.org/ontology/Cartoon" ;
+	rr:termType rr:IRI .
+
+:om_002 rdf:type rr:ObjectMap ;
+	rr:constant "http://dbpedia.org/ontology/Anime" ;
+	rr:termType rr:IRI .
+
+:om_003 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/Thing" ;
+	rr:termType rr:IRI .
+
+:om_004 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/CreativeWork" ;
+	rr:termType rr:IRI .
+
+:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_001, :pm_002, :pm_003 ;
+	rr:objectMap :om_005 .
+
+:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/name> .
+
+:pm_002 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:label .
+
+:pm_003 rdf:type rr:PredicateMap ;
+	rr:constant dbo:title .
+
+:om_005 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.canonicalTitle" ;
+	rr:termType rr:Literal .
+
+:pom_002 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_004, :pm_005, :pm_006 ;
+	rr:objectMap :om_006 .
+
+:pm_004 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/name> .
+
+:pm_005 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:label .
+
+:pm_006 rdf:type rr:PredicateMap ;
+	rr:constant dbo:title .
+
+:om_006 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.titles.en" ;
+	rr:termType rr:Literal ;
+	rml:languageMap :language_000 .
+
+:language_000 rr:constant "en" .
+
+:pom_003 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_007, :pm_008, :pm_009 ;
+	rr:objectMap :om_007 .
+
+:pm_007 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/name> .
+
+:pm_008 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:label .
+
+:pm_009 rdf:type rr:PredicateMap ;
+	rr:constant dbo:title .
+
+:om_007 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.titles.en_jp" ;
+	rr:termType rr:Literal ;
+	rml:languageMap :language_001 .
+
+:language_001 rr:constant "ja" .
+
+:pom_004 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_010, :pm_011, :pm_012 ;
+	rr:objectMap :om_008 .
+
+:pm_010 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/name> .
+
+:pm_011 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:label .
+
+:pm_012 rdf:type rr:PredicateMap ;
+	rr:constant dbo:title .
+
+:om_008 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.titles.ja_jp" ;
+	rr:termType rr:Literal ;
+	rml:languageMap :language_002 .
+
+:language_002 rr:constant "ja" .
+
+:pom_005 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_013, :pm_014 ;
+	rr:objectMap :om_009 .
+
+:pm_013 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/numberOfEpisodes> .
+
+:pm_014 rdf:type rr:PredicateMap ;
+	rr:constant dbo:numberOfEpisodes .
+
+:om_009 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.episodeCount" ;
+	rr:termType rr:Literal .
+
+:pom_006 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_015 ;
+	rr:objectMap :om_010, :om_011 .
+
+:pm_015 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/contentRating> .
+
+:om_010 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.ageRating" ;
+	rr:termType rr:Literal .
+
+:om_011 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.ageRatingGuide" ;
+	rr:termType rr:Literal .
+
+:pom_007 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_016 ;
+	rr:objectMap :om_012 .
+
+:pm_016 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/image> .
+
+:om_012 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.coverImage.original" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://schema.org/URL> .
+
+:pom_008 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_017 ;
+	rr:objectMap :om_013 .
+
+:pm_017 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/endDate> .
+
+:om_013 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.endDate" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://schema.org/Date> .
+
+:pom_009 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_018 ;
+	rr:objectMap :om_014 .
+
+:pm_018 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/startDate> .
+
+:om_014 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.startDate" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://schema.org/Date> .
+
+:pom_010 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_019, :pm_020 ;
+	rr:objectMap :om_015 .
+
+:pm_019 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:comment .
+
+:pm_020 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/description> .
+
+:om_015 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.synopsis" ;
+	rr:termType rr:Literal .
+
+:pom_011 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_021 ;
+	rr:objectMap :om_016 .
+
+:pm_021 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/mainEntityOfPage> .
+
+:om_016 rdf:type rr:ObjectMap ;
+	rr:template "https://kitsu.io/anime/{attributes.slug}" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://schema.org/URL> .
+
+:pom_012 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_022 ;
+	rr:objectMap :om_017 .
+
+:pm_022 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/mainEntityOfPage> .
+
+:om_017 rdf:type rr:ObjectMap ;
+	rml:reference "otherWebsites" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://schema.org/URL> .
+
+:pom_013 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_023 ;
+	rr:objectMap :om_018 .
+
+:pm_023 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/mainEntityOfPage> .
+
+:om_018 rdf:type rr:ObjectMap ;
+	rml:reference "streams" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://schema.org/URL> .
+
+:pom_014 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_024 ;
+	rr:objectMap :om_019 .
+
+:pm_024 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_019 rdf:type fnml:FunctionTermMap ;
+	rr:termType rr:IRI ;
+	fnml:functionValue :fn_000 .
+
+:fn_000 rml:logicalSource :source_000 ;
+	rr:predicateObjectMap :pomexec_000, :pom_015 .
+
+:pomexec_000 rr:predicateMap :pmexec_000 ;
+	rr:objectMap :omexec_000 .
+
+:pmexec_000 rr:constant fno:executes .
+
+:omexec_000 rr:constant "https://betweenourworlds.org/function/getClass" ;
+	rr:termType rr:IRI .
+
+:pom_015 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_025 ;
+	rr:objectMap :om_020 .
+
+:pm_025 rdf:type rr:PredicateMap ;
+	rr:constant afn:value .
+
+:om_020 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.subtype" ;
+	rr:termType rr:Literal .
+
+:pom_016 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_026 ;
+	rr:objectMap :om_021 .
+
+:pm_026 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/trailer> .
+
+:map_trailer_000 rml:logicalSource :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "trailer" ;
+	rr:subjectMap :s_001 ;
+	rr:predicateObjectMap :pom_017, :pom_018 .
+
+:s_001 rdf:type rr:SubjectMap ;
+	rr:template "https://betweenourworlds.org/trailer/{attributes.slug}" .
+
+:pom_017 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_027 ;
+	rr:objectMap :om_022, :om_023, :om_024, :om_025 .
+
+:pm_027 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_022 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/VideoObject" ;
+	rr:termType rr:IRI .
+
+:om_023 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/Thing" ;
+	rr:termType rr:IRI .
+
+:om_024 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/CreativeWork" ;
+	rr:termType rr:IRI .
+
+:om_025 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/MediaObject" ;
+	rr:termType rr:IRI .
+
+:pom_018 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_028 ;
+	rr:objectMap :om_026 .
+
+:pm_028 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/url> .
+
+:om_026 rdf:type rr:ObjectMap ;
+	rr:template "https://www.youtube.com/watch?v={attributes.youtubeVideoId}" ;
+	rr:termType rr:Literal .
+
+:map_stream_000 rml:logicalSource :source_001 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "stream" ;
+	rr:subjectMap :s_002 ;
+	rr:predicateObjectMap :pom_019, :pom_020, :pom_021, :pom_023 .
+
+:s_002 rdf:type rr:SubjectMap ;
+	rr:template "https://betweenourworlds.org/stream/{slug}-{service}" .
+
+:pom_019 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_029 ;
+	rr:objectMap :om_027 .
+
+:pm_029 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_027 rdf:type rr:ObjectMap ;
+	rr:constant "https://betweenourworlds.org/ontology/Stream" ;
+	rr:termType rr:IRI .
+
+:pom_020 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_030 ;
+	rr:objectMap :om_028 .
+
+:pm_030 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/url> .
+
+:om_028 rdf:type rr:ObjectMap ;
+	rml:reference "url" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://schema.org/URL> .
+
+:pom_021 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_031 ;
+	rr:objectMap :om_029 .
+
+:pm_031 rdf:type rr:PredicateMap ;
+	rr:constant bow:providedBy .
+
+:om_029 rdf:type fnml:FunctionTermMap ;
+	rr:termType rr:IRI ;
+	fnml:functionValue :fn_001 .
+
+:fn_001 rml:logicalSource :source_001 ;
+	rr:predicateObjectMap :pomexec_001, :pom_022 .
+
+:pomexec_001 rr:predicateMap :pmexec_001 ;
+	rr:objectMap :omexec_001 .
+
+:pmexec_001 rr:constant fno:executes .
+
+:omexec_001 rr:constant "https://betweenourworlds.org/function/getStreamAgent" ;
+	rr:termType rr:IRI .
+
+:pom_022 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_032 ;
+	rr:objectMap :om_030 .
+
+:pm_032 rdf:type rr:PredicateMap ;
+	rr:constant afn:value .
+
+:om_030 rdf:type rr:ObjectMap ;
+	rml:reference "service" ;
+	rr:termType rr:Literal .
+
+:pom_023 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_033 ;
+	rr:objectMap :om_031 .
+
+:pm_033 rdf:type rr:PredicateMap ;
+	rr:constant bow:object .
+
+:map_episode_000 rml:logicalSource :source_002 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "episode" ;
+	rr:subjectMap :s_003 ;
+	rr:predicateObjectMap :pom_024, :pom_025, :pom_026, :pom_027, :pom_028, :pom_029 .
+
+:s_003 rdf:type rr:SubjectMap ;
+	rr:template "https://betweenourworlds.org/episode/{anime_slug}-{attributes.number}" .
+
+:pom_024 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_034 ;
+	rr:objectMap :om_032, :om_033, :om_034 .
+
+:pm_034 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_032 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/Episode" ;
+	rr:termType rr:IRI .
+
+:om_033 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/CreativeWork" ;
+	rr:termType rr:IRI .
+
+:om_034 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/Thing" ;
+	rr:termType rr:IRI .
+
+:pom_025 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_035, :pm_036, :pm_037 ;
+	rr:objectMap :om_035 .
+
+:pm_035 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/name> .
+
+:pm_036 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:label .
+
+:pm_037 rdf:type rr:PredicateMap ;
+	rr:constant dbo:title .
+
+:om_035 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.canonicalTitle" ;
+	rr:termType rr:Literal .
+
+:pom_026 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_038 ;
+	rr:objectMap :om_036 .
+
+:pm_038 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/episodeNumber> .
+
+:om_036 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.relativeNumber" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://schema.org/Integer> .
+
+:pom_027 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_039, :pm_040 ;
+	rr:objectMap :om_037 .
+
+:pm_039 rdf:type rr:PredicateMap ;
+	rr:constant rdfs:comment .
+
+:pm_040 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/description> .
+
+:om_037 rdf:type rr:ObjectMap ;
+	rml:reference "attributes.synopsis" ;
+	rr:termType rr:Literal .
+
+:pom_028 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_041 ;
+	rr:objectMap :om_038 .
+
+:pm_041 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/partOfSeason> .
+
+:pom_029 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_042 ;
+	rr:objectMap :om_039 .
+
+:pm_042 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/about> .
+
+:map_season_000 rml:logicalSource :source_003 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "season" ;
+	rr:subjectMap :s_004 ;
+	rr:predicateObjectMap :pom_030, :pom_031, :pom_032 .
+
+:s_004 rdf:type rr:SubjectMap ;
+	rr:template "https://betweenourworlds.org/season/{anime.slug}-{seasonNumber}" .
+
+:pom_030 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_043 ;
+	rr:objectMap :om_040, :om_041, :om_042 .
+
+:pm_043 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_040 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/Season" ;
+	rr:termType rr:IRI .
+
+:om_041 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/CreativeWork" ;
+	rr:termType rr:IRI .
+
+:om_042 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/Thing" ;
+	rr:termType rr:IRI .
+
+:pom_031 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_044 ;
+	rr:objectMap :om_043 .
+
+:pm_044 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/seasonNumber> .
+
+:om_043 rdf:type rr:ObjectMap ;
+	rml:reference "seasonNumber" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://schema.org/Integer> .
+
+:pom_032 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_045 ;
+	rr:objectMap :om_044 .
+
+:pm_045 rdf:type rr:PredicateMap ;
+	rr:constant <http://schema.org/about> .
+
+:om_021 rdf:type rr:ObjectMap ;
+	rr:parentTriplesMap :map_trailer_000 ;
+	rr:joinCondition :jc_000 .
+
+:jc_000 rr:child "attributes.slug" ;
+	rr:parent "attributes.slug" .
+
+:om_031 rdf:type rr:ObjectMap ;
+	rr:parentTriplesMap :map_anime_000 ;
+	rr:joinCondition :jc_001 .
+
+:jc_001 rr:child "slug" ;
+	rr:parent "attributes.slug" .
+
+:om_038 rdf:type rr:ObjectMap ;
+	rr:parentTriplesMap :map_season_000 ;
+	rr:joinCondition :jc_002, :jc_003 .
+
+:jc_002 rr:child "attributes.seasonNumber" ;
+	rr:parent "seasonNumber" .
+
+:jc_003 rr:child "anime_id" ;
+	rr:parent "anime.id" .
+
+:om_039 rdf:type rr:ObjectMap ;
+	rr:parentTriplesMap :map_anime_000 ;
+	rr:joinCondition :jc_004 .
+
+:jc_004 rr:child "anime_id" ;
+	rr:parent "id" .
+
+:om_044 rdf:type rr:ObjectMap ;
+	rr:parentTriplesMap :map_anime_000 ;
+	rr:joinCondition :jc_005 .
+
+:jc_005 rr:child "anime.id" ;
+	rr:parent "id" .
+

@@ -1,42 +1,53 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
-@prefix fno: <https://w3id.org/function/ontology#>.
-@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
-@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
-@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
-@prefix : <http://mapping.example.com/>.
-@prefix ex: <http://example.com/>.
-@prefix grel: <http://example.com/grel/>.
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
+@prefix ex: <http://example.com/> .
+@prefix grel: <http://example.com/grel/> .
 
-:application a rr:TriplesMap;
-    rdfs:label "application".
-:s_000 a rr:SubjectMap.
-:application rr:subjectMap :s_000.
-:s_000 rr:termType rr:BlankNode.
-:pom_000 a rr:PredicateObjectMap.
-:application rr:predicateObjectMap :pom_000.
-:pm_000 a rr:PredicateMap.
-:pom_000 rr:predicateMap :pm_000.
-:pm_000 rr:constant ex:numberOfApplications.
-:pom_000 rr:objectMap :om_000.
-:om_000 a fnml:FunctionTermMap;
-    rr:termType rr:Literal;
-    rr:datatype <http://www.w3.org/2001/XMLSchema#int>;
-    fnml:functionValue :fn_000.
-:fn_000 rr:predicateObjectMap :pomexec_000.
-:pomexec_000 rr:predicateMap :pmexec_000.
-:pmexec_000 rr:constant fno:executes.
-:pomexec_000 rr:objectMap :omexec_000.
-:omexec_000 rr:constant "http://example.com/grel/trim";
-    rr:termType rr:IRI.
-:fn_000 rr:predicateObjectMap :pom_001.
-:pom_001 a rr:PredicateObjectMap;
-    rr:predicateMap :pm_001.
-:pm_001 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-:pom_001 rr:objectMap :om_001.
-:om_001 a rr:ObjectMap;
-    rml:reference "Number of applications";
-    rr:termType rr:Literal.
+:application rdf:type rr:TriplesMap ;
+	rdfs:label "application" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_000 .
+
+:s_000 rdf:type rr:SubjectMap ;
+	rr:termType rr:BlankNode .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant ex:numberOfApplications .
+
+:om_000 rdf:type fnml:FunctionTermMap ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://www.w3.org/2001/XMLSchema#int> ;
+	fnml:functionValue :fn_000 .
+
+:fn_000 rr:predicateObjectMap :pomexec_000, :pom_001 .
+
+:pomexec_000 rr:predicateMap :pmexec_000 ;
+	rr:objectMap :omexec_000 .
+
+:pmexec_000 rr:constant fno:executes .
+
+:omexec_000 rr:constant "http://example.com/grel/trim" ;
+	rr:termType rr:IRI .
+
+:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_001 ;
+	rr:objectMap :om_001 .
+
+:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant grel:valueParameter .
+
+:om_001 rdf:type rr:ObjectMap ;
+	rml:reference "Number of applications" ;
+	rr:termType rr:Literal .
+

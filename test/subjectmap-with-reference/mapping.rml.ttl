@@ -1,27 +1,33 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
-@prefix fno: <https://w3id.org/function/ontology#>.
-@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
-@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
-@prefix : <http://mapping.example.com/>.
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
 
-:map_test_0 rml:logicalSource :source_0.
-:source_0 a rml:LogicalSource;
-    rml:source "text.csv";
-    rml:referenceFormulation ql:CSV.
-:map_test_0 a rr:TriplesMap;
-    rdfs:label "test".
-:s_0 a rr:SubjectMap.
-:map_test_0 rr:subjectMap :s_0.
-:s_0 rml:reference "id".
-:pom_0 a rr:PredicateObjectMap.
-:map_test_0 rr:predicateObjectMap :pom_0.
-:pm_0 a rr:PredicateMap.
-:pom_0 rr:predicateMap :pm_0.
-:pm_0 rr:constant rdf:type.
-:pom_0 rr:objectMap :om_0.
-:om_0 a rr:ObjectMap;
-    rr:constant "http://schema.org/Thing";
-    rr:termType rr:IRI.
+:map_test_0 rml:logicalSource :source_0 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "test" ;
+	rr:subjectMap :s_0 ;
+	rr:predicateObjectMap :pom_0 .
+
+:source_0 rdf:type rml:LogicalSource ;
+	rml:source "text.csv" ;
+	rml:referenceFormulation ql:CSV .
+
+:s_0 rdf:type rr:SubjectMap ;
+	rml:reference "id" .
+
+:pom_0 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_0 ;
+	rr:objectMap :om_0 .
+
+:pm_0 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_0 rdf:type rr:ObjectMap ;
+	rr:constant "http://schema.org/Thing" ;
+	rr:termType rr:IRI .
+
