@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+
+- language tag on condition is correctly parsed (see [issue 142](https://github.com/RMLio/yarrrml-parser/issues/142))
+
 ### Changed
 
 - Made all RML test results pretty, for easier inspection of the examples
