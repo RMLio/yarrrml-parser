@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+
+- language tag on condition is correctly parsed (see [issue 142](https://github.com/RMLio/yarrrml-parser/issues/142))
+
+### Changed
+
+- Made all RML test results pretty, for easier inspection of the examples
+
+## [1.3.2] - 2021-09-29
+
+### Added
+- `pretty` parameter for pretty output
+
+### Fixed
+- Help text of CLI
+- Object type 'iri' discarded as of second source in a mapping that has multiple sources (see [issue 137](https://github.com/RMLio/yarrrml-parser/issues/137))
+
+## [1.3.1] - 2021-08-11
+
+### Changed
+- Update `rdf-serializer-jsonld-ext` dependency (see [issue 128](https://github.com/RMLio/yarrrml-parser/issues/128))
+
 ## [1.3.0] - 2021-07-05
 
 ### Added
@@ -216,6 +238,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.3.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.1...v1.3.2
+[1.3.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.3...v1.3.0
 [1.2.3]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.1...v1.2.2

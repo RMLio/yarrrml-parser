@@ -17,16 +17,21 @@ Using the `--help` flag will show all possible commands.
 
 If you want to generate RML rules from a YARRRML document,
 you do the following: `yarrrml-parser -i rules.yml`.
+
 The rules will be written to standard output.
 If you want to write them to a file, you can add the `-o` option.
+
 By default, the parser generates RML rules.
 If you want to generate R2RML rules add `-f R2RML`.
+
 If you want to use `rr:class` instead of Predicate Object Maps, use the `-c` flag.
+
 You can use multiple input files too: `yarrrml-parser -i rules-1.yml -i rules-2.yml`.
 They are converted to a single RML document.
 Note that the keys in `prefixes`, `sources`, and `mappings` have to be unique across all files.
 `base` can only be set once.
-You find an [`test/multiple-input-files`](test/multiple-input-files).
+You find an example at [`test/multiple-input-files`](test/multiple-input-files).
+
 You can overwrite external references via the `-e`.
 An external reference starts with `_`.
 For example, `-e name=John` will replace all occurrences of `$(_name)` with `John`.
@@ -42,6 +47,8 @@ you can use dollar variables with curly braces and specify a variable in a `.env
 For example, use `${DB_PASSWORD}` in the YARRRML document and add a `.env` file with content `DB_PASSWORD=mySecretPassword`.
 During generation of an RML document, the variables will be replaced.
 If a variable is not found in the current environment, the yarrrml-parser will emit a warning.
+
+If you want the outputted RML to be pretty, please provide the `-p` or `--pretty` parameter.
 
 #### yarrrml-generator
 
@@ -72,6 +79,7 @@ if ( y2r.getLogger().has('error') ) {
 - Install the dependencies via `npm i`
 - Update code, if needed.
 - Run the tests via `npm test`
+  - If you make a new test, make sure the (RML) Turtle is 'pretty'. If you're not sure it's pretty, run `./test/prettify_ttl.js`
 - Make the [CLI](#cli) (based on the code in the cloned repo)
 available system-wide via `npm link` (optional).
 

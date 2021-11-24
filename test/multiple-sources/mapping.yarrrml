@@ -1,0 +1,11 @@
+prefixes:
+  ex: "http://example.com/ex/"
+
+mappings:
+  m1:
+    sources:
+      - ['f1.csv~csv']
+      - ['f2.csv~csv']
+    s: ex:$(Id)
+    po:
+      - [ex:myProperty, ex:myObject~iri]
