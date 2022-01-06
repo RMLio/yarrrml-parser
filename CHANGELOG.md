@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Made all RML test results pretty, for easier inspection of the examples
+- Added multiple conditions test
 
 ## [1.3.2] - 2021-09-29
 
