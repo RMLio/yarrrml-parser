@@ -13,7 +13,7 @@
 	rr:predicateObjectMap :pom_000 .
 
 :source_000 rdf:type rr:LogicalTable ;
-	rr:sqlQuery "Select ('Student' || \"ID\" ) AS StudentId , \"ID\" , \"Name\" from \"Student\" " .
+	rr:sqlQuery "Select ('Student' || \"ID\" ) AS StudentId , \"ID\" , \"Name\" from \"Student\"" .
 
 :s_000 rdf:type rr:SubjectMap ;
 	rr:termType rr:BlankNode .

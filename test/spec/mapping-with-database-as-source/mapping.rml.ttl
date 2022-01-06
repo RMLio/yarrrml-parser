@@ -1,0 +1,28 @@
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+
+@prefix : <http://mapping.example.com/> .
+
+:map_person_000 rml:logicalSource :source_000 ;
+        rdf:type rr:TriplesMap ;
+        rdfs:label "person" ;
+        rr:subjectMap :s_000 .
+
+:source_000 rdf:type rml:LogicalSource ;
+        rml:source :database_000 ;
+        rml:query "SELECT DEPTNO, DNAME, LOC, (SELECT COUNT(*) FROM EMP WHERE EMP.DEPTNO=DEPT.DEPTNO) AS STAFF FROM DEPT;" ;
+        rr:sqlVersion rr:SQL2008 ;
+        rml:referenceFormulation ql:CSV .
+
+:database_000 rdf:type d2rq:Database ;
+        d2rq:jdbcDSN "http://localhost/example" ;
+        d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver" ;
+        d2rq:username "root" ;
+        d2rq:password "root" .
+
+:s_000 rdf:type rr:SubjectMap ;
+        rr:termType rr:BlankNode .
