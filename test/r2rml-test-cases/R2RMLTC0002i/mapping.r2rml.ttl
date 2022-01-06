@@ -13,7 +13,7 @@
 	rr:predicateObjectMap :pom_000 .
 
 :source_000 rdf:type rr:LogicalTable ;
-	rr:sqlQuery "SELECT \"ID\",        \"Name\" FROM \"Student\" " ;
+	rr:sqlQuery "SELECT \"ID\", \"Name\" FROM \"Student\"" ;
 	rr:sqlVersion rr:SQL2008 .
 
 :s_000 rdf:type rr:SubjectMap ;

@@ -1,0 +1,14 @@
+mapping:
+  person:
+    sources:
+      - access: http://localhost/example
+        type: mysql
+        credentials:
+          username: root
+          password: root
+        queryFormulation: sql2008
+        query: |
+          SELECT DEPTNO, DNAME, LOC,
+          (SELECT COUNT(*) FROM EMP WHERE EMP.DEPTNO=DEPT.DEPTNO) AS STAFF
+          FROM DEPT;
+        referenceFormulation: csv
