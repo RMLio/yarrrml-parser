@@ -7,13 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
-### Fixed
+## [1.3.3] - 2022-01-07
 
+### Fixed
 - sqlVersion is added correctly
 - language tag on condition is correctly parsed (see [issue 142](https://github.com/RMLio/yarrrml-parser/issues/142))
 
 ### Changed
-
 - Made all RML test results pretty, for easier inspection of the examples
 - Added multiple conditions test
 
@@ -240,6 +240,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.3.3]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.2.3...v1.3.0
