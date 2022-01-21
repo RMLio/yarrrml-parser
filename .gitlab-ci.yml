@@ -28,6 +28,10 @@ stages:
   - deploy
 
 include:
+  # Make sure the CHANGELOG is always updated
+  - project: 'rml/util/ci-templates'
+    ref: main
+    file: 'CHANGELOG.gitlab-ci.yml'
   # Create Github Releases on tags
   - project: 'rml/util/ci-templates'
     ref: main

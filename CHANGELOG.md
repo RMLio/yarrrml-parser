@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- CI: automatic run tests and create releases.
+- CI: enforce CHANGELOG updates.
+
 ## [1.3.3] - 2022-01-07
 
 ### Fixed
