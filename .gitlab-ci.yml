@@ -1,0 +1,118 @@
+##############################
+#                            #
+#       yarrrml-parser       #
+#                            #
+##############################
+#
+# (c) Dylan Van Assche (2022)
+# IDLab - Ghent University - imec
+#
+# CI jobs for the YARRRML parser.
+#
+#
+# CI variables: 
+#    - GITHUB_ACCESS_TOKEN: Access token for accessing Github repositories as variable, example: sdjlsdgfkj;sk
+#    - GITHUB_REPO: Github repo, example: github.com/RMLio/rmlmapper-java
+#    - GITHUB_ARTIFACTS: Artifacts to upload together with th release, example: target/*.jar
+#    - NPM_TOKEN: Access token for accessing NPM repositories, example: sdjlsdgfkj;skf145
+# External scripts:
+#    - ./get-changes.sh: returns the release notes for the Github Release description
+#    - ./build-release.sh: builds a release artifact and stores it in the $GITHUB_ARTIFACTS location
+#
+# Always use protected & masked mode if possible for CI variables!
+# See https://gitlab.ilabt.imec.be/rml/util/ci-templates for a detailed explanation
+stages:
+  - unittests
+  - mirror
+  - release
+  - deploy
+
+include:
+  # Create Github Releases on tags
+  - project: 'rml/util/ci-templates'
+    ref: main
+    file: 'Github-Release.gitlab-ci.yml'
+  # Create NPM Releases on tags
+  - project: 'rml/util/ci-templates'
+    ref: main
+    file: 'NPM-Release.gitlab-ci.yml'
+
+# Cancel pipeline if a newer pipeline is running
+default:
+    interruptible: true
+
+# Run unittests
+Unittests:
+  image: alpine:latest
+  stage: unittests
+  before_script:
+    - apk add nodejs npm
+  script:
+    - npm install
+    - npm run test
+  except:
+    - development
+    - master
+
+# Create a new release tag from $RELEASE_TAG_NAME
+Create Release:
+  image: alpine:latest
+  stage: release
+  # Initiate git repository
+  before_script:
+    # Install dependencies
+    - apk add git nodejs npm
+    - npm install -g changefrog
+
+    # Clone the repository via HTTPS inside a new directory
+    - git clone "https://${GITLAB_USERNAME}:${GITLAB_TOKEN_MATEY}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" "${CI_COMMIT_SHA}"
+
+    # Set the displayed user with the commits that are about to be made
+    - git config --global user.email "${GIT_USER_EMAIL:-$GITLAB_USER_EMAIL}"
+    - git config --global user.name "${GIT_USER_NAME:-$GITLAB_USER_NAME}"
+
+  # Create release tag
+  script:
+    # Using before_script would override .git:push template
+    # User has to set the RELEASE_TAG_NAME variable
+    - if [ -z "$RELEASE_TAG_NAME" ]; then exit 1; else echo "Creating release v$RELEASE_TAG_NAME"; fi
+
+    # Update package.json and package-lock.json
+    - npm version "$RELEASE_TAG_NAME"
+    # Update changelog.
+    - changefrog -n "$RELEASE_TAG_NAME"
+
+    # Stage changes for commit to master
+    - cp -u package.json "${CI_COMMIT_SHA}/package.json"
+    - cp -u package-lock.json "${CI_COMMIT_SHA}/package-lock.json"
+    - cp -u CHANGELOG.md "${CI_COMMIT_SHA}/CHANGELOG.md"
+
+  # Commit changes
+  after_script:
+    # Go to the new directory
+    - cd "${CI_COMMIT_SHA}"
+
+    # Add all generated files to Git
+    - git add .
+    - |-
+      # Check if we have modifications to commit
+      CHANGES=$(git status --porcelain | wc -l)
+
+      if [ "$CHANGES" -gt "0" ]; then
+        # Show the status of files that are about to be created, updated or deleted
+        git diff --cached --shortstat
+
+        # Commit all changes
+        COMMIT_MESSAGE="CHANGELOG: release v$RELEASE_TAG_NAME"
+        echo "Commit message: ${COMMIT_MESSAGE}"
+        git commit -m "${COMMIT_MESSAGE}"
+
+        # Create git tag
+        git tag "v$RELEASE_TAG_NAME"
+
+        # Update the repository and make sure to skip the pipeline create for this commit
+        git push origin "${CI_DEFAULT_BRANCH}"
+        # Push new tags and trigger the pipeline since we're deploying
+        git push --tags origin "${CI_DEFAULT_BRANCH}"
+      fi
+  when: manual
