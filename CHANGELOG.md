@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - CI: automatic run tests and create releases.
 - CI: enforce CHANGELOG updates.
+- CI: correct Gitlab access token variable name.
 
 ### Fixed
 - Lock Graphy version to 4.3.3 (see [issue 149](https://github.com/RMLio/yarrrml-parser/issues/149)).
