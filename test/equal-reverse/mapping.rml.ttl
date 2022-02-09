@@ -1,0 +1,100 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
+@prefix ex: <http://example.org/> .
+
+:map_mapping_000 rml:logicalSource :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "mapping" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_000 .
+
+:source_000 rdf:type rml:LogicalSource ;
+	rml:source "data.csv" ;
+	rml:referenceFormulation ql:CSV .
+
+:s_000 rdf:type rr:SubjectMap ;
+	rr:template "http://example.org/{id}" .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant ex:p .
+
+:om_000 rdf:type fnml:FunctionTermMap ;
+	rr:termType rr:Literal ;
+	fnml:functionValue :fn_000 .
+
+:fn_000 rml:logicalSource :source_000 ;
+	rr:predicateObjectMap :pomexec_000, :pom_001, :pom_004 .
+
+:pomexec_000 rr:predicateMap :pmexec_000 ;
+	rr:objectMap :omexec_000 .
+
+:pmexec_000 rr:constant fno:executes .
+
+:omexec_000 rr:constant "http://example.com/idlab/function/trueCondition" ;
+	rr:termType rr:IRI .
+
+:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_001 ;
+	rr:objectMap :om_001 .
+
+:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant <http://example.com/idlab/function/strBoolean> .
+
+:om_001 rdf:type rr:ObjectMap, fnml:FunctionTermMap ;
+	fnml:functionValue :fn_001 .
+
+:fn_001 rml:logicalSource :source_000 ;
+	rr:predicateObjectMap :pomexec_001, :pom_002, :pom_003 .
+
+:pomexec_001 rr:predicateMap :pmexec_001 ;
+	rr:objectMap :omexec_001 .
+
+:pmexec_001 rr:constant fno:executes .
+
+:omexec_001 rr:constant "http://example.com/idlab/function/equal" ;
+	rr:termType rr:IRI .
+
+:pom_002 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_002 ;
+	rr:objectMap :om_002 .
+
+:pm_002 rdf:type rr:PredicateMap ;
+	rr:constant <http://users.ugent.be/~bjdmeest/function/grel.ttl#valueParameter> .
+
+:om_002 rdf:type rr:ObjectMap ;
+	rml:reference "type" ;
+	rr:termType rr:Literal .
+
+:pom_003 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_003 ;
+	rr:objectMap :om_003 .
+
+:pm_003 rdf:type rr:PredicateMap ;
+	rr:constant <http://users.ugent.be/~bjdmeest/function/grel.ttl#valueParameter2> .
+
+:om_003 rdf:type rr:ObjectMap ;
+	rr:constant "1" ;
+	rr:termType rr:Literal .
+
+:pom_004 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_004 ;
+	rr:objectMap :om_004 .
+
+:pm_004 rdf:type rr:PredicateMap ;
+	rr:constant <http://example.com/idlab/function/str> .
+
+:om_004 rdf:type rr:ObjectMap ;
+	rr:constant "http://example.org/o" ;
+	rr:termType rr:Literal .
+

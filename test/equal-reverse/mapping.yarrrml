@@ -12,5 +12,5 @@ mappings:
         condition:
           function: equal
           parameters:
-            - [str1, $(type), s]
-            - [str2, "1", o]
+            - [str2, $(type), s]
+            - [str1, "1", o]
