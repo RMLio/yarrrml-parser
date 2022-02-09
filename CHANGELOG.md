@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Support joins when doing RML2YARRRML
 
+### Fixed
+
+- abstract-generator: ignore str1 & str2 param for equal (see [issue 152](https://github.com/RMLio/yarrrml-parser/issues/152))
+
 ## [1.3.6] - 2022-09-28
 
 ### Fixed
