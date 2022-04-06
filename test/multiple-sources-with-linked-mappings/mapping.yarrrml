@@ -1,0 +1,24 @@
+prefixes:
+  ex: http://example.com/
+
+mappings:
+  employee:
+    sources:
+      - [data-1.csv~csv]
+      - [data-2.csv~csv]
+    s: ex:$(id)
+    po:
+      - p: ex:project
+        o:
+          mapping: project
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(project-id)]
+              - [str2, $(id)]
+
+  project:
+    sources:
+      - [data-1.csv~csv]
+      - [data-2.csv~csv]
+    s: ex:$(slug)

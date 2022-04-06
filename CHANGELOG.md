@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+
+- Mapping with multiple sources linked to another mapping with multiple sources only resulted in half of 
+Referencing Objects Maps.
+
 ## [1.4.0] - 2022-11-18
 
 ### Added

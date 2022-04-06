@@ -4,6 +4,9 @@
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <http://mapping.example.com/> .
 
 :map_student_000 rr:logicalTable :source_000 ;
@@ -23,7 +26,7 @@
 	rr:objectMap :om_000 .
 
 :pm_000 rdf:type rr:PredicateMap ;
-	rr:constant <http://xmlns.com/foaf/0.1/name> .
+	rr:constant foaf:name .
 
 :om_000 rdf:type rr:ObjectMap ;
 	rr:column "Name" ;
@@ -31,7 +34,7 @@
 
 :pom_001 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_001 ;
-	rr:objectMap :om_001 .
+	rr:objectMap :om_002 .
 
 :pm_001 rdf:type rr:PredicateMap ;
 	rr:constant <http://example.com/ontology/practises> .
@@ -50,16 +53,16 @@
 
 :pom_002 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_002 ;
-	rr:objectMap :om_002 .
+	rr:objectMap :om_001 .
 
 :pm_002 rdf:type rr:PredicateMap ;
 	rr:constant rdfs:label .
 
-:om_002 rdf:type rr:ObjectMap ;
+:om_001 rdf:type rr:ObjectMap ;
 	rr:column "Name" ;
 	rr:termType rr:Literal .
 
-:om_001 rdf:type rr:ObjectMap ;
+:om_002 rdf:type rr:ObjectMap ;
 	rr:parentTriplesMap :map_sport_000 ;
 	rr:joinCondition :jc_000 .
 
