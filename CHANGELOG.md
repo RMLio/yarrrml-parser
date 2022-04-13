@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Changed
+- Allow datatype: rdf:langString in case language: is given (see [issue 160](https://github.com/RMLio/yarrrml-parser/issues/160))
+
 ## [1.3.4] - 2022-01-27
 
 ### Added

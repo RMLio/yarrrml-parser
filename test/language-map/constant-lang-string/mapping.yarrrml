@@ -1,0 +1,14 @@
+prefixes:
+  ex: http://example.org/
+
+mappings:
+  person:
+    sources:
+      - [ 'person.json~jsonpath', "$.[*]" ]
+    s: ex:$(entityid)
+    po:
+     - p: ex:value
+       o:
+        - value: $(value)
+          language: en
+          datatype: rdf:langString
