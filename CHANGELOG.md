@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.3.5] - 2022-04-26
+
 ### Changed
 - Allow datatype: rdf:langString in case language: is given (see [issue 160](https://github.com/RMLio/yarrrml-parser/issues/160))
 
@@ -253,6 +255,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.3.5]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.4...v1.3.5
 [1.3.4]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.1...v1.3.2
