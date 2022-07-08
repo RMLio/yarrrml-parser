@@ -144,7 +144,5 @@
 	rr:constant grel:valueParameter .
 
 :om_007 rdf:type rr:ObjectMap ;
-	rml:parentTermMap :ptm_000 .
-
-:ptm_000 rml:reference "firstname" .
-
+	rml:reference "firstname" ;
+	rr:termType rr:Literal .
