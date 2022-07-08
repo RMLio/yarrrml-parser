@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-- no more unneeded parentTermMap generation (fixing https://github.com/RMLio/yarrrml-parser/issues/171)
+- No more unneeded parentTermMap generation (fixing https://github.com/RMLio/yarrrml-parser/issues/171)
 
 ## [1.3.5] - 2022-04-26
 
