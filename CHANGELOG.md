@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.3.6] - 2022-09-28
+
 ### Fixed
 
 - No more unneeded parentTermMap generation (fixing https://github.com/RMLio/yarrrml-parser/issues/171)
@@ -262,6 +264,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.3.6]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.5...v1.3.6
 [1.3.5]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.4...v1.3.5
 [1.3.4]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.2...v1.3.3
