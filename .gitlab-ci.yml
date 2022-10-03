@@ -119,5 +119,10 @@ Create Release:
         git push origin "${CI_DEFAULT_BRANCH}"
         # Push new tags and trigger the pipeline since we're deploying
         git push --tags origin "${CI_DEFAULT_BRANCH}"
+
+        # Also release on the master branch
+        git checkout master
+        git rebase "${CI_DEFAULT_BRANCH}"
+        git push origin master
       fi
   when: manual
