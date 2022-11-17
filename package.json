@@ -21,21 +21,21 @@
     "@rdfjs/serializer-jsonld-ext": "^2.0.0",
     "commander": "^8.3.0",
     "extend": "^3.0.2",
-    "glob": "^7.2.0",
-    "graphy": "==4.3.3",
+    "glob": "^7.2.3",
+    "graphy": "^4.3.5",
     "js-logger": "^1.6.1",
-    "n3": "^1.11.2",
+    "n3": "^1.16.3",
     "parse-author": "^2.0.0",
     "pkginfo": "^0.4.1",
     "prefix-ns": "^0.1.2",
     "q": "^1.5.1",
     "rdf-ext": "^1.3.5",
-    "rdf-isomorphic": "^1.3.0",
-    "rdf-parser-n3": "^1.1.0",
+    "rdf-isomorphic": "^1.3.1",
+    "rdf-parser-n3": "^1.1.1",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "mocha": "^9.1.3"
+    "mocha": "^9.2.2"
   },
   "bin": {
     "yarrrml-parser": "./bin/parser.js",
