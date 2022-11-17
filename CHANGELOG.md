@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+
+- Support joins when doing RML2YARRRML
+
 ## [1.3.6] - 2022-09-28
 
 ### Fixed

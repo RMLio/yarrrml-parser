@@ -1,0 +1,71 @@
+prefixes:
+  rr: 'http://www.w3.org/ns/r2rml#'
+  rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+  rdfs: 'http://www.w3.org/2000/01/rdf-schema#'
+  fnml: 'http://semweb.mmlab.be/ns/fnml#'
+  fno: 'http://w3id.org/function/ontology#'
+  rml: 'http://semweb.mmlab.be/ns/rml#'
+  ql: 'http://semweb.mmlab.be/ns/ql#'
+  "": 'http://mapping.example.com/'
+  ov: 'http://open.vocab.org/terms/'
+mappings:
+  workshops:
+    sources:
+      - [csv/general-info.csv~csv]
+    s: 'https://kgb-workshop.org/resources/Event/$(id)'
+    po:
+      - [a, 'schema:Event~iri']
+      - ['schema:name', $(title)]
+      - ['schema:duration', $(duration)]
+      - ['schema:startDate', $(startDate)]
+      - ['schema:endDate', $(endDate)]
+      - ['schema:location', $(location)]
+      - ['schema:superEvent', $(superEvent)]
+      - {p: 'schema:subEvent', o: {mapping: dates}}
+      - {p: 'schema:organizer', o: {mapping: organizers}}
+  topics:
+    sources:
+      - [csv/topics.csv~csv]
+    s: 'https://kgb-workshop.org/resources/Topic/$(id)'
+    po:
+      - [a, 'schema:CreativeWork~iri']
+      - ['schema:name', $(name)]
+  subtopics:
+    sources:
+      - [csv/subtopics.csv~csv]
+    s: 'https://kgb-workshop.org/resources/Topic/$(id)'
+    po:
+      - ['schema:keyword', $(subtopic)]
+  pc:
+    sources:
+      - [csv/pc.csv~csv]
+    s: 'https://kgb-workshop.org/resources/ProgramCommittee/$(id)'
+    po:
+      - [a, 'schema:Person~iri']
+      - ['schema:performerIn', 'http://kgb.rml.io/resources/Event/kgb2019~iri']
+      - ['schema:name', $(name)]
+      - ['schema:memberOf', $(organization)]
+  dates:
+    sources:
+      - [csv/important-dates.csv~csv]
+    s: 'https://kgb-workshop.org/resources/ImportantDates/$(date)'
+    po:
+      - [a, 'schema:Event~iri']
+      - ['schema:name', $(event)]
+      - ['schema:startDate', $(date)]
+      - ['schema:description', $(description)]
+  organizers:
+    sources:
+      - [csv/organizers.csv~csv]
+    s: 'https://kgb-workshop.org/resources/Organizer/$(id)'
+    po:
+      - [a, 'schema:Person~iri']
+      - ['schema:name', $(name)]
+      - ['schema:sameAs', $(webpage)]
+      - ['ov:twitter-id', $(twitter)]
+      - ['schema:memberOf', $(organization)]
+      - ['schema:image', 'http://kgb-workshop.org/img/$(photo)']
+      - ['schema:description', $(biography)]
+      - ['schema:email', $(email)]
+      - ['schema:jobTitle', $(role)]
+      - ['http://example.org/linkedin', $(linkedin)]
