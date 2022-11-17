@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - abstract-generator: ignore str1 & str2 param for equal (see [issue 152](https://github.com/RMLio/yarrrml-parser/issues/152))
+- improved testing code
 
 ## [1.3.6] - 2022-09-28
 
