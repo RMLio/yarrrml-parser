@@ -70,7 +70,7 @@
 	rr:objectMap :om_002 .
 
 :pm_002 rdf:type rr:PredicateMap ;
-	rr:constant <http://users.ugent.be/~bjdmeest/function/grel.ttl#valueParameter> .
+	rr:constant <http://users.ugent.be/~bjdmeest/function/grel.ttl#valueParameter2> .
 
 :om_002 rdf:type rr:ObjectMap ;
 	rml:reference "type" ;
@@ -81,7 +81,7 @@
 	rr:objectMap :om_003 .
 
 :pm_003 rdf:type rr:PredicateMap ;
-	rr:constant <http://users.ugent.be/~bjdmeest/function/grel.ttl#valueParameter2> .
+	rr:constant <http://users.ugent.be/~bjdmeest/function/grel.ttl#valueParameter> .
 
 :om_003 rdf:type rr:ObjectMap ;
 	rr:constant "1" ;

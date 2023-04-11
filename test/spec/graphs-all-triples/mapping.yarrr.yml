@@ -1,0 +1,20 @@
+prefixes:
+  smth: 'http://example.com/smth'
+  ont: 'http://example.com/ont'
+
+mappings:
+  ParentSmth:
+    sources:
+      - [text.csv~csv]
+    graphs: smth:$(id)
+    s: smth:$(id)#this
+    po:
+      - p: ont:isSmthOf
+        o:
+          - mapping: ChildSmth
+  ChildSmth:
+    sources:
+      - [text.csv~csv]
+    s: smth:$(id)child#this
+    po:
+      - [a, smth:child]
