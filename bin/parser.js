@@ -14,6 +14,7 @@ const { canonicalize } = require('../lib/tools');
 const pkginfo = require('pkginfo');
 const N3 = require('n3');
 const namespaces = require('prefix-ns').asMap();
+namespaces['rml'] = 'http://semweb.mmlab.be/ns/rml#'; // this one is the only official one for now.
 const watch = require('../lib/watcher.js');
 const glob = require('glob');
 const Logger = require('../lib/logger');
