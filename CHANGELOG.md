@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - expander: fix graphs example from spec (see [issue 188](https://github.com/RMLio/yarrrml-parser/issues/188))
+- wrong namespace gets fetched from prefix.cc for rml prefix. Hardcode it.
 
 ## [1.4.0] - 2022-11-18
 
@@ -26,7 +27,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - abstract-generator: ignore str1 & str2 param for equal (see [issue 152](https://github.com/RMLio/yarrrml-parser/issues/152))
 - improved testing code
 - updated dependencies
-- wrong namespace gets fetched from prefix.cc for rml prefix. Hardcode it.
 
 ## [1.3.6] - 2022-09-28
 
