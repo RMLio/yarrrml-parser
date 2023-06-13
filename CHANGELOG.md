@@ -8,7 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Unreleased
 
 ### Added
-- Support for LDES 
+
+- Support for LDES
+
+### Fixed
+
+- expander: fix graphs example from spec (see [issue 188](https://github.com/RMLio/yarrrml-parser/issues/188))
 
 ## [1.4.0] - 2022-11-18
 
