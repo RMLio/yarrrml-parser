@@ -2,7 +2,7 @@ prefixes:
   ex: http://example.org/
 
 sources:
-  data-source: [readings.csv~csv]
+  data-source: [../readings.csv~csv]
 
 mappings:
   temperature-reading:
