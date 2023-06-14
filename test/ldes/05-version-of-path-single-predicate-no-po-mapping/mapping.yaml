@@ -7,11 +7,10 @@ sources:
 mappings:
   temperature-reading:
     sources: data-source
-    subjects:
+    subjects: 
       - value: ex:$(SensorID)
         ldes:
-          id: http://ldes.org/thisisanldeswithacustomid
-          watchedProperties: [$(Temperature)]
+          versionOfPath: [ex:hasOriginal]
         targets:
           - [out.ttl~void, turtle]
     po:
