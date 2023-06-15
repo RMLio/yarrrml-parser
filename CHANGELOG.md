@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - LDES: when `versionOfPath` is empty or has just one value, incorrect default predicate-object mappings were generated (internal [issue 6](https://gitlab.ilabt.imec.be/yarrrml/yarrrml-parser/-/issues/6)).
+- (Common) prefixes + namespaces are initialized once.
 
 ## [1.5.0] - 2023-06-13
 
