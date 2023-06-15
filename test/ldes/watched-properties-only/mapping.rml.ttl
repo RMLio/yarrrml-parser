@@ -16,9 +16,6 @@
 @prefix ldes: <https://w3id.org/ldes#> .
 @prefix tree: <https://w3id.org/tree#> .
 
-:rules_000 rdf:type void:Dataset ;
-	void:exampleResource :map_temperature-reading_000 .
-
 :source_000 rdf:type rml:LogicalSource ;
 	rdfs:label "data-source" ;
 	rml:source "../readings.csv" ;
