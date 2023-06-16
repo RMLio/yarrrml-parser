@@ -11,10 +11,7 @@ const fs = require('fs');
 const toYARRRML = require('../lib/yarrrml-generator.js');
 const pkginfo = require('pkginfo');
 const N3 = require('n3');
-const namespaces = require('prefix-ns').asMap();
 const Logger = require('../lib/logger');
-
-namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
 
 pkginfo(module, 'version');
 

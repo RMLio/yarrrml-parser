@@ -1,0 +1,4 @@
+
+<http://example.org/eventstream> a <https://w3id.org/ldes#EventStream>;
+  <https://w3id.org/ldes#versionOfPath> <http://purl.org/dc/terms/isVersionOf>;
+  <https://w3id.org/tree#shape> <http://example.org/shape.shacl> .
