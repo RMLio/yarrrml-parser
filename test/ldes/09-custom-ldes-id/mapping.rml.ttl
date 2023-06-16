@@ -25,7 +25,7 @@
 	rdfs:label "out.ttl-void-turtle-ldes" ;
 	rmlt:serialization formats:Turtle ;
 	rmlt:target :void_000 ;
-	ldes:baseIRI "http://ldes.org/thisisanldeswithacustomid" ;
+	ldes:baseIRI <http://ldes.org/thisisanldeswithacustomid> ;
 	tree:shape ex:shape.shacl .
 
 :void_000 rdf:type void:Dataset ;
@@ -72,7 +72,7 @@
 	rr:constant <http://example.com/idlab/function/watchedProperty> .
 
 :om_001 rdf:type rr:ObjectMap ;
-	rr:template "Temperature={Temperature}" ;
+	rr:constant "" ;
 	rr:termType rr:Literal .
 
 :pom_002 rdf:type rr:PredicateObjectMap ;
@@ -108,5 +108,4 @@
 	rml:reference "Timestamp" ;
 	rr:termType rr:Literal ;
 	rr:datatype <http://www.w3.org/2001/XMLSchema#dateTime> .
-
 
