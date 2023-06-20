@@ -1,0 +1,22 @@
+# Generate new LDES member if the timestamp changes (every reading)
+# for a certain sensor.
+
+prefixes:
+  ex: http://example.org/
+
+sources:
+  data-source: [../readings.csv~csv]
+
+mappings:
+  temperature-reading:
+    sources: data-source
+    subjects:
+      - value: ex:$(SensorID)
+        ldes:
+          watchedProperties: [$(Timestamp)]
+        targets:
+          - [out.ttl~void, turtle]
+    po:
+      - [a, ex:Thermometer]
+      - [ex:temp, $(Temperature)]
+      - [ex:ts, $(Timestamp), xsd:dateTime]

@@ -1,0 +1,26 @@
+# This test uses all properties at the same time
+
+prefixes:
+  ex: http://example.org/
+
+sources:
+  data-source: [../readings.csv~csv]
+
+mappings:
+  temperature-reading:
+    sources: data-source
+    subjects:
+      - value: ex:$(SensorID)
+        targets:
+          - [ out.ttl~void, turtle ]
+        ldes:
+          id: ex:myldes
+          # basically generate a member for each record
+          watchedProperties: [$(SensorID), $(Timestamp), $(Temperature)]
+          shape: ex:shape.shacl
+          timestampPath: [ex:ts, $(Timestamp), xsd:dateTime]
+          versionOfPath: [ex:hasVersion, ex:$(SensorID)]
+
+    po:
+      - [a, ex:Thermometer]
+      - [ex:temp, $(Temperature)]
