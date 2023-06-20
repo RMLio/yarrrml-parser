@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.5.2] - 2023-06-20
+
 ## [1.5.1] - 2023-06-16
 
 ### Fixed
@@ -296,6 +298,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.5.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.5.1...v1.5.2
 [1.5.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.3.6...v1.4.0
