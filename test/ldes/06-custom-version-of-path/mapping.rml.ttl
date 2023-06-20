@@ -1,0 +1,123 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
+@prefix ex: <http://example.org/> .
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
+@prefix formats: <http://www.w3.org/ns/formats/> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix tree: <https://w3id.org/tree#> .
+
+:source_000 rdf:type rml:LogicalSource ;
+	rdfs:label "data-source" ;
+	rml:source "../readings.csv" ;
+	rml:referenceFormulation ql:CSV .
+
+:target_000 rdf:type rmlt:LogicalTarget, ldes:EventStreamTarget ;
+	rdfs:label "out.ttl-void-turtle-ldes" ;
+	rmlt:serialization formats:Turtle ;
+	rmlt:target :void_000 ;
+	ldes:baseIRI ex:eventstream ;
+	tree:shape ex:shape.shacl ;
+	ldes:versionOfPath ex:hasOriginal .
+
+:void_000 rdf:type void:Dataset ;
+	void:dataDump <file://out.ttl> .
+
+:map_temperature-reading_000 rml:logicalSource :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "temperature-reading" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_002, :pom_003, :pom_004, :pom_005 .
+
+:s_000 rdf:type rr:SubjectMap, fnml:FunctionTermMap ;
+	rr:termType rr:IRI ;
+	fnml:functionValue :fn_000 ;
+	rml:logicalTarget :target_000 .
+
+:fn_000 rml:logicalSource :source_000 ;
+	rr:predicateObjectMap :pomexec_000, :pom_000, :pom_001 .
+
+:pomexec_000 rr:predicateMap :pmexec_000 ;
+	rr:objectMap :omexec_000 .
+
+:pmexec_000 rr:constant fno:executes .
+
+:omexec_000 rr:constant "http://example.com/idlab/function/generateUniqueIRI" ;
+	rr:termType rr:IRI .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant <http://example.com/idlab/function/iri> .
+
+:om_000 rdf:type rr:ObjectMap ;
+	rr:template "http://example.org/{SensorID}" ;
+	rr:termType rr:IRI .
+
+:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_001 ;
+	rr:objectMap :om_001 .
+
+:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant <http://example.com/idlab/function/watchedProperty> .
+
+:om_001 rdf:type rr:ObjectMap ;
+	rr:constant "" ;
+	rr:termType rr:Literal .
+
+:pom_002 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_002 ;
+	rr:objectMap :om_002 .
+
+:pm_002 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_002 rdf:type rr:ObjectMap ;
+	rr:constant "http://example.org/Thermometer" ;
+	rr:termType rr:IRI .
+
+:pom_003 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_003 ;
+	rr:objectMap :om_003 .
+
+:pm_003 rdf:type rr:PredicateMap ;
+	rr:constant ex:temp .
+
+:om_003 rdf:type rr:ObjectMap ;
+	rml:reference "Temperature" ;
+	rr:termType rr:Literal .
+
+:pom_004 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_004 ;
+	rr:objectMap :om_004 .
+
+:pm_004 rdf:type rr:PredicateMap ;
+	rr:constant ex:ts .
+
+:om_004 rdf:type rr:ObjectMap ;
+	rml:reference "Timestamp" ;
+	rr:termType rr:Literal ;
+	rr:datatype <http://www.w3.org/2001/XMLSchema#dateTime> .
+
+:pom_005 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_005 ;
+	rr:objectMap :om_005 .
+
+:pm_005 rdf:type rr:PredicateMap ;
+	rr:constant ex:hasOriginal .
+
+:om_005 rdf:type rr:ObjectMap ;
+	rr:template "http://example.org/original/{SensorID}" ;
+	rr:termType rr:IRI .
+
