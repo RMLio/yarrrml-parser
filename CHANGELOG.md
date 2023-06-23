@@ -7,15 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
-### Fixed
-
-- Common prefixes + namespaces are initialized once, in line with old code
+## [1.5.3] - 2023-06-23
 
 ## [1.5.2] - 2023-06-20
-
-### Fixed
-
-- LDES tests
 
 ## [1.5.1] - 2023-06-16
 
@@ -306,6 +300,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix failing test
 - support for recursive functions
 
+[1.5.3]: https://github.com/RMLio/yarrrml-parser/compare/v1.5.2...v1.5.3
 [1.5.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.5.1...v1.5.2
 [1.5.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.4.0...v1.5.0
