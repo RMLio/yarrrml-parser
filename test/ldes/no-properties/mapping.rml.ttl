@@ -26,8 +26,7 @@
 	rmlt:serialization formats:Turtle ;
 	rmlt:target :void_000 ;
 	ldes:baseIRI ex:eventstream ;
-	tree:shape ex:shape.shacl ;
-	ldes:versionOfPath dc:isVersionOf .
+	tree:shape ex:shape.shacl .
 
 :void_000 rdf:type void:Dataset ;
 	void:dataDump <file://out.ttl> .
@@ -36,7 +35,7 @@
 	rdf:type rr:TriplesMap ;
 	rdfs:label "temperature-reading" ;
 	rr:subjectMap :s_000 ;
-	rr:predicateObjectMap :pom_002, :pom_003, :pom_004, :pom_005 .
+	rr:predicateObjectMap :pom_002, :pom_003, :pom_004 .
 
 :s_000 rdf:type rr:SubjectMap, fnml:FunctionTermMap ;
 	rr:termType rr:IRI ;
@@ -109,15 +108,4 @@
 	rml:reference "Timestamp" ;
 	rr:termType rr:Literal ;
 	rr:datatype <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-:pom_005 rdf:type rr:PredicateObjectMap ;
-	rr:predicateMap :pm_005 ;
-	rr:objectMap :om_005 .
-
-:pm_005 rdf:type rr:PredicateMap ;
-	rr:constant dc:isVersionOf .
-
-:om_005 rdf:type rr:ObjectMap ;
-	rr:template "http://example.org/{SensorID}" ;
-	rr:termType rr:IRI .
 
