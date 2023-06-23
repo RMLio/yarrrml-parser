@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+
+- Dockerfile: faster and node v18
+
 ## [1.5.3] - 2023-06-23
 
 ### Fixed

@@ -1,10 +1,10 @@
-FROM node:12-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
 ADD . .
 
-RUN npm install -g .
+RUN npm ci
 
-ENTRYPOINT ["yarrrml-parser"]
+ENTRYPOINT ["node", "/app/bin/parser.js"]
 CMD ["-h"]
