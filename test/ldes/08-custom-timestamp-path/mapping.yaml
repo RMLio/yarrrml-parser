@@ -1,0 +1,21 @@
+# A timestampPath using a custom predicate and object that do not
+# occur in the po mappings.
+
+prefixes:
+  ex: http://example.org/
+
+sources:
+  data-source: [../readings.csv~csv]
+
+mappings:
+  temperature-reading:
+    sources: data-source
+    subjects: 
+      - value: ex:$(SensorID)
+        ldes:
+          timestampPath: [ex:ts, $(Timestamp), xsd:dateTime]
+        targets:
+          - [out.ttl~void, turtle]
+    po:
+      - [a, ex:Thermometer]
+      - [ex:temp, $(Temperature)]

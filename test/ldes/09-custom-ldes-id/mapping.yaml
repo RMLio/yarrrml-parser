@@ -1,8 +1,11 @@
+# You can give a custom idesntifier (IRI) to the LDES metadata object.
+# by adding the `id` key.
+
 prefixes:
   ex: http://example.org/
 
 sources:
-  data-source: [readings.csv~csv]
+  data-source: [../readings.csv~csv]
 
 mappings:
   temperature-reading:
@@ -10,7 +13,7 @@ mappings:
     subjects:
       - value: ex:$(SensorID)
         ldes:
-          watchedProperties: [$(Temperature)]
+          id: http://ldes.org/thisisanldeswithacustomid
         targets:
           - [out.ttl~void, turtle]
     po:

@@ -25,9 +25,10 @@
 	rdfs:label "out.ttl-void-turtle-ldes" ;
 	rmlt:serialization formats:Turtle ;
 	rmlt:target :void_000 ;
-	ldes:baseIRI ex:eventstream ;
+	ldes:baseIRI ex:myldes ;
 	tree:shape ex:shape.shacl ;
-	ldes:versionOfPath dc:isVersionOf .
+	ldes:timestampPath ex:ts ;
+	ldes:versionOfPath ex:hasVersion .
 
 :void_000 rdf:type void:Dataset ;
 	void:dataDump <file://out.ttl> .
@@ -73,7 +74,7 @@
 	rr:constant <http://example.com/idlab/function/watchedProperty> .
 
 :om_001 rdf:type rr:ObjectMap ;
-	rr:constant "" ;
+	rr:template "SensorID={SensorID}&Timestamp={Timestamp}&Temperature={Temperature}" ;
 	rr:termType rr:Literal .
 
 :pom_002 rdf:type rr:PredicateObjectMap ;
@@ -103,21 +104,20 @@
 	rr:objectMap :om_004 .
 
 :pm_004 rdf:type rr:PredicateMap ;
-	rr:constant ex:ts .
+	rr:constant ex:hasVersion .
 
 :om_004 rdf:type rr:ObjectMap ;
-	rml:reference "Timestamp" ;
-	rr:termType rr:Literal ;
-	rr:datatype <http://www.w3.org/2001/XMLSchema#dateTime> .
+	rr:template "http://example.org/{SensorID}" ;
+	rr:termType rr:IRI .
 
 :pom_005 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_005 ;
 	rr:objectMap :om_005 .
 
 :pm_005 rdf:type rr:PredicateMap ;
-	rr:constant dc:isVersionOf .
+	rr:constant ex:ts .
 
 :om_005 rdf:type rr:ObjectMap ;
-	rr:template "http://example.org/{SensorID}" ;
-	rr:termType rr:IRI .
+	rml:reference "Timestamp" ;
+	rr:termType rr:Literal .
 

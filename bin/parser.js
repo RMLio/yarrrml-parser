@@ -11,7 +11,7 @@ const fs = require('fs');
 const Y2R = require('../lib/rml-generator.js');
 const Y2R2 = require('../lib/r2rml-generator.js');
 const { canonicalize } = require('../lib/tools');
-const namespaces = require('../lib/namespaces').asMap();
+const getNamespace = require('../lib/namespaces');
 const pkginfo = require('pkginfo');
 const N3 = require('n3');
 const watch = require('../lib/watcher.js');
@@ -79,15 +79,15 @@ if (!options.input) {
       let triples;
 
       let prefixes = {
-        rr: namespaces.rr,
-        rdf: namespaces.rdf,
-        rdfs: namespaces.rdfs,
-        fnml: namespaces.fnml,
-        fno: namespaces.fno,
-        d2rq: namespaces.d2rq,
-        void: namespaces.void,
-        dc: namespaces.dc,
-        foaf: namespaces.foaf
+        rr: getNamespace('rr'),
+        rdf: getNamespace('rdf'),
+        rdfs: getNamespace('rdfs'),
+        fnml: getNamespace('fnml'),
+        fno: getNamespace('fno'),
+        d2rq: getNamespace('d2rq'),
+        void: getNamespace('void'),
+        dc: getNamespace('dc'),
+        foaf: getNamespace('foaf')
       };
 
       const externalReferences = {};
@@ -103,8 +103,8 @@ if (!options.input) {
         const y2r = new Y2R({ class: !!options.class, externalReferences, includeMetadata });
         triples = y2r.convert(inputData);
 
-        prefixes.rml = namespaces.rml;
-        prefixes.ql = namespaces.ql;
+        prefixes.rml = getNamespace('rml');
+        prefixes.ql = getNamespace('ql');
         prefixes[''] = y2r.getBaseIRI();
         prefixes = Object.assign({}, prefixes, y2r.getPrefixes());
       } else {

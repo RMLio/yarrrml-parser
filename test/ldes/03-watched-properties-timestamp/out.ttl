@@ -1,0 +1,21 @@
+
+<http://example.org/1#0> a <http://example.org/Thermometer>;
+  <http://example.org/temp> "8";
+  <http://example.org/ts> "2023-01-01T08:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://example.org/1#1> a <http://example.org/Thermometer>;
+  <http://example.org/temp> "9";
+  <http://example.org/ts> "2023-01-01T09:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://example.org/2#0> a <http://example.org/Thermometer>;
+  <http://example.org/temp> "9";
+  <http://example.org/ts> "2023-01-01T08:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://example.org/2#1> a <http://example.org/Thermometer>;
+  <http://example.org/temp> "9";
+  <http://example.org/ts> "2023-01-01T09:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://example.org/eventstream> a <https://w3id.org/ldes#EventStream>;
+  <https://w3id.org/tree#member> <http://example.org/1#0>, <http://example.org/1#1>,
+    <http://example.org/2#0>, <http://example.org/2#1>;
+  <https://w3id.org/tree#shape> <http://example.org/shape.shacl> .
