@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+
+- Common prefixes + namespaces are initialized once, in line with old code
+
 ## [1.5.2] - 2023-06-20
+
+### Fixed
+
+- LDES tests
 
 ## [1.5.1] - 2023-06-16
 
