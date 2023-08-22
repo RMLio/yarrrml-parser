@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+
+- abstract-generator: Create IRI constant if term type is IRI, in line with the specs
+
+### Fixed
+
+- (r2)rml-generator: Log error when a source tag has no definition
+
 ## [1.5.4] - 2023-06-23
 
 ### Fixed

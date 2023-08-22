@@ -1,0 +1,9 @@
+prefixes:
+  ex: "http://example.com/"
+mappings:
+  test:
+    sources:
+      - [test.csv~csv]
+    s: ex:some_subject_iri
+    po:
+      - [ex:my_predicate, ex:my_object_iri~iri]
