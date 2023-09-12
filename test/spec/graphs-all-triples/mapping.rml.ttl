@@ -32,7 +32,7 @@
 
 :pom_000 rdf:type rr:PredicateObjectMap ;
         rr:predicateMap :pm_000 ;
-        rr:objectMap :om_000 .
+        rr:objectMap :om_001 .
 
 :pm_000 rdf:type rr:PredicateMap ;
         rr:constant ont:isSmthOf .
@@ -52,14 +52,14 @@
 
 :pom_001 rdf:type rr:PredicateObjectMap ;
         rr:predicateMap :pm_001 ;
-        rr:objectMap :om_001 .
+        rr:objectMap :om_000 .
 
 :pm_001 rdf:type rr:PredicateMap ;
         rr:constant rdf:type .
 
-:om_001 rdf:type rr:ObjectMap ;
+:om_000 rdf:type rr:ObjectMap ;
         rr:constant "http://example.com/smthchild" ;
         rr:termType rr:IRI .
 
-:om_000 rdf:type rr:ObjectMap ;
+:om_001 rdf:type rr:ObjectMap ;
         rr:parentTriplesMap :map_ChildSmth_000 .

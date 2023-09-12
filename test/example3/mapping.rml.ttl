@@ -4,6 +4,9 @@
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix : <http://mapping.example.com/> .
@@ -44,14 +47,14 @@
 
 :pom_001 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_001 ;
-	rr:objectMap :om_001 .
+	rr:objectMap :om_009 .
 
 :pm_001 rdf:type rr:PredicateMap ;
 	rr:constant transit:service .
 
 :pom_002 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_002 ;
-	rr:objectMap :om_002 .
+	rr:objectMap :om_010 .
 
 :pm_002 rdf:type rr:PredicateMap ;
 	rr:constant wgs84_pos:location .
@@ -72,18 +75,18 @@
 
 :pom_003 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_003 ;
-	rr:objectMap :om_003 .
+	rr:objectMap :om_001 .
 
 :pm_003 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
-:om_003 rdf:type rr:ObjectMap ;
+:om_001 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.org/transit/terms/Service" ;
 	rr:termType rr:IRI .
 
 :pom_004 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_004 ;
-	rr:objectMap :om_004 .
+	rr:objectMap :om_011 .
 
 :pm_004 rdf:type rr:PredicateMap ;
 	rr:constant transit:stop .
@@ -104,23 +107,23 @@
 
 :pom_005 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_005 ;
-	rr:objectMap :om_005 .
+	rr:objectMap :om_002 .
 
 :pm_005 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
-:om_005 rdf:type rr:ObjectMap ;
+:om_002 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.org/transit/terms/Stop" ;
 	rr:termType rr:IRI .
 
 :pom_006 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_006 ;
-	rr:objectMap :om_006 .
+	rr:objectMap :om_003 .
 
 :pm_006 rdf:type rr:PredicateMap ;
 	rr:constant rdfs:label .
 
-:om_006 rdf:type rr:ObjectMap ;
+:om_003 rdf:type rr:ObjectMap ;
 	rml:reference "." ;
 	rr:termType rr:Literal .
 
@@ -135,41 +138,41 @@
 
 :pom_007 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_007 ;
-	rr:objectMap :om_007 .
+	rr:objectMap :om_004 .
 
 :pm_007 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
-:om_007 rdf:type rr:ObjectMap ;
+:om_004 rdf:type rr:ObjectMap ;
 	rr:constant "http://schema.org/City" ;
 	rr:termType rr:IRI .
 
 :pom_008 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_008 ;
-	rr:objectMap :om_008 .
+	rr:objectMap :om_012 .
 
 :pm_008 rdf:type rr:PredicateMap ;
 	rr:constant wgs84_pos:location .
 
 :pom_009 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_009 ;
-	rr:objectMap :om_009 .
+	rr:objectMap :om_005 .
 
 :pm_009 rdf:type rr:PredicateMap ;
 	rr:constant geosp:onContinent .
 
-:om_009 rdf:type rr:ObjectMap ;
+:om_005 rdf:type rr:ObjectMap ;
 	rml:reference "$.location.continent" ;
 	rr:termType rr:Literal .
 
 :pom_010 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_010 ;
-	rr:objectMap :om_010 .
+	rr:objectMap :om_006 .
 
 :pm_010 rdf:type rr:PredicateMap ;
 	rr:constant gn:countryCode .
 
-:om_010 rdf:type rr:ObjectMap ;
+:om_006 rdf:type rr:ObjectMap ;
 	rml:reference "$.location.country" ;
 	rr:termType rr:Literal .
 
@@ -184,44 +187,44 @@
 
 :pom_011 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_011 ;
-	rr:objectMap :om_011 .
+	rr:objectMap :om_007 .
 
 :pm_011 rdf:type rr:PredicateMap ;
 	rr:constant wgs84_pos:lat .
 
-:om_011 rdf:type rr:ObjectMap ;
+:om_007 rdf:type rr:ObjectMap ;
 	rml:reference "$.venue.latitude" ;
 	rr:termType rr:Literal .
 
 :pom_012 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_012 ;
-	rr:objectMap :om_012 .
+	rr:objectMap :om_008 .
 
 :pm_012 rdf:type rr:PredicateMap ;
 	rr:constant wgs84_pos:long .
 
-:om_012 rdf:type rr:ObjectMap ;
+:om_008 rdf:type rr:ObjectMap ;
 	rml:reference "$.venue.longitude" ;
 	rr:termType rr:Literal .
 
-:om_001 rdf:type rr:ObjectMap ;
+:om_009 rdf:type rr:ObjectMap ;
 	rr:parentTriplesMap :map_BusMapping_000 ;
 	rr:joinCondition :jc_000 .
 
 :jc_000 rr:child "bus" ;
 	rr:parent "@id" .
 
-:om_002 rdf:type rr:ObjectMap ;
+:om_010 rdf:type rr:ObjectMap ;
 	rr:parentTriplesMap :map_VenueMapping_000 ;
 	rr:joinCondition :jc_001 .
 
 :jc_001 rr:child "city" ;
 	rr:parent "$.location.city" .
 
-:om_004 rdf:type rr:ObjectMap ;
+:om_011 rdf:type rr:ObjectMap ;
 	rr:parentTriplesMap :map_BusStopMapping_000 .
 
-:om_008 rdf:type rr:ObjectMap ;
+:om_012 rdf:type rr:ObjectMap ;
 	rr:parentTriplesMap :map_LocationMapping_000 ;
 	rr:joinCondition :jc_002 .
 

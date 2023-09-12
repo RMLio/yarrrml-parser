@@ -40,7 +40,7 @@
 
 :pom_001 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_001 ;
-	rr:objectMap :om_001 .
+	rr:objectMap :om_002 .
 
 :pm_001 rdf:type rr:PredicateMap ;
 	rr:constant ex:isFriendsWith .
@@ -60,16 +60,16 @@
 
 :pom_002 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_002 ;
-	rr:objectMap :om_002 .
+	rr:objectMap :om_001 .
 
 :pm_002 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
-:om_002 rdf:type rr:ObjectMap ;
+:om_001 rdf:type rr:ObjectMap ;
 	rr:constant "http://example.com#Hero" ;
 	rr:termType rr:IRI .
 
-:om_001 rdf:type rr:ObjectMap ;
+:om_002 rdf:type rr:ObjectMap ;
 	rr:parentTriplesMap :map_myOtherMapping_000 ;
 	rml:joinCondition :jc_000 .
 
