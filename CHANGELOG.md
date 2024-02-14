@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- target disappears when it is used in combination with condition on po 
+(see [issue 11](https://gitlab.ilabt.imec.be/yarrrml/yarrrml-parser/-/issues/11)).
+
 ## [1.6.1] - 2023-09-18
 
 ### Fixed
