@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.6.2] - 2024-02-16
+
 ### Fixed
 - target disappears when it is used in combination with condition on po 
 (see [issue 11](https://gitlab.ilabt.imec.be/yarrrml/yarrrml-parser/-/issues/11)).
@@ -335,6 +337,7 @@ Referencing Objects Maps.
 - fix failing test
 - support for recursive functions
 
+[1.6.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.6.1...v1.6.2
 [1.6.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.5.4...v1.6.0
 [1.5.4]: https://github.com/RMLio/yarrrml-parser/compare/v1.5.3...v1.5.4
