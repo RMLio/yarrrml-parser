@@ -16,7 +16,7 @@ mappings:
     sources: people-source
     subjects:
       value: "http://example.org/$(id)"
-      target: subject-target
+      #target: subject-target
     predicateobjects:
       - predicates: foaf:name
         objects:

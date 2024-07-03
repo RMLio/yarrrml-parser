@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Keys to generate [IncRML](https://www.semantic-web-journal.org/content/incrml-incremental-knowledge-graph-construction-heterogeneous-data-sources).
 
+### Fixed
+- Shortkeys for targets only work for targets specified on document level.
+
 ## [1.6.2] - 2024-02-16
 
 ### Fixed
