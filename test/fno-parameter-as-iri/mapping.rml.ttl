@@ -9,7 +9,7 @@
 @prefix : <http://mapping.example.com/> .
 @prefix ex: <http://example.com/> .
 @prefix dyversify: <http://example.com/idlab/functions/dyversify/> .
-@prefix idlab-fn: <http://example.com/idlab/function/> .
+@prefix idlab-fn: <https://w3id.org/imec/idlab/function#> .
 
 :map_metadata_000 rml:logicalSource :source_000 ;
 	rdf:type rr:TriplesMap ;

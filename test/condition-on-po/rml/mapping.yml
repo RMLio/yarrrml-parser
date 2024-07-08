@@ -1,6 +1,6 @@
 prefixes:
   grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
-  idlab-fn: http://example.com/idlab/function/
+  idlab-fn: https://w3id.org/imec/idlab/function#
 
 mappings:
   person:

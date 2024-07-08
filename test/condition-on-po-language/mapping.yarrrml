@@ -1,6 +1,6 @@
 prefixes:
   ex: "https://example.org/ns/test#"
-  idlab-fn: "http://example.com/idlab/function/"
+  idlab-fn: "https://w3id.org/imec/idlab/function#"
   grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
   xsd: "http://www.w3.org/2001/XMLSchema#"
   prov: "http://www.w3.org/ns/prov#"

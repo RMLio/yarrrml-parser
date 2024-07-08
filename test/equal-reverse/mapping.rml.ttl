@@ -41,7 +41,7 @@
 
 :pmexec_000 rr:constant fno:executes .
 
-:omexec_000 rr:constant "http://example.com/idlab/function/trueCondition" ;
+:omexec_000 rr:constant "https://w3id.org/imec/idlab/function#trueCondition" ;
 	rr:termType rr:IRI .
 
 :pom_001 rdf:type rr:PredicateObjectMap ;
@@ -49,7 +49,7 @@
 	rr:objectMap :om_001 .
 
 :pm_001 rdf:type rr:PredicateMap ;
-	rr:constant <http://example.com/idlab/function/strBoolean> .
+	rr:constant <https://w3id.org/imec/idlab/function#strBoolean> .
 
 :om_001 rdf:type rr:ObjectMap, fnml:FunctionTermMap ;
 	fnml:functionValue :fn_001 .
@@ -62,7 +62,7 @@
 
 :pmexec_001 rr:constant fno:executes .
 
-:omexec_001 rr:constant "http://example.com/idlab/function/equal" ;
+:omexec_001 rr:constant "https://w3id.org/imec/idlab/function#equal" ;
 	rr:termType rr:IRI .
 
 :pom_002 rdf:type rr:PredicateObjectMap ;
@@ -92,7 +92,7 @@
 	rr:objectMap :om_004 .
 
 :pm_004 rdf:type rr:PredicateMap ;
-	rr:constant <http://example.com/idlab/function/str> .
+	rr:constant <https://w3id.org/imec/idlab/function#str> .
 
 :om_004 rdf:type rr:ObjectMap ;
 	rr:constant "http://example.org/o" ;

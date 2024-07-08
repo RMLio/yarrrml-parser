@@ -9,7 +9,7 @@
 @prefix : <http://mapping.example.com/> .
 @prefix rc: <http://example.com/> .
 @prefix rd: <https://example.org/> .
-@prefix idlab-fn: <http://example.com/idlab/function/> .
+@prefix idlab-fn: <https://w3id.org/imec/idlab/function#> .
 @prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
 
 :map_human_resources_000 rml:logicalSource :source_000 ;
@@ -21,7 +21,7 @@
 :source_000 rdf:type rml:LogicalSource ;
 	rml:source :database_000 ;
 	rml:query "SELECT * from OUR_TABLE" ;
-	rr:sqlVersion rr:SQL2008 ; 
+	rr:sqlVersion rr:SQL2008 ;
 	rml:referenceFormulation ql:CSV .
 
 :database_000 rdf:type d2rq:Database ;

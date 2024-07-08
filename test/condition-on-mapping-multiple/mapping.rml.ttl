@@ -12,7 +12,7 @@
 @prefix : <http://mapping.example.com/> .
 @prefix ex: <http://example.com#> .
 @prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
-@prefix idlab-fn: <http://example.com/idlab/function/> .
+@prefix idlab-fn: <https://w3id.org/imec/idlab/function#> .
 
 :map_myMapping_000 rml:logicalSource :source_000 ;
 	rdf:type rr:TriplesMap ;
@@ -105,7 +105,7 @@
 
 :pmexec_000 rr:constant fno:executes .
 
-:omexec_000 rr:constant "http://example.com/idlab/function/equal" ;
+:omexec_000 rr:constant "https://w3id.org/imec/idlab/function#equal" ;
 	rr:termType rr:IRI .
 
 :pom_005 rdf:type rr:PredicateObjectMap ;
@@ -141,7 +141,7 @@
 
 :pmexec_001 rr:constant fno:executes .
 
-:omexec_001 rr:constant "http://example.com/idlab/function/equal" ;
+:omexec_001 rr:constant "https://w3id.org/imec/idlab/function#equal" ;
 	rr:termType rr:IRI .
 
 :pom_007 rdf:type rr:PredicateObjectMap ;

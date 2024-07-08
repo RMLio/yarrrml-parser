@@ -1,6 +1,6 @@
 prefixes:
   ex: "http://example.com/"
-  idlab-fn: http://example.com/idlab/function/
+  idlab-fn: https://w3id.org/imec/idlab/function#
   grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
 
 mappings:

@@ -71,7 +71,7 @@
 
 :pmexec_000 rr:constant fno:executes .
 
-:omexec_000 rr:constant "http://example.com/idlab/function/equal" ;
+:omexec_000 rr:constant "https://w3id.org/imec/idlab/function#equal" ;
 	rr:termType rr:IRI .
 
 :pom_002 rdf:type rr:PredicateObjectMap ;

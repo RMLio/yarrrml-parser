@@ -50,7 +50,7 @@
 
 :pmexec_000 rr:constant fno:executes .
 
-:omexec_000 rr:constant "http://example.com/idlab/function/generateUniqueIRI" ;
+:omexec_000 rr:constant "https://w3id.org/imec/idlab/function#generateUniqueIRI" ;
 	rr:termType rr:IRI .
 
 :pom_000 rdf:type rr:PredicateObjectMap ;
@@ -58,7 +58,7 @@
 	rr:objectMap :om_000 .
 
 :pm_000 rdf:type rr:PredicateMap ;
-	rr:constant <http://example.com/idlab/function/iri> .
+	rr:constant <https://w3id.org/imec/idlab/function#iri> .
 
 :om_000 rdf:type rr:ObjectMap ;
 	rr:template "http://example.org/{SensorID}" ;
@@ -69,7 +69,7 @@
 	rr:objectMap :om_001 .
 
 :pm_001 rdf:type rr:PredicateMap ;
-	rr:constant <http://example.com/idlab/function/watchedProperty> .
+	rr:constant <https://w3id.org/imec/idlab/function#watchedProperty> .
 
 :om_001 rdf:type rr:ObjectMap ;
 	rr:template "Timestamp={Timestamp}" ;

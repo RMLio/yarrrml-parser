@@ -38,13 +38,13 @@
         rr:predicateMap [ rr:constant fno:executes ];
         rr:objectMap [
           rr:termType rr:IRI;
-          rr:constant "http://example.com/idlab/function/generateUniqueIRI"
+          rr:constant "https://w3id.org/imec/idlab/function#generateUniqueIRI"
         ]
       ], [
         a rr:PredicateObjectMap;
         rr:predicateMap [
           a rr:PredicateMap;
-          rr:constant <http://example.com/idlab/function/iri>
+          rr:constant <https://w3id.org/imec/idlab/function#iri>
         ];
         rr:objectMap [
           a rr:ObjectMap;
@@ -55,7 +55,7 @@
         a rr:PredicateObjectMap;
         rr:predicateMap [
           a rr:PredicateMap;
-          rr:constant <http://example.com/idlab/function/watchedProperty>
+          rr:constant <https://w3id.org/imec/idlab/function#watchedProperty>
         ];
         rr:objectMap [
           a rr:ObjectMap;
