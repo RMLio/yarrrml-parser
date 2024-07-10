@@ -9,7 +9,7 @@ mappings:
     subjects:
       - value: "http://example.org/$(id)"
         targets:
-          - ["/data/file.nt.gz~void", "ntriples", "gzip"]
+          - ["/data/file.nt.gz~localfile", "ntriples", "gzip"]
     predicateobjects:
       - predicates: foaf:name
         objects:

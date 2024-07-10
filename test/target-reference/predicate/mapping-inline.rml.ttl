@@ -21,7 +21,7 @@
 	rml:referenceFormulation ql:JSONPath .
 
 :target_000 rdf:type rmlt:LogicalTarget ;
-	rdfs:label "/data/file.nt.gz-void-ntriples-gzip" ;
+	rdfs:label "/data/file.nt.gz-localfile-ntriples-gzip" ;
 	rmlt:serialization formats:N-Triples ;
 	rmlt:compression comp:gzip ;
 	rmlt:target :void_000 .

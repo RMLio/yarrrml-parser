@@ -11,7 +11,7 @@ mappings:
       - predicates:
         - value: foaf:name
           targets:
-            - ["/data/file.nt.gz~void", "ntriples", "gzip"]
+            - ["/data/file.nt.gz~localfile", "ntriples", "gzip"]
         objects:
           value: "$(name)"
       - predicates: foaf:age

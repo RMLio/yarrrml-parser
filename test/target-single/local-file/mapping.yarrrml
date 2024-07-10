@@ -4,7 +4,7 @@ sources:
     referenceFormulation: jsonpath
     iterator: "$.[*]"
 targets:
-  subject-target: ["/data/file.nt.gz~void", "ntriples", "gzip"]
+  subject-target: ["/data/file.nt.gz~localfile", "ntriples", "gzip"]
 mappings:
   person:
     sources: people-source

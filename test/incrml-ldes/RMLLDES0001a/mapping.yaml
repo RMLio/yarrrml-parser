@@ -25,7 +25,7 @@ sources:
 targets:
   target-ldes:
     access: out-ldes.nq
-    type: void
+    type: localfile
     serialization: nquads
     ldes:
       id: ex:ldes

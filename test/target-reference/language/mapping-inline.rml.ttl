@@ -21,7 +21,7 @@
 	rml:referenceFormulation ql:JSONPath .
 
 :target_000 rdf:type rmlt:LogicalTarget ;
-	rdfs:label "/data/file.jsonld.tar.xz-void-jsonld-tarxz" ;
+	rdfs:label "/data/file.jsonld.tar.xz-localfile-jsonld-tarxz" ;
 	rmlt:serialization formats:JSON-LD ;
 	rmlt:compression comp:tarxz ;
 	rmlt:target :void_000 .
