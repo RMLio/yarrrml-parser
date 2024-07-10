@@ -1,211 +1,321 @@
-#
-# RML-LDES test case RMLLDES0001a
-# (c) Dylan Van Assche (2023)
-# IDLab - Ghent University - imec
-#
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
-@prefix ex: <http://example.com/> .
-@prefix rdfs: <https://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
-@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
-@prefix comp: <http://semweb.mmlab.be/ns/rml-compression#> .
-@prefix formats: <http://www.w3.org/ns/formats/> .
-@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
-@prefix idlab-fn: <https://w3id.org/imec/idlab/function#> .
-@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix tree: <https://w3id.org/tree#> .
-@prefix ldes: <https://w3id.org/ldes#> .
-@prefix purl: <http://purl.org/dc/terms/> .
-@prefix as: <https://www.w3.org/ns/activitystreams#> .
-@prefix td: <https://www.w3.org/2019/wot/td#> .
-@prefix htv: <http://www.w3.org/2011/http#> .
-@prefix hctl: <https://www.w3.org/2019/wot/hypermedia#> .
-@prefix gbfs: <https://w3id.org/gbfs#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
 @prefix void: <http://rdfs.org/ns/void#> .
-@prefix schema: <http://schema.org/> .
-@prefix mobivoc: <http://schema.mobivoc.org/#> .
-@base <http://example.com/rules/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
+@prefix ex: <http://example.com/> .
+@prefix as: <https://www.w3.org/ns/activitystreams#> .
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
+@prefix formats: <http://www.w3.org/ns/formats/> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix tree: <https://w3id.org/tree#> .
 
-# LDES output
-<#LDESLogicalTarget> a rmlt:EventStreamTarget;
-    rmlt:target [ a void:Dataset;
-        void:dataDump <file://./output-base.nq>;
-    ];
-    rmlt:serialization formats:N-Quads;
-    rmlt:ldes [ a ldes:EvenStream;
-      ldes:timestampPath dct:created;
-      ldes:versionOfPath dct:isVersionOf;
-    ];
-    rmlt:ldesBaseIRI <https://example.com/ldes>;
-    rmlt:ldesGenerateImmutableIRI "false"^^xsd:boolean;
-.
+:source_000 rdf:type rml:LogicalSource ;
+	rdfs:label "source-create" ;
+	rml:source "base.json" ;
+	rml:iterator "$.addition[*]" ;
+	rml:referenceFormulation ql:JSONPath .
 
-# ActivityStreams as:actor object is always the same
-<#PredicateObjectMapASActor> a rr:PredicateObjectMap;
-  rr:predicate as:actor;
-  rr:object <https://example.com/dataset>;
-.
+:source_001 rdf:type rml:LogicalSource ;
+	rdfs:label "source-update" ;
+	rml:source "base.json" ;
+	rml:iterator "$.modification[*]" ;
+	rml:referenceFormulation ql:JSONPath .
 
-<#PropertyPressure> a rr:PredicateObjectMap;
-  rr:predicateMap [ rr:constant ex:pressure ];
-  rr:objectMap [ rml:reference "pressure" ];
-.
+:source_002 rdf:type rml:LogicalSource ;
+	rdfs:label "source-delete" ;
+	rml:source "base.json" ;
+	rml:iterator "$.deletion[*]" ;
+	rml:referenceFormulation ql:JSONPath .
 
-<#PropertyTemperature> a rr:PredicateObjectMap;
-  rr:predicateMap [ rr:constant ex:temperature ];
-  rr:objectMap [ rml:reference "temperature" ];
-.
+:target_000 rdf:type rmlt:LogicalTarget, rmlt:EventStreamTarget ;
+	rdfs:label "target-ldes" ;
+	rmlt:serialization formats:N-Quads ;
+	rmlt:target :void_000 ;
+	rmlt:ldesBaseIRI ex:ldes ;
+	rmlt:ldes :eventStream_000 .
 
-################################################################################
-# Event log
-################################################################################
+:void_000 rdf:type void:Dataset ;
+	void:dataDump <file://out-ldes.nq> .
 
-<#ASDataSource> a rml:LogicalSource;
-  rml:source "base.json";
-  rml:referenceFormulation ql:JSONPath;
-  rml:iterator "$";
-.
+:eventStream_000 ldes:timestampPath dc:created ;
+	ldes:versionOfPath dc:isVersionOf .
 
-# ActivityStreams as:Create
-<#TriplesMapASCreate> a rr:TriplesMap;
-  rml:logicalSource <#ASDataSource>;
+:map_sensor-reading-create_000 rml:logicalSource :source_003 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "sensor-reading-create" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_001, :pom_002 .
 
-  rr:subjectMap [
-    rr:constant "http://example.com/event/create";
-    rr:termType rr:IRI;
-    rr:class as:Create;
-    rml:logicalTarget <#LDESLogicalTarget>;
-  ];
+:source_003 rdf:type rml:LogicalSource ;
+	rml:source "base.json" ;
+	rml:iterator "$.addition[*]" ;
+	rml:referenceFormulation ql:JSONPath .
 
-  rr:predicateObjectMap <#PredicateObjectMapASActor>;
-.
+:s_000 rdf:type rr:SubjectMap, fnml:FunctionTermMap ;
+	rr:termType rr:BlankNode ;
+	fnml:functionValue :fn_000 ;
+	rr:graphMap :gm_000 ;
+	rml:logicalTarget :target_000 .
 
-# ActivityStreams as:Update
-<#TriplesMapASUpdate> a rr:TriplesMap;
-  rml:logicalSource <#ASDataSource>;
+:fn_000 rml:logicalSource :source_003 ;
+	rr:predicateObjectMap :pomexec_000, :pom_000 .
 
-  rr:subjectMap [
-    rr:constant "http://example.com/event/update";
-    rr:termType rr:IRI;
-    rr:class as:Update;
-    rml:logicalTarget <#LDESLogicalTarget>;
-  ];
+:pomexec_000 rr:predicateMap :pmexec_000 ;
+	rr:objectMap :omexec_000 .
 
-  rr:predicateObjectMap <#PredicateObjectMapASActor>;
-.
+:pmexec_000 rr:constant fno:executes .
 
-# ActivityStreams as:Delete
-<#TriplesMapASDelete> a rr:TriplesMap;
-  rml:logicalSource <#ASDataSource>;
+:omexec_000 rr:constant "https://w3id.org/imec/idlab/function#explicitCreate" ;
+	rr:termType rr:IRI .
 
-  rr:subjectMap [
-    rr:constant "http://example.com/event/delete";
-    rr:termType rr:IRI;
-    rr:class as:Delete;
-    rml:logicalTarget <#LDESLogicalTarget>;
-  ];
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 .
 
-  rr:predicateObjectMap <#PredicateObjectMapASActor>;
-.
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant <https://w3id.org/imec/idlab/function#iri> .
 
-################################################################################
+:om_000 rdf:type rr:ObjectMap ;
+	rr:template "http://example.com/sensor/{sensor}" ;
+	rr:termType rr:IRI .
 
-<#TriplesMapObjectCreate> a rr:TriplesMap;
-  rml:logicalSource [
-    rml:source "base.json";
-    rml:referenceFormulation ql:JSONPath;
-    rml:iterator "$.addition[*]";
-  ];
+:gm_000 rdf:type rr:GraphMap ;
+	rr:constant "http://example.com/create" .
 
-  rr:subjectMap [
-    fnml:functionValue [
-      rr:predicateObjectMap [
-        rr:predicate fno:executes ;
-        rr:objectMap [ rr:constant idlab-fn:explicitCreate ] ] ;
-        # IRI template
-        rr:predicateObjectMap [
-          rr:predicate idlab-fn:iri ;
-          rr:objectMap [ rr:template "http://example.com/sensor/{sensor}/" ]
-        ];
-        # Directory path where the state for this function is/will be stored
-        rr:predicateObjectMap [
-          rr:predicate idlab-fn:state ;
-          rr:objectMap [ rr:constant "/tmp/create_state"; rr:dataType xsd:string; ]
-        ];
-     ];
-    rml:logicalTarget <#LDESLogicalTarget>;
-    rr:graph <http://example.com/event/create>;
-  ];
+:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_001 ;
+	rr:objectMap :om_001 .
 
-  rr:predicateObjectMap <#PropertyPressure>;
-  rr:predicateObjectMap <#PropertyTemperature>;
-.
+:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant ex:pressure .
 
-<#TriplesMapObjectUpdate> a rr:TriplesMap;
-  rml:logicalSource [
-    rml:source "base.json";
-    rml:referenceFormulation ql:JSONPath;
-    rml:iterator "$.modification[*]";
-  ];
+:om_001 rdf:type rr:ObjectMap ;
+	rml:reference "pressure" ;
+	rr:termType rr:Literal .
 
-  rr:subjectMap [
-    fnml:functionValue [
-      rr:predicateObjectMap [
-        rr:predicate fno:executes ;
-        rr:objectMap [ rr:constant idlab-fn:explicitUpdate ] ] ;
-        # IRI template
-        rr:predicateObjectMap [
-          rr:predicate idlab-fn:iri ;
-          rr:objectMap [ rr:template "http://example.com/sensor/{sensor}/" ]
-        ];
-        # Directory path where the state for this function is/will be stored
-        rr:predicateObjectMap [
-          rr:predicate idlab-fn:state ;
-          rr:objectMap [ rr:constant "/tmp/update_state"; rr:dataType xsd:string; ]
-        ];
-     ];
-    rml:logicalTarget <#LDESLogicalTarget>;
-    rr:graph <http://example.com/event/update>;
-  ];
+:pom_002 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_002 ;
+	rr:objectMap :om_002 .
 
-  rr:predicateObjectMap <#PropertyPressure>;
-  rr:predicateObjectMap <#PropertyTemperature>;
-.
+:pm_002 rdf:type rr:PredicateMap ;
+	rr:constant ex:temperature .
 
-<#TriplesMapObjectDelete> a rr:TriplesMap;
-  rml:logicalSource [
-    rml:source "base.json";
-    rml:referenceFormulation ql:JSONPath;
-    rml:iterator "$.deletion[*]";
-  ];
+:om_002 rdf:type rr:ObjectMap ;
+	rml:reference "temperature" ;
+	rr:termType rr:Literal .
 
-  rr:subjectMap [
-    fnml:functionValue [
-      rr:predicateObjectMap [
-        rr:predicate fno:executes ;
-        rr:objectMap [ rr:constant idlab-fn:explicitDelete ] ] ;
-        # IRI template
-        rr:predicateObjectMap [
-          rr:predicate idlab-fn:iri ;
-          rr:objectMap [ rr:template "http://example.com/sensor/{sensor}/" ]
-        ];
-        # Directory path where the state for this function is/will be stored
-        rr:predicateObjectMap [
-          rr:predicate idlab-fn:state ;
-          rr:objectMap [ rr:constant "/tmp/delete_state"; rr:dataType xsd:string; ]
-        ];
-    ];
-    rml:logicalTarget <#LDESLogicalTarget>;
-    rr:class as:Delete;
-    rr:graph <http://example.com/event/delete>;
-  ];
+:map_sensor-reading-update_000 rml:logicalSource :source_004 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "sensor-reading-update" ;
+	rr:subjectMap :s_001 ;
+	rr:predicateObjectMap :pom_004, :pom_005 .
 
-  rr:predicateObjectMap <#PredicateObjectMapASActor>;
-.
+:source_004 rdf:type rml:LogicalSource ;
+	rml:source "base.json" ;
+	rml:iterator "$.modification[*]" ;
+	rml:referenceFormulation ql:JSONPath .
+
+:s_001 rdf:type rr:SubjectMap, fnml:FunctionTermMap ;
+	rr:termType rr:BlankNode ;
+	fnml:functionValue :fn_001 ;
+	rr:graphMap :gm_001 ;
+	rml:logicalTarget :target_000 .
+
+:fn_001 rml:logicalSource :source_004 ;
+	rr:predicateObjectMap :pomexec_001, :pom_003 .
+
+:pomexec_001 rr:predicateMap :pmexec_001 ;
+	rr:objectMap :omexec_001 .
+
+:pmexec_001 rr:constant fno:executes .
+
+:omexec_001 rr:constant "https://w3id.org/imec/idlab/function#explicitUpdate" ;
+	rr:termType rr:IRI .
+
+:pom_003 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_003 ;
+	rr:objectMap :om_003 .
+
+:pm_003 rdf:type rr:PredicateMap ;
+	rr:constant <https://w3id.org/imec/idlab/function#iri> .
+
+:om_003 rdf:type rr:ObjectMap ;
+	rr:template "http://example.com/sensor/{sensor}" ;
+	rr:termType rr:IRI .
+
+:gm_001 rdf:type rr:GraphMap ;
+	rr:constant "http://example.com/update" .
+
+:pom_004 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_004 ;
+	rr:objectMap :om_004 .
+
+:pm_004 rdf:type rr:PredicateMap ;
+	rr:constant ex:pressure .
+
+:om_004 rdf:type rr:ObjectMap ;
+	rml:reference "pressure" ;
+	rr:termType rr:Literal .
+
+:pom_005 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_005 ;
+	rr:objectMap :om_005 .
+
+:pm_005 rdf:type rr:PredicateMap ;
+	rr:constant ex:temperature .
+
+:om_005 rdf:type rr:ObjectMap ;
+	rml:reference "temperature" ;
+	rr:termType rr:Literal .
+
+:map_sensor-reading-delete_000 rml:logicalSource :source_005 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "sensor-reading-delete" ;
+	rr:subjectMap :s_002 ;
+	rr:predicateObjectMap :pom_007 .
+
+:source_005 rdf:type rml:LogicalSource ;
+	rml:source "base.json" ;
+	rml:iterator "$.deletion[*]" ;
+	rml:referenceFormulation ql:JSONPath .
+
+:s_002 rdf:type rr:SubjectMap, fnml:FunctionTermMap ;
+	rr:termType rr:BlankNode ;
+	fnml:functionValue :fn_002 ;
+	rr:graphMap :gm_002 ;
+	rml:logicalTarget :target_000 .
+
+:fn_002 rml:logicalSource :source_005 ;
+	rr:predicateObjectMap :pomexec_002, :pom_006 .
+
+:pomexec_002 rr:predicateMap :pmexec_002 ;
+	rr:objectMap :omexec_002 .
+
+:pmexec_002 rr:constant fno:executes .
+
+:omexec_002 rr:constant "https://w3id.org/imec/idlab/function#explicitDelete" ;
+	rr:termType rr:IRI .
+
+:pom_006 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_006 ;
+	rr:objectMap :om_006 .
+
+:pm_006 rdf:type rr:PredicateMap ;
+	rr:constant <https://w3id.org/imec/idlab/function#iri> .
+
+:om_006 rdf:type rr:ObjectMap ;
+	rr:template "http://example.com/sensor/{sensor}" ;
+	rr:termType rr:IRI .
+
+:gm_002 rdf:type rr:GraphMap ;
+	rr:constant "http://example.com/delete" .
+
+:pom_007 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_007 ;
+	rr:objectMap :om_007 .
+
+:pm_007 rdf:type rr:PredicateMap ;
+	rr:constant ex:currentState .
+
+:om_007 rdf:type rr:ObjectMap ;
+	rr:constant "deleted" ;
+	rr:termType rr:Literal .
+
+:graph-create rdf:type rr:TriplesMap ;
+	rdfs:label "graph-create" ;
+	rr:subjectMap :s_003 ;
+	rr:predicateObjectMap :pom_008, :pom_009 .
+
+:s_003 rdf:type rr:SubjectMap ;
+	rr:constant "http://example.com/create" .
+
+:pom_008 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_008 ;
+	rr:objectMap :om_008 .
+
+:pm_008 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_008 rdf:type rr:ObjectMap ;
+	rr:constant as:Create ;
+	rr:termType rr:IRI .
+
+:pom_009 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_009 ;
+	rr:objectMap :om_009 .
+
+:pm_009 rdf:type rr:PredicateMap ;
+	rr:constant as:actor .
+
+:om_009 rdf:type rr:ObjectMap ;
+	rr:constant ex:dataset ;
+	rr:termType rr:IRI .
+
+:graph-update rdf:type rr:TriplesMap ;
+	rdfs:label "graph-update" ;
+	rr:subjectMap :s_004 ;
+	rr:predicateObjectMap :pom_010, :pom_011 .
+
+:s_004 rdf:type rr:SubjectMap ;
+	rr:constant "http://example.com/update" .
+
+:pom_010 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_010 ;
+	rr:objectMap :om_010 .
+
+:pm_010 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_010 rdf:type rr:ObjectMap ;
+	rr:constant as:Update ;
+	rr:termType rr:IRI .
+
+:pom_011 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_011 ;
+	rr:objectMap :om_011 .
+
+:pm_011 rdf:type rr:PredicateMap ;
+	rr:constant as:actor .
+
+:om_011 rdf:type rr:ObjectMap ;
+	rr:constant ex:dataset ;
+	rr:termType rr:IRI .
+
+:graph-delete rdf:type rr:TriplesMap ;
+	rdfs:label "graph-delete" ;
+	rr:subjectMap :s_005 ;
+	rr:predicateObjectMap :pom_012, :pom_013 .
+
+:s_005 rdf:type rr:SubjectMap ;
+	rr:constant "http://example.com/delete" .
+
+:pom_012 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_012 ;
+	rr:objectMap :om_012 .
+
+:pm_012 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_012 rdf:type rr:ObjectMap ;
+	rr:constant as:Delete ;
+	rr:termType rr:IRI .
+
+:pom_013 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_013 ;
+	rr:objectMap :om_013 .
+
+:pm_013 rdf:type rr:PredicateMap ;
+	rr:constant as:actor .
+
+:om_013 rdf:type rr:ObjectMap ;
+	rr:constant ex:dataset ;
+	rr:termType rr:IRI .
 

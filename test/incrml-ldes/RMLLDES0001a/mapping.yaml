@@ -25,7 +25,7 @@ sources:
 targets:
   target-ldes:
     access: out-ldes.nq
-    type: localfile
+    type: void
     serialization: nquads
     ldes:
       id: ex:ldes
@@ -51,21 +51,25 @@ mappings:
     changeDetection:
       create:
         explicit: true
+        mappingRemove: sources
         mappingAdd:
           sources: source-create
           graphs: ex:create
 
       update:
         explicit: true
+        mappingRemove: sources
         mappingAdd:
           sources: source-update
           graphs: ex:update
 
       delete:
         explicit: true
+        mappingRemove: sources
         mappingAdd:
           sources: source-delete
           graphs: ex:delete
+          po: [[ex:currentState, deleted]]
 
 
   # Each LDES member is part of a graph, which describes the operation
