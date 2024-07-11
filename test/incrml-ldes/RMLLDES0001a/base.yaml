@@ -7,24 +7,13 @@ prefixes:
   as: https://www.w3.org/ns/activitystreams#
 
 sources:
-  source-create:
-    access: base.json
-    referenceFormulation: jsonpath
-    iterator: $.addition[*]
-
-  source-update:
-    access: base.json
-    referenceFormulation: jsonpath
-    iterator: $.modification[*]
-
-  source-delete:
-    access: base.json
-    referenceFormulation: jsonpath
-    iterator: $.deletion[*]
+  source-create: [base.json~jsonpath, '$.addition[*]']
+  source-update: [base.json~jsonpath, '$.modification[*]']
+  source-delete: [base.json~jsonpath, '$.deletion[*]']
 
 targets:
   target-ldes:
-    access: out-ldes.nq
+    access: output-base.nq
     type: localfile
     serialization: nquads
     ldes:

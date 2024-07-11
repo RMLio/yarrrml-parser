@@ -43,7 +43,7 @@
 	rmlt:ldes :eventStream_000 .
 
 :void_000 rdf:type void:Dataset ;
-	void:dataDump <file://out-ldes.nq> .
+	void:dataDump <file://output-base.nq> .
 
 :eventStream_000 ldes:timestampPath dc:created ;
 	ldes:versionOfPath dc:isVersionOf .
