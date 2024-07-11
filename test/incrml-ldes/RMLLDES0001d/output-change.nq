@@ -1,0 +1,5 @@
+<http://example.com/ldes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ldes#EventStream> .
+<http://example.com/ldes> <https://w3id.org/ldes#timestampPath> <http://purl.org/dc/terms/created> .
+<http://example.com/ldes> <https://w3id.org/ldes#versionOfPath> <http://purl.org/dc/terms/isVersionOf> .
+<http://example.com/ldes> <https://w3id.org/tree#member> <http://example.com/sensor/3> .
+<http://example.com/sensor/3> <http://example.com/currentState> "deleted" <http://example.com/delete> .
