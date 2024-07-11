@@ -60,7 +60,7 @@
 	rml:referenceFormulation ql:JSONPath .
 
 :s_000 rdf:type rr:SubjectMap, fnml:FunctionTermMap ;
-	rr:termType rr:BlankNode ;
+	rr:termType rr:IRI ;
 	fnml:functionValue :fn_000 ;
 	rr:graphMap :gm_000 ;
 	rml:logicalTarget :target_000 .
@@ -124,7 +124,7 @@
 	rml:referenceFormulation ql:JSONPath .
 
 :s_001 rdf:type rr:SubjectMap, fnml:FunctionTermMap ;
-	rr:termType rr:BlankNode ;
+	rr:termType rr:IRI ;
 	fnml:functionValue :fn_001 ;
 	rr:graphMap :gm_001 ;
 	rml:logicalTarget :target_000 .
@@ -188,7 +188,7 @@
 	rml:referenceFormulation ql:JSONPath .
 
 :s_002 rdf:type rr:SubjectMap, fnml:FunctionTermMap ;
-	rr:termType rr:BlankNode ;
+	rr:termType rr:IRI ;
 	fnml:functionValue :fn_002 ;
 	rr:graphMap :gm_002 ;
 	rml:logicalTarget :target_000 .
