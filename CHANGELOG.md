@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Keys to generate [IncRML](https://www.semantic-web-journal.org/content/incrml-incremental-knowledge-graph-construction-heterogeneous-data-sources).
 
+### Changed
+- IDLab functions prefix (`idlab-fn`) now resolves to `https://w3id.org/imec/idlab/function#` instead the old IRI `http://example.com/idlab/function/`
+
 ### Fixed
 - Shortkeys for targets only work for targets specified on document level.
 - Valid target types are `localfile` and `sparql`. The parser looks for `void` instead of `localfile`
