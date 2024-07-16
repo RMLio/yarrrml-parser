@@ -15,7 +15,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - Shortkeys for targets only work for targets specified on document level.
-- Valid target types are `localfile` and `sparql`. The parser looks for `void` instead of `localfile`
 
 ## [1.6.2] - 2024-02-16
 

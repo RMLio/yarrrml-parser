@@ -10,7 +10,7 @@ sources:
 targets:
   target-ldes:
     access: output.ttl
-    type: localfile
+    type: void
     serialization: turtle
     ldes:
       id: ex:ldes

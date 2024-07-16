@@ -14,7 +14,7 @@ mappings:
           language:
             value: en
             targets:
-              - ["/data/file.jsonld.tar.xz~localfile", "jsonld", "tarxz"]
+              - ["/data/file.jsonld.tar.xz~void", "jsonld", "tarxz"]
       - predicates: foaf:age
         objects:
           value: "$(age)"

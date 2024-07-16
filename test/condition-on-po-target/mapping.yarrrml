@@ -8,7 +8,7 @@ prefixes:
 targets:
   venus_target:
     access: data/venus.ttl
-    type: localfile
+    type: void
     serialization: turtle
 
 mappings:

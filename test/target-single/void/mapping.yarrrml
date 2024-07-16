@@ -6,7 +6,7 @@ sources:
 targets:
   subject-target:
     access: "/data/file.nt"
-    type: localfile
+    type: void
     serialization: ntriples
     compression: gzip
 mappings:

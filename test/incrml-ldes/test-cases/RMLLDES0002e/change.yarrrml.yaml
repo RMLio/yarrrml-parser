@@ -12,7 +12,7 @@ sources:
 targets:
   target-ldes:
     access: output-change.nq
-    type: localfile
+    type: void
     serialization: nquads
     ldes:
       id: ex:ldes
