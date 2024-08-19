@@ -40,21 +40,24 @@ mappings:
     changeDetection:
       create:
         explicit: true
-        mappingRemove: sources
+        mappingRemove:
+          sources: {}
         mappingAdd:
           sources: source-create
           graphs: ex:create
 
       update:
         explicit: true
-        mappingRemove: sources
+        mappingRemove:
+          sources: {}
         mappingAdd:
           sources: source-update
           graphs: ex:update
 
       delete:
         explicit: true
-        mappingRemove: sources
+        mappingRemove:
+          sources: {}
         mappingAdd:
           sources: source-delete
           graphs: ex:delete
