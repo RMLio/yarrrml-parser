@@ -33,10 +33,6 @@ include:
   - project: 'rml/util/ci-templates'
     ref: main
     file: 'CHANGELOG.gitlab-ci.yml'
-  # Create NPM Releases on tags, see NPM_TOKEN CI variable
-  - project: 'rml/util/ci-templates'
-    ref: main
-    file: 'NPM-Release.gitlab-ci.yml'
 
 # Cancel pipeline if a newer pipeline is running
 default:
