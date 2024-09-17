@@ -12,7 +12,10 @@ fi
 
 # Dependencies and branch
 echo "Installing dependencies and branch..."
-npm install -g changefrog > /dev/null
+
+if ! changefrog --help > /dev/null; then
+	npm install -g changefrog > /dev/null
+fi
 git checkout "$DEV_BRANCH"
 
 # Update NPM package
