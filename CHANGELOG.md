@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.7.0] - 2024-09-17
+
 ### Added
 - Keys to generate [IncRML](https://www.semantic-web-journal.org/content/incrml-incremental-knowledge-graph-construction-heterogeneous-data-sources).
 
@@ -346,6 +348,7 @@ Referencing Objects Maps.
 - fix failing test
 - support for recursive functions
 
+[1.7.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.6.2...v1.7.0
 [1.6.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.6.1...v1.6.2
 [1.6.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.5.4...v1.6.0
