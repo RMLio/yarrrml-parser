@@ -40,5 +40,20 @@ echo "Pushing branches..."
 git push origin "$DEV_BRANCH"
 git push origin "$RELEASE_BRANCH"
 git push --tags origin "$RELEASE_BRANCH"
+git checkout "$DEV_BRANCH"
+
+# NPM
+echo "Uploading release to NPM"
+
+# Check if logging in is needed
+set +e
+if ! npm whoami; then
+	echo "NPM requires login to publish release."
+	npm login
+fi
+set -e
+
+# Upload release to NPM
+npm publish
 
 echo "Done!"
