@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - CI: NPM release.
+- IncRML generation: changeDetection: subjects [] should remove all original subject mappings
 
 ## [1.7.1] - 2024-09-17
 
