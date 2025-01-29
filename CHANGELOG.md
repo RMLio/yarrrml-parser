@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Support for [HTTP request Access](https://rml.io/specs/access/httprequest/).
+- Support for [Dynamic Targets](https://rml.io/specs/target/dynamictarget/)
 
 ## [1.7.2] - 2024-09-17
 
