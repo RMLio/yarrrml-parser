@@ -1,0 +1,22 @@
+sources:
+  people-source:
+    access: "/data/people.json"
+    referenceFormulation: jsonpath
+    iterator: "$.[*]"
+targets:
+  direct-http-target:
+    type: directhttprequest
+    access: https://example.org/
+    methodName: PUT
+    contentType: application/json+ld
+    serialization: jsonld
+mappings:
+  person:
+    sources: people-source
+    subjects:
+      - value: "http://example.org/$(id)"
+        targets: direct-http-target
+    predicateobjects:
+      - predicates: foaf:name
+        objects:
+          value: "$(name)"

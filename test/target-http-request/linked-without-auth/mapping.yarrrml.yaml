@@ -1,0 +1,21 @@
+sources:
+  people-source:
+    access: "/data/people.json"
+    referenceFormulation: jsonpath
+    iterator: "$.[*]"
+targets:
+  linked-http-target:
+    type: linkedhttprequest
+    access: https://example.org/
+    rel: acl
+    serialization: turtle
+mappings:
+  person:
+    sources: people-source
+    subjects:
+      - value: "http://example.org/$(id)"
+        targets: linked-http-target
+    predicateobjects:
+      - predicates: foaf:name
+        objects:
+          value: "$(name)"

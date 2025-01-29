@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- Support for [HTTP request Access](https://rml.io/specs/access/httprequest/).
+
 ## [1.7.2] - 2024-09-17
 
 ### Fixed
