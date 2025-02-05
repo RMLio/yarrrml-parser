@@ -1,27 +1,31 @@
 sources:
-  ls_persons: ['data.csv~csv']
+  people-source:
+    access: "/data/people.json"
+    referenceFormulation: jsonpath
+    iterator: "$.[*]"
 
 targets:
-  lt_person:
-    source: ls_persons
-    type: directhttprequest
-    access: https://mypod/person-$(id)
+  linked-http-target:
+    source: people-source
+    type: linkedhttprequest
+    access: https://electronics_user1/ceon/product-$(Part Number code)
+    rel: acl
+    serialization: turtle
     authentication: auth
 
 authentications:
   auth:
     type: cssclientcredentials
-    email: hello@mypod.com
-    password: abc123
-    webId: https://mypod/profile/card#me
-    oidcIssuer: https://mypod/
+    email: electronics_user1@example.com
+    password: electronics_user1
+    oidcIssuer: https://css11/
+    webId: https://electronics_user1/profile/card#me
 
 mappings:
   persons:
-    sources: ls_persons
+    sources: people-source
     subjects:
-      - value: http://example.org/$(number)
-        targets:
-          - lt_person
+      - value: http://example.org/$(id)
+        targets: linked-http-target
     po:
-      - [foaf:age, $(number)]
+      - [foaf:name, $(name)]
