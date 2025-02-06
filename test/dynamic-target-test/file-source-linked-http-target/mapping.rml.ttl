@@ -38,7 +38,7 @@
 	rmle:logicalTargetMap :logicalTargetMap_000 .
 
 :logicalTargetMap_000 rdf:type rmle:LogicalTargetMap ;
-	rr:template "inked-http-target_{Part Number code}" .
+	rr:template "linked-http-target_{Part Number code}" .
 
 :pom_000 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_000 ;
@@ -58,7 +58,7 @@
 	rr:predicateObjectMap :pom_001, :pom_002 .
 
 :s_001 rdf:type rr:SubjectMap ;
-	rr:template "inked-http-target_{Part Number code}" ;
+	rr:template "linked-http-target_{Part Number code}" ;
 	rr:class rmlt:LogicalTarget ;
 	rml:logicalTarget rmle:ThisMapping .
 
