@@ -70,8 +70,8 @@
 	rr:constant rmlt:target .
 
 :om_001 rdf:type rr:ObjectMap ;
-	rr:template "inked-http-target_{Part Number code}" ;
-	rr:termType rr:Literal .
+	rr:template "linked-http-target_{Part Number code}" ;
+	rr:termType rr:IRI .
 
 :pom_002 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_002 ;
@@ -91,7 +91,7 @@
 	rr:predicateObjectMap :pom_003, :pom_004, :pom_005 .
 
 :s_002 rdf:type rr:SubjectMap ;
-	rr:template "inked-http-target_{Part Number code}" ;
+	rr:template "linked-http-target_{Part Number code}" ;
 	rr:class rmlt:Target, rmle:LinkedHttpRequest ;
 	rml:logicalTarget rmle:ThisMapping .
 
