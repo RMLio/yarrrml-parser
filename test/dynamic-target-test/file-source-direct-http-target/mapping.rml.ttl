@@ -34,7 +34,7 @@
 
 :s_000 rdf:type rr:SubjectMap ;
 	rr:template "http://example.org/{number}" ;
-	rmle:LogicalTargetMap :logicalTargetMap_000 .
+	rmle:logicalTargetMap :logicalTargetMap_000 .
 
 :logicalTargetMap_000 rdf:type rmle:LogicalTargetMap ;
 	rr:template "lt_person_{id}" .
