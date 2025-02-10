@@ -30,7 +30,7 @@
 	rmle:logicalTargetMap :logicalTargetMap_000 .
 
 :logicalTargetMap_000 rdf:type rmle:LogicalTargetMap ;
-	rr:template "lt_person_{goesto}" .
+	rr:template "generated_lt_person_target_{goesto}_000" .
 
 :pom_000 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_000 ;
@@ -44,13 +44,13 @@
 	rr:termType rr:Literal .
 
 :map_generated_logical_target_tm_000 rdf:type rr:TriplesMap ;
-	rdfs:label "dynamic_target_mapping_lt_person" ;
+	rdfs:label "dynamic_target_mapping_person_target" ;
 	rml:logicalSource :source_000 ;
 	rr:subjectMap :s_001 ;
 	rr:predicateObjectMap :pom_001, :pom_002 .
 
 :s_001 rdf:type rr:SubjectMap ;
-	rr:template "lt_person_{goesto}" ;
+	rr:template "generated_lt_person_target_{goesto}_000" ;
 	rr:class rmlt:LogicalTarget ;
 	rml:logicalTarget rmle:ThisMapping .
 
@@ -62,7 +62,7 @@
 	rr:constant rmlt:target .
 
 :om_001 rdf:type rr:ObjectMap ;
-	rr:template "t_person_{goesto}" ;
+	rr:template "generated_t_person_target_{goesto}_000" ;
 	rr:termType rr:IRI .
 
 :pom_002 rdf:type rr:PredicateObjectMap ;
@@ -77,13 +77,13 @@
 	rr:termType rr:IRI .
 
 :map_generated_target_tm_000 rdf:type rr:TriplesMap ;
-	rdfs:label "dynamic_target_mapping_lt_person" ;
+	rdfs:label "dynamic_target_mapping_person_target" ;
 	rml:logicalSource :source_000 ;
 	rr:subjectMap :s_002 ;
 	rr:predicateObjectMap :pom_003 .
 
 :s_002 rdf:type rr:SubjectMap ;
-	rr:template "t_person_{goesto}" ;
+	rr:template "generated_t_person_target_{goesto}_000" ;
 	rr:class rmlt:Target, void:Dataset ;
 	rml:logicalTarget rmle:ThisMapping .
 
