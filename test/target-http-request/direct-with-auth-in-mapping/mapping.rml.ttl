@@ -1,0 +1,61 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
+@prefix rmle: <https://w3id.org/imec/rml/ns/extensions#> .
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
+@prefix formats: <http://www.w3.org/ns/formats/> .
+@prefix htv: <http://www.w3.org/2011/http#> .
+
+:auth_000 rdf:type rmle:CssClientCredentialsAuthentication ;
+	rmle:authEmail "electronics_user1@example.com" ;
+	rmle:authPassword "electronics_user1" ;
+	rmle:authOidcIssuer <https://css11/> ;
+	rmle:authWebId <https://electronics_user1/profile/card#me> .
+
+:source_000 rdf:type rml:LogicalSource ;
+	rdfs:label "people-source" ;
+	rml:source "/data/people.json" ;
+	rml:iterator "$.[*]" ;
+	rml:referenceFormulation ql:JSONPath .
+
+:target_000 rdf:type rmlt:LogicalTarget ;
+	rdfs:label "directhttprequest-https://example.org/-PUT-application/json+ld-jsonld-auth" ;
+	rmlt:serialization formats:JSON-LD ;
+	rmlt:target :directhttprequest_000 .
+
+:directhttprequest_000 rdf:type rmle:DirectHttpRequest ;
+	htv:absoluteURI "https://example.org/" ;
+	htv:methodName "PUT" ;
+	rmle:contentTypeHeader "application/json+ld" ;
+	rmle:userAuthentication :auth_000 .
+
+:map_person_000 rml:logicalSource :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "person" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_000 .
+
+:s_000 rdf:type rr:SubjectMap ;
+	rr:template "http://example.org/{id}" ;
+	rml:logicalTarget :target_000 .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant foaf:name .
+
+:om_000 rdf:type rr:ObjectMap ;
+	rml:reference "name" ;
+	rr:termType rr:Literal .
+

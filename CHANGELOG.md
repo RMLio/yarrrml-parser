@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- support for [Dynamic Targets](https://rml.io/specs/target/dynamictarget/) with explicit id
+- support for [Dynamic Targets](https://rml.io/specs/target/dynamictarget/) with more than one variable
+
 ## [1.8.0] - 2025-02-11
 
 ### Added

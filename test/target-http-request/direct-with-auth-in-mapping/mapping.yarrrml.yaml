@@ -1,0 +1,30 @@
+sources:
+  people-source:
+    access: "/data/people.json"
+    referenceFormulation: jsonpath
+    iterator: "$.[*]"
+
+authentications:
+  auth:
+    type: cssclientcredentials
+    email: electronics_user1@example.com
+    password: electronics_user1
+    oidcIssuer: https://css11/
+    webId: https://electronics_user1/profile/card#me
+
+mappings:
+  person:
+    sources: people-source
+    subjects:
+      - value: "http://example.org/$(id)"
+        targets:
+          - type: directhttprequest
+            access: https://example.org/
+            methodName: PUT
+            contentType: application/json+ld
+            serialization: jsonld
+            authentication: auth
+    predicateobjects:
+      - predicates: foaf:name
+        objects:
+          value: "$(name)"

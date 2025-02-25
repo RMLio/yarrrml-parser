@@ -1,0 +1,19 @@
+sources:
+  ls_persons: ['data.csv~csv']
+
+targets:
+  person_target:
+    source: ls_persons
+    type: void
+    access: $(firstname)_$(lastname).ttl
+    serialization: turtle
+
+mappings:
+  persons:
+    sources: ls_persons
+    subjects:
+      - value: http://example.org/$(firstname)_$(lastname)
+        targets:
+          - person_target
+    po:
+      - [foaf:age, $(number)]
