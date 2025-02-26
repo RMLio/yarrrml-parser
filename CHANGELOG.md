@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.9.0] - 2025-02-26
+
 ### Added
 - support for [Dynamic Targets](https://rml.io/specs/target/dynamictarget/) with explicit id
 - support for [Dynamic Targets](https://rml.io/specs/target/dynamictarget/) with more than one variable
@@ -369,6 +371,7 @@ Referencing Objects Maps.
 - fix failing test
 - support for recursive functions
 
+[1.9.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.7.2...v1.8.0
 [1.7.2]: https://github.com/RMLio/yarrrml-parser/compare/v1.7.1...v1.7.2
 [1.7.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.7.0...v1.7.1
