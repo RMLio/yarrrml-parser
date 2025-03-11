@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- added dynamic targets for predicate maps and object maps
+- added arrays of dynamic targets in the targets collection of a term map
+
 ## [1.9.0] - 2025-02-26
 
 ### Added
