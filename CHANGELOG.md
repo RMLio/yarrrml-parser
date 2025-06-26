@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.10.1] - 2025-06-26
+
 ### Changed
 
 - Update `prefix-ns`
@@ -381,6 +383,7 @@ Referencing Objects Maps.
 - fix failing test
 - support for recursive functions
 
+[1.10.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.10.0...v1.10.1
 [1.10.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.9.0...v1.10.0
 [1.9.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.7.2...v1.8.0
