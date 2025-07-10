@@ -31,3 +31,4 @@
 :om_000 rdf:type rr:ObjectMap ;
 	rr:constant <http://example.com/my_object_iri> ;
 	rr:termType rr:IRI .
+

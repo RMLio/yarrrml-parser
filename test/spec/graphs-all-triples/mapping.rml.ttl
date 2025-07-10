@@ -14,52 +14,53 @@
 @prefix ont: <http://example.com/ont> .
 
 :map_ParentSmth_000 rml:logicalSource :source_000 ;
-        rdf:type rr:TriplesMap ;
-        rdfs:label "ParentSmth" ;
-        rr:subjectMap :s_000 ;
-        rr:predicateObjectMap :pom_000 .
+	rdf:type rr:TriplesMap ;
+	rdfs:label "ParentSmth" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_000 .
 
 :source_000 rdf:type rml:LogicalSource ;
-        rml:source "text.csv" ;
-        rml:referenceFormulation ql:CSV .
+	rml:source "text.csv" ;
+	rml:referenceFormulation ql:CSV .
 
 :s_000 rdf:type rr:SubjectMap ;
-        rr:template "http://example.com/smth{id}#this" ;
-        rr:graphMap :gm_000 .
+	rr:template "http://example.com/smth{id}#this" ;
+	rr:graphMap :gm_000 .
 
 :gm_000 rdf:type rr:GraphMap ;
-        rr:template "http://example.com/smth{id}" .
+	rr:template "http://example.com/smth{id}" .
 
 :pom_000 rdf:type rr:PredicateObjectMap ;
-        rr:predicateMap :pm_000 ;
-        rr:objectMap :om_001 .
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_001 .
 
 :pm_000 rdf:type rr:PredicateMap ;
-        rr:constant ont:isSmthOf .
+	rr:constant ont:isSmthOf .
 
 :map_ChildSmth_000 rml:logicalSource :source_001 ;
-        rdf:type rr:TriplesMap ;
-        rdfs:label "ChildSmth" ;
-        rr:subjectMap :s_001 ;
-        rr:predicateObjectMap :pom_001 .
+	rdf:type rr:TriplesMap ;
+	rdfs:label "ChildSmth" ;
+	rr:subjectMap :s_001 ;
+	rr:predicateObjectMap :pom_001 .
 
 :source_001 rdf:type rml:LogicalSource ;
-        rml:source "text.csv" ;
-        rml:referenceFormulation ql:CSV .
+	rml:source "text.csv" ;
+	rml:referenceFormulation ql:CSV .
 
 :s_001 rdf:type rr:SubjectMap ;
-        rr:template "http://example.com/smth{id}child#this" .
+	rr:template "http://example.com/smth{id}child#this" .
 
 :pom_001 rdf:type rr:PredicateObjectMap ;
-        rr:predicateMap :pm_001 ;
-        rr:objectMap :om_000 .
+	rr:predicateMap :pm_001 ;
+	rr:objectMap :om_000 .
 
 :pm_001 rdf:type rr:PredicateMap ;
-        rr:constant rdf:type .
+	rr:constant rdf:type .
 
 :om_000 rdf:type rr:ObjectMap ;
-        rr:constant "http://example.com/smthchild" ;
-        rr:termType rr:IRI .
+	rr:constant "http://example.com/smthchild" ;
+	rr:termType rr:IRI .
 
 :om_001 rdf:type rr:ObjectMap ;
-        rr:parentTriplesMap :map_ChildSmth_000 .
+	rr:parentTriplesMap :map_ChildSmth_000 .
+

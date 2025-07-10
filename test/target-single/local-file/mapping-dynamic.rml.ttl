@@ -1,0 +1,125 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix : <http://mapping.example.com/> .
+@prefix e: <http://myontology.com/> .
+@prefix ex: <http://www.example.com/> .
+@prefix schema: <http://schema.org/> .
+@prefix rmle: <https://w3id.org/imec/rml/ns/extensions#> .
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
+@prefix formats: <http://www.w3.org/ns/formats/> .
+
+:source_000 rdf:type rml:LogicalSource ;
+	rdfs:label "people-source" ;
+	rml:source "people.csv" ;
+	rml:referenceFormulation ql:CSV .
+
+:map_people_000 rml:logicalSource :source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "people" ;
+	rr:subjectMap :s_000 ;
+	rr:predicateObjectMap :pom_000, :pom_001, :pom_002 .
+
+:s_000 rdf:type rr:SubjectMap ;
+	rr:template "http://www.example.com/{person_id}" ;
+	rmle:logicalTargetMap :logicalTargetMap_000 .
+
+:logicalTargetMap_000 rdf:type rmle:LogicalTargetMap ;
+	rr:template "generated_lt_target-people-dt_{person_id}_000" .
+
+:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_000 ;
+	rr:objectMap :om_000 .
+
+:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+:om_000 rdf:type rr:ObjectMap ;
+	rr:constant schema:Person ;
+	rr:termType rr:IRI .
+
+:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_001 ;
+	rr:objectMap :om_001 .
+
+:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant schema:givenName .
+
+:om_001 rdf:type rr:ObjectMap ;
+	rml:reference "firstname" ;
+	rr:termType rr:Literal .
+
+:pom_002 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_002 ;
+	rr:objectMap :om_002 .
+
+:pm_002 rdf:type rr:PredicateMap ;
+	rr:constant schema:familyName .
+
+:om_002 rdf:type rr:ObjectMap ;
+	rml:reference "lastname" ;
+	rr:termType rr:Literal .
+
+:map_generated_logical_target_tm_000 rdf:type rr:TriplesMap ;
+	rdfs:label "dynamic_target_mapping_target-people-dt" ;
+	rml:logicalSource :source_000 ;
+	rr:subjectMap :s_001 ;
+	rr:predicateObjectMap :pom_003, :pom_004 .
+
+:s_001 rdf:type rr:SubjectMap ;
+	rr:template "generated_lt_target-people-dt_{person_id}_000" ;
+	rr:class rmlt:LogicalTarget ;
+	rml:logicalTarget rmle:ThisMapping .
+
+:pom_003 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_003 ;
+	rr:objectMap :om_003 .
+
+:pm_003 rdf:type rr:PredicateMap ;
+	rr:constant rmlt:target .
+
+:om_003 rdf:type rr:ObjectMap ;
+	rr:template "generated_t_target-people-dt_{person_id}_000" ;
+	rr:termType rr:IRI .
+
+:pom_004 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_004 ;
+	rr:objectMap :om_004 .
+
+:pm_004 rdf:type rr:PredicateMap ;
+	rr:constant rmlt:serialization .
+
+:om_004 rdf:type rr:ObjectMap ;
+	rr:constant formats:Turtle ;
+	rr:termType rr:IRI .
+
+:map_generated_target_tm_000 rdf:type rr:TriplesMap ;
+	rdfs:label "dynamic_target_mapping_target-people-dt" ;
+	rml:logicalSource :source_000 ;
+	rr:subjectMap :s_002 ;
+	rr:predicateObjectMap :pom_005 .
+
+:s_002 rdf:type rr:SubjectMap ;
+	rr:template "generated_t_target-people-dt_{person_id}_000" ;
+	rr:class rmlt:Target, void:Dataset ;
+	rml:logicalTarget rmle:ThisMapping .
+
+:pom_005 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_005 ;
+	rr:objectMap :om_005 .
+
+:pm_005 rdf:type rr:PredicateMap ;
+	rr:constant void:dataDump .
+
+:om_005 rdf:type rr:ObjectMap ;
+	rr:template "file:///data/out/people-{person_id}.ttl" ;
+	rr:termType rr:Literal .
+

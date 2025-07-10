@@ -1,0 +1,26 @@
+prefixes:
+  e: http://myontology.com/
+  ex: http://www.example.com/
+  schema: http://schema.org/
+
+sources:
+  people-source: ['people.csv~csv']
+
+targets:
+  target-people-dt:
+    source: people-source
+    access: /data/out/people-$(person_id).ttl
+    serialization: turtle
+
+mappings:
+  people:
+    sources:
+      - people-source
+    s:
+      value: ex:$(person_id)
+      targets:
+        - target-people-dt
+    po:
+      - [a, schema:Person]
+      - [schema:givenName, $(firstname)]
+      - [schema:familyName, $(lastname)]

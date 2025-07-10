@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+
+- Support for `localfile` target (fixes [internal issue 22](https://gitlab.ilabt.imec.be/yarrrml/yarrrml-parser/-/issues/22) and [internal issue 24](https://gitlab.ilabt.imec.be/yarrrml/yarrrml-parser/-/issues/24))
+- Support for `sparql` target (in addition to `sd`)
+
+### Changed
+
+- Updated dependencies and removed deprecated `Q` dependency
+
+### Fixed
+
+- Support for `dcat` target in dynamic targets (fixes [internal issue 23](https://gitlab.ilabt.imec.be/yarrrml/yarrrml-parser/-/issues/23))
+- Support for `['/data/out/people.ttl', 'turtle']` target shortcuts
+
 ## [1.10.1] - 2025-06-26
 
 ### Changed

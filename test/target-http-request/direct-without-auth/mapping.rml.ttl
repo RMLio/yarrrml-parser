@@ -51,3 +51,4 @@
 :om_000 rdf:type rr:ObjectMap ;
 	rml:reference "name" ;
 	rr:termType rr:Literal .
+

@@ -73,7 +73,8 @@ if ( y2r.getLogger().has('error') ) {
 - Install the dependencies via `npm i`
 - Update code, if needed.
 - Run the tests via `npm test`
-  - If you make a new test, make sure the (RML) Turtle is 'pretty'. If you're not sure it's pretty, run `./test/prettify_ttl.js`
+  - If you make a new test, make sure the (RML) Turtle is 'pretty'. If you're not sure it's pretty, run `./test/prettify_ttl.js`.
+  - If you don't see all the diffs, change the npm `test` script to add the option `--reporter-option maxDiffSize=81920`.
 - Make the [CLI](#cli) (based on the code in the cloned repo)
 available system-wide via `npm link` (optional).
 

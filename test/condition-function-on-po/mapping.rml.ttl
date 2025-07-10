@@ -146,3 +146,4 @@
 :om_007 rdf:type rr:ObjectMap ;
 	rml:reference "firstname" ;
 	rr:termType rr:Literal .
+
