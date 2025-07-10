@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.11.0] - 2025-07-10
+
 ### Added
 
 - Support for `localfile` target (fixes [internal issue 22](https://gitlab.ilabt.imec.be/yarrrml/yarrrml-parser/-/issues/22) and [internal issue 24](https://gitlab.ilabt.imec.be/yarrrml/yarrrml-parser/-/issues/24))
@@ -397,6 +399,7 @@ Referencing Objects Maps.
 - fix failing test
 - support for recursive functions
 
+[1.11.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.10.1...v1.11.0
 [1.10.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.10.0...v1.10.1
 [1.10.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.9.0...v1.10.0
 [1.9.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.8.0...v1.9.0
