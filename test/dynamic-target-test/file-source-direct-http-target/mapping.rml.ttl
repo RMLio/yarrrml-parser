@@ -87,7 +87,7 @@
 	rdfs:label "dynamic_target_mapping_person_target" ;
 	rml:logicalSource :source_000 ;
 	rr:subjectMap :s_002 ;
-	rr:predicateObjectMap :pom_003, :pom_004 .
+	rr:predicateObjectMap :pom_003, :pom_004, :pom_005 .
 
 :s_002 rdf:type rr:SubjectMap ;
 	rr:template "generated_t_person_target_{id}_000" ;
@@ -105,14 +105,33 @@
 	rr:template "https://mypod/person-{id}" ;
 	rr:termType rr:Literal .
 
+:header-Content-Type_000 rr:class htv:RequestHeader ;
+	htv:fieldName "Content-Type" ;
+	htv:fieldValue "application/json+ld" .
+
+:listElement_0 rdf:first :header-Content-Type_000 ;
+	rdf:rest rdf:nil .
+
 :pom_004 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap :pm_004 ;
 	rr:objectMap :om_004 .
 
 :pm_004 rdf:type rr:PredicateMap ;
-	rr:constant rmle:userAuthentication .
+	rr:constant htv:headers .
 
 :om_004 rdf:type rr:ObjectMap ;
+	rr:constant :listElement_0 ;
+	rr:termType rr:IRI .
+
+:pom_005 rdf:type rr:PredicateObjectMap ;
+	rr:predicateMap :pm_005 ;
+	rr:objectMap :om_005 .
+
+:pm_005 rdf:type rr:PredicateMap ;
+	rr:constant rmle:userAuthentication .
+
+:om_005 rdf:type rr:ObjectMap ;
 	rr:constant :auth_000 ;
 	rr:termType rr:IRI .
+
 

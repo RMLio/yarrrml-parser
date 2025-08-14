@@ -8,7 +8,8 @@ targets:
     type: directhttprequest
     access: https://example.org/
     methodName: PUT
-    contentType: application/json+ld
+    headers:
+      Content-Type: application/json+ld
     serialization: jsonld
 mappings:
   person:

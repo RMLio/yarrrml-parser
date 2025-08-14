@@ -21,7 +21,8 @@ mappings:
           - type: directhttprequest
             access: https://example.org/
             methodName: PUT
-            contentType: application/json+ld
+            headers:
+              Content-Type: application/json+ld
             serialization: jsonld
             authentication: auth
     predicateobjects:

@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Changed
+- HTTP Request Targets: change from deprecated `rmle:contentType` to generic `htv:headers`.
+
 ## [1.11.0] - 2025-07-10
 
 ### Added

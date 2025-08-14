@@ -28,15 +28,22 @@
 	rml:referenceFormulation ql:JSONPath .
 
 :target_000 rdf:type rmlt:LogicalTarget ;
-	rdfs:label "directhttprequest-https://example.org/-PUT-application/json+ld-jsonld-auth" ;
+	rdfs:label "directhttprequest-https://example.org/-PUT-application/json+ld--jsonld-auth" ;
 	rmlt:serialization formats:JSON-LD ;
 	rmlt:target :directhttprequest_000 .
 
 :directhttprequest_000 rdf:type rmle:DirectHttpRequest ;
 	htv:absoluteURI "https://example.org/" ;
 	htv:methodName "PUT" ;
-	rmle:contentTypeHeader "application/json+ld" ;
+	htv:headers :listElement_0 ;
 	rmle:userAuthentication :auth_000 .
+
+:header-Content-Type_000 rr:class htv:RequestHeader ;
+	htv:fieldName "Content-Type" ;
+	htv:fieldValue "application/json+ld" .
+
+:listElement_0 rdf:first :header-Content-Type_000 ;
+	rdf:rest rdf:nil .
 
 :map_person_000 rml:logicalSource :source_000 ;
 	rdf:type rr:TriplesMap ;
@@ -58,4 +65,5 @@
 :om_000 rdf:type rr:ObjectMap ;
 	rml:reference "name" ;
 	rr:termType rr:Literal .
+
 

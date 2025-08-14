@@ -7,6 +7,8 @@ targets:
     type: directhttprequest
     access: https://mypod/person-$(id)
     authentication: auth
+    headers:
+      Content-Type: application/json+ld
 
 authentications:
   auth:
