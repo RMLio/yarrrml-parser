@@ -1,0 +1,33 @@
+# Generates an RML mapping compatible with
+# https://github.com/RMLio/rmlmapper-java/blob/b9729131f53a826317eeedc87a5119bb148f0216/src/test/resources/solid-target/solid6/mapping.ttl
+base: http://example.com/base/
+
+prefixes:
+  o: http://example.com/ont/
+
+targets:
+  target1:
+    type: directhttprequest
+    access: https://pod.playground.solidlab.be/user1/rmlmapper/building
+    methodName: PUT
+    headers:
+      Content-Type: text/turtle
+    authentication: auth
+
+authentications:
+  auth:
+    type: cssclientcredentials
+    email: user1@pod.playground.solidlab.be
+    password: user1
+    oidcIssuer: https://pod.playground.solidlab.be/
+    webId: https://pod.playground.solidlab.be/user1/profile/card#me
+
+mappings:
+  TriplesMap1:
+    sources:
+      - [src/test/resources/solid-target/solid1/buildings.csv~csv]
+    subjects:
+      - value: http://example.com/$(BuildingID)
+        targets: target1
+    predicateobjects:
+      - [ o:has-floor-tile, http://example.com/product-$(FloorTileID)~iri ]
