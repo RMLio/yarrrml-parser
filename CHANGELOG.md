@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.12.0] - 2025-08-27
+
 ### Changed
 - HTTP Request Targets: change from deprecated `rmle:contentType` to generic `htv:headers`.
 
@@ -402,6 +404,7 @@ Referencing Objects Maps.
 - fix failing test
 - support for recursive functions
 
+[1.12.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.10.1...v1.11.0
 [1.10.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.10.0...v1.10.1
 [1.10.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.9.0...v1.10.0
