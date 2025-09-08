@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+
+- Support for `type: blank` for subjects (fixes [issue 198](https://github.com/RMLio/yarrrml-parser/issues/198))
+
 ## [1.12.0] - 2025-08-27
 
 ### Changed
