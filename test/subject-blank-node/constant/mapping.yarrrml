@@ -1,0 +1,12 @@
+prefixes:
+  ex: "http://example.com/"
+
+mappings:
+  person:
+    sources:
+      - ['data.csv~csv']
+    s:
+      value: test
+      type: blank
+    po:
+      - [a, foaf:Person]
