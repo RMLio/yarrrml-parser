@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [--help] - 2025-09-22
+
 ### Added
 
 - Support for `type: blank` for subjects (fixes [issue 198](https://github.com/RMLio/yarrrml-parser/issues/198))
@@ -408,6 +410,7 @@ Referencing Objects Maps.
 - fix failing test
 - support for recursive functions
 
+[--help]: https://github.com/RMLio/yarrrml-parser/compare/v1.12.0...v--help
 [1.12.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.10.1...v1.11.0
 [1.10.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.10.0...v1.10.1
