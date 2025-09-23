@@ -7,9 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
-## [1.12.1] - 2025-09-22
+### Fixed
+- Removed wrong line `## [--help] - 2025-09-22` in changelog.
 
-## [--help] - 2025-09-22
+## [1.12.1] - 2025-09-22
 
 ### Added
 
@@ -412,8 +413,7 @@ Referencing Objects Maps.
 - fix failing test
 - support for recursive functions
 
-[1.12.1]: https://github.com/RMLio/yarrrml-parser/compare/v--help...v1.12.1
-[--help]: https://github.com/RMLio/yarrrml-parser/compare/v1.12.0...v--help
+[1.12.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/RMLio/yarrrml-parser/compare/v1.10.1...v1.11.0
 [1.10.1]: https://github.com/RMLio/yarrrml-parser/compare/v1.10.0...v1.10.1
