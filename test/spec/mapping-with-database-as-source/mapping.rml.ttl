@@ -13,7 +13,7 @@
 
 :source_000 rdf:type rml:LogicalSource ;
 	rml:source :database_000 ;
-	rml:query "SELECT DEPTNO, DNAME, LOC, (SELECT COUNT(*) FROM EMP WHERE EMP.DEPTNO=DEPT.DEPTNO) AS STAFF FROM DEPT;" ;
+	rml:query "SELECT DEPTNO, DNAME, LOC,\n(SELECT COUNT(*) FROM EMP WHERE EMP.DEPTNO=DEPT.DEPTNO) AS STAFF\nFROM DEPT;" ;
 	rr:sqlVersion rr:SQL2008 ;
 	rml:referenceFormulation ql:CSV .
 
