@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - Removed wrong line `## [--help] - 2025-09-22` in changelog.
+- YAML block scalars (multiline strings) don't observe style indicators (|>) (see [issue 214](https://github.com/RMLio/yarrrml-parser/issues/214))
 
 ## [1.12.1] - 2025-09-22
 
