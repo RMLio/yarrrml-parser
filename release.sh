@@ -10,12 +10,9 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-# Dependencies and branch
-echo "Installing dependencies and branch..."
+# Branch
+echo "Checking out branch..."
 
-if ! changefrog --help > /dev/null; then
-	npm install -g changefrog > /dev/null
-fi
 git checkout "$DEV_BRANCH"
 
 # Update NPM package
@@ -25,7 +22,7 @@ npm version "$TAG" > /dev/null
 
 # Update CHANGELOG.md
 echo "Updating CHANGELOG.md"
-changefrog -n "$TAG" > /dev/null
+npx changefrog -n "$TAG" > /dev/null
 
 # Create release commit
 echo "Creating git commit and tag"

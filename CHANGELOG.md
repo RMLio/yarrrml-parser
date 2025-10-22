@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Changed
+
+- Add `changefrog` to the dev dependencies
+
 ## [1.12.2] - 2025-10-22
 
 ### Fixed
