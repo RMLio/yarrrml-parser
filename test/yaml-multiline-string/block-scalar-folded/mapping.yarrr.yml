@@ -1,0 +1,14 @@
+mapping:
+  singleline:
+    sources:
+      - access: http://localhost/example
+        type: mysql
+        credentials:
+          username: root
+          password: root
+        queryFormulation: sql2008
+        query: >
+          SELECT
+          *
+          FROM DEPT;
+        referenceFormulation: csv
