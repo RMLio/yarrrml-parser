@@ -1,0 +1,123 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix map: <http://mapping.example.com/> .
+@prefix ma: <http://www.w3.org/ns/ma-ont#> .
+@prefix schema: <http://schema.org/> .
+@prefix idlab-fn: <https://w3id.org/imec/idlab/function#> .
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+@prefix ex: <http://example.org/> .
+
+map:fn_000 rml:logicalSource map:source_000 ;
+           rr:predicateObjectMap map:pom_003, map:pom_004, map:pomexec_000 .
+
+map:fn_001 rml:logicalSource map:source_000 ;
+           rr:predicateObjectMap map:pom_005, map:pom_006, map:pomexec_001 .
+
+map:map_person_000 rml:logicalSource map:source_000 ;
+                   rdf:type rr:TriplesMap ;
+                   rdfs:label "person" ;
+                   rr:predicateObjectMap map:pom_000, map:pom_001, map:pom_002 ;
+                   rr:subjectMap map:s_000 .
+
+map:om_000 rdf:type rr:ObjectMap ;
+           rr:constant schema:Person ;
+           rr:termType rr:IRI .
+
+map:om_001 rml:reference "Name" ;
+           rdf:type rr:ObjectMap ;
+           rr:termType rr:Literal .
+
+map:om_002 <http://semweb.mmlab.be/ns/fnml#functionValue> map:fn_000 ;
+           rdf:type <http://semweb.mmlab.be/ns/fnml#FunctionTermMap> ;
+           rr:termType rr:Literal .
+
+map:om_003 rdf:type rr:ObjectMap ;
+           rr:constant "http://snf.ch/project/" ;
+           rr:termType rr:Literal .
+
+map:om_004 <http://semweb.mmlab.be/ns/fnml#functionValue> map:fn_001 ;
+           rdf:type <http://semweb.mmlab.be/ns/fnml#FunctionTermMap>, rr:ObjectMap .
+
+map:om_005 rml:reference "ResponsibleApplicantGrantNumber" ;
+           rdf:type rr:ObjectMap ;
+           rr:termType rr:Literal .
+
+map:om_006 rdf:type rr:ObjectMap ;
+           rr:constant ";" ;
+           rr:termType rr:Literal .
+
+map:omexec_000 rr:constant "https://w3id.org/imec/idlab/function#crossConcatSequence" ;
+               rr:termType rr:IRI .
+
+map:omexec_001 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#string_split" ;
+               rr:termType rr:IRI .
+
+map:pm_000 rdf:type rr:PredicateMap ;
+           rr:constant rdf:type .
+
+map:pm_001 rdf:type rr:PredicateMap ;
+           rr:constant ex:name .
+
+map:pm_002 rdf:type rr:PredicateMap ;
+           rr:constant schema:memberOf .
+
+map:pm_003 rdf:type rr:PredicateMap ;
+           rr:constant rdf:_1 .
+
+map:pm_004 rdf:type rr:PredicateMap ;
+           rr:constant rdf:_2 .
+
+map:pm_005 rdf:type rr:PredicateMap ;
+           rr:constant grel:valueParameter .
+
+map:pm_006 rdf:type rr:PredicateMap ;
+           rr:constant grel:p_string_sep .
+
+map:pmexec_000 rr:constant <https://w3id.org/function/ontology#executes> .
+
+map:pmexec_001 rr:constant <https://w3id.org/function/ontology#executes> .
+
+map:pom_000 rdf:type rr:PredicateObjectMap ;
+            rr:objectMap map:om_000 ;
+            rr:predicateMap map:pm_000 .
+
+map:pom_001 rdf:type rr:PredicateObjectMap ;
+            rr:objectMap map:om_001 ;
+            rr:predicateMap map:pm_001 .
+
+map:pom_002 rdf:type rr:PredicateObjectMap ;
+            rr:objectMap map:om_002 ;
+            rr:predicateMap map:pm_002 .
+
+map:pom_003 rdf:type rr:PredicateObjectMap ;
+            rr:objectMap map:om_003 ;
+            rr:predicateMap map:pm_003 .
+
+map:pom_004 rdf:type rr:PredicateObjectMap ;
+            rr:objectMap map:om_004 ;
+            rr:predicateMap map:pm_004 .
+
+map:pom_005 rdf:type rr:PredicateObjectMap ;
+            rr:objectMap map:om_005 ;
+            rr:predicateMap map:pm_005 .
+
+map:pom_006 rdf:type rr:PredicateObjectMap ;
+            rr:objectMap map:om_006 ;
+            rr:predicateMap map:pm_006 .
+
+map:pomexec_000 rr:objectMap map:omexec_000 ;
+                rr:predicateMap map:pmexec_000 .
+
+map:pomexec_001 rr:objectMap map:omexec_001 ;
+                rr:predicateMap map:pmexec_001 .
+
+map:s_000 rdf:type rr:SubjectMap ;
+          rr:template "http://example.org/{PersonNumber}" .
+
+map:source_000 rml:referenceFormulation ql:CSV ;
+               rml:source "Persons.csv" ;
+               rdf:type rml:LogicalSource .
+

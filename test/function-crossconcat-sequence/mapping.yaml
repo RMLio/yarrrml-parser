@@ -1,0 +1,27 @@
+prefixes:
+ schema: http://schema.org/
+ idlab-fn: https://w3id.org/imec/idlab/function#
+ grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+ ex: http://example.org/
+
+mappings:
+  person:
+    sources:
+      - [Persons.csv~csv]
+        
+    s: http://example.org/$(PersonNumber)
+    po:
+      - [a, schema:Person]
+      - [ex:name, $(Name)]
+      - p: schema:memberOf
+        o: 
+          - function: idlab-fn:crossConcatSequence
+            parameters:
+              - [rdf:_1, http://snf.ch/project/]
+              - parameter: rdf:_2
+                value:
+                  function: grel:string_split
+                  parameters:
+                    - [grel:valueParameter, $(ResponsibleApplicantGrantNumber)]
+                    - [grel:p_string_sep, ';']
+      

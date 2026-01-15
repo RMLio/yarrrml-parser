@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Add `changefrog` to the dev dependencies
+- Add test to demonstrate [crossConcatSequence](https://w3id.org/imec/idlab/function#crossConcatSequence) function
 
 ## [1.12.2] - 2025-10-22
 
