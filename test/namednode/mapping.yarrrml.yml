@@ -1,5 +1,6 @@
 prefixes:
   ex: "http://example.com/"
+
 mappings:
   test:
     sources:

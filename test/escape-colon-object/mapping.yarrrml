@@ -1,6 +1,7 @@
 prefixes:
   ex: http://example.com/
   n1: http://n1.com/
+
 mappings:
   person:
     sources:

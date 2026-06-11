@@ -12,6 +12,7 @@ targets:
     type: void
     access: $(goesto)-bis.ttl
     serialization: turtle
+
 mappings:
   persons:
     sources: ls_persons

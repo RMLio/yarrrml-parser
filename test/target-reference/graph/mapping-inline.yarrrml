@@ -5,6 +5,7 @@ sources:
     access: "/data/people.json"
     referenceFormulation: jsonpath
     iterator: "$.[*]"
+
 mappings:
   person:
     sources: people-source

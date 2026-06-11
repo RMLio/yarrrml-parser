@@ -9,6 +9,7 @@ targets:
     type: dcat
     serialization: ntriples
     compression: gzip
+
 mappings:
   person:
     sources: people-source

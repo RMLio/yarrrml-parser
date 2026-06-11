@@ -6,6 +6,7 @@ sources:
 targets:
   target1: ["/data/dump1.nt~dcat", "ntriples"]
   target2: ["/data/dump2.ttl~void", "turtle"]
+
 mappings:
   person:
     sources: supergirl-source

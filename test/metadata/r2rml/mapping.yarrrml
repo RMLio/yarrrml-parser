@@ -6,6 +6,7 @@ sources:
   source1:
     table: example
     queryFormulation: mysql
+
 mappings:
   FromToMaps:
     sources: source1

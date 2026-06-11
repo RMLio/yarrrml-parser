@@ -5,6 +5,7 @@ sources:
     iterator: "$.[*]"
 targets:
   subject-target: ["http://example.com/sparql~sd"]
+
 mappings:
   person:
     sources: people-source

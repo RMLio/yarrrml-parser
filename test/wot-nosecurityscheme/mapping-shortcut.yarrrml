@@ -7,6 +7,7 @@ sources:
     referenceFormulation: xpath
     iterator: "/"
     security: none
+
 mappings:
   person:
     sources: people-source

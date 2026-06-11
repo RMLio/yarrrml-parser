@@ -10,6 +10,7 @@ sources:
     referenceFormulation: jsonpath
     iterator: "$.station.[*]"
     security: none
+
 mappings:
   station:
     sources: irail-source

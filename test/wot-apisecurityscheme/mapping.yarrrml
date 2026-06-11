@@ -11,6 +11,7 @@ sources:
         in: "header"
         name: "apikey"
         value: "123456789"
+
 mappings:
   person:
     sources: people-source

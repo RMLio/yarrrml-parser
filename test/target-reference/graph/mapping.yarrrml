@@ -7,6 +7,7 @@ sources:
     iterator: "$.[*]"
 targets:
   graph-target: ["/data/file.rdf~dcat", "rdfxml"]
+
 mappings:
   person:
     sources: people-source

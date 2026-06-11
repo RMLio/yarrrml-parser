@@ -73,4 +73,3 @@ mappings:
      - [ex:deathday,$(Death Date),xsd:date]
      - [ex:evaday,$(EVA Date),xsd:date]
      - [ex:service,$(Service)]
-

@@ -9,6 +9,7 @@ targets:
     access: https://example.org/
     rel: acl
     serialization: turtle
+
 mappings:
   person:
     sources: people-source

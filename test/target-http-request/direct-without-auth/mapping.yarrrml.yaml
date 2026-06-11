@@ -11,6 +11,7 @@ targets:
     headers:
       Content-Type: application/json+ld
     serialization: jsonld
+
 mappings:
   person:
     sources: people-source

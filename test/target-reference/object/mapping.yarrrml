@@ -5,6 +5,7 @@ sources:
     iterator: "$.[*]"
 targets:
   predicate-target: ["/data/file.ttl.zip~dcat", "turtle", "zip"]
+
 mappings:
   person:
     sources: people-source

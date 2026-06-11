@@ -5,6 +5,7 @@ sources:
     iterator: "$.[*]"
 targets:
   subject-target: ["/data/file.jsonld~dcat", "jsonld" ]
+
 mappings:
   person:
     sources: people-source

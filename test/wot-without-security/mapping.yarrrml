@@ -6,6 +6,7 @@ sources:
     type: wot
     referenceFormulation: xpath
     iterator: "/"
+
 mappings:
   person:
     sources: people-source

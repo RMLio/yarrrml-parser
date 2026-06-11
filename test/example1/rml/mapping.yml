@@ -7,7 +7,7 @@ sources:
     access: src/test/resources/example1/example1.xml
     referenceFormulation: xpath #~xpath or xquery
     iterator: /notes/note
-  
+
 mappings:
   FromToMaps:
     sources: source1

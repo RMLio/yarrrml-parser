@@ -18,5 +18,3 @@ mappings:
         - value: foaf:age
           targets: person_target
         o: $(number)
-
-

@@ -8,6 +8,7 @@ prefixes:
   ql: 'http://semweb.mmlab.be/ns/ql#'
   "": 'http://mapping.example.com/'
   ov: 'http://open.vocab.org/terms/'
+
 mappings:
   workshops:
     sources:

@@ -5,6 +5,7 @@ sources:
     iterator: "$.[*]"
 targets:
   subject-target: "/data/file.nq"
+
 mappings:
   person:
     sources: people-source
